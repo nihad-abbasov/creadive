@@ -14,8 +14,8 @@ const Homepage = () => {
               That Matter
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              We're a creative digital agency that helps brands grow through
-              innovative design, development, and marketing solutions.
+              We&apos;re a creative digital agency that helps brands grow
+              through innovative design, development, and marketing solutions.
             </p>
             <div className="flex justify-center gap-4">
               <Link

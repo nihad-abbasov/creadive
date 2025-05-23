@@ -1,4 +1,4 @@
-"use client";
+import Image from "next/image";
 
 const products = [
   {
@@ -27,9 +27,12 @@ export default function Products() {
               key={product.id}
               className="bg-[#232b39]/90 rounded-2xl p-6 shadow-xl flex flex-col items-center text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300"
             >
-              <img
+              <Image
                 src={product.img}
                 alt={product.name}
+                width={0}
+                height={0}
+                sizes="100vw"
                 className="w-32 h-32 object-contain rounded-xl mb-4 bg-[#181f2a] border border-[#2e3748]"
               />
               <h2 className="text-2xl font-bold text-white mb-2">
