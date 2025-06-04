@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 type PortfolioItem = {
@@ -113,11 +114,10 @@ export default function Portfolio() {
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                activeCategory === category.id
+              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${activeCategory === category.id
                   ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
                   : "bg-[#232b39] text-gray-300 hover:bg-[#2a3444]"
-              }`}
+                }`}
             >
               {category.name}
             </button>
@@ -134,9 +134,12 @@ export default function Portfolio() {
                 className="group bg-[#232b39]/90 rounded-2xl p-6 shadow-xl hover:bg-[#2a3444] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="relative aspect-video mb-4 overflow-hidden rounded-xl">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.title}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>

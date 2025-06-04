@@ -20,7 +20,7 @@ const navLinks: NavLink[] = [
 
 export default function Navigation() {
   return (
-    <nav className="fixed w-full bg-black/80 backdrop-blur-md z-50 border-b border-gray-100">
+    <nav className="fixed w-full bg-slate-900 backdrop-blur-md z-50 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
@@ -32,7 +32,7 @@ export default function Navigation() {
             <div className="ml-10 flex items-center space-x-8">
               {navLinks.map((link) => (
                 <Link
-                  key={link.href}
+                  key={link.id}
                   href={link.href}
                   className="text-gray-100 hover:text-gray-300"
                 >

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 type TeamMember = {
   id: number;
   name: string;
@@ -101,9 +103,12 @@ export default function Team() {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full transform rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full transform -rotate-3 group-hover:-rotate-6 transition-transform duration-300"></div>
                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#2e3748] shadow-lg group-hover:shadow-xl transition-all duration-300">
-                  <img
+                  <Image
                     src={member.image}
                     alt={member.name}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>

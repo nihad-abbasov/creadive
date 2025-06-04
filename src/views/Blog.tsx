@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 type BlogPost = {
@@ -182,11 +183,10 @@ export default function Blog() {
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           <button
             onClick={() => setSelectedCategory(null)}
-            className={`px-4 py-2 rounded-full transition-colors duration-300 ${
-              selectedCategory === null
-                ? "bg-blue-500 text-white"
-                : "bg-[#2a3444] text-gray-300 hover:bg-blue-500 hover:text-white"
-            }`}
+            className={`px-4 py-2 rounded-full transition-colors duration-300 ${selectedCategory === null
+              ? "bg-blue-500 text-white"
+              : "bg-[#2a3444] text-gray-300 hover:bg-blue-500 hover:text-white"
+              }`}
           >
             Hamısı
           </button>
@@ -194,11 +194,10 @@ export default function Blog() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full transition-colors duration-300 ${
-                selectedCategory === category
-                  ? "bg-blue-500 text-white"
-                  : "bg-[#2a3444] text-gray-300 hover:bg-blue-500 hover:text-white"
-              }`}
+              className={`px-4 py-2 rounded-full transition-colors duration-300 ${selectedCategory === category
+                ? "bg-blue-500 text-white"
+                : "bg-[#2a3444] text-gray-300 hover:bg-blue-500 hover:text-white"
+                }`}
             >
               {category}
             </button>
@@ -206,7 +205,7 @@ export default function Blog() {
         </div>
 
         {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {filteredPosts.map((post) => (
             <article
               key={post.id}
@@ -215,9 +214,12 @@ export default function Blog() {
               {/* Image Container */}
               <div className="relative h-48 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <img
+                <Image
                   src={post.image}
                   alt={post.title}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4">
@@ -230,9 +232,12 @@ export default function Blog() {
               {/* Content */}
               <div className="p-6">
                 <div className="flex items-center gap-4 mb-4">
-                  <img
+                  <Image
                     src={post.author.image}
                     alt={post.author.name}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
                     className="w-10 h-10 rounded-full object-cover"
                   />
                   <div>
