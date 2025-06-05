@@ -786,7 +786,7 @@ const Homepage = () => {
               <h2 className="text-3xl font-bold text-white mb-4">
                 Layihənizi müzakirə edək
               </h2>
-              <p className="text-blue-100 text-lg">
+              <p className="text-white text-lg">
                 Bizimlə əlaqə saxlayın və layihənizi həyata keçirək
               </p>
             </div>
