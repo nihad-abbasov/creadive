@@ -257,29 +257,29 @@ const teamMembers: TeamMember[] = [
   }
 ];
 
-interface FAQ {
-  id: number;
-  question: string;
-  answer: string;
-}
+// interface FAQ {
+//   id: number;
+//   question: string;
+//   answer: string;
+// }
 
-const faqs: FAQ[] = [
-  {
-    id: 1,
-    question: "Layihənin müddəti nə qədərdir?",
-    answer: "Layihənin müddəti onun mürəkkəbliyindən və tələblərindən asılı olaraq dəyişir. Ortalama bir vebsayt layihəsi 4-8 həftə çəkir."
-  },
-  {
-    id: 2,
-    question: "Hansı ödəniş üsullarını qəbul edirsiniz?",
-    answer: "Biz bank köçürməsi, kredit kartı və digər rəqəmsal ödəniş metodlarını qəbul edirik. Ödənişlər mərhələli şəkildə həyata keçirilir."
-  },
-  {
-    id: 3,
-    question: "Layihə başa çatdıqdan sonra dəstək verirsinizmi?",
-    answer: "Bəli, biz layihə təhvil verildikdən sonra texniki dəstək və təkmilləşdirmə xidmətləri təklif edirik."
-  }
-];
+// const faqs: FAQ[] = [
+//   {
+//     id: 1,
+//     question: "Layihənin müddəti nə qədərdir?",
+//     answer: "Layihənin müddəti onun mürəkkəbliyindən və tələblərindən asılı olaraq dəyişir. Ortalama bir vebsayt layihəsi 4-8 həftə çəkir."
+//   },
+//   {
+//     id: 2,
+//     question: "Hansı ödəniş üsullarını qəbul edirsiniz?",
+//     answer: "Biz bank köçürməsi, kredit kartı və digər rəqəmsal ödəniş metodlarını qəbul edirik. Ödənişlər mərhələli şəkildə həyata keçirilir."
+//   },
+//   {
+//     id: 3,
+//     question: "Layihə başa çatdıqdan sonra dəstək verirsinizmi?",
+//     answer: "Bəli, biz layihə təhvil verildikdən sonra texniki dəstək və təkmilləşdirmə xidmətləri təklif edirik."
+//   }
+// ];
 
 interface ProcessStep {
   id: number;
@@ -869,92 +869,3 @@ const Homepage = () => {
 };
 
 export default Homepage;
-
-// Add this CSS at the end of your file or in your global CSS
-const swiperStyles = `
-  .testimonials-swiper {
-    padding: 50px 0;
-    width: 100%;
-  }
-
-  .testimonials-swiper .swiper-slide {
-    width: 100%;
-    max-width: 600px;
-    opacity: 0.4;
-    transform: scale(0.8);
-    transition: all 0.3s ease;
-  }
-
-  .testimonials-swiper .swiper-slide-active {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .testimonials-swiper .swiper-pagination {
-    bottom: 0;
-  }
-
-  .testimonials-swiper .swiper-pagination-bullet {
-    background: #3B82F6;
-  }
-
-  .testimonials-swiper .swiper-button-next,
-  .testimonials-swiper .swiper-button-prev {
-    color: #3B82F6;
-  }
-
-  .testimonials-swiper .swiper-button-next:after,
-  .testimonials-swiper .swiper-button-prev:after {
-    font-size: 24px;
-  }
-
-  /* Services Slider Styles */
-  .services-swiper {
-    padding: 30px 0;
-    width: 100%;
-  }
-
-  .services-swiper .swiper-slide {
-    height: auto;
-  }
-
-  .services-swiper .swiper-pagination {
-    bottom: 0;
-  }
-
-  .services-swiper .swiper-pagination-bullet {
-    background: #3B82F6;
-    opacity: 0.5;
-  }
-
-  .services-swiper .swiper-pagination-bullet-active {
-    opacity: 1;
-  }
-
-  .services-swiper .swiper-button-next,
-  .services-swiper .swiper-button-prev {
-    color: #3B82F6;
-    background: rgba(255, 255, 255, 0.8);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .services-swiper .swiper-button-next:after,
-  .services-swiper .swiper-button-prev:after {
-    font-size: 18px;
-  }
-
-  .services-swiper .swiper-button-next:hover,
-  .services-swiper .swiper-button-prev:hover {
-    background: rgba(255, 255, 255, 0.95);
-  }
-
-  @media (max-width: 640px) {
-    .services-swiper .swiper-button-next,
-    .services-swiper .swiper-button-prev {
-      display: none;
-    }
-  }
-`;
