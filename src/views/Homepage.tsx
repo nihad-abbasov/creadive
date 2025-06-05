@@ -3,6 +3,15 @@ import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 import Link from "next/link";
 import Image from "next/image";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-cards';
+// Import required modules
+import { Autoplay, Pagination, Navigation, EffectCards } from 'swiper/modules';
 
 interface Testimonial {
   id: number;
@@ -138,23 +147,171 @@ interface TeamMember {
   name: string;
   role: string;
   image: string;
+  bio: string;
+  social: {
+    linkedin?: string;
+    instagram?: string;
+    github?: string;
+  };
 }
 
 const teamMembers: TeamMember[] = [
   {
     name: "Elnur Hüseynov",
-    role: "Mühəndis, Rəqəmsal Təcrübələr",
+    role: "Baş Mühəndis",
     image: "/images/team/nihad.jpg",
+    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
+    social: {
+      linkedin: "#",
+      github: "#",
+      instagram: "#"
+    }
   },
   {
     name: "Nihad Hüseynov",
-    role: "Mühəndis, Rəqəmsal Təcrübələr",
+    role: "Frontend Mühəndisi",
     image: "/images/team/nihad.jpg",
+    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
+    social: {
+      linkedin: "#",
+      github: "#",
+      instagram: "#"
+    }
   },
   {
     name: "Camal Hüseynov",
-    role: "Mühəndis, Rəqəmsal Təcrübələr",
+    role: "Backend Mühəndisi",
     image: "/images/team/nihad.jpg",
+    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
+    social: {
+      linkedin: "#",
+      github: "#",
+      instagram: "#"
+    }
+  },
+  {
+    name: "Aynur Məmmədova",
+    role: "UI/UX Dizayner",
+    image: "/images/team/nihad.jpg",
+    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
+    social: {
+      linkedin: "#",
+      github: "#",
+      instagram: "#"
+    }
+  },
+  {
+    name: "Leyla Əliyeva",
+    role: "Layihə Meneceri",
+    image: "/images/team/nihad.jpg",
+    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
+    social: {
+      linkedin: "#",
+      github: "#",
+      instagram: "#"
+    }
+  },
+  {
+    name: "Rəşad Məmmədov",
+    role: "DevOps Mühəndisi",
+    image: "/images/team/nihad.jpg",
+    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
+    social: {
+      linkedin: "#",
+      github: "#",
+      instagram: "#"
+    }
+  },
+  {
+    name: "Səbinə Həsənova",
+    role: "Digital Marketing",
+    image: "/images/team/nihad.jpg",
+    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
+    social: {
+      linkedin: "#",
+      github: "#",
+      instagram: "#"
+    }
+  },
+  {
+    name: "Orxan Nəzərov",
+    role: "Mobil Tətbiq Mühəndisi",
+    image: "/images/team/nihad.jpg",
+    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
+    social: {
+      linkedin: "#",
+      github: "#",
+      instagram: "#"
+    }
+  },
+  {
+    name: "Günel Əhmədova",
+    role: "QA Mütəxəssisi",
+    image: "/images/team/nihad.jpg",
+    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
+    social: {
+      linkedin: "#",
+      github: "#",
+      instagram: "#"
+    }
+  }
+];
+
+interface FAQ {
+  id: number;
+  question: string;
+  answer: string;
+}
+
+const faqs: FAQ[] = [
+  {
+    id: 1,
+    question: "Layihənin müddəti nə qədərdir?",
+    answer: "Layihənin müddəti onun mürəkkəbliyindən və tələblərindən asılı olaraq dəyişir. Ortalama bir vebsayt layihəsi 4-8 həftə çəkir."
+  },
+  {
+    id: 2,
+    question: "Hansı ödəniş üsullarını qəbul edirsiniz?",
+    answer: "Biz bank köçürməsi, kredit kartı və digər rəqəmsal ödəniş metodlarını qəbul edirik. Ödənişlər mərhələli şəkildə həyata keçirilir."
+  },
+  {
+    id: 3,
+    question: "Layihə başa çatdıqdan sonra dəstək verirsinizmi?",
+    answer: "Bəli, biz layihə təhvil verildikdən sonra texniki dəstək və təkmilləşdirmə xidmətləri təklif edirik."
+  }
+];
+
+interface ProcessStep {
+  id: number;
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const processSteps: ProcessStep[] = [
+  {
+    id: 1,
+    title: "Konsultasiya",
+    description: "Layihənizi və hədəflərinizi başa düşmək üçün ilkin görüş keçiririk.",
+    icon: "🤝"
+  },
+  {
+    id: 2,
+    title: "Planlaşdırma",
+    description: "Detallı layihə planı və strategiya hazırlayırıq.",
+    icon: "📋"
+  },
+  {
+    id: 3,
+    title: "Dizayn",
+    description: "İstifadəçi təcrübəsini və interfeysi hazırlayırıq.",
+    icon: "🎨"
+  },
+  {
+    id: 4,
+    title: "İnkişaf",
+    description: "Layihəni ən son texnologiyalarla həyata keçiririk.",
+    icon: "💻"
   }
 ];
 
@@ -208,19 +365,68 @@ const Homepage = () => {
               Təcrübəli komandamız tərəfindən təklif olunan xidmətlər
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600">{service.description}</p>
-              </div>
-            ))}
+          <div className="services-slider-container">
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={20}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: true,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              navigation={true}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                }
+              }}
+              modules={[Autoplay, Pagination, Navigation]}
+              className="services-swiper"
+            >
+              {services.map((service, index) => (
+                <SwiperSlide key={index}>
+                  <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 h-full group relative overflow-hidden">
+                    {/* Gradient Background Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    {/* Icon with Background */}
+                    <div className="relative mb-6">
+                      <div className="w-16 h-16 flex items-center justify-center rounded-lg bg-blue-50 group-hover:bg-blue-100 transition-colors duration-300">
+                        <span className="text-4xl transform group-hover:scale-110 transition-transform duration-300">
+                          {service.icon}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 line-clamp-3">
+                        {service.description}
+                      </p>
+
+                      {/* Learn More Link */}
+                      <div className="mt-4 inline-flex items-center text-blue-600 font-medium opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                        Ətraflı
+                        <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       </div>
@@ -328,29 +534,107 @@ const Homepage = () => {
               Peşəkar və təcrübəli komandamızla tanış olun
             </p>
           </div>
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {
-              teamMembers.map((member) => (
-                <li key={member.name} className="bg-white p-8 rounded-xl shadow-sm">
-                  <div className="text-4xl mb-4">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      width={0}
-                      height={0}
-                      sizes="100vw"
-                      className="w-16 h-16 rounded-full" />
+          <div className="team-slider-container">
+            <Swiper
+              // slidesPerView={1}
+              spaceBetween={20}
+              centeredSlides={false}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: true,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              navigation={true}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+                1280: {
+                  slidesPerView: 4,
+                },
+              }}
+              modules={[Autoplay, Pagination, Navigation]}
+              className="team-swiper"
+            >
+              {teamMembers.map((member) => (
+                <SwiperSlide key={member.name}>
+                  <div className="bg-white rounded-xl overflow-hidden group">
+                    {/* Image Container with Overlay */}
+                    <div className="relative h-64 overflow-hidden">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                      {/* Social Icons - Show on Hover */}
+                      <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-4 translate-y-10 group-hover:-translate-y-2 transition-transform duration-300">
+                        {member.social.linkedin && (
+                          <a
+                            href={member.social.linkedin}
+                            className="bg-white/10 backdrop-blur-sm p-2 rounded-full hover:bg-white/20 transition-colors"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                          </a>
+                        )}
+                        {member.social.github && (
+                          <a
+                            href={member.social.github}
+                            className="bg-white/10 backdrop-blur-sm p-2 rounded-full hover:bg-white/20 transition-colors"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                          </a>
+                        )}
+                        {member.social.instagram && (
+                          <a
+                            href={member.social.instagram}
+                            className="bg-white/10 backdrop-blur-sm p-2 rounded-full hover:bg-white/20 transition-colors"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                          </a>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-1">
+                        {member.name}
+                      </h3>
+                      <p className="text-blue-600 font-medium mb-3">
+                        {member.role}
+                      </p>
+                      <p className="text-gray-600 text-sm">
+                        {member.bio}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {member.name}
-                  </h3>
-                  <p className="text-gray-600">
-                    {member.role}
-                  </p>
-                </li>
-              ))
-            }
-          </ul>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </div>
 
@@ -379,6 +663,118 @@ const Homepage = () => {
         </div>
       </div>
 
+      {/* Process Steps Section */}
+      <div className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              İş Prosesimiz
+            </h2>
+            <p className="text-xl text-gray-600">
+              Layihələri necə həyata keçiririk
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {processSteps.map((step) => (
+              <div key={step.id} className="relative">
+                {step.id !== processSteps.length && (
+                  <div className="hidden lg:block absolute top-1/2 right-0 w-full h-0.5 bg-gray-200 transform translate-y-1/2" />
+                )}
+                <div className="relative bg-white p-8 rounded-xl shadow-sm z-10">
+                  <div className="text-4xl mb-4">{step.icon}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-600">{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Technologies Section */}
+      {/* <div className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Texnologiyalar
+            </h2>
+            <p className="text-xl text-gray-600">
+              İstifadə etdiyimiz müasir texnologiyalar
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+            {[
+              { name: "React", logo: "/images/tech/react.svg" },
+              { name: "Next.js", logo: "/images/tech/nextjs.svg" },
+              { name: "TypeScript", logo: "/images/tech/typescript.svg" },
+              { name: "Node.js", logo: "/images/tech/nodejs.svg" },
+              { name: "Tailwind CSS", logo: "/images/tech/tailwind.svg" },
+              { name: "MongoDB", logo: "/images/tech/mongodb.svg" }
+            ].map((tech) => (
+              <div key={tech.name} className="flex items-center justify-center p-4">
+                <Image
+                  src={tech.logo}
+                  alt={tech.name}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="w-16 h-16 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div> */}
+
+      {/* FAQ Section */}
+      {/* <div className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Tez-tez verilən suallar
+            </h2>
+            <p className="text-xl text-gray-600">
+              Ən çox soruşulan suallara cavablar
+            </p>
+          </div>
+          <div className="grid gap-8 max-w-3xl mx-auto">
+            {faqs.map((faq) => (
+              <div key={faq.id} className="bg-white p-8 rounded-xl shadow-sm">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-600">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div> */}
+
+      {/* Partners Section */}
+      {/* <div className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Partnyorlarımız
+            </h2>
+            <p className="text-xl text-gray-600">
+              Bizə etibar edən şirkətlər
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+            {[1, 2, 3, 4, 5, 6].map((partner) => (
+              <div key={partner} className="flex items-center justify-center p-4">
+                <div className="w-32 h-20 bg-gray-200 rounded-lg" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div> */}
+
       {/* Contact CTA Section */}
       <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -402,65 +798,70 @@ const Homepage = () => {
       </div>
 
       {/* Testimonials Section */}
-      <div className="py-20 bg-gradient-to-b from-white to-gray-50">
+      <div className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Müştərilərimizin Rəyləri
             </h2>
             <p className="text-xl text-gray-600">
-              Aparıcı brendlər və bizneslər tərəfindən etibar edilir
+              Bizə etibar edən müştərilərimizin təəssüratları
             </p>
           </div>
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {testimonials.map((testimonial) => (
-              <li
-                key={testimonial.id}
-                className="group bg-white py-8 px-4 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
-                onClick={() => window.open(testimonial.instagramUrl, '_blank')}
-              >
-                <div className="flex items-center justify-between mb-6">
-                  {/* <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center overflow-hidden">
-                    <Image
-                      src={testimonial.companyLogo}
-                      alt={`${testimonial.name} logo`}
-                      width={0}
-                      height={0}
-                      sizes="100vw"
-                      className="w-8 h-8 object-contain"
-                    />
-                  </div> */}
-                  <div className="flex-1 ml-4">
-                    <div className="flex items-center gap-2">
-                      <div className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
-                        {testimonial.name}
+          <div className="max-w-4xl mx-auto">
+            <Swiper
+              effect={'cards'}
+              grabCursor={true}
+              centeredSlides={true}
+              slidesPerView={'auto'}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              navigation={true}
+              modules={[Autoplay, Pagination, Navigation, EffectCards]}
+              className="testimonials-swiper"
+            >
+              {testimonials.map((testimonial) => (
+                <SwiperSlide key={testimonial.id}>
+                  <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <div className="font-semibold text-gray-900">
+                            {testimonial.name}
+                          </div>
+                          <svg
+                            className="w-5 h-5 text-pink-500"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                          >
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                          </svg>
+                        </div>
+                        <div className="text-sm text-gray-500">{testimonial.role}</div>
                       </div>
+                    </div>
+                    <div className="relative">
                       <svg
-                        className="w-5 h-5 text-gray-400 group-hover:text-pink-500 transition-colors duration-200"
+                        className="absolute -top-2 -left-2 w-8 h-8 text-blue-100"
                         fill="currentColor"
-                        viewBox="0 0 24 24"
+                        viewBox="0 0 32 32"
                         aria-hidden="true"
                       >
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                       </svg>
+                      <p className="text-gray-600 text-lg italic relative pl-6">{testimonial.thoughts}</p>
                     </div>
-                    <div className="text-sm text-gray-500 group-hover:text-gray-700 transition-colors">{testimonial.role}</div>
                   </div>
-                </div>
-                <div className="relative">
-                  <svg
-                    className="absolute -top-2 left-1 w-8 h-8 text-blue-100 group-hover:text-blue-200 transition-colors"
-                    fill="currentColor"
-                    viewBox="0 0 32 32"
-                    aria-hidden="true"
-                  >
-                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                  </svg>
-                  <p className="text-gray-600 text-sm italic relative pl-6 group-hover:text-gray-800 transition-colors">{testimonial.thoughts}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </div>
     </section>
@@ -468,3 +869,92 @@ const Homepage = () => {
 };
 
 export default Homepage;
+
+// Add this CSS at the end of your file or in your global CSS
+const swiperStyles = `
+  .testimonials-swiper {
+    padding: 50px 0;
+    width: 100%;
+  }
+
+  .testimonials-swiper .swiper-slide {
+    width: 100%;
+    max-width: 600px;
+    opacity: 0.4;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+  }
+
+  .testimonials-swiper .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .testimonials-swiper .swiper-pagination {
+    bottom: 0;
+  }
+
+  .testimonials-swiper .swiper-pagination-bullet {
+    background: #3B82F6;
+  }
+
+  .testimonials-swiper .swiper-button-next,
+  .testimonials-swiper .swiper-button-prev {
+    color: #3B82F6;
+  }
+
+  .testimonials-swiper .swiper-button-next:after,
+  .testimonials-swiper .swiper-button-prev:after {
+    font-size: 24px;
+  }
+
+  /* Services Slider Styles */
+  .services-swiper {
+    padding: 30px 0;
+    width: 100%;
+  }
+
+  .services-swiper .swiper-slide {
+    height: auto;
+  }
+
+  .services-swiper .swiper-pagination {
+    bottom: 0;
+  }
+
+  .services-swiper .swiper-pagination-bullet {
+    background: #3B82F6;
+    opacity: 0.5;
+  }
+
+  .services-swiper .swiper-pagination-bullet-active {
+    opacity: 1;
+  }
+
+  .services-swiper .swiper-button-next,
+  .services-swiper .swiper-button-prev {
+    color: #3B82F6;
+    background: rgba(255, 255, 255, 0.8);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .services-swiper .swiper-button-next:after,
+  .services-swiper .swiper-button-prev:after {
+    font-size: 18px;
+  }
+
+  .services-swiper .swiper-button-next:hover,
+  .services-swiper .swiper-button-prev:hover {
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  @media (max-width: 640px) {
+    .services-swiper .swiper-button-next,
+    .services-swiper .swiper-button-prev {
+      display: none;
+    }
+  }
+`;

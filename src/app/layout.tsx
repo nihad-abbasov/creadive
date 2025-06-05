@@ -1,14 +1,13 @@
 import RootLayoutWrapper from "@/components/RootLayoutWrapper";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800", "900"] });
 
 export const metadata: Metadata = {
-  title: "Creadive - Creative Digital Agency",
-  description:
-    "We are a creative digital agency specializing in web development, design, and digital marketing solutions.",
+  title: "Creadive - Yaradıcı Rəqəmsal Agentlik",
+  description: "Biz veb inkişaf, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik.",
 };
 
 export default function RootLayout({
@@ -18,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${poppins.className} antialiased`}>
         <RootLayoutWrapper>{children}</RootLayoutWrapper>
       </body>
     </html>
