@@ -151,7 +151,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="flex flex-col items-start gap-4">
-            <Link href="/" className="text-2xl font-bold text-gray-900">
+            <Link href="/" className="text-2xl font-bold text-gray-900" aria-label="Creadive Logo">
               <Logo />
             </Link>
             <p className="text-gray-400">
@@ -159,11 +159,11 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex flex-col items-start gap-4">
-            <h4 className="text-lg font-semibold mb-4">Qısa yollar</h4>
+            <span className="text-lg font-semibold mb-4">Qısa yollar</span>
             <ul className="space-y-2 text-gray-400">
               {footerLinks.map((link) => (
                 <li key={link.id}>
-                  <Link href={link.href} className="hover:text-white">
+                  <Link href={link.href} className="hover:text-white" aria-label={link.label}>
                     {link.label}
                   </Link>
                 </li>
@@ -171,11 +171,11 @@ export default function Footer() {
             </ul>
           </div>
           <div className="flex flex-col items-start gap-4">
-            <h4 className="text-lg font-semibold mb-4">Xidmətlərimiz</h4>
+            <span className="text-lg font-semibold mb-4">Xidmətlərimiz</span>
             <ul className="space-y-2 text-gray-400">
               {services.map((service) => (
                 <li key={service.id}>
-                  <Link href={service.href} className="hover:text-white">
+                  <Link href={service.href} className="hover:text-white" aria-label={service.label}>
                     {service.label}
                   </Link>
                 </li>
@@ -183,11 +183,11 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
+            <span className="text-lg font-semibold mb-4">Contact</span>
             <ul className="space-y-2 text-gray-400">
               {contacts.map((contact) => (
                 <li key={contact.id}>
-                  <Link href={contact.href} className="hover:text-white">
+                  <Link href={contact.href} className="hover:text-white" aria-label={contact.label}>
                     {contact.label}
                   </Link>
                 </li>
@@ -195,11 +195,11 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4">Bizi izlə</h4>
+            <span className="text-lg font-semibold mb-4">Bizi izlə</span>
             <ul className="flex space-x-4 list-none">
               {socials.map((social) => (
                 <li key={social.id}>
-                  <Link href={social.href} className="hover:text-white">
+                  <Link href={social.href} className="hover:text-white" aria-label={social.label}>
                     {social.icon}
                   </Link>
                 </li>
