@@ -166,7 +166,7 @@ export default function Navigation() {
             <button
               onClick={toggleMobileMenu}
               className="relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-800/50 transition-all duration-200 focus:outline-none group"
-              // aria-label="Close mobile menu"
+              aria-label="Close mobile menu"
             >
               <div className="relative w-6 h-6 flex items-center justify-center">
                 <span className="absolute h-0.5 w-6 bg-gray-100 rounded-full transition-all duration-300 ease-in-out transform rotate-45" />
