@@ -7,9 +7,9 @@ import {
   FaPhone,
   FaEnvelope,
 } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Logo from "../Logo";
 
 type NavLink = {
@@ -68,6 +68,8 @@ export default function Navigation() {
     return pathname?.startsWith(href);
   };
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <>
       <nav className="w-full bg-slate-900 backdrop-blur-md z-[9997] relative">
@@ -114,7 +116,9 @@ export default function Navigation() {
                     key={link.id}
                     href={link.href}
                     className={`text-gray-100 hover:text-white transition-all duration-300 relative group ${
-                      isActiveLink(link.href) ? "text-white font-semibold" : "text-gray-400"
+                      isActiveLink(link.href)
+                        ? "text-white font-semibold"
+                        : "text-gray-400"
                     }`}
                   >
                     {link.label}
@@ -177,8 +181,8 @@ export default function Navigation() {
               <Link
                 key={link.id}
                 href={link.href}
-                className={`text-gray-100 hover:text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-slate-800/50 text-lg font-medium relative group ${
-                  isActiveLink(link.href) ? "bg-slate-800/50 text-white" : ""
+                className={`text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-slate-800/50 text-lg font-medium relative group ${
+                  isActiveLink(link.href) ? "bg-slate-800/50" : ""
                 }`}
                 onClick={toggleMobileMenu}
                 style={{
@@ -252,8 +256,8 @@ export default function Navigation() {
             </div>
 
             {/* Copyright */}
-            <div className="text-center text-xs text-gray-500">
-              © {new Date().getFullYear()} Creadive. All rights reserved.
+            <div className="text-center text-xs text-gray-300 font-light">
+              © {currentYear} Creadive. Bütün hüquqlar qorunur.
             </div>
           </div>
         </div>
