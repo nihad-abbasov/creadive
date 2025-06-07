@@ -167,7 +167,7 @@ export default function Footer() {
               <Logo />
             </Link>
             <p className="text-gray-400 text-sm">
-              İdeallarınızı həyata keçirək.
+              İdeallarınızı həyata keçirək ✨
             </p>
           </div>
           <div className="flex flex-col items-start gap-2 md:gap-4">

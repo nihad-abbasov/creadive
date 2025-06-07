@@ -1,11 +1,12 @@
 import RootLayoutWrapper from "@/components/RootLayoutWrapper";
-import { Poppins } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
 
-const poppins = Poppins({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-plus-jakarta-sans",
 });
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased`}>
+      <body className={`${plusJakartaSans.variable} font-sans antialiased`}>
         <RootLayoutWrapper>{children}</RootLayoutWrapper>
       </body>
     </html>
