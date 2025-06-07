@@ -113,3 +113,17 @@
 .services-slider-container .swiper-pagination {
   display: none;
 }
+
+.team_section .swiper-button-next,
+.team_section .swiper-button-prev {
+  color: #3b82f6;
+}
+
+.team_section .swiper-button-next:after,
+.team_section .swiper-button-prev:after {
+  font-size: 18px;
+}
+
+.team_section .swiper-pagination {
+  display: none;
+}

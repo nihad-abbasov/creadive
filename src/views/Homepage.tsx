@@ -1,17 +1,15 @@
 "use client";
-import { useInView } from "react-intersection-observer";
-import CountUp from "react-countup";
-import Link from "next/link";
-import Image from "next/image";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css/effect-cards";
-// Import required modules
 import { Autoplay, Pagination, Navigation, EffectCards } from "swiper/modules";
+import { useInView } from "react-intersection-observer";
+import { Swiper, SwiperSlide } from "swiper/react";
+import CountUp from "react-countup";
+import "swiper/css/effect-cards";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import Link from "next/link";
+import "swiper/css";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface Testimonial {
   id: number;
@@ -331,35 +329,86 @@ const Homepage = () => {
   return (
     <section>
       {/* Hero Section */}
-      <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Biz Rəqəmsal
-              <span className="text-blue-600"> Təcrübələr</span>
-              <br />
-              Yaradırıq
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Biz innovativ dizayn, proqramlaşdırma və marketinq həlləri ilə
-              brendlərin inkişafına kömək edən kreativ rəqəmsal agentlikik.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full md:w-max mx-auto">
-              <Link
-                href="/contact"
-                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+      <div className="relative min-h-screen flex items-center">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/hero2.jpg"
+            alt="Hero Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/90 to-black/50" />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 w-full pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6"
               >
-                Bizimlə əlaqə
-              </Link>
-              <Link
-                href="/portfolio"
-                className="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+                Biznesinizi{" "}
+                <span className="bg-gradient-to-r from-[#15B6B0] to-[#20C943] bg-clip-text text-transparent">
+                  Creadive
+                </span>{" "}
+                ilə <br />
+                gücləndirin
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-lg text-gray-200 mb-8 max-w-3xl mx-auto"
               >
-                İşlərimiz
-              </Link>
+                Biz innovativ dizayn, vebsayt və marketinq həlləri ilə{" "}
+                <span className="bg-gradient-to-l from-[#15B6B0] to-[#20C943] bg-clip-text text-transparent font-bold">
+                  brendlərin
+                </span>{" "}
+                inkişafına kömək edən kreativ rəqəmsal agentlikik.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full md:w-max mx-auto"
+              >
+                <Link
+                  href="/contact"
+                  className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                >
+                  Bizimlə əlaqə
+                </Link>
+                <Link
+                  href="/portfolio"
+                  className="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-8 py-3 rounded-lg font-medium hover:bg-white/20 transition-colors"
+                >
+                  İşlərimiz
+                </Link>
+              </motion.div>
             </div>
           </div>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        >
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-1.5 h-1.5 bg-white rounded-full mt-2"
+            />
+          </div>
+        </motion.div>
       </div>
 
       {/* Services Section */}
@@ -451,7 +500,7 @@ const Homepage = () => {
       </div>
 
       {/* Portfolio Section */}
-      <div className="py-20">
+      {/* <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -462,7 +511,15 @@ const Homepage = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Add your portfolio items here */}
+            <div className="bg-white p-8 rounded-xl shadow-sm">
+              <div className="text-4xl mb-4">🎯</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Creadive Agentliyi
+              </h3>
+              <p className="text-gray-600">
+                Hər bir layihəyə fərdi və peşəkar yanaşma tətbiq edirik
+              </p>
+            </div>
           </div>
           <div className="text-center mt-12">
             <Link
@@ -473,7 +530,7 @@ const Homepage = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Statistics Section */}
       <div className="bg-blue-600 py-20" ref={ref}>
@@ -544,7 +601,7 @@ const Homepage = () => {
       </div>
 
       {/* Team Section */}
-      <div className="py-20">
+      {/* <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -588,7 +645,6 @@ const Homepage = () => {
               {teamMembers.map((member) => (
                 <SwiperSlide key={member.name}>
                   <div className="bg-white rounded-xl overflow-hidden group">
-                    {/* Image Container with Overlay */}
                     <div className="relative h-64 overflow-hidden">
                       <Image
                         src={member.image}
@@ -598,7 +654,6 @@ const Homepage = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                      {/* Social Icons - Show on Hover */}
                       <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-4 translate-y-10 group-hover:-translate-y-2 transition-transform duration-300">
                         {member.social.linkedin && (
                           <Link
@@ -654,7 +709,6 @@ const Homepage = () => {
                       </div>
                     </div>
 
-                    {/* Content Section */}
                     <div className="p-6">
                       <h3 className="text-xl font-semibold text-gray-900 mb-1">
                         {member.name}
@@ -670,10 +724,10 @@ const Homepage = () => {
             </Swiper>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Blog Section */}
-      <div className="py-20 bg-gray-50">
+      {/* <div className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Bloq</h2>
@@ -682,7 +736,15 @@ const Homepage = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Add your blog posts here */}
+            <div className="bg-white p-8 rounded-xl shadow-sm">
+              <div className="text-4xl mb-4">🎯</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Peşəkar Yanaşma
+              </h3>
+              <p className="text-gray-600">
+                Hər bir layihəyə fərdi və peşəkar yanaşma tətbiq edirik
+              </p>
+            </div>
           </div>
           <div className="text-center mt-12">
             <Link
@@ -693,7 +755,7 @@ const Homepage = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Process Steps Section */}
       <div className="py-20">
@@ -717,7 +779,7 @@ const Homepage = () => {
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600">{step.description}</p>
+                  <p className="text-gray-600 text-sm">{step.description}</p>
                 </div>
               </div>
             ))}
@@ -812,15 +874,17 @@ const Homepage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-blue-600 rounded-2xl py-12 px-8 md:px-12 flex flex-col md:flex-row items-center justify-between">
             <div className="text-center md:text-left mb-8 md:mb-0">
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 Layihənizi müzakirə edək
               </h2>
-              <p className="text-white text-lg">
+              <p className="text-white text-base font-light">
                 Bizimlə əlaqə saxlayın və layihənizi həyata keçirək
               </p>
             </div>
             <Link
-              href="/contact"
+              // href="/contact"
+              href="https://wa.me/994105319987"
+              target="_blank"
               className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-blue-600 transition-colors w-full md:w-max"
             >
               Bizə yazın
@@ -889,7 +953,7 @@ const Homepage = () => {
                       >
                         <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                       </svg>
-                      <p className="text-gray-600 text-lg italic relative pl-6">
+                      <p className="text-gray-600 text-sm italic relative pl-6">
                         {testimonial.thoughts}
                       </p>
                     </div>

@@ -1,6 +1,52 @@
 "use client";
 
+import { InputTextareaField } from "@/components/form/inputs/InputTextareaField";
+import { InputTextField } from "@/components/form/inputs/InputTextField";
+import { CFormProvider } from "@/components/form/CFormProvider";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+
+interface ContactFormData {
+  fullName: string;
+  email: string;
+  phone: string;
+  company?: string;
+  subject: string;
+}
+
+const schema = yup.object<ContactFormData>().shape({
+  fullName: yup.string().required("Bu xana vacibdir"),
+  email: yup
+    .string()
+    .required("Bu xana vacibdir")
+    .email("Düzgün email formatı daxil edin"),
+  phone: yup
+    .string()
+    .required("Bu xana vacibdir")
+    .matches(/^[0-9+\-\s()]*$/, "Düzgün telefon nömrəsi daxil edin"),
+  company: yup.string().required("Bu xana vacibdir"),
+  subject: yup.string().required("Bu xana vacibdir"),
+});
+
 export default function Contact() {
+  const methods = useForm({
+    resolver: yupResolver(schema),
+    reValidateMode: "onChange",
+    mode: "onChange",
+    defaultValues: {
+      fullName: "",
+      email: "",
+      phone: "",
+      company: "",
+      subject: "",
+    },
+  });
+
+  const handleSubmit = (data: ContactFormData) => {
+    console.log(data);
+  };
+
   return (
     <div className="py-16 min-h-screen bg-gradient-to-br from-[#1e2533] via-[#232b39] to-[#181f2a]">
       <div className="max-w-2xl mx-auto px-4">
@@ -10,44 +56,43 @@ export default function Contact() {
         <p className="text-lg text-blue-100 text-center mb-12 max-w-2xl mx-auto">
           Bizimlə əlaqə saxlayın və layihəniz barədə danışın.
         </p>
-        <form className="bg-[#232b39]/90 rounded-2xl p-8 shadow-lg space-y-6">
-          <div>
-            <label htmlFor="name" className="block text-gray-200 mb-2">
-              Adınız
-            </label>
-            <input
-              type="text"
-              id="name"
-              className="w-full rounded-md border border-gray-600 bg-[#181f2a] text-white p-3"
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="block text-gray-200 mb-2">
-              Email
-            </label>
-            <input
+        <CFormProvider methods={methods} onSubmit={handleSubmit}>
+          <InputTextField
+            name="fullName"
+            label="Ad Soyad"
+            placeholder="Ad və Soyadınızı daxil edin"
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <InputTextField
+              name="email"
+              label="Email"
+              placeholder="info@creadive.az"
               type="email"
-              id="email"
-              className="w-full rounded-md border border-gray-600 bg-[#181f2a] text-white p-3"
+            />
+            <InputTextField
+              name="phone"
+              label="Telefon"
+              placeholder="+994 10 531 99 87"
+              type="tel"
             />
           </div>
-          <div>
-            <label htmlFor="message" className="block text-gray-200 mb-2">
-              Mesajınız
-            </label>
-            <textarea
-              id="message"
-              rows={5}
-              className="w-full rounded-md border border-gray-600 bg-[#181f2a] text-white p-3"
-            ></textarea>
-          </div>
+          <InputTextField
+            name="company"
+            label="Şirkət"
+            placeholder="Şirkətinizin adı (Məs. Creadive Agentliyi)"
+          />
+          <InputTextareaField
+            name="subject"
+            label="Mövzu"
+            placeholder="Müraciətinizin mövzusu (Məs. Vebsaytınızın yaradılması, Mühasibat xidməti, və s.)"
+          />
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 rounded-lg font-bold hover:scale-105 transition-transform"
+            className="bg-blue-600 text-white px-4 py-2 rounded-md"
           >
             Göndər
           </button>
-        </form>
+        </CFormProvider>
       </div>
     </div>
   );
