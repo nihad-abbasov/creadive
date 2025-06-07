@@ -77,18 +77,18 @@ const categories: Category[] = [
   },
   {
     id: "targeting",
-    name: "Targeting",
+    name: "Tarqetinq",
     items: [
       {
         id: 7,
-        title: "21 Couture House Targeting",
+        title: "21 Couture House Tarqetinq",
         description:
           "Facebook və Instagram üzrə hədəflənmiş reklam kampaniyaları",
         image: "/images/portfolio/21couture-targeting.png",
       },
       {
         id: 8,
-        title: "Buketchim Targeting",
+        title: "Buketchim Tarqetinq",
         description: "Instagram və Google Ads üzrə reklam kampaniyaları",
         image: "/images/portfolio/buketchim-targeting.png",
       },

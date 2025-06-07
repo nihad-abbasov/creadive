@@ -69,47 +69,144 @@ const testimonials: Testimonial[] = [
 ];
 
 interface Service {
+  id: number;
   title: string;
   description: string;
-  icon: string;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 const services: Service[] = [
   {
+    id: 1,
     title: "Vebsayt hazırlama",
-    description:
-      "Biznesiniz üçün müasir, funksional və estetik vebsaytlar hazırlayırıq.",
-    icon: "💻",
+    description: "Müasir və responsive vebsaytların hazırlanması",
+    icon: ({ className }) => (
+      <svg
+        className={className}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        />
+      </svg>
+    ),
   },
   {
-    title: "UI/UX dizayn",
-    description:
-      "Müştəri tərəfindən təklif olunan xidmətlərimizin əsasını təşkil edir.",
-    icon: "🎨",
+    id: 2,
+    title: "UX/UI dizayn",
+    description: "İstifadəçi təcrübəsini təkmilləşdirən dizayn həlləri",
+    icon: ({ className }) => (
+      <svg
+        className={className}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+        />
+      </svg>
+    ),
   },
   {
+    id: 3,
     title: "Rəqəmsal marketinq",
-    description:
-      "Onlayn mövcudluğunuzu artırmaq üçün strateji marketinq həlləri təqdim edirik.",
-    icon: "📈",
+    description: "Effektiv rəqəmsal marketinq strategiyaları",
+    icon: ({ className }) => (
+      <svg
+        className={className}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+        />
+      </svg>
+    ),
   },
   {
-    title: "Sosial media mərkəzləşmə",
-    description:
-      "Brend məlumatlılığını və müştəri cəlb edilməsini artırmaq üçün sosial media platformalarında auditoriya ilə əlaqə.",
-    icon: "💬",
+    id: 4,
+    title: "Sosial Media Marketinqi",
+    description: "Sosial media platformalarında effektiv marketinq",
+    icon: ({ className }) => (
+      <svg
+        className={className}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+        />
+      </svg>
+    ),
   },
   {
+    id: 5,
     title: "Məzmun yaratma",
-    description:
-      "Müştəriləri cəlb etmək və saxlamaq üçün maraqlı və məlumatlandırıcı məzmun yaradırıq.",
-    icon: "📝",
+    description: "Keyfiyyətli və cəlbedici məzmun yaradılması",
+    icon: ({ className }) => (
+      <svg
+        className={className}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+        />
+      </svg>
+    ),
   },
   {
-    title: "Grafik dizayn",
-    description:
-      "Brendiniz və marketinq materiallarınız üçün vizual cəhətdən cəlbedici qrafika yaradırıq.",
-    icon: "🎨",
+    id: 6,
+    title: "Qrafik dizayn",
+    description: "Profesional qrafik dizayn həlləri",
+    icon: ({ className }) => (
+      <svg
+        className={className}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+        />
+      </svg>
+    ),
   },
 ];
 
@@ -147,38 +244,91 @@ const stats: StatItem[] = [
   },
 ];
 
-interface ProcessStep {
-  id: number;
-  title: string;
-  description: string;
-  icon: string;
-}
-
-const processSteps: ProcessStep[] = [
+const processSteps = [
   {
     id: 1,
-    title: "Konsultasiya",
+    title: "Ehtiyaclarınızın Analizi",
     description:
-      "Layihənizi və hədəflərinizi başa düşmək üçün ilkin görüş keçiririk.",
-    icon: "🤝",
+      "Layihənizin məqsədlərini və hədəflərini dəqiq başa düşmək üçün ətraflı müzakirə",
   },
   {
     id: 2,
-    title: "Planlaşdırma",
-    description: "Detallı layihə planı və strategiya hazırlayırıq.",
-    icon: "📋",
+    title: "Strategiya və Planlaşdırma",
+    description: "Layihəniz üçün ən uyğun həlləri və yanaşmaları müəyyən etmək",
   },
   {
     id: 3,
-    title: "Dizayn",
-    description: "İstifadəçi təcrübəsini və interfeysi hazırlayırıq.",
-    icon: "🎨",
+    title: "İcra və İnkişaf",
+    description:
+      "Peşəkar komandamız tərəfindən layihənin keyfiyyətli şəkildə həyata keçirilməsi",
   },
   {
     id: 4,
-    title: "İnkişaf",
-    description: "Layihəni ən son texnologiyalarla həyata keçiririk.",
-    icon: "💻",
+    title: "Nəticələrin Analizi",
+    description:
+      "Layihənin effektivliyini qiymətləndirmək və təkmilləşdirmək üçün monitorinq",
+  },
+];
+
+interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string;
+  image: string;
+  slug: string;
+}
+
+const blogPosts: BlogPost[] = [
+  {
+    id: 1,
+    title: "Veb Dizaynın Əsas Prinsipləri",
+    excerpt: "Müasir veb dizaynın əsas prinsipləri və trendləri haqqında",
+    image: "/blog/web-design.jpg",
+    slug: "web-design-principles",
+  },
+  {
+    id: 2,
+    title: "SEO Optimizasiyası",
+    excerpt:
+      "Veb saytınızın axtarış sistemlərində daha yaxşı görünməsi üçün tövsiyələr",
+    image: "/blog/seo.jpg",
+    slug: "seo-optimization",
+  },
+  {
+    id: 3,
+    title: "Rəqəmsal Marketinq Strategiyaları",
+    excerpt: "Biznesiniz üçün effektiv rəqəmsal marketinq strategiyaları",
+    image: "/blog/digital-marketing.jpg",
+    slug: "digital-marketing-strategies",
+  },
+];
+
+interface Partner {
+  id: number;
+  name: string;
+  logo: string;
+}
+
+const partners: Partner[] = [
+  {
+    id: 1,
+    name: "Partner 1",
+    logo: "/partners/partner1.png",
+  },
+  {
+    id: 2,
+    name: "Partner 2",
+    logo: "/partners/partner2.png",
+  },
+  {
+    id: 3,
+    name: "Partner 3",
+    logo: "/partners/partner3.png",
+  },
+  {
+    id: 4,
+    name: "Partner 4",
+    logo: "/partners/partner4.png",
   },
 ];
 
@@ -191,7 +341,7 @@ const Homepage = () => {
   return (
     <section>
       {/* Hero Section */}
-      <div className="relative min-h-[92.6vh] flex items-center">
+      <div className="relative min-h-auto md:min-h-[92.6vh] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -274,89 +424,41 @@ const Homepage = () => {
       </div>
 
       {/* Services Section */}
-      <div id="services" className="py-20 bg-gray-50">
+      <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Xidmətlərimiz
             </h2>
             <p className="text-xl text-gray-600">
-              Təcrübəli komandamız tərəfindən təklif olunan xidmətlər
+              Biznesiniz üçün ən yaxşı həlləri təklif edirik
             </p>
-          </div>
-          <div className="services-slider-container">
-            <Swiper
-              slidesPerView={1}
-              spaceBetween={20}
-              loop={true}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: true,
-              }}
-              pagination={{
-                clickable: true,
-              }}
-              navigation={true}
-              breakpoints={{
-                640: {
-                  slidesPerView: 2,
-                },
-                768: {
-                  slidesPerView: 2,
-                },
-                1024: {
-                  slidesPerView: 3,
-                },
-              }}
-              modules={[Autoplay, Pagination, Navigation]}
-              className="services-swiper"
-            >
-              {services.map((service, index) => (
-                <SwiperSlide key={index}>
-                  <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 h-full group relative overflow-hidden">
-                    {/* Gradient Background Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                    {/* Icon with Background */}
-                    <div className="relative mb-6">
-                      <div className="w-16 h-16 flex items-center justify-center rounded-lg bg-blue-50 group-hover:bg-blue-100 transition-colors duration-300">
-                        <span className="text-4xl transform group-hover:scale-110 transition-transform duration-300">
-                          {service.icon}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="relative">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 line-clamp-3">
-                        {service.description}
-                      </p>
-
-                      {/* Learn More Link */}
-                      <div className="mt-4 inline-flex items-center text-blue-600 font-medium opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                        Ətraflı
-                        <svg
-                          className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-gradient-to-t from-blue-100 to-gray-100 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="text-blue-600 mb-4">
+                  <service.icon className="w-12 h-12" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600">{service.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
@@ -395,27 +497,43 @@ const Homepage = () => {
       </div> */}
 
       {/* Statistics Section */}
-      <div className="" ref={ref}>
-        <div className="bg-blue-600 py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-3xl">
+      <div className="px-4" ref={ref}>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-gradient-to-b from-blue-600 to-black py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-3xl"
+        >
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {stats.map((stat) => (
-              <div key={stat.id} className="text-center">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="text-center"
+              >
                 <div className="text-6xl font-bold text-white mb-2">
                   {inView ? (
                     <CountUp
                       end={stat.end}
                       duration={2.5}
+                      separator=","
                       suffix={stat.suffix}
                     />
                   ) : (
-                    `0${stat.suffix}`
+                    "0"
                   )}
                 </div>
-                <div className="text-xl font-normal text-white">{stat.label}</div>
-              </div>
+                <div className="text-xl font-normal text-white">
+                  {stat.label}
+                </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Why Choose Us Section */}
@@ -463,61 +581,100 @@ const Homepage = () => {
       </div>
 
       {/* Blog Section */}
-      {/* <div className="py-20 bg-gray-50">
+      {/* <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Bloq</h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Blog
+            </h2>
             <p className="text-xl text-gray-600">
-              Son məqalələrimiz və xəbərlərimiz
+              Son xəbərlər və məqalələr
             </p>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <div className="text-4xl mb-4">🎯</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Peşəkar Yanaşma
-              </h3>
-              <p className="text-gray-600">
-                Hər bir layihəyə fərdi və peşəkar yanaşma tətbiq edirik
-              </p>
-            </div>
-          </div>
-          <div className="text-center mt-12">
-            <Link
-              href="/blog"
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-            >
-              Bütün məqalələri oxuyun
-            </Link>
+            {blogPosts.map((post, index) => (
+              <motion.div
+                key={post.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="relative h-48">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">{post.excerpt}</p>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="text-blue-600 hover:text-blue-700 font-medium"
+                  >
+                    Ətraflı oxu →
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div> */}
 
       {/* Process Steps Section */}
-      <div className="py-20">
+      <div className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               İş Prosesimiz
             </h2>
             <p className="text-xl text-gray-600">
-              Layihələri necə həyata keçiririk
+              Layihələrimizi necə həyata keçiririk
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {processSteps.map((step) => (
-              <div key={step.id} className="relative">
-                {step.id !== processSteps.length && (
-                  <div className="hidden lg:block absolute top-1/2 right-0 w-full h-0.5 bg-gray-200 transform translate-y-1/2" />
-                )}
-                <div className="relative bg-white p-8 rounded-xl shadow-sm z-10">
-                  <div className="text-4xl mb-4">{step.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm">{step.description}</p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {processSteps.map((step, index) => (
+              <motion.div
+                key={step.id}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="text-center relative"
+              >
+                <div className="relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-emerald-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                    {step.id}
+                  </div>
+                  {index < processSteps.length - 1 && (
+                    <div className="hidden md:block absolute top-8 left-[65.5%] w-[80%] h-0.5 bg-blue-600" />
+                  )}
                 </div>
-              </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed max-w-[200px] mx-auto">
+                  {step.description}
+                </p>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -561,28 +718,53 @@ const Homepage = () => {
       {/* Partners Section */}
       {/* <div className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Partnyorlarımız
+              Tərəfdaşlarımız
             </h2>
             <p className="text-xl text-gray-600">
-              Bizə etibar edən şirkətlər
+              Bizimlə əməkdaşlıq edən şirkətlər
             </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((partner) => (
-              <div key={partner} className="flex items-center justify-center p-4">
-                <div className="w-32 h-20 bg-gray-200 rounded-lg" />
-              </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          >
+            {partners.map((partner, index) => (
+              <motion.div
+                key={partner.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex items-center justify-center"
+              >
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  width={150}
+                  height={60}
+                  className="opacity-50 hover:opacity-100 transition-opacity"
+                />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div> */}
 
       {/* Contact CTA Section */}
       <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-blue-600 rounded-2xl py-12 px-8 md:px-12 flex flex-col md:flex-row items-center justify-between">
+          <div className="bg-gradient-to-b from-blue-600 to-emerald-600 rounded-2xl py-16 px-8 md:px-12 flex flex-col md:flex-row items-center justify-between">
             <div className="text-center md:text-left mb-8 md:mb-0">
               <h2 className="text-3xl font-bold text-white mb-2">
                 Layihənizi müzakirə edək
