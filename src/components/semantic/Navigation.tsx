@@ -206,7 +206,7 @@ export default function Navigation() {
           <div className="border-t border-slate-800 p-6 space-y-6">
             {/* Social Links */}
             <div className="flex justify-center space-x-6">
-              <a
+              <Link
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -214,8 +214,8 @@ export default function Navigation() {
                 aria-label="Facebook"
               >
                 <FaFacebook className="w-6 h-6" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -223,8 +223,8 @@ export default function Navigation() {
                 aria-label="Instagram"
               >
                 <FaInstagram className="w-6 h-6" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -232,25 +232,25 @@ export default function Navigation() {
                 aria-label="LinkedIn"
               >
                 <FaLinkedin className="w-6 h-6" />
-              </a>
+              </Link>
             </div>
 
             {/* Contact Info */}
             <div className="space-y-3 text-center">
-              <a
+              <Link
                 href="tel:+994501234567"
                 className="flex items-center justify-center text-gray-400 hover:text-gray-300 transition-colors duration-200"
               >
                 <FaPhone className="w-4 h-4 mr-2" />
                 <span>+994 50 123 45 67</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="mailto:info@creadive.az"
                 className="flex items-center justify-center text-gray-400 hover:text-gray-300 transition-colors duration-200"
               >
                 <FaEnvelope className="w-4 h-4 mr-2" />
                 <span>info@creadive.az</span>
-              </a>
+              </Link>
             </div>
 
             {/* Copyright */}

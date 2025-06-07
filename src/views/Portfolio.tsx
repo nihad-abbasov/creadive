@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 type PortfolioItem = {
@@ -114,10 +115,11 @@ export default function Portfolio() {
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${activeCategory === category.id
+              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                activeCategory === category.id
                   ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
                   : "bg-[#232b39] text-gray-300 hover:bg-[#2a3444]"
-                }`}
+              }`}
             >
               {category.name}
             </button>
@@ -148,7 +150,7 @@ export default function Portfolio() {
                 </h2>
                 <p className="text-gray-300 mb-4">{item.description}</p>
                 {item.url && (
-                  <a
+                  <Link
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -167,7 +169,7 @@ export default function Portfolio() {
                         clipRule="evenodd"
                       />
                     </svg>
-                  </a>
+                  </Link>
                 )}
               </div>
             ))}

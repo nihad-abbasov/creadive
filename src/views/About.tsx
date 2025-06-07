@@ -1,15 +1,15 @@
 "use client";
 
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import "swiper/css";
+import { motion, AnimatePresence } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { IoIosArrowUp } from "react-icons/io";
+import { useState } from "react";
+import Image from "next/image";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Disclosure } from "@headlessui/react";
-import { IoIosArrowUp } from "react-icons/io";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import "swiper/css";
+import Link from "next/link";
 
 interface TeamMember {
   name: string;
@@ -168,6 +168,36 @@ const faqs: FAQ[] = [
     answer:
       "Bəli, biz layihə təhvil verildikdən sonra texniki dəstək və təkmilləşdirmə xidmətləri təklif edirik.",
   },
+  {
+    id: 4,
+    question: "Layihə üçün hansı məlumatları təqdim etməliyəm?",
+    answer:
+      "Layihənin uğurlu olması üçün bizə biznesiniz haqqında məlumat, hədəf auditoriya, rəqibləriniz, dizayn üstünlükləriniz və funksional tələbləriniz haqqında məlumat verməyiniz faydalı olacaq.",
+  },
+  {
+    id: 5,
+    question: "Layihə prosesində hansı mərhələlər var?",
+    answer:
+      "Layihə prosesi planlaşdırma, dizayn, inkişaf, test və təhvil vermə mərhələlərindən ibarətdir. Hər mərhələdə sizinlə yaxın əməkdaşlıq edirik.",
+  },
+  {
+    id: 6,
+    question: "SEO optimizasiyası xidməti təklif edirsinizmi?",
+    answer:
+      "Bəli, biz vebsaytların axtarış sistemlərində daha yaxşı görünməsi üçün SEO optimizasiyası xidmətləri təklif edirik.",
+  },
+  {
+    id: 7,
+    question: "Layihəni necə izləyə bilərəm?",
+    answer:
+      "Layihənin hər mərhələsində sizə müntəzəm hesabatlar və demo versiyalar təqdim edirik. Həmçinin layihə idarəetmə alətimiz vasitəsilə prosesi real vaxtda izləyə bilərsiniz.",
+  },
+  {
+    id: 8,
+    question: "Mövcud vebsaytımı yeniləyə bilərsinizmi?",
+    answer:
+      "Bəli, biz mövcud vebsaytların yenilənməsi, təkmilləşdirilməsi və modernləşdirilməsi xidmətləri təklif edirik.",
+  },
 ];
 
 export default function About() {
@@ -198,7 +228,7 @@ export default function About() {
       </div>
       {/* Section Cards */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {sections.map((section, index) => (
             <div
               key={index}
@@ -207,7 +237,9 @@ export default function About() {
               <h2 className="text-2xl font-bold text-white mb-4">
                 {section.title}
               </h2>
-              <p className="text-blue-100 leading-relaxed">{section.content}</p>
+              <p className="text-blue-100 text-sm leading-relaxed">
+                {section.content}
+              </p>
             </div>
           ))}
         </div>
@@ -215,7 +247,7 @@ export default function About() {
       {/* Team Section */}
       <div className="relative z-10 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-6">
             <h2 className="text-3xl font-bold text-white mb-4">Komandamız</h2>
             <p className="text-xl text-blue-100">
               Peşəkar və təcrübəli komandamızla tanış olun
@@ -267,7 +299,7 @@ export default function About() {
                       {/* Social Icons - Show on Hover */}
                       <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-4 translate-y-10 group-hover:-translate-y-2 transition-transform duration-300">
                         {member.social.linkedin && (
-                          <a
+                          <Link
                             href={member.social.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -281,10 +313,10 @@ export default function About() {
                             >
                               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                             </svg>
-                          </a>
+                          </Link>
                         )}
                         {member.social.instagram && (
-                          <a
+                          <Link
                             href={member.social.instagram}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -302,10 +334,10 @@ export default function About() {
                                 clipRule="evenodd"
                               />
                             </svg>
-                          </a>
+                          </Link>
                         )}
                         {member.social.github && (
-                          <a
+                          <Link
                             href={member.social.github}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -323,7 +355,7 @@ export default function About() {
                                 clipRule="evenodd"
                               />
                             </svg>
-                          </a>
+                          </Link>
                         )}
                       </div>
                     </div>
@@ -345,9 +377,9 @@ export default function About() {
         </div>
       </div>
       {/* FAQ Section */}
-      <div className="relative z-10 py-20">
+      <div className="relative z-10 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-6">
             <h2 className="text-3xl font-bold text-white mb-4">
               Tez-tez soruşulan suallar
             </h2>
@@ -428,9 +460,9 @@ export default function About() {
             Bizimlə əməkdaşlıq etmək istəyirsiniz?
           </span>
           <br />
-          <a href="/contact" className="underline text-lg font-bold">
+          <Link href="/contact" className="underline text-lg font-bold">
             Əlaqə saxlayın
-          </a>
+          </Link>
         </div>
       </div>
       {/* Animations */}

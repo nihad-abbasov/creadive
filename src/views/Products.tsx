@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const products = [
   {
@@ -64,7 +65,7 @@ export default function Products() {
               <h2 className="text-2xl font-bold text-white mb-6 group-hover:text-blue-400 transition-colors duration-300">
                 {product.name}
               </h2>
-              <a
+              <Link
                 href={product.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -84,7 +85,7 @@ export default function Products() {
                   />
                 </svg>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-              </a>
+              </Link>
             </div>
           ))}
         </div>
