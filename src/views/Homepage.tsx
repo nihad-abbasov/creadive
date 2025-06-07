@@ -377,6 +377,7 @@ const Homepage = () => {
             <Swiper
               slidesPerView={1}
               spaceBetween={20}
+              loop={true}
               autoplay={{
                 delay: 3000,
                 disableOnInteraction: true,
@@ -558,6 +559,7 @@ const Homepage = () => {
               // slidesPerView={1}
               spaceBetween={20}
               centeredSlides={false}
+              loop={true}
               autoplay={{
                 delay: 3000,
                 disableOnInteraction: true,

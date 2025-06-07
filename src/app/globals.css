@@ -46,6 +46,10 @@
   position: relative;
 }
 
+.team-slider-container .swiper-pagination {
+  bottom: -5px !important;
+}
+
 .team-swiper {
   width: 100%;
 }
@@ -104,4 +108,8 @@
 .services-slider-container .swiper-button-next:after,
 .services-slider-container .swiper-button-prev:after {
   font-size: 16px;
+}
+
+.services-slider-container .swiper-pagination {
+  display: none;
 }

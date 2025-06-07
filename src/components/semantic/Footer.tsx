@@ -36,21 +36,11 @@ const footerLinks: FooterLink[] = [
   },
   {
     id: 6,
-    href: "/faq",
-    label: "FAQ",
-  },
-  {
-    id: 7,
     href: "/portfolio",
     label: "Portfolio",
   },
   {
-    id: 8,
-    href: "/team",
-    label: "Komandamız",
-  },
-  {
-    id: 9,
+    id: 7,
     href: "/products",
     label: "Məhsullarımız",
   },
@@ -176,7 +166,7 @@ export default function Footer() {
             >
               <Logo />
             </Link>
-            <p className="text-gray-400">
+            <p className="text-gray-400 text-sm">
               Rəqəmsal təcrübələri yaradırıq ki, nəticələri göstərək.
             </p>
           </div>
@@ -184,7 +174,7 @@ export default function Footer() {
             <span className="text-lg font-semibold mb-0 md:mb-0">
               Qısa yollar
             </span>
-            <ul className="space-y-2 text-gray-400">
+            <ul className="space-y-2 text-gray-400 text-sm">
               {footerLinks.map((link) => (
                 <li key={link.id}>
                   <Link
@@ -202,7 +192,7 @@ export default function Footer() {
             <span className="text-lg font-semibold mb-0 md:mb-0">
               Xidmətlərimiz
             </span>
-            <ul className="space-y-2 text-gray-400">
+            <ul className="space-y-2 text-gray-400 text-sm">
               {services.map((service) => (
                 <li key={service.id}>
                   <Link
@@ -218,7 +208,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-col items-start gap-2 md:gap-4">
             <span className="text-lg font-semibold mb-0 md:mb-0">Əlaqə</span>
-            <ul className="space-y-2 text-gray-400">
+            <ul className="space-y-2 text-gray-400 text-sm">
               {contacts.map((contact) => (
                 <li key={contact.id}>
                   <Link

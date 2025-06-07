@@ -23,10 +23,8 @@ const navLinks: NavLink[] = [
   { id: 2, href: "/services", label: "Xidmətlər" },
   { id: 3, href: "/products", label: "Məhsullar" },
   { id: 4, href: "/portfolio", label: "Portfolio" },
-  { id: 5, href: "/team", label: "Komanda" },
-  { id: 6, href: "/blog", label: "Bloq" },
-  { id: 7, href: "/faq", label: "FAQ" },
-  { id: 8, href: "/contact", label: "Əlaqə" },
+  { id: 5, href: "/blog", label: "Bloq" },
+  { id: 6, href: "/contact", label: "Əlaqə" },
 ];
 
 export default function Navigation() {
