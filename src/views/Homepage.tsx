@@ -270,67 +270,67 @@ const processSteps = [
   },
 ];
 
-interface BlogPost {
-  id: number;
-  title: string;
-  excerpt: string;
-  image: string;
-  slug: string;
-}
+// interface BlogPost {
+//   id: number;
+//   title: string;
+//   excerpt: string;
+//   image: string;
+//   slug: string;
+// }
 
-const blogPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "Veb Dizaynın Əsas Prinsipləri",
-    excerpt: "Müasir veb dizaynın əsas prinsipləri və trendləri haqqında",
-    image: "/blog/web-design.jpg",
-    slug: "web-design-principles",
-  },
-  {
-    id: 2,
-    title: "SEO Optimizasiyası",
-    excerpt:
-      "Veb saytınızın axtarış sistemlərində daha yaxşı görünməsi üçün tövsiyələr",
-    image: "/blog/seo.jpg",
-    slug: "seo-optimization",
-  },
-  {
-    id: 3,
-    title: "Rəqəmsal Marketinq Strategiyaları",
-    excerpt: "Biznesiniz üçün effektiv rəqəmsal marketinq strategiyaları",
-    image: "/blog/digital-marketing.jpg",
-    slug: "digital-marketing-strategies",
-  },
-];
+// const blogPosts: BlogPost[] = [
+//   {
+//     id: 1,
+//     title: "Veb Dizaynın Əsas Prinsipləri",
+//     excerpt: "Müasir veb dizaynın əsas prinsipləri və trendləri haqqında",
+//     image: "/blog/web-design.jpg",
+//     slug: "web-design-principles",
+//   },
+//   {
+//     id: 2,
+//     title: "SEO Optimizasiyası",
+//     excerpt:
+//       "Veb saytınızın axtarış sistemlərində daha yaxşı görünməsi üçün tövsiyələr",
+//     image: "/blog/seo.jpg",
+//     slug: "seo-optimization",
+//   },
+//   {
+//     id: 3,
+//     title: "Rəqəmsal Marketinq Strategiyaları",
+//     excerpt: "Biznesiniz üçün effektiv rəqəmsal marketinq strategiyaları",
+//     image: "/blog/digital-marketing.jpg",
+//     slug: "digital-marketing-strategies",
+//   },
+// ];
 
-interface Partner {
-  id: number;
-  name: string;
-  logo: string;
-}
+// interface Partner {
+//   id: number;
+//   name: string;
+//   logo: string;
+// }
 
-const partners: Partner[] = [
-  {
-    id: 1,
-    name: "Partner 1",
-    logo: "/partners/partner1.png",
-  },
-  {
-    id: 2,
-    name: "Partner 2",
-    logo: "/partners/partner2.png",
-  },
-  {
-    id: 3,
-    name: "Partner 3",
-    logo: "/partners/partner3.png",
-  },
-  {
-    id: 4,
-    name: "Partner 4",
-    logo: "/partners/partner4.png",
-  },
-];
+// const partners: Partner[] = [
+//   {
+//     id: 1,
+//     name: "Partner 1",
+//     logo: "/partners/partner1.png",
+//   },
+//   {
+//     id: 2,
+//     name: "Partner 2",
+//     logo: "/partners/partner2.png",
+//   },
+//   {
+//     id: 3,
+//     name: "Partner 3",
+//     logo: "/partners/partner3.png",
+//   },
+//   {
+//     id: 4,
+//     name: "Partner 4",
+//     logo: "/partners/partner4.png",
+//   },
+// ];
 
 const Homepage = () => {
   const { ref, inView } = useInView({
@@ -348,6 +348,7 @@ const Homepage = () => {
             src="/hero2.jpg"
             alt="Hero Background"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover"
             priority
           />
@@ -448,7 +449,7 @@ const Homepage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gradient-to-t from-blue-100 to-gray-100 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+                className="bg-gradient-to-br from-blue-50 via-blue-100 via-50% to-blue-200 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="text-blue-600 mb-4">
                   <service.icon className="w-12 h-12" />
@@ -661,7 +662,7 @@ const Homepage = () => {
                 className="text-center relative"
               >
                 <div className="relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-emerald-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-black rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
                     {step.id}
                   </div>
                   {index < processSteps.length - 1 && (
@@ -764,7 +765,7 @@ const Homepage = () => {
       {/* Contact CTA Section */}
       <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-b from-blue-600 to-emerald-600 rounded-2xl py-16 px-8 md:px-12 flex flex-col md:flex-row items-center justify-between">
+          <div className="bg-gradient-to-tl from-slate-950 to-emerald-600 rounded-2xl py-16 px-8 md:px-12 flex flex-col md:flex-row items-center justify-between">
             <div className="text-center md:text-left mb-8 md:mb-0">
               <h2 className="text-3xl font-bold text-white mb-2">
                 Layihənizi müzakirə edək

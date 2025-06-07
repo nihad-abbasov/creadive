@@ -2,6 +2,8 @@ import { FaTwitter, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
 import Link from "next/link";
 import Logo from "../Logo";
 
+// TODO: Add a scroll to top button
+
 type FooterLink = {
   id: number;
   href: string;

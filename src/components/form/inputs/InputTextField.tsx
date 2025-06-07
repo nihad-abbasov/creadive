@@ -22,9 +22,10 @@ export const InputTextField: FC<IInputTextField> = ({ ...props }) => {
     <div className="input_wrapper relative w-full mb-4">
       {props.label && (
         <label
-          className={`block text-sm font-medium mb-1.5 transition-colors duration-200 ${
-            hasError ? "text-red-500" : "text-gray-700"
-          }`}
+          // className={`block text-sm font-medium mb-1 transition-colors duration-200 ${
+          //   hasError ? "text-red-500" : "text-gray-700"
+          // }`}
+          className="block text-sm font-medium mb-1 transition-colors duration-200 text-white"
           htmlFor={props.label}
         >
           {props.label}
@@ -33,12 +34,9 @@ export const InputTextField: FC<IInputTextField> = ({ ...props }) => {
       <motion.div whileFocus={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
         <input
           className={`w-full py-3 px-5 text-sm bg-white border ${
-            hasError
-              ? "border-red-300 focus:border-red-500"
-              : "border-gray-200 focus:border-blue-500"
-          } placeholder-gray-400 rounded-lg transition-all duration-200
-          focus:ring-2 focus:ring-opacity-50 ${
-            hasError ? "focus:ring-red-200" : "focus:ring-blue-200"
+            hasError ? "border-red-500 focus:border-red-500" : "border-gray-200"
+          } placeholder-gray-400 rounded-lg transition-all duration-200 ${
+            hasError ? "focus:ring-red-200" : ""
           }
           hover:border-gray-300
           disabled:bg-gray-50 disabled:text-gray-500 disabled:cursor-not-allowed
@@ -55,7 +53,7 @@ export const InputTextField: FC<IInputTextField> = ({ ...props }) => {
           <motion.p
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-red-500 text-sm mt-1.5 flex items-center gap-1.5"
+            className="text-red-500 text-xs mt-1 flex items-center gap-1.5 absolute -bottom-5"
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path

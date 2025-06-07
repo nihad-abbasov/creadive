@@ -3,9 +3,11 @@
 import { InputTextareaField } from "@/components/form/inputs/InputTextareaField";
 import { InputTextField } from "@/components/form/inputs/InputTextField";
 import { CFormProvider } from "@/components/form/CFormProvider";
+import { useToast } from "@/context/ToastContext";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 
 interface ContactFormData {
   fullName: string;
@@ -30,6 +32,7 @@ const schema = yup.object<ContactFormData>().shape({
 });
 
 export default function Contact() {
+  const { showToast } = useToast();
   const methods = useForm({
     resolver: yupResolver(schema),
     reValidateMode: "onChange",
@@ -43,8 +46,23 @@ export default function Contact() {
     },
   });
 
-  const handleSubmit = (data: ContactFormData) => {
-    console.log(data);
+  const handleSubmit = async (data: ContactFormData) => {
+    try {
+      // Here you would typically make an API call to send the form data
+      console.log(data);
+
+      // Show success toast
+      showToast("success", "Müraciətiniz uğurla göndərildi!");
+
+      // Reset form
+      methods.reset();
+    } catch (error) {
+      // Show error toast
+      showToast(
+        "error",
+        `Müraciətiniz göndərilərkən xəta baş verdi. Zəhmət olmasa yenidən cəhd edin: ${error}`
+      );
+    }
   };
 
   return (
@@ -56,7 +74,11 @@ export default function Contact() {
         <p className="text-lg text-blue-100 text-center mb-12 max-w-2xl mx-auto">
           Bizimlə əlaqə saxlayın və layihəniz barədə danışın.
         </p>
-        <CFormProvider methods={methods} onSubmit={handleSubmit}>
+        <CFormProvider
+          methods={methods}
+          onSubmit={handleSubmit}
+          className="space-y-6"
+        >
           <InputTextField
             name="fullName"
             label="Ad Soyad"
@@ -88,9 +110,10 @@ export default function Contact() {
           />
           <button
             type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded-md"
+            className="group w-full md:w-max bg-gradient-to-r from-blue-600 to-emerald-600 text-white px-6 py-4 md:py-3 rounded-lg font-medium hover:from-blue-700 hover:to-emerald-700 transition-all duration-300 flex items-center justify-center gap-2"
           >
             Göndər
+            <PaperAirplaneIcon className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
           </button>
         </CFormProvider>
       </div>

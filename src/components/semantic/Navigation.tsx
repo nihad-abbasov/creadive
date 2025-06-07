@@ -1,5 +1,9 @@
 "use client";
 
+// TODO: Add dropdown menu for about
+// TODO: Add dropdown menu for services
+// TODO: Add dropdown menu for portfolio
+
 import {
   FaFacebook,
   FaInstagram,
