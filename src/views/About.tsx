@@ -24,16 +24,6 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Ənvər Nağıyev",
-    role: "Rəqəmsal Marketinq Mütəxəssisi",
-    image: "/images/team/enver.jpeg",
-    bio: "5+ illik təcrübə ilə rəqəmsal marketinq strategiyaları və sosial media kampaniyalarının idarə edilməsi",
-    social: {
-      linkedin: "https://www.linkedin.com/in/enver-nagiyev-digital",
-      instagram: "https://www.instagram.com/enver_nagiyeff",
-    },
-  },
-  {
     name: "Nihad Abbasov",
     role: "Founder & CEO",
     image: "/images/team/nihad.jpg",
@@ -44,75 +34,25 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
-    name: "Camal Hüseynov",
-    role: "Backend Mühəndisi",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
+    name: "Ənvər Nağıyev",
+    role: "Rəqəmsal Marketinq Mütəxəssisi",
+    image: "/images/team/enver.jpeg",
+    bio: "5+ illik təcrübə ilə rəqəmsal marketinq strategiyaları və sosial media kampaniyalarının idarə edilməsi",
     social: {
-      linkedin: "#",
-      instagram: "#",
+      linkedin: "https://www.linkedin.com/in/enver-nagiyev-digital",
+      instagram: "https://www.instagram.com/enver_nagiyeff",
     },
   },
-  {
-    name: "Aynur Məmmədova",
-    role: "UI/UX Dizayner",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-    social: {
-      linkedin: "#",
-      instagram: "#",
-    },
-  },
-  {
-    name: "Leyla Əliyeva",
-    role: "Layihə Meneceri",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-    social: {
-      linkedin: "#",
-      instagram: "#",
-    },
-  },
-  {
-    name: "Rəşad Məmmədov",
-    role: "DevOps Mühəndisi",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-    social: {
-      linkedin: "#",
-      instagram: "#",
-    },
-  },
-  {
-    name: "Səbinə Həsənova",
-    role: "Digital Marketing",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-    social: {
-      linkedin: "#",
-      instagram: "#",
-    },
-  },
-  {
-    name: "Orxan Nəzərov",
-    role: "Mobil Tətbiq Mühəndisi",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-    social: {
-      linkedin: "#",
-      instagram: "#",
-    },
-  },
-  {
-    name: "Günel Əhmədova",
-    role: "QA Mütəxəssisi",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-    social: {
-      linkedin: "#",
-      instagram: "#",
-    },
-  },
+  // {
+  //   name: "Camal Hüseynov",
+  //   role: "Backend Mühəndisi",
+  //   image: "/images/team/nihad.jpg",
+  //   bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
+  //   social: {
+  //     linkedin: "#",
+  //     instagram: "#",
+  //   },
+  // },
 ];
 
 const sections = [
