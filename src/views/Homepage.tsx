@@ -147,30 +147,6 @@ const stats: StatItem[] = [
   },
 ];
 
-// interface FAQ {
-//   id: number;
-//   question: string;
-//   answer: string;
-// }
-
-// const faqs: FAQ[] = [
-//   {
-//     id: 1,
-//     question: "Layihənin müddəti nə qədərdir?",
-//     answer: "Layihənin müddəti onun mürəkkəbliyindən və tələblərindən asılı olaraq dəyişir. Ortalama bir vebsayt layihəsi 4-8 həftə çəkir."
-//   },
-//   {
-//     id: 2,
-//     question: "Hansı ödəniş üsullarını qəbul edirsiniz?",
-//     answer: "Biz bank köçürməsi, kredit kartı və digər rəqəmsal ödəniş metodlarını qəbul edirik. Ödənişlər mərhələli şəkildə həyata keçirilir."
-//   },
-//   {
-//     id: 3,
-//     question: "Layihə başa çatdıqdan sonra dəstək verirsinizmi?",
-//     answer: "Bəli, biz layihə təhvil verildikdən sonra texniki dəstək və təkmilləşdirmə xidmətləri təklif edirik."
-//   }
-// ];
-
 interface ProcessStep {
   id: number;
   title: string;
@@ -215,7 +191,7 @@ const Homepage = () => {
   return (
     <section>
       {/* Hero Section */}
-      <div className="relative min-h-screen flex items-center">
+      <div className="relative min-h-[92.6vh] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -419,12 +395,12 @@ const Homepage = () => {
       </div> */}
 
       {/* Statistics Section */}
-      <div className="bg-blue-600 py-20" ref={ref}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="" ref={ref}>
+        <div className="bg-blue-600 py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-3xl">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
               <div key={stat.id} className="text-center">
-                <div className="text-4xl font-bold text-white mb-2">
+                <div className="text-6xl font-bold text-white mb-2">
                   {inView ? (
                     <CountUp
                       end={stat.end}
@@ -435,7 +411,7 @@ const Homepage = () => {
                     `0${stat.suffix}`
                   )}
                 </div>
-                <div className="text-white">{stat.label}</div>
+                <div className="text-xl font-normal text-white">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -576,32 +552,6 @@ const Homepage = () => {
                   sizes="100vw"
                   className="w-16 h-16 object-contain grayscale hover:grayscale-0 transition-all duration-300"
                 />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div> */}
-
-      {/* FAQ Section */}
-      {/* <div className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Tez-tez verilən suallar
-            </h2>
-            <p className="text-xl text-gray-600">
-              Ən çox soruşulan suallara cavablar
-            </p>
-          </div>
-          <div className="grid gap-8 max-w-3xl mx-auto">
-            {faqs.map((faq) => (
-              <div key={faq.id} className="bg-white p-8 rounded-xl shadow-sm">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  {faq.question}
-                </h3>
-                <p className="text-gray-600">
-                  {faq.answer}
-                </p>
               </div>
             ))}
           </div>

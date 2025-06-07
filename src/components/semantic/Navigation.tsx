@@ -21,9 +21,9 @@ type NavLink = {
 const navLinks: NavLink[] = [
   { id: 1, href: "/about", label: "Haqqımızda" },
   { id: 2, href: "/services", label: "Xidmətlər" },
-  { id: 3, href: "/products", label: "Məhsullar" },
+  // { id: 3, href: "/products", label: "Məhsullar" },
   { id: 4, href: "/portfolio", label: "Portfolio" },
-  { id: 5, href: "/blog", label: "Bloq" },
+  // { id: 5, href: "/blog", label: "Bloq" },
   { id: 6, href: "/contact", label: "Əlaqə" },
 ];
 
