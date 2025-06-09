@@ -157,7 +157,7 @@ export default function About() {
               <h2 className="text-2xl font-bold text-white mb-4">
                 {section.title}
               </h2>
-              <p className="text-blue-100 text-sm leading-relaxed">
+              <p className="text-blue-100 text-lg md:text-sm leading-relaxed">
                 {section.content}
               </p>
             </div>
@@ -173,7 +173,7 @@ export default function About() {
               Peşəkar və təcrübəli komandamızla tanış olun
             </p>
           </div>
-          <div className="team-slider-container">
+          <div className="team-slider-container md:py-[20px] md:px-[40px]">
             <Swiper
               spaceBetween={20}
               centeredSlides={false}
@@ -298,7 +298,7 @@ export default function About() {
                     onClick={() => setOpenFaqId(isOpen ? null : faq.id)}
                     className="flex w-full justify-between rounded-lg px-4 py-4 text-left text-sm font-medium text-white hover:bg-white/10 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75"
                   >
-                    <span>{faq.question}</span>
+                    <span className="text-sm">{faq.question}</span>
                     <motion.div
                       animate={{ rotate: isOpen ? 0 : 180 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -354,7 +354,7 @@ export default function About() {
       </div>
       {/* CTA Section */}
       <div className="relative z-10 max-w-2xl mx-auto mt-16 text-center animate-fade-in-up">
-        <div className="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-5 rounded-2xl shadow-xl hover:scale-105 transition-transform cursor-pointer">
+        <div className="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-5 rounded-2xl shadow-xl hover:scale-105 transition-transform cursor-pointer w-[90%] mx-auto md:w-max">
           <span className="text-xl font-semibold">
             Bizimlə əməkdaşlıq etmək istəyirsiniz?
           </span>
