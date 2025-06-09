@@ -43,16 +43,6 @@ const teamMembers: TeamMember[] = [
       instagram: "https://www.instagram.com/enver_nagiyeff",
     },
   },
-  // {
-  //   name: "Camal Hüseynov",
-  //   role: "Backend Mühəndisi",
-  //   image: "/images/team/nihad.jpg",
-  //   bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-  //   social: {
-  //     linkedin: "#",
-  //     instagram: "#",
-  //   },
-  // },
 ];
 
 const sections = [
@@ -175,7 +165,7 @@ export default function About() {
         </div>
       </div>
       {/* Team Section */}
-      <div className="team_section relative z-10 py-20">
+      <div id="team_section" className="team_section relative z-10 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
             <h2 className="text-3xl font-bold text-white mb-4">Komandamız</h2>
@@ -286,7 +276,7 @@ export default function About() {
         </div>
       </div>
       {/* FAQ Section */}
-      <div className="relative z-10 pb-20">
+      <div id="faq_section" className="relative z-10 pt-10 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
             <h2 className="text-3xl font-bold text-white mb-4">

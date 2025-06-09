@@ -1,9 +1,5 @@
 "use client";
 
-// TODO: Add dropdown menu for about
-// TODO: Add dropdown menu for services
-// TODO: Add dropdown menu for portfolio
-
 import {
   FaFacebook,
   FaInstagram,
@@ -20,11 +16,33 @@ type NavLink = {
   id: number;
   href: string;
   label: string;
+  dropdown?: {
+    text: string;
+    url: string;
+  }[];
 };
 
 const navLinks: NavLink[] = [
-  { id: 1, href: "/about", label: "Haqqımızda" },
-  { id: 2, href: "/services", label: "Xidmətlər" },
+  {
+    id: 1,
+    href: "/about",
+    label: "Haqqımızda",
+    dropdown: [
+      { text: "Creadive kimdir?", url: "/about" },
+      { text: "Komandamız", url: "/about/#team_section" },
+      { text: "FAQ", url: "/about/#faq_section" },
+    ],
+  },
+  {
+    id: 2,
+    href: "/services",
+    label: "Xidmətlər",
+    dropdown: [
+      { text: "Vebsayt", url: "/services/#website" },
+      { text: "SMM", url: "/services/#smm" },
+      { text: "Reqemsal marketinq", url: "/services/#digital-marketing" },
+    ],
+  },
   // { id: 3, href: "/products", label: "Məhsullar" },
   { id: 4, href: "/portfolio", label: "Portfolio" },
   // { id: 5, href: "/blog", label: "Bloq" },
@@ -33,6 +51,7 @@ const navLinks: NavLink[] = [
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const pathname = usePathname();
 
   // Prevent body scroll when mobile menu is open
@@ -71,6 +90,14 @@ export default function Navigation() {
   };
 
   const currentYear = new Date().getFullYear();
+
+  const handleDropdownEnter = (id: number) => {
+    setActiveDropdown(id);
+  };
+
+  const handleDropdownLeave = () => {
+    setActiveDropdown(null);
+  };
 
   return (
     <>
@@ -114,24 +141,81 @@ export default function Navigation() {
             <div className="hidden md:block">
               <div className="ml-10 flex items-center space-x-8">
                 {navLinks.map((link) => (
-                  <Link
+                  <div
                     key={link.id}
-                    href={link.href}
-                    className={`text-gray-100 hover:text-white transition-all duration-300 relative group ${
-                      isActiveLink(link.href)
-                        ? "text-white font-semibold"
-                        : "text-gray-400"
-                    }`}
+                    className="relative"
+                    onMouseEnter={() =>
+                      link.dropdown && handleDropdownEnter(link.id)
+                    }
+                    onMouseLeave={handleDropdownLeave}
                   >
-                    {link.label}
-                    <span
-                      className={`absolute -bottom-1 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 ease-out ${
+                    <Link
+                      href={link.href}
+                      className={`text-gray-100 hover:text-white transition-all duration-300 relative group ${
                         isActiveLink(link.href)
-                          ? "w-full"
-                          : "group-hover:w-full"
+                          ? "text-white font-semibold"
+                          : "text-gray-400"
                       }`}
-                    />
-                  </Link>
+                    >
+                      {link.label}
+                      {link.dropdown && (
+                        <span className="ml-1 inline-block">
+                          <svg
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              activeDropdown === link.id ? "rotate-180" : ""
+                            }`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        </span>
+                      )}
+                      <span
+                        className={`absolute -bottom-1 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 ease-out ${
+                          isActiveLink(link.href)
+                            ? "w-full"
+                            : "group-hover:w-full"
+                        }`}
+                      />
+                    </Link>
+                    {link.dropdown && activeDropdown === link.id && (
+                      <>
+                        {/* Invisible bridge to prevent dropdown from closing */}
+                        <div className="absolute left-0 w-full h-2" />
+                        <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-slate-800 ring-1 ring-black ring-opacity-5">
+                          <div
+                            className="rounded-md"
+                            role="menu"
+                            aria-orientation="vertical"
+                          >
+                            {link.dropdown.map((item, index) => (
+                              <Link
+                                key={index}
+                                href={item.url}
+                                className={`block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-white transition-colors duration-200 ${
+                                  index === 0 ? "rounded-t-md" : ""
+                                } ${
+                                  index === (link.dropdown?.length ?? 0) - 1
+                                    ? "rounded-b-md"
+                                    : ""
+                                }`}
+                                role="menuitem"
+                              >
+                                {item.text}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
                 ))}
               </div>
             </div>
