@@ -1,17 +1,15 @@
 "use client";
+import { Autoplay, Pagination, Navigation, EffectCards } from "swiper/modules";
 import { useInView } from "react-intersection-observer";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { motion } from "framer-motion";
 import CountUp from "react-countup";
-import Link from "next/link";
+import "swiper/css/effect-cards";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import Image from "next/image";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import 'swiper/css/effect-cards';
-// Import required modules
-import { Autoplay, Pagination, Navigation, EffectCards } from 'swiper/modules';
+import Link from "next/link";
+import "swiper/css";
 
 interface Testimonial {
   id: number;
@@ -26,88 +24,191 @@ const testimonials: Testimonial[] = [
   {
     id: 1,
     name: "Calissa Group",
-    thoughts: "Bu komanda ilə işləmək bizim rəqəmsal mövcudluğumuzu dəyişdi. Onların innovativ həlləri bizə yeni zirvələrə çatmağa kömək etdi.",
+    thoughts:
+      "Bu komanda ilə işləmək bizim rəqəmsal mövcudluğumuzu dəyişdi. Onların innovativ həlləri bizə yeni zirvələrə çatmağa kömək etdi.",
     role: "Turizm",
     // companyLogo: "/logos/calissa.svg",
-    instagramUrl: "https://instagram.com/calissagroup"
+    instagramUrl: "https://instagram.com/calissagroup",
   },
   {
     id: 2,
     name: "Mirror Studio",
-    thoughts: "Fövqəladə yaradıcılıq və texniki bacarıq. Onlar gözləntilərimizdən də yüksək nəticələr əldə etdilər.",
+    thoughts:
+      "Fövqəladə yaradıcılıq və texniki bacarıq. Onlar gözləntilərimizdən də yüksək nəticələr əldə etdilər.",
     role: "İnteryer dizayn",
     // companyLogo: "/logos/mirror.svg",
-    instagramUrl: "https://instagram.com/mirror.cgi"
+    instagramUrl: "https://instagram.com/mirror.cgi",
   },
   {
     id: 3,
     name: "21 Couture House",
-    thoughts: "Onların diqqətli yanaşması və brendimizi başa düşməsi rəqəmsal transformasiyamızda böyük fərq yaratdı.",
+    thoughts:
+      "Onların diqqətli yanaşması və brendimizi başa düşməsi rəqəmsal transformasiyamızda böyük fərq yaratdı.",
     role: "Lüks geyim",
     // companyLogo: "/logos/21couture.svg",
-    instagramUrl: "https://instagram.com/21couturehouse"
+    instagramUrl: "https://instagram.com/21couturehouse",
   },
   {
     id: 4,
     name: "Flora Atelye",
-    thoughts: "Hər layihəyə həm yaradıcılıq, həm də strateji düşüncə gətirən həqiqətən peşəkar komanda.",
+    thoughts:
+      "Hər layihəyə həm yaradıcılıq, həm də strateji düşüncə gətirən həqiqətən peşəkar komanda.",
     role: "Geyim dizaynı",
     // companyLogo: "/logos/flora.svg",
-    instagramUrl: "https://instagram.com/flora.atelye"
+    instagramUrl: "https://instagram.com/flora.atelye",
   },
   {
     id: 5,
     name: "Wild Athletic",
-    thoughts: "Əla xidmət və nəticələr. Onlar auditoriyamızla rezonans yaradan güclü onlayn mövcudluq yaratmağımıza kömək etdilər.",
+    thoughts:
+      "Əla xidmət və nəticələr. Onlar auditoriyamızla rezonans yaradan güclü onlayn mövcudluq yaratmağımıza kömək etdilər.",
     role: "İdman geyimləri",
     // companyLogo: "/logos/wild.svg",
-    instagramUrl: "https://instagram.com/wildathleticc"
+    instagramUrl: "https://instagram.com/wildathleticc",
   },
 ];
 
 interface Service {
+  id: number;
   title: string;
   description: string;
-  icon: string;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 const services: Service[] = [
   {
+    id: 1,
     title: "Vebsayt hazırlama",
-    description: "Biznesiniz üçün müasir, funksional və estetik vebsaytlar hazırlayırıq.",
-    icon: "💻",
+    description: "Müasir və responsive vebsaytların hazırlanması",
+    icon: ({ className }) => (
+      <svg
+        className={className}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        />
+      </svg>
+    ),
   },
   {
-    title: "UI/UX dizayn",
-    description:
-      "Müştəri tərəfindən təklif olunan xidmətlərimizin əsasını təşkil edir.",
-    icon: "🎨",
+    id: 2,
+    title: "UX/UI dizayn",
+    description: "İstifadəçi təcrübəsini təkmilləşdirən dizayn həlləri",
+    icon: ({ className }) => (
+      <svg
+        className={className}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+        />
+      </svg>
+    ),
   },
   {
+    id: 3,
     title: "Rəqəmsal marketinq",
-    description:
-      "Onlayn mövcudluğunuzu artırmaq üçün strateji marketinq həlləri təqdim edirik.",
-    icon: "📈",
+    description: "Effektiv rəqəmsal marketinq strategiyaları",
+    icon: ({ className }) => (
+      <svg
+        className={className}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+        />
+      </svg>
+    ),
   },
   {
-    title: "Sosial media mərkəzləşmə",
-    description:
-      "Brend məlumatlılığını və müştəri cəlb edilməsini artırmaq üçün sosial media platformalarında auditoriya ilə əlaqə.",
-    icon: "💬",
+    id: 4,
+    title: "Sosial Media Marketinqi",
+    description: "Sosial media platformalarında effektiv marketinq",
+    icon: ({ className }) => (
+      <svg
+        className={className}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+        />
+      </svg>
+    ),
   },
   {
+    id: 5,
     title: "Məzmun yaratma",
-    description:
-      "Müştəriləri cəlb etmək və saxlamaq üçün maraqlı və məlumatlandırıcı məzmun yaradırıq.",
-    icon: "📝",
+    description: "Keyfiyyətli və cəlbedici məzmun yaradılması",
+    icon: ({ className }) => (
+      <svg
+        className={className}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+        />
+      </svg>
+    ),
   },
   {
-    title: "Grafik dizayn",
-    description:
-      "Brendiniz və marketinq materiallarınız üçün vizual cəhətdən cəlbedici qrafika yaradırıq.",
-    icon: "🎨",
+    id: 6,
+    title: "Qrafik dizayn",
+    description: "Profesional qrafik dizayn həlləri",
+    icon: ({ className }) => (
+      <svg
+        className={className}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+        />
+      </svg>
+    ),
   },
-]
+];
 
 interface StatItem {
   id: number;
@@ -143,177 +244,93 @@ const stats: StatItem[] = [
   },
 ];
 
-interface TeamMember {
-  name: string;
-  role: string;
-  image: string;
-  bio: string;
-  social: {
-    linkedin?: string;
-    instagram?: string;
-    github?: string;
-  };
-}
-
-const teamMembers: TeamMember[] = [
-  {
-    name: "Elnur Hüseynov",
-    role: "Baş Mühəndis",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-    social: {
-      linkedin: "#",
-      github: "#",
-      instagram: "#"
-    }
-  },
-  {
-    name: "Nihad Hüseynov",
-    role: "Frontend Mühəndisi",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-    social: {
-      linkedin: "#",
-      github: "#",
-      instagram: "#"
-    }
-  },
-  {
-    name: "Camal Hüseynov",
-    role: "Backend Mühəndisi",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-    social: {
-      linkedin: "#",
-      github: "#",
-      instagram: "#"
-    }
-  },
-  {
-    name: "Aynur Məmmədova",
-    role: "UI/UX Dizayner",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-    social: {
-      linkedin: "#",
-      github: "#",
-      instagram: "#"
-    }
-  },
-  {
-    name: "Leyla Əliyeva",
-    role: "Layihə Meneceri",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-    social: {
-      linkedin: "#",
-      github: "#",
-      instagram: "#"
-    }
-  },
-  {
-    name: "Rəşad Məmmədov",
-    role: "DevOps Mühəndisi",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-    social: {
-      linkedin: "#",
-      github: "#",
-      instagram: "#"
-    }
-  },
-  {
-    name: "Səbinə Həsənova",
-    role: "Digital Marketing",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-    social: {
-      linkedin: "#",
-      github: "#",
-      instagram: "#"
-    }
-  },
-  {
-    name: "Orxan Nəzərov",
-    role: "Mobil Tətbiq Mühəndisi",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-    social: {
-      linkedin: "#",
-      github: "#",
-      instagram: "#"
-    }
-  },
-  {
-    name: "Günel Əhmədova",
-    role: "QA Mütəxəssisi",
-    image: "/images/team/nihad.jpg",
-    bio: "5+ illik təcrübə ilə innovativ texnologiya həllərinin yaradılması",
-    social: {
-      linkedin: "#",
-      github: "#",
-      instagram: "#"
-    }
-  }
-];
-
-// interface FAQ {
-//   id: number;
-//   question: string;
-//   answer: string;
-// }
-
-// const faqs: FAQ[] = [
-//   {
-//     id: 1,
-//     question: "Layihənin müddəti nə qədərdir?",
-//     answer: "Layihənin müddəti onun mürəkkəbliyindən və tələblərindən asılı olaraq dəyişir. Ortalama bir vebsayt layihəsi 4-8 həftə çəkir."
-//   },
-//   {
-//     id: 2,
-//     question: "Hansı ödəniş üsullarını qəbul edirsiniz?",
-//     answer: "Biz bank köçürməsi, kredit kartı və digər rəqəmsal ödəniş metodlarını qəbul edirik. Ödənişlər mərhələli şəkildə həyata keçirilir."
-//   },
-//   {
-//     id: 3,
-//     question: "Layihə başa çatdıqdan sonra dəstək verirsinizmi?",
-//     answer: "Bəli, biz layihə təhvil verildikdən sonra texniki dəstək və təkmilləşdirmə xidmətləri təklif edirik."
-//   }
-// ];
-
-interface ProcessStep {
-  id: number;
-  title: string;
-  description: string;
-  icon: string;
-}
-
-const processSteps: ProcessStep[] = [
+const processSteps = [
   {
     id: 1,
-    title: "Konsultasiya",
-    description: "Layihənizi və hədəflərinizi başa düşmək üçün ilkin görüş keçiririk.",
-    icon: "🤝"
+    title: "Ehtiyaclarınızın Analizi",
+    description:
+      "Layihənizin məqsədlərini və hədəflərini dəqiq başa düşmək üçün ətraflı müzakirə",
   },
   {
     id: 2,
-    title: "Planlaşdırma",
-    description: "Detallı layihə planı və strategiya hazırlayırıq.",
-    icon: "📋"
+    title: "Strategiya və Planlaşdırma",
+    description: "Layihəniz üçün ən uyğun həlləri və yanaşmaları müəyyən etmək",
   },
   {
     id: 3,
-    title: "Dizayn",
-    description: "İstifadəçi təcrübəsini və interfeysi hazırlayırıq.",
-    icon: "🎨"
+    title: "İcra və İnkişaf",
+    description:
+      "Peşəkar komandamız tərəfindən layihənin keyfiyyətli şəkildə həyata keçirilməsi",
   },
   {
     id: 4,
-    title: "İnkişaf",
-    description: "Layihəni ən son texnologiyalarla həyata keçiririk.",
-    icon: "💻"
-  }
+    title: "Nəticələrin Analizi",
+    description:
+      "Layihənin effektivliyini qiymətləndirmək və təkmilləşdirmək üçün monitorinq",
+  },
 ];
+
+// interface BlogPost {
+//   id: number;
+//   title: string;
+//   excerpt: string;
+//   image: string;
+//   slug: string;
+// }
+
+// const blogPosts: BlogPost[] = [
+//   {
+//     id: 1,
+//     title: "Veb Dizaynın Əsas Prinsipləri",
+//     excerpt: "Müasir veb dizaynın əsas prinsipləri və trendləri haqqında",
+//     image: "/blog/web-design.jpg",
+//     slug: "web-design-principles",
+//   },
+//   {
+//     id: 2,
+//     title: "SEO Optimizasiyası",
+//     excerpt:
+//       "Veb saytınızın axtarış sistemlərində daha yaxşı görünməsi üçün tövsiyələr",
+//     image: "/blog/seo.jpg",
+//     slug: "seo-optimization",
+//   },
+//   {
+//     id: 3,
+//     title: "Rəqəmsal Marketinq Strategiyaları",
+//     excerpt: "Biznesiniz üçün effektiv rəqəmsal marketinq strategiyaları",
+//     image: "/blog/digital-marketing.jpg",
+//     slug: "digital-marketing-strategies",
+//   },
+// ];
+
+// interface Partner {
+//   id: number;
+//   name: string;
+//   logo: string;
+// }
+
+// const partners: Partner[] = [
+//   {
+//     id: 1,
+//     name: "Partner 1",
+//     logo: "/partners/partner1.png",
+//   },
+//   {
+//     id: 2,
+//     name: "Partner 2",
+//     logo: "/partners/partner2.png",
+//   },
+//   {
+//     id: 3,
+//     name: "Partner 3",
+//     logo: "/partners/partner3.png",
+//   },
+//   {
+//     id: 4,
+//     name: "Partner 4",
+//     logo: "/partners/partner4.png",
+//   },
+// ];
 
 const Homepage = () => {
   const { ref, inView } = useInView({
@@ -324,115 +341,131 @@ const Homepage = () => {
   return (
     <section>
       {/* Hero Section */}
-      <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Biz Rəqəmsal
-              <span className="text-blue-600"> Təcrübələr</span>
-              <br />
-              Yaradırıq
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Biz innovativ dizayn, proqramlaşdırma və marketinq həlləri ilə brendlərin inkişafına kömək edən kreativ rəqəmsal agentlikik.
-            </p>
-            <div className="flex justify-center gap-4">
-              <Link
-                href="/contact"
-                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+      <div className="relative min-h-auto md:min-h-[92.6vh] flex items-center">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/hero2.jpg"
+            alt="Hero Background"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/90 to-black/50" />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 w-full pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6"
               >
-                Bizimlə əlaqə
-              </Link>
-              <Link
-                href="/portfolio"
-                className="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+                Biznesinizi{" "}
+                <span className="bg-gradient-to-r from-[#15B6B0] to-[#20C943] bg-clip-text text-transparent">
+                  Creadive
+                </span>{" "}
+                ilə <br />
+                gücləndirin
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-lg text-gray-200 mb-8 max-w-3xl mx-auto"
               >
-                İşlərimiz
-              </Link>
+                Biz innovativ dizayn, vebsayt və marketinq həlləri ilə{" "}
+                <span className="bg-gradient-to-l from-[#15B6B0] to-[#20C943] bg-clip-text text-transparent font-bold">
+                  brendlərin
+                </span>{" "}
+                inkişafına kömək edən kreativ rəqəmsal agentlikik.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full md:w-max mx-auto"
+              >
+                <Link
+                  href="/contact"
+                  className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                >
+                  Bizimlə əlaqə
+                </Link>
+                <Link
+                  href="/portfolio"
+                  className="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-8 py-3 rounded-lg font-medium hover:bg-white/20 transition-colors"
+                >
+                  İşlərimiz
+                </Link>
+              </motion.div>
             </div>
           </div>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        >
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-1.5 h-1.5 bg-white rounded-full mt-2"
+            />
+          </div>
+        </motion.div>
       </div>
 
       {/* Services Section */}
-      <div id="services" className="py-20 bg-gray-50">
+      <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Xidmətlərimiz
             </h2>
             <p className="text-xl text-gray-600">
-              Təcrübəli komandamız tərəfindən təklif olunan xidmətlər
+              Biznesiniz üçün ən yaxşı həlləri təklif edirik
             </p>
-          </div>
-          <div className="services-slider-container">
-            <Swiper
-              slidesPerView={1}
-              spaceBetween={20}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: true,
-              }}
-              pagination={{
-                clickable: true,
-              }}
-              navigation={true}
-              breakpoints={{
-                640: {
-                  slidesPerView: 2,
-                },
-                768: {
-                  slidesPerView: 2,
-                },
-                1024: {
-                  slidesPerView: 3,
-                }
-              }}
-              modules={[Autoplay, Pagination, Navigation]}
-              className="services-swiper"
-            >
-              {services.map((service, index) => (
-                <SwiperSlide key={index}>
-                  <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 h-full group relative overflow-hidden">
-                    {/* Gradient Background Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                    {/* Icon with Background */}
-                    <div className="relative mb-6">
-                      <div className="w-16 h-16 flex items-center justify-center rounded-lg bg-blue-50 group-hover:bg-blue-100 transition-colors duration-300">
-                        <span className="text-4xl transform group-hover:scale-110 transition-transform duration-300">
-                          {service.icon}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="relative">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 line-clamp-3">
-                        {service.description}
-                      </p>
-
-                      {/* Learn More Link */}
-                      <div className="mt-4 inline-flex items-center text-blue-600 font-medium opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                        Ətraflı
-                        <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-gradient-to-br from-blue-50 via-blue-100 via-50% to-blue-200 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="text-blue-600 mb-4">
+                  <service.icon className="w-12 h-12" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600">{service.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Portfolio Section */}
-      <div className="py-20">
+      {/* <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -443,7 +476,15 @@ const Homepage = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Add your portfolio items here */}
+            <div className="bg-white p-8 rounded-xl shadow-sm">
+              <div className="text-4xl mb-4">🎯</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Creadive Agentliyi
+              </h3>
+              <p className="text-gray-600">
+                Hər bir layihəyə fərdi və peşəkar yanaşma tətbiq edirik
+              </p>
+            </div>
           </div>
           <div className="text-center mt-12">
             <Link
@@ -454,30 +495,46 @@ const Homepage = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Statistics Section */}
-      <div className="bg-blue-600 py-20" ref={ref}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat) => (
-              <div key={stat.id} className="text-center">
-                <div className="text-4xl font-bold text-white mb-2">
+      <div className="px-4" ref={ref}>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-gradient-to-b from-blue-600 to-black py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-3xl"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="text-6xl font-bold text-white mb-2">
                   {inView ? (
                     <CountUp
                       end={stat.end}
                       duration={2.5}
+                      separator=","
                       suffix={stat.suffix}
                     />
                   ) : (
-                    `0${stat.suffix}`
+                    "0"
                   )}
                 </div>
-                <div className="text-white">{stat.label}</div>
-              </div>
+                <div className="text-xl font-normal text-white">
+                  {stat.label}
+                </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Why Choose Us Section */}
@@ -485,13 +542,13 @@ const Homepage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Niyə Bizi Seçməlisiniz
+              Niyə Creadive?
             </h2>
             <p className="text-xl text-gray-600">
               Bizi fərqləndirən xüsusiyyətlər
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             <div className="bg-white p-8 rounded-xl shadow-sm">
               <div className="text-4xl mb-4">🎯</div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -516,181 +573,109 @@ const Homepage = () => {
                 İnnovativ Həllər
               </h3>
               <p className="text-gray-600">
-                Ən son texnologiyalardan istifadə edərək innovativ həllər təklif edirik
+                Ən son texnologiyalardan istifadə edərək innovativ həllər təklif
+                edirik
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Team Section */}
-      <div className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Komandamız
-            </h2>
-            <p className="text-xl text-gray-600">
-              Peşəkar və təcrübəli komandamızla tanış olun
-            </p>
-          </div>
-          <div className="team-slider-container">
-            <Swiper
-              // slidesPerView={1}
-              spaceBetween={20}
-              centeredSlides={false}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: true,
-              }}
-              pagination={{
-                clickable: true,
-              }}
-              navigation={true}
-              breakpoints={{
-                640: {
-                  slidesPerView: 1,
-                },
-                768: {
-                  slidesPerView: 2,
-                },
-                1024: {
-                  slidesPerView: 3,
-                },
-                1280: {
-                  slidesPerView: 4,
-                },
-              }}
-              modules={[Autoplay, Pagination, Navigation]}
-              className="team-swiper"
-            >
-              {teamMembers.map((member) => (
-                <SwiperSlide key={member.name}>
-                  <div className="bg-white rounded-xl overflow-hidden group">
-                    {/* Image Container with Overlay */}
-                    <div className="relative h-64 overflow-hidden">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                      {/* Social Icons - Show on Hover */}
-                      <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-4 translate-y-10 group-hover:-translate-y-2 transition-transform duration-300">
-                        {member.social.linkedin && (
-                          <a
-                            href={member.social.linkedin}
-                            className="bg-white/10 backdrop-blur-sm p-2 rounded-full hover:bg-white/20 transition-colors"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="LinkedIn"
-                          >
-                            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                            </svg>
-                          </a>
-                        )}
-                        {member.social.github && (
-                          <a
-                            href={member.social.github}
-                            className="bg-white/10 backdrop-blur-sm p-2 rounded-full hover:bg-white/20 transition-colors"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="GitHub"
-                          >
-                            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                          </a>
-                        )}
-                        {member.social.instagram && (
-                          <a
-                            href={member.social.instagram}
-                            className="bg-white/10 backdrop-blur-sm p-2 rounded-full hover:bg-white/20 transition-colors"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram"
-                          >
-                            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                            </svg>
-                          </a>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Content Section */}
-                    <div className="p-6">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                        {member.name}
-                      </h3>
-                      <p className="text-blue-600 font-medium mb-3">
-                        {member.role}
-                      </p>
-                      <p className="text-gray-600 text-sm">
-                        {member.bio}
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </div>
-      </div>
-
       {/* Blog Section */}
-      <div className="py-20 bg-gray-50">
+      {/* <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Bloq
+              Blog
             </h2>
             <p className="text-xl text-gray-600">
-              Son məqalələrimiz və xəbərlərimiz
+              Son xəbərlər və məqalələr
             </p>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Add your blog posts here */}
-          </div>
-          <div className="text-center mt-12">
-            <Link
-              href="/blog"
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-            >
-              Bütün məqalələri oxuyun
-            </Link>
+            {blogPosts.map((post, index) => (
+              <motion.div
+                key={post.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="relative h-48">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">{post.excerpt}</p>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="text-blue-600 hover:text-blue-700 font-medium"
+                  >
+                    Ətraflı oxu →
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Process Steps Section */}
-      <div className="py-20">
+      <div className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               İş Prosesimiz
             </h2>
             <p className="text-xl text-gray-600">
-              Layihələri necə həyata keçiririk
+              Layihələrimizi necə həyata keçiririk
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {processSteps.map((step) => (
-              <div key={step.id} className="relative">
-                {step.id !== processSteps.length && (
-                  <div className="hidden lg:block absolute top-1/2 right-0 w-full h-0.5 bg-gray-200 transform translate-y-1/2" />
-                )}
-                <div className="relative bg-white p-8 rounded-xl shadow-sm z-10">
-                  <div className="text-4xl mb-4">{step.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600">{step.description}</p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {processSteps.map((step, index) => (
+              <motion.div
+                key={step.id}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="text-center relative"
+              >
+                <div className="relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-black rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                    {step.id}
+                  </div>
+                  {index < processSteps.length - 1 && (
+                    <div className="hidden md:block absolute top-8 left-[65.5%] w-[80%] h-0.5 bg-blue-600" />
+                  )}
                 </div>
-              </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed max-w-[200px] mx-auto">
+                  {step.description}
+                </p>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -731,68 +716,69 @@ const Homepage = () => {
         </div>
       </div> */}
 
-      {/* FAQ Section */}
-      {/* <div className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Tez-tez verilən suallar
-            </h2>
-            <p className="text-xl text-gray-600">
-              Ən çox soruşulan suallara cavablar
-            </p>
-          </div>
-          <div className="grid gap-8 max-w-3xl mx-auto">
-            {faqs.map((faq) => (
-              <div key={faq.id} className="bg-white p-8 rounded-xl shadow-sm">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  {faq.question}
-                </h3>
-                <p className="text-gray-600">
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div> */}
-
       {/* Partners Section */}
       {/* <div className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Partnyorlarımız
+              Tərəfdaşlarımız
             </h2>
             <p className="text-xl text-gray-600">
-              Bizə etibar edən şirkətlər
+              Bizimlə əməkdaşlıq edən şirkətlər
             </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((partner) => (
-              <div key={partner} className="flex items-center justify-center p-4">
-                <div className="w-32 h-20 bg-gray-200 rounded-lg" />
-              </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          >
+            {partners.map((partner, index) => (
+              <motion.div
+                key={partner.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex items-center justify-center"
+              >
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  width={150}
+                  height={60}
+                  className="opacity-50 hover:opacity-100 transition-opacity"
+                />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div> */}
 
       {/* Contact CTA Section */}
       <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-blue-600 rounded-2xl py-12 px-8 md:px-12 flex flex-col md:flex-row items-center justify-between">
+          <div className="bg-gradient-to-tl from-slate-950 to-emerald-600 rounded-2xl py-16 px-8 md:px-12 flex flex-col md:flex-row items-center justify-between">
             <div className="text-center md:text-left mb-8 md:mb-0">
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 Layihənizi müzakirə edək
               </h2>
-              <p className="text-white text-lg">
+              <p className="text-white text-base font-light">
                 Bizimlə əlaqə saxlayın və layihənizi həyata keçirək
               </p>
             </div>
             <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-blue-600 transition-colors"
+              // href="/contact"
+              href="https://wa.me/994105319987"
+              target="_blank"
+              className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-blue-600 transition-colors w-full md:w-max"
             >
               Bizə yazın
             </Link>
@@ -813,10 +799,10 @@ const Homepage = () => {
           </div>
           <div className="max-w-4xl mx-auto">
             <Swiper
-              effect={'cards'}
+              effect={"cards"}
               grabCursor={true}
               centeredSlides={true}
-              slidesPerView={'auto'}
+              slidesPerView={"auto"}
               autoplay={{
                 delay: 3000,
                 disableOnInteraction: false,
@@ -846,7 +832,9 @@ const Homepage = () => {
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                           </svg>
                         </div>
-                        <div className="text-sm text-gray-500">{testimonial.role}</div>
+                        <div className="text-sm text-gray-500">
+                          {testimonial.role}
+                        </div>
                       </div>
                     </div>
                     <div className="relative">
@@ -858,7 +846,9 @@ const Homepage = () => {
                       >
                         <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                       </svg>
-                      <p className="text-gray-600 text-lg italic relative pl-6">{testimonial.thoughts}</p>
+                      <p className="text-gray-600 text-sm italic relative pl-6">
+                        {testimonial.thoughts}
+                      </p>
                     </div>
                   </div>
                 </SwiperSlide>

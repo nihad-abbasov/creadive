@@ -27,12 +27,12 @@
 }
 
 .testimonials-swiper .swiper-pagination-bullet {
-  background: #3B82F6;
+  background: #3b82f6;
 }
 
 .testimonials-swiper .swiper-button-next,
 .testimonials-swiper .swiper-button-prev {
-  color: #3B82F6;
+  color: #3b82f6;
 }
 
 .testimonials-swiper .swiper-button-next:after,
@@ -42,8 +42,11 @@
 
 /* Team Swiper Styles */
 .team-slider-container {
-  padding: 20px 40px;
   position: relative;
+}
+
+.team-slider-container .swiper-pagination {
+  bottom: -5px !important;
 }
 
 .team-swiper {
@@ -64,7 +67,7 @@
 }
 
 .team-swiper .swiper-pagination-bullet {
-  background: #3B82F6;
+  background: #3b82f6;
   opacity: 0.5;
 }
 
@@ -74,7 +77,7 @@
 
 .team-swiper .swiper-button-next,
 .team-swiper .swiper-button-prev {
-  color: #3B82F6;
+  color: #3b82f6;
   width: 40px;
   height: 40px;
   background: white;
@@ -89,8 +92,39 @@
 
 .team-swiper .swiper-button-next:hover,
 .team-swiper .swiper-button-prev:hover {
-  background: #3B82F6;
+  background: #3b82f6;
   color: white;
+}
+
+.services-slider-container .swiper-button-prev {
+  left: 0;
+}
+
+.services-slider-container .swiper-button-next {
+  right: 0;
+}
+
+.services-slider-container .swiper-button-next:after,
+.services-slider-container .swiper-button-prev:after {
+  font-size: 16px;
+}
+
+.services-slider-container .swiper-pagination {
+  display: none;
+}
+
+.team_section .swiper-button-next,
+.team_section .swiper-button-prev {
+  color: #3b82f6;
+}
+
+.team_section .swiper-button-next:after,
+.team_section .swiper-button-prev:after {
+  font-size: 18px;
+}
+
+.team_section .swiper-pagination {
+  display: none;
 }
 
 /* CUSTOM SCROLLBAR */
