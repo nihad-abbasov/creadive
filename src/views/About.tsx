@@ -37,10 +37,20 @@ const teamMembers: TeamMember[] = [
     name: "Ənvər Nağıyev",
     role: "Rəqəmsal Marketinq Mütəxəssisi",
     image: "/images/team/enver.jpeg",
-    bio: "5+ illik təcrübə ilə rəqəmsal marketinq strategiyaları və sosial media kampaniyalarının idarə edilməsi",
+    bio: "5+ illik təcrübə ilə rəqəmsal marketinq strategiyaları və sosial media kampaniyalarının idarə edilməsi. Ən yaxşı nəticələri əldə etmək üçün müxtəlif marketinq texnikalarını və proqram tətbiqlərini tətbiq edir.",
     social: {
       linkedin: "https://www.linkedin.com/in/enver-nagiyev-digital",
       instagram: "https://www.instagram.com/enver_nagiyeff",
+    },
+  },
+  {
+    name: "Cavid Məmmədli",
+    role: "Creative Dizayner",
+    image: "/images/team/javid.jpg",
+    bio: "10+ illik təcrübə ilə kreativ dizayn və grafik dizayn sahəsində geniş biliklərə malikdir. Ən yaxşı nəticələri əldə etmək üçün müxtəlif dizayn texnikalarını və proqram tətbiqlərini tətbiq edir.",
+    social: {
+      // linkedin: "https://www.linkedin.com/in/cavid-mammadli",
+      instagram: "https://www.instagram.com/javid.mammadli__",
     },
   },
 ];
@@ -207,7 +217,7 @@ export default function About() {
                 <SwiperSlide key={member.name}>
                   <div className="bg-white/10 backdrop-blur-lg rounded-xl overflow-hidden group">
                     {/* Image Container with Overlay */}
-                    <div className="relative h-64 overflow-hidden">
+                    <div className="relative h-80 overflow-hidden">
                       <Image
                         src={member.image}
                         alt={member.name}

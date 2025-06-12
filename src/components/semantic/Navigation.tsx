@@ -151,7 +151,7 @@ export default function Navigation() {
                   >
                     <Link
                       href={link.href}
-                      className={`text-gray-100 hover:text-white transition-all duration-300 relative group ${
+                      className={`text-gray-100 hover:text-white transition-all duration-300 relative group flex flex-row items-center ${
                         isActiveLink(link.href)
                           ? "text-white font-semibold"
                           : "text-gray-400"
