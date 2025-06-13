@@ -25,6 +25,20 @@ type NavLink = {
 const navLinks: NavLink[] = [
   {
     id: 1,
+    href: "/services",
+    label: "Xidmətlər",
+    dropdown: [
+      { text: "Vebsayt", url: "/services?service=web-development" },
+      { text: "SMM", url: "/services?service=smm" },
+      { text: "Rəqəmsal marketinq", url: "/services?service=digital-marketing" },
+      { text: "UI/UX Dizayn", url: "/services?service=ui-ux" },
+      { text: "SEO", url: "/services?service=seo" },
+      { text: "Qrafik Dizayn", url: "/services?service=graphic-design" },
+      { text: "Tarqetinq", url: "/services?service=targeting" },
+    ],
+  },
+  {
+    id: 2,
     href: "/about",
     label: "Haqqımızda",
     dropdown: [
@@ -33,20 +47,9 @@ const navLinks: NavLink[] = [
       { text: "FAQ", url: "/about/#faq_section" },
     ],
   },
-  {
-    id: 2,
-    href: "/services",
-    label: "Xidmətlər",
-    dropdown: [
-      { text: "Vebsayt", url: "/services/#website" },
-      { text: "SMM", url: "/services/#smm" },
-      { text: "Reqemsal marketinq", url: "/services/#digital-marketing" },
-    ],
-  },
-  // { id: 3, href: "/products", label: "Məhsullar" },
-  { id: 4, href: "/portfolio", label: "Portfolio" },
-  // { id: 5, href: "/blog", label: "Bloq" },
-  { id: 6, href: "/contact", label: "Əlaqə" },
+  { id: 3, href: "/portfolio", label: "Portfolio" },
+  { id: 4, href: "/blog", label: "Bloq" },
+  { id: 5, href: "/contact", label: "Əlaqə" },
 ];
 
 export default function Navigation() {
@@ -117,23 +120,20 @@ export default function Navigation() {
               >
                 <div className="relative w-6 h-6 flex items-center justify-center">
                   <span
-                    className={`absolute h-0.5 w-6 bg-gray-100 rounded-full transition-all duration-300 ease-in-out transform ${
-                      isMobileMenuOpen
-                        ? "rotate-45 translate-y-0"
-                        : "-translate-y-1.5"
-                    }`}
+                    className={`absolute h-0.5 w-6 bg-gray-100 rounded-full transition-all duration-300 ease-in-out transform ${isMobileMenuOpen
+                      ? "rotate-45 translate-y-0"
+                      : "-translate-y-1.5"
+                      }`}
                   />
                   <span
-                    className={`absolute h-0.5 w-6 bg-gray-100 rounded-full transition-all duration-300 ease-in-out ${
-                      isMobileMenuOpen ? "opacity-0" : "opacity-100"
-                    }`}
+                    className={`absolute h-0.5 w-6 bg-gray-100 rounded-full transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "opacity-0" : "opacity-100"
+                      }`}
                   />
                   <span
-                    className={`absolute h-0.5 w-6 bg-gray-100 rounded-full transition-all duration-300 ease-in-out transform ${
-                      isMobileMenuOpen
-                        ? "-rotate-45 translate-y-0"
-                        : "translate-y-1.5"
-                    }`}
+                    className={`absolute h-0.5 w-6 bg-gray-100 rounded-full transition-all duration-300 ease-in-out transform ${isMobileMenuOpen
+                      ? "-rotate-45 translate-y-0"
+                      : "translate-y-1.5"
+                      }`}
                   />
                 </div>
               </button>
@@ -151,19 +151,17 @@ export default function Navigation() {
                   >
                     <Link
                       href={link.href}
-                      className={`text-gray-100 hover:text-white transition-all duration-300 relative group flex flex-row items-center ${
-                        isActiveLink(link.href)
-                          ? "text-white font-semibold"
-                          : "text-gray-400"
-                      }`}
+                      className={`text-gray-100 hover:text-white transition-all duration-300 relative group flex flex-row items-center ${isActiveLink(link.href)
+                        ? "text-white font-semibold"
+                        : "text-gray-400"
+                        }`}
                     >
                       {link.label}
                       {link.dropdown && (
                         <span className="ml-1 inline-block">
                           <svg
-                            className={`w-4 h-4 transition-transform duration-200 ${
-                              activeDropdown === link.id ? "rotate-180" : ""
-                            }`}
+                            className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === link.id ? "rotate-180" : ""
+                              }`}
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -178,11 +176,10 @@ export default function Navigation() {
                         </span>
                       )}
                       <span
-                        className={`absolute -bottom-1 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 ease-out ${
-                          isActiveLink(link.href)
-                            ? "w-full"
-                            : "group-hover:w-full"
-                        }`}
+                        className={`absolute -bottom-1 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 ease-out ${isActiveLink(link.href)
+                          ? "w-full"
+                          : "group-hover:w-full"
+                          }`}
                       />
                     </Link>
                     {link.dropdown && activeDropdown === link.id && (
@@ -199,13 +196,11 @@ export default function Navigation() {
                               <Link
                                 key={index}
                                 href={item.url}
-                                className={`block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-white transition-colors duration-200 ${
-                                  index === 0 ? "rounded-t-md" : ""
-                                } ${
-                                  index === (link.dropdown?.length ?? 0) - 1
+                                className={`block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-white transition-colors duration-200 ${index === 0 ? "rounded-t-md" : ""
+                                  } ${index === (link.dropdown?.length ?? 0) - 1
                                     ? "rounded-b-md"
                                     : ""
-                                }`}
+                                  }`}
                                 role="menuitem"
                               >
                                 {item.text}
@@ -225,19 +220,17 @@ export default function Navigation() {
 
       {/* Mobile menu overlay */}
       <div
-        className={`md:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[9998] transition-opacity duration-300 ${
-          isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`md:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[9998] transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
         onClick={toggleMobileMenu}
         aria-hidden={!isMobileMenuOpen}
       />
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden fixed inset-y-0 right-0 w-[280px] bg-slate-900 z-[9999] transform transition-transform duration-300 ease-in-out h-screen ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-        // aria-hidden={!isMobileMenuOpen}
+        className={`md:hidden fixed inset-y-0 right-0 w-[280px] bg-slate-900 z-[9999] transform transition-transform duration-300 ease-in-out h-screen ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+      // aria-hidden={!isMobileMenuOpen}
       >
         <div className="flex flex-col h-full">
           {/* Menu Header */}
@@ -267,9 +260,8 @@ export default function Navigation() {
               <Link
                 key={link.id}
                 href={link.href}
-                className={`text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-slate-800/50 text-lg font-medium relative group ${
-                  isActiveLink(link.href) ? "bg-slate-800/50" : ""
-                }`}
+                className={`text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-slate-800/50 text-lg font-medium relative group ${isActiveLink(link.href) ? "bg-slate-800/50" : ""
+                  }`}
                 onClick={toggleMobileMenu}
                 style={{
                   animationDelay: `${index * 50}ms`,
@@ -282,9 +274,8 @@ export default function Navigation() {
               >
                 {link.label}
                 <span
-                  className={`absolute left-0 top-0 w-1 h-0 bg-white rounded-r-full transition-all duration-300 ease-out ${
-                    isActiveLink(link.href) ? "h-full" : "group-hover:h-full"
-                  }`}
+                  className={`absolute left-0 top-0 w-1 h-0 bg-white rounded-r-full transition-all duration-300 ease-out ${isActiveLink(link.href) ? "h-full" : "group-hover:h-full"
+                    }`}
                 />
               </Link>
             ))}

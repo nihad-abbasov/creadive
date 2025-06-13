@@ -25,7 +25,7 @@ export const InputTextField: FC<IInputTextField> = ({ ...props }) => {
           // className={`block text-sm font-medium mb-1 transition-colors duration-200 ${
           //   hasError ? "text-red-500" : "text-gray-700"
           // }`}
-          className="block text-sm font-medium mb-1 transition-colors duration-200 text-white"
+          className="block text-sm font-medium mb-1 transition-colors duration-200 text-black"
           htmlFor={props.label}
         >
           {props.label}

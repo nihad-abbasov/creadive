@@ -41,11 +41,6 @@ const footerLinks: FooterLink[] = [
     href: "/portfolio",
     label: "Portfolio",
   },
-  {
-    id: 7,
-    href: "/products",
-    label: "Məhsullarımız",
-  },
 ];
 
 type Service = {
@@ -57,37 +52,37 @@ type Service = {
 const services: Service[] = [
   {
     id: 1,
-    href: "/services#web-development",
+    href: "/services?service=web-development",
     label: "Vebsayt yaradılması",
   },
   {
     id: 2,
-    href: "/services#ui-ux",
+    href: "/services?service=ui-ux",
     label: "UX/UI dizayn",
   },
   {
     id: 3,
-    href: "/services#marketing",
+    href: "/services?service=digital-marketing",
     label: "Rəqəmsal marketinq",
   },
   {
     id: 4,
-    href: "/services#seo",
-    label: "SEO optimallaşdırma",
+    href: "/services?service=seo",
+    label: "SEO",
   },
   {
     id: 5,
-    href: "/services#graphic-design",
+    href: "/services?service=graphic-design",
     label: "Qrafik dizayn",
   },
   {
     id: 6,
-    href: "/services#smm",
+    href: "/services?service=smm",
     label: "SMM",
   },
   {
     id: 7,
-    href: "/services#targeting",
+    href: "/services?service=targeting",
     label: "Tarqetinq",
   },
 ];
@@ -157,7 +152,7 @@ const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-slate-900 to-blue-950 text-white py-12">
+    <footer className="bg-gradient-to-br from-slate-900 to-blue-950 text-white pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="flex flex-col items-start gap-2 md:gap-4">
@@ -169,7 +164,7 @@ export default function Footer() {
               <Logo />
             </Link>
             <p className="text-gray-400 text-sm">
-              İdeallarınızı həyata keçirək ✨
+              İdeallarınızı gerçəkləşdirək ✨
             </p>
           </div>
           <div className="flex flex-col items-start gap-2 md:gap-4">
@@ -243,7 +238,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+        <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm font-extralight">
           <p>&copy; {currentYear} Creadive. Bütün hüquqlar qorunur.</p>
         </div>
       </div>

@@ -1,5 +1,10 @@
 import Services from '@/views/Services';
+import { Suspense } from 'react';
 
 export default function ServicesPage() {
-  return <Services />;
+  return (
+    <Suspense>
+      <Services />
+    </Suspense>
+  )
 } 

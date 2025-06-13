@@ -170,12 +170,12 @@ export default function Blog() {
   );
 
   return (
-    <div className="py-16 min-h-screen bg-gradient-to-br from-[#1e2533] via-[#232b39] to-[#181f2a]">
+    <div className="py-16 min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-white mb-8 tracking-tight drop-shadow-lg">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-8 tracking-tight">
           Bloq
         </h1>
-        <p className="text-lg text-blue-100 text-center mb-12 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
           Agentliyimizin yenilikləri, məqalələri və xəbərləri.
         </p>
 
@@ -183,10 +183,11 @@ export default function Blog() {
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           <button
             onClick={() => setSelectedCategory(null)}
-            className={`px-4 py-2 rounded-full transition-colors duration-300 ${selectedCategory === null
-              ? "bg-blue-500 text-white"
-              : "bg-[#2a3444] text-gray-300 hover:bg-blue-500 hover:text-white"
-              }`}
+            className={`px-4 py-2 rounded-full transition-colors duration-300 ${
+              selectedCategory === null
+                ? "bg-blue-500 text-white"
+                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+            }`}
           >
             Hamısı
           </button>
@@ -194,10 +195,11 @@ export default function Blog() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full transition-colors duration-300 ${selectedCategory === category
-                ? "bg-blue-500 text-white"
-                : "bg-[#2a3444] text-gray-300 hover:bg-blue-500 hover:text-white"
-                }`}
+              className={`px-4 py-2 rounded-full transition-colors duration-300 ${
+                selectedCategory === category
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
             >
               {category}
             </button>
@@ -205,11 +207,11 @@ export default function Blog() {
         </div>
 
         {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.map((post) => (
             <article
               key={post.id}
-              className="group bg-[#232b39]/90 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100"
             >
               {/* Image Container */}
               <div className="relative h-48 overflow-hidden">
@@ -241,23 +243,23 @@ export default function Blog() {
                     className="w-10 h-10 rounded-full object-cover"
                   />
                   <div>
-                    <p className="text-sm text-gray-300">{post.author.name}</p>
-                    <p className="text-xs text-gray-400">{post.date}</p>
+                    <p className="text-sm text-gray-600">{post.author.name}</p>
+                    <p className="text-xs text-gray-500">{post.date}</p>
                   </div>
                 </div>
 
-                <h2 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
+                <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                   {post.title}
                 </h2>
-                <p className="text-gray-300 mb-4 line-clamp-2">
+                <p className="text-gray-600 mb-4 line-clamp-2">
                   {post.excerpt}
                 </p>
 
-                <div className="flex items-center justify-between pt-4 border-t border-gray-700">
-                  <span className="text-sm text-gray-400">
+                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                  <span className="text-sm text-gray-500">
                     {post.readTime} oxumaq
                   </span>
-                  <button className="text-blue-400 hover:text-blue-300 transition-colors duration-300">
+                  <button className="text-blue-600 hover:text-blue-700 transition-colors duration-300">
                     Ətraflı →
                   </button>
                 </div>
@@ -269,7 +271,7 @@ export default function Blog() {
         {/* No Results Message */}
         {filteredPosts.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-300 text-lg">
+            <p className="text-gray-600 text-lg">
               Bu kateqoriyada məqalə tapılmadı.
             </p>
           </div>

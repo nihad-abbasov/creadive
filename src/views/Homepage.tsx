@@ -341,7 +341,7 @@ const Homepage = () => {
   return (
     <section>
       {/* Hero Section */}
-      <div className="relative min-h-auto md:min-h-[92.6vh] flex items-center">
+      <div className="relative min-h-auto md:min-h-[93vh] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -498,7 +498,7 @@ const Homepage = () => {
       </div> */}
 
       {/* Statistics Section */}
-      <div className="px-4" ref={ref}>
+      <div className="px-4 pb-12" ref={ref}>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}

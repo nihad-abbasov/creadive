@@ -22,7 +22,7 @@ export const CFormProvider = <T extends FieldValues>({
 }: PropsWithChildren<IFormProviderProps<T>>) => (
   <FormProvider {...methods}>
     <form
-      className={`${className} w-full mt-2`}
+      className={`${className} w-full`}
       {...formProps}
       onSubmit={(e) => {
         e.stopPropagation();
