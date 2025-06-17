@@ -1,5 +1,6 @@
 "use client";
 
+import { ChevronUpIcon } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -35,24 +36,11 @@ export default function BackToTop() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.5 }}
                     onClick={scrollToTop}
-                    className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-gradient-to-r from-blue-500 to-black text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="fixed bottom-8 right-8 z-50 p-2 rounded-full bg-gradient-to-r from-blue-500 to-black text-white shadow-lg hover:shadow-xl transition-all duration-300"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M5 10l7-7m0 0l7 7m-7-7v18"
-                        />
-                    </svg>
+                    <ChevronUpIcon className="h-6 w-6" />
                 </motion.button>
             )}
         </AnimatePresence>

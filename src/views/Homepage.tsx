@@ -366,7 +366,7 @@ const Homepage = () => {
                 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6"
               >
                 Biznesinizi{" "}
-                <span className="bg-gradient-to-r from-[#15B6B0] to-[#20C943] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-l from-[#15B6B0] to-[#20C943] bg-clip-text text-transparent uppercase font-extrabold">
                   Creadive
                 </span>{" "}
                 ilə <br />
