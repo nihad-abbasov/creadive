@@ -2,6 +2,7 @@
 import { Autoplay, Pagination, Navigation, EffectCards } from "swiper/modules";
 import { useInView } from "react-intersection-observer";
 import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import "swiper/css/effect-cards";
@@ -332,11 +333,207 @@ const processSteps = [
 //   },
 // ];
 
+// PRICING DATA
+const pricingCategories = [
+  {
+    id: 'smm',
+    name: 'SMM Paketləri',
+    description: 'Sosial media idarəçiliyi üçün paketlərimiz.',
+    packages: [
+      {
+        id: 'roket',
+        name: 'ROKET paket',
+        price: '349 AZN',
+        features: [
+          '12 statik post',
+          '2 reels/motion video',
+          '6 hekayə dizaynı',
+        ],
+      },
+      {
+        id: 'kosmos',
+        name: 'KOSMOS paket',
+        price: '699 AZN',
+        features: [
+          '16 statik post',
+          '15 hekayə dizaynı',
+          '2 Motion video',
+          '2 Reels video',
+          'Xüsusi günlərə aid postların hazırlanması',
+          'Highlights bölməsinin hazırlanması',
+          'Targeting (1 kampaniya daxilində 10 post)',
+        ],
+        popular: true,
+      },
+      {
+        id: 'ulduz',
+        name: 'ULDUZ paket',
+        price: '999 AZN',
+        features: [
+          'Loqo hazırlanması',
+          '1 profesional video çəkiliş',
+          '30 hekayə dizaynı',
+          'Hər ay 1 giveaway/yarişma postu hazırlamaq',
+          'Targeting (1 kampaniya daxilində 15 post)',
+          'Sosial media hesablarının idarə edilməsi',
+          'Tiktok üzərindən reklam',
+        ],
+      },
+    ],
+    notIncluded: [
+      'Vergi',
+      'Reklam büdcəsi/xərcləri',
+      'Giveaway hədiyyələrinin xərcləri',
+    ],
+  },
+  {
+    id: 'website',
+    name: 'Vebsayt Paketləri',
+    description: 'Vebsayt hazırlanması üçün paketlərimiz.',
+    packages: [
+      {
+        id: 'landing',
+        name: 'Landing Page',
+        price: '600 AZN',
+        features: [
+          '1 səhifəlik vebsayt',
+          'Mobil uyğun dizayn',
+          'Əsas SEO optimizasiya',
+          'Sürətli yüklənmə',
+          '1 il hostinq və domen',
+        ],
+      },
+      {
+        id: 'business',
+        name: 'Biznes Vebsayt',
+        price: '900 AZN',
+        features: [
+          '5 səhifəyə qədər',
+          'Mobil və masaüstü uyğunluq',
+          'SEO optimizasiya',
+          'Admin panel',
+          'Əlaqə forması',
+          '1 il hostinq və domen',
+        ],
+        popular: true,
+      },
+      {
+        id: 'ecommerce',
+        name: 'E-ticarət',
+        price: '2000 AZN',
+        features: [
+          '10+ səhifə',
+          'Onlayn satış sistemi',
+          'Ödəniş inteqrasiyası',
+          'Admin panel',
+          'SEO və sürət optimizasiyası',
+          '1 il hostinq və domen',
+        ],
+      },
+    ],
+    notIncluded: [
+      'Əlavə dil dəstəyi',
+      'Premium plagin və ya modul lisenziyaları',
+      'Əlavə illik hostinq və domen haqqı',
+      'Məzmunun (text və şəkil) hazırlanması',
+      'SEO-nun tam audit və ya davamlı xidməti',
+      'Saytın davamlı texniki dəstəyi',
+      'Ödənişli üçüncü tərəf xidmətləri',
+      'Əlavə funksionallıq və ya fərdi proqramlaşdırma',
+    ],
+  },
+  {
+    id: 'design',
+    name: 'Dizayn Paketləri',
+    description: 'Qrafik və brendinq dizayn xidmətləri.',
+    packages: [
+      {
+        id: 'logo',
+        name: 'Logo Dizaynı',
+        price: '150 AZN',
+        features: [
+          '3 fərqli konsept',
+          '2 dəfə düzəliş imkanı',
+          'Final fayllar (PNG, SVG, JPG)',
+          'Rəng və şrift təlimatı',
+        ],
+      },
+      {
+        id: 'branding',
+        name: 'Brendinq Paketi',
+        price: '400 AZN',
+        features: [
+          'Logo dizaynı',
+          'Vizit kart dizaynı',
+          'Sosial media şablonları',
+          'Brend kitabçası',
+        ],
+      },
+      {
+        id: 'social',
+        name: 'Sosial Media Dizayn Paketi',
+        price: '70 AZN',
+        features: [
+          '3 post dizaynı',
+          '1 story dizaynı',
+          'Brend rənglərinə uyğun',
+          'Yüksək keyfiyyətli fayllar (JPG/PNG)',
+          '2 dəfə dəyişmə imkanı',
+        ],
+      },
+    ],
+    notIncluded: [
+      'Çap xərcləri',
+      'Stock şəkil və ya font lisenziyaları',
+      'Əlavə konsept və ya düzəlişlər',
+      'Animasiya və ya motion dizayn (paketdə yoxdursa)',
+      'Brend strategiyası və ya konsultasiya',
+      'Sosial media idarəçiliyi',
+      'Faylların əlavə formatlarda hazırlanması',
+    ],
+  },
+];
+
+// Add Checkmark SVG icon
+const CheckIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    {...props}
+    viewBox="0 0 20 20"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={props.className || "w-5 h-5 text-green-500"}
+  >
+    <polyline points="4 11 8 15 16 6" />
+  </svg>
+);
+
+// Add InfoIcon SVG
+const InfoIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    {...props}
+    viewBox="0 0 20 20"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.5}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={props.className || "w-6 h-6 text-red-500"}
+  >
+    <circle cx="10" cy="10" r="9" stroke="currentColor" strokeWidth="1.5" fill="#FEE2E2" />
+    <line x1="10" y1="7" x2="10" y2="11" stroke="currentColor" strokeWidth="1.5" />
+    <circle cx="10" cy="14" r="1" fill="currentColor" />
+  </svg>
+);
+
 const Homepage = () => {
   const { ref, inView } = useInView({
     threshold: 0.3,
     triggerOnce: true,
   });
+  const [activePricingTab, setActivePricingTab] = useState(pricingCategories[0].id);
 
   return (
     <section>
@@ -536,6 +733,100 @@ const Homepage = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Pricing Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="py-20 bg-gradient-to-br from-blue-50 via-white to-blue-100 relative"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Qiymət Paketləri</h2>
+            <p className="text-xl text-gray-600">Xidmətlərimiz üçün ən uyğun paketləri seçin</p>
+          </div>
+          {/* Tabs with animated underline */}
+          <div className="flex justify-center gap-2 md:gap-4 mb-10 relative">
+            {pricingCategories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActivePricingTab(cat.id)}
+                className={`relative px-2 md:px-6 py-2 rounded-full font-semibold transition-colors duration-200`}
+              >
+                {cat.name}
+                {activePricingTab === cat.id && (
+                  <motion.div
+                    layoutId="pricing-tab-underline"
+                    className="absolute left-0 right-0 -bottom-1 h-1 rounded-full bg-gradient-to-r from-blue-500 to-green-400"
+                    style={{ zIndex: 1 }}
+                  />
+                )}
+              </button>
+            ))}
+          </div>
+          {/* Tab Content */}
+          <div className="">
+            {pricingCategories.map((cat) => (
+              <div key={cat.id} className={activePricingTab === cat.id ? '' : 'hidden'}>
+                {cat.packages.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {cat.packages.map((pkg) => {
+                      const isPopular = pkg.popular;
+                      return (
+                        <div
+                          key={pkg.id}
+                          className={`relative bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 p-8 rounded-xl shadow-sm transition-all flex flex-col items-center border-2 ${isPopular ? 'border-blue-600 scale-105 shadow-lg z-10' : 'border-transparent'} hover:scale-[1.01] hover:shadow-xl duration-200`}
+                        >
+                          {isPopular && (
+                            <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg z-20">Ən Populyar</span>
+                          )}
+                          <h3 className="text-2xl font-bold text-blue-700 mb-2">{pkg.name}</h3>
+                          <div className="text-4xl font-extrabold mb-4 bg-gradient-to-r from-blue-600 to-green-400 bg-clip-text text-transparent flex flex-col items-center">{pkg.price}{cat.id === 'website' && pkg.name === "E-ticarət" && <span className="text-sm text-gray-500 font-normal">-dən başlayaraq</span>}</div>
+                          <ul className="mb-6 text-gray-700 text-left w-full max-w-xs mx-auto space-y-2">
+                            {pkg.features.map((feature, i) => (
+                              <li key={i} className="flex items-center gap-2">
+                                <CheckIcon className="w-5 h-5 text-green-500 flex-shrink-0" />
+                                <span className="text-sm">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                          <a
+                            href={`https://wa.me/994105319987?text=${encodeURIComponent(`Salam! Mən sizin saytınızdan ${cat.name} kateqoriyasından ${pkg.name} sifariş etmək istəyirəm.\nQiymət: ${pkg.price}\nZəhmət olmasa, mənimlə əlaqə saxlayın.`)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-auto bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gradient-to-r hover:from-blue-700 hover:to-green-500 hover:scale-105 transition-all duration-200 shadow-md flex items-center justify-center"
+                          >
+                            Sifariş et
+                          </a>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className="text-center text-gray-500 py-12 text-lg">Tezliklə əlavə olunacaq.</div>
+                )}
+                {['smm', 'website', 'design'].includes(cat.id) && cat.notIncluded && (
+                  <div className={`mt-10 max-w-xl mx-auto flex items-start gap-4 ${cat.id === 'smm' ? 'bg-red-100 border-red-300' : 'bg-yellow-100 border-yellow-300'} border rounded-xl shadow-sm p-5`}>
+                    <div className="pt-1">
+                      <InfoIcon className={`w-7 h-7 ${cat.id === 'smm' ? 'text-red-500' : 'text-yellow-500'}`} />
+                    </div>
+                    <div className="flex-1">
+                      <div className={`font-bold text-lg mb-2 ${cat.id === 'smm' ? 'text-red-800' : 'text-yellow-800'}`}>QİYMƏTLƏRƏ DAXİL DEYİL</div>
+                      <ul className={`list-disc list-inside space-y-1 text-base pl-2 ${cat.id === 'smm' ? 'text-red-900' : 'text-yellow-900'}`}>
+                        {cat.notIncluded.map((item, idx) => (
+                          <li key={idx}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
 
       {/* Why Choose Us Section */}
       <div className="py-20 bg-gray-50">
