@@ -1,189 +1,321 @@
 "use client";
 
+import { BlogDetailPost, blogDetailData } from "@/data/blogDetailData";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { BlogDetailPost, blogDetailData } from "@/data/blogDetailData";
 
 interface BlogDetailProps {
   blogPost: BlogDetailPost;
 }
 
 export default function BlogDetail({ blogPost }: BlogDetailProps) {
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.9, y: 20 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <div className="py-16 min-h-screen bg-white">
+    <motion.div
+      className="py-16 min-h-screen bg-white"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       <div className="max-w-4xl mx-auto px-4">
         {/* Breadcrumb */}
-        <nav className="mb-8">
+        <motion.nav className="mb-8" variants={itemVariants}>
           <ol className="flex items-center space-x-2 text-sm text-gray-600">
             <li>
-              <Link href="/" className="hover:text-blue-600 transition-colors">
-                Əsas səhifə
-              </Link>
+              <motion.div whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>
+                <Link
+                  href="/"
+                  className="hover:text-blue-600 transition-colors"
+                >
+                  Əsas səhifə
+                </Link>
+              </motion.div>
             </li>
             <li>/</li>
             <li>
-              <Link href="/blog" className="hover:text-blue-600 transition-colors">
-                Bloq
-              </Link>
+              <motion.div whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>
+                <Link
+                  href="/blog"
+                  className="hover:text-blue-600 transition-colors"
+                >
+                  Bloq
+                </Link>
+              </motion.div>
             </li>
             <li>/</li>
             <li className="text-gray-900 font-medium">{blogPost.title}</li>
           </ol>
-        </nav>
+        </motion.nav>
 
         {/* Article Header */}
-        <article className="mb-12">
+        <motion.article className="mb-12" variants={containerVariants}>
           {/* Category Badge */}
-          <div className="mb-4">
-            <span className="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-full">
+          <motion.div className="mb-4" variants={itemVariants}>
+            <motion.span
+              className="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-full inline-block"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            >
               {blogPost.category}
-            </span>
-          </div>
+            </motion.span>
+          </motion.div>
 
           {/* Title */}
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+          <motion.h1
+            className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight"
+            variants={itemVariants}
+          >
             {blogPost.title}
-          </h1>
+          </motion.h1>
 
           {/* Author Info */}
-          <div className="flex items-center gap-4 mb-8">
-            <Image
-              src={blogPost.author.image}
-              alt={blogPost.author.name}
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="w-12 h-12 rounded-full object-cover"
-            />
+          {/* <motion.div
+            className="flex items-center gap-4 mb-8"
+            variants={itemVariants}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Image
+                src={blogPost.author.image}
+                alt={blogPost.author.name}
+                width={0}
+                height={0}
+                sizes="100vw"
+                className="w-12 h-12 rounded-full object-cover"
+              />
+            </motion.div>
             <div>
-              <p className="font-medium text-gray-900">{blogPost.author.name}</p>
+              <p className="font-medium text-gray-900">
+                {blogPost.author.name}
+              </p>
               <p className="text-sm text-gray-600">{blogPost.author.bio}</p>
-              <p className="text-sm text-gray-500">{blogPost.date} • {blogPost.readTime} oxumaq</p>
+              <p className="text-sm text-gray-500">
+                {blogPost.date} • {blogPost.readTime} oxumaq
+              </p>
             </div>
-          </div>
+          </motion.div> */}
 
           {/* Featured Image */}
-          <div className="relative h-64 md:h-96 mb-8 rounded-2xl overflow-hidden">
+          <motion.div
+            className="relative h-64 md:h-96 mb-8 rounded-2xl overflow-hidden"
+            variants={itemVariants}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
             <Image
               src={blogPost.image}
               alt={blogPost.title}
               fill
               className="object-cover"
             />
-          </div>
+          </motion.div>
 
           {/* Article Content */}
-          <div 
+          <motion.div
             className="prose prose-lg max-w-none"
+            variants={itemVariants}
             dangerouslySetInnerHTML={{ __html: blogPost.content }}
           />
 
           {/* Tags */}
-          <div className="mt-8 pt-8 border-t border-gray-200">
+          <motion.div
+            className="mt-8 pt-8 border-t border-gray-200"
+            variants={itemVariants}
+          >
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Tags:</h3>
             <div className="flex flex-wrap gap-2">
               {blogPost.tags.map((tag, index) => (
-                <span
+                <motion.span
                   key={index}
                   className="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
                 >
                   #{tag}
-                </span>
+                </motion.span>
               ))}
             </div>
-          </div>
-        </article>
+          </motion.div>
+        </motion.article>
 
         {/* Author Bio Section */}
-        <div className="bg-gray-50 rounded-2xl p-8 mb-12">
-          <h3 className="text-xl font-semibold text-gray-900 mb-4">Müəllif haqqında</h3>
+        {/* <motion.div
+          className="bg-gray-50 rounded-2xl p-8 mb-12"
+          variants={cardVariants}
+          whileHover={{
+            scale: 1.02,
+            y: -5,
+            transition: { duration: 0.2 },
+          }}
+        >
+          <motion.h3
+            className="text-xl font-semibold text-gray-900 mb-4"
+            whileHover={{ x: 5 }}
+            transition={{ duration: 0.2 }}
+          >
+            Müəllif haqqında
+          </motion.h3>
           <div className="flex items-start gap-4">
-            <Image
-              src={blogPost.author.image}
-              alt={blogPost.author.name}
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="w-16 h-16 rounded-full object-cover"
-            />
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Image
+                src={blogPost.author.image}
+                alt={blogPost.author.name}
+                width={0}
+                height={0}
+                sizes="100vw"
+                className="w-16 h-16 rounded-full object-cover"
+              />
+            </motion.div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2">{blogPost.author.name}</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">
+                {blogPost.author.name}
+              </h4>
               <p className="text-gray-600">{blogPost.author.bio}</p>
             </div>
           </div>
-        </div>
+        </motion.div> */}
 
         {/* Related Posts */}
-        <div className="border-t border-gray-200 pt-12">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Əlaqəli məqalələr</h3>
+        <motion.div
+          className="border-t border-gray-200 pt-12"
+          variants={containerVariants}
+        >
+          <motion.h3
+            className="text-2xl font-bold text-gray-900 mb-8"
+            variants={itemVariants}
+          >
+            Əlaqəli məqalələr
+          </motion.h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {blogPost.relatedPosts.map((relatedId) => {
-              const relatedPost = blogDetailData.find(post => post.id === relatedId);
+            {blogPost.relatedPosts.map((relatedId, index) => {
+              const relatedPost = blogDetailData.find(
+                (post) => post.id === relatedId
+              );
               if (!relatedPost) return null;
-              
+
               return (
-                <Link
+                <motion.div
                   key={relatedPost.id}
-                  href={`/blog/${relatedPost.id}`}
-                  className="group block"
+                  variants={cardVariants}
+                  whileHover={{
+                    y: -10,
+                    scale: 1.02,
+                    transition: { duration: 0.3 },
+                  }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  <article className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
-                    <div className="relative h-48 overflow-hidden">
-                      <Image
-                        src={relatedPost.image}
-                        alt={relatedPost.title}
-                        width={0}
-                        height={0}
-                        sizes="100vw"
-                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <span className="px-2 py-1 text-xs font-medium text-white bg-blue-500/90 rounded-full">
-                          {relatedPost.category}
-                        </span>
+                  <Link
+                    href={`/blog/${relatedPost.id}`}
+                    className="group block"
+                  >
+                    <article className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
+                      <div className="relative h-48 overflow-hidden">
+                        <Image
+                          src={relatedPost.image}
+                          alt={relatedPost.title}
+                          width={0}
+                          height={0}
+                          sizes="100vw"
+                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute top-4 left-4">
+                          <span className="px-2 py-1 text-xs font-medium text-white bg-blue-500/90 rounded-full">
+                            {relatedPost.category}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="p-6">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                        {relatedPost.title}
-                      </h4>
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                        {relatedPost.excerpt}
-                      </p>
-                      <div className="flex items-center justify-between text-sm text-gray-500">
-                        <span>{relatedPost.author.name}</span>
-                        <span>{relatedPost.readTime}</span>
+                      <div className="p-6">
+                        <h4 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                          {relatedPost.title}
+                        </h4>
+                        <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                          {relatedPost.excerpt}
+                        </p>
+                        <div className="flex items-center justify-between text-sm text-gray-500">
+                          {/* <span>{relatedPost.author.name}</span> */}
+                          <span>{relatedPost.readTime}</span>
+                        </div>
                       </div>
-                    </div>
-                  </article>
-                </Link>
+                    </article>
+                  </Link>
+                </motion.div>
               );
             })}
           </div>
-        </div>
+        </motion.div>
 
         {/* Back to Blog */}
-        <div className="mt-12 text-center">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+        <motion.div className="mt-12 text-center" variants={itemVariants}>
+          <motion.div
+            whileHover={{
+              scale: 1.05,
+              y: -2,
+              transition: { duration: 0.2 },
+            }}
+            whileTap={{ scale: 0.95 }}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
             >
-              <path
-                fillRule="evenodd"
-                d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Bütün məqalələrə qayıt
-          </Link>
-        </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              Bütün məqalələrə qayıt
+            </Link>
+          </motion.div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
-} 
+}
