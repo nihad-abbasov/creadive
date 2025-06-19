@@ -255,7 +255,7 @@ export default function Navigation() {
                       >
                         {/* Invisible bridge to prevent dropdown from closing */}
                         <div className="absolute left-0 w-full h-2" />
-                        <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-slate-800 ring-1 ring-black ring-opacity-5">
+                        <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                           <div
                             className="rounded-md"
                             role="menu"
@@ -267,10 +267,11 @@ export default function Navigation() {
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.05 }}
+                                className="bg-white text-gray-900"
                               >
                                 <Link
                                   href={item.url}
-                                  className={`block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-white transition-colors duration-200 ${
+                                  className={`block px-4 py-2 text-sm text-gray-900 hover:bg-gray-200 hover:text-gray-900 transition-colors duration-200 ${
                                     index === 0 ? "rounded-t-md" : ""
                                   } ${
                                     index === (link.dropdown?.length ?? 0) - 1

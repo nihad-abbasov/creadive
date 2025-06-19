@@ -124,9 +124,9 @@ export default function About() {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
+        delayChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -135,9 +135,9 @@ export default function About() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   const cardVariants = {
@@ -147,9 +147,9 @@ export default function About() {
       scale: 1,
       y: 0,
       transition: {
-        duration: 0.5
-      }
-    }
+        duration: 0.5,
+      },
+    },
   };
 
   const teamCardVariants = {
@@ -159,24 +159,21 @@ export default function About() {
       y: 0,
       rotateY: 0,
       transition: {
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="py-16 min-h-screen bg-white"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
       <div className="max-w-7xl mx-auto px-4">
-        <motion.div
-          variants={itemVariants}
-          className="text-center mb-12"
-        >
-          <motion.h1 
+        <motion.div variants={itemVariants} className="text-center mb-12">
+          <motion.h1
             className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -184,35 +181,33 @@ export default function About() {
           >
             Haqqımızda
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-lg text-gray-600 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            Creadive — rəqəmsal dünyada brendinizi inkişaf etdirmək üçün etibarlı tərəfdaş
+            Creadive — rəqəmsal dünyada brendinizi inkişaf etdirmək üçün
+            etibarlı tərəfdaş
           </motion.p>
         </motion.div>
 
         {/* Mission, Vision & Values Section */}
-        <motion.section 
-          className="mb-20"
-          variants={containerVariants}
-        >
+        <motion.section className="mb-20" variants={containerVariants}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
             {sections.map((section, index) => (
               <motion.div
                 key={index}
                 variants={cardVariants}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.02,
                   y: -5,
-                  transition: { duration: 0.2 }
+                  transition: { duration: 0.2 },
                 }}
                 whileTap={{ scale: 0.98 }}
                 className="bg-gradient-to-br from-blue-900 via-blue-800 to-black p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <motion.h3 
+                <motion.h3
                   className="text-2xl font-bold text-white mb-4"
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
@@ -228,12 +223,12 @@ export default function About() {
         </motion.section>
 
         {/* Team Section */}
-        <motion.section 
-          id="team_section" 
+        <motion.section
+          id="team_section"
           className="mb-20"
           variants={containerVariants}
         >
-          <motion.h2 
+          <motion.h2
             className="text-3xl font-bold text-center text-gray-900 mb-12"
             variants={itemVariants}
           >
@@ -244,14 +239,14 @@ export default function About() {
               <motion.div
                 key={member.name}
                 variants={teamCardVariants}
-                whileHover={{ 
+                whileHover={{
                   y: -10,
                   rotateY: 5,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
                 className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
               >
-                <motion.div 
+                <motion.div
                   className="relative w-32 h-32 mx-auto mb-4"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
@@ -263,7 +258,7 @@ export default function About() {
                     className="rounded-full object-cover"
                   />
                 </motion.div>
-                <motion.h3 
+                <motion.h3
                   className="text-xl font-bold text-center text-gray-900 mb-2"
                   whileHover={{ color: "#2563eb" }}
                   transition={{ duration: 0.2 }}
@@ -272,7 +267,7 @@ export default function About() {
                 </motion.h3>
                 <p className="text-gray-600 text-center mb-4">{member.role}</p>
                 <p className="text-gray-600 text-center mb-6">{member.bio}</p>
-                <motion.div 
+                <motion.div
                   className="flex justify-center space-x-4 mt-4"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -309,18 +304,18 @@ export default function About() {
         </motion.section>
 
         {/* FAQ Section */}
-        <motion.section 
-          id="faq_section" 
+        <motion.section
+          id="faq_section"
           className="mb-20"
           variants={containerVariants}
         >
-          <motion.h2 
+          <motion.h2
             className="text-3xl font-bold text-center text-gray-900 mb-12"
             variants={itemVariants}
           >
             Tez-tez soruşulan suallar
           </motion.h2>
-          <motion.div 
+          <motion.div
             className="max-w-3xl mx-auto"
             variants={containerVariants}
           >
@@ -333,7 +328,9 @@ export default function About() {
                 className="mb-4 bg-white rounded-2xl border border-gray-100 overflow-hidden"
               >
                 <motion.button
-                  onClick={() => setOpenFaqId(openFaqId === faq.id ? null : faq.id)}
+                  onClick={() =>
+                    setOpenFaqId(openFaqId === faq.id ? null : faq.id)
+                  }
                   className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
                   whileHover={{ backgroundColor: "#f9fafb" }}
                   whileTap={{ scale: 0.98 }}
@@ -342,7 +339,7 @@ export default function About() {
                     {faq.question}
                   </span>
                   <motion.div
-                    animate={{ rotate: openFaqId === faq.id ? 180 : 0 }}
+                    animate={{ rotate: openFaqId === faq.id ? 0 : 180 }}
                     transition={{ duration: 0.2 }}
                   >
                     <IoIosArrowUp className="w-5 h-5 text-gray-500" />
@@ -357,7 +354,7 @@ export default function About() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <motion.div 
+                      <motion.div
                         className="px-6 py-4 text-gray-600"
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -374,19 +371,16 @@ export default function About() {
         </motion.section>
 
         {/* CTA Section */}
-        <motion.section 
-          className="text-center"
-          variants={itemVariants}
-        >
-          <motion.div 
+        <motion.section className="text-center" variants={itemVariants}>
+          <motion.div
             className="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
-              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
             }}
             whileTap={{ scale: 0.95 }}
           >
-            <motion.span 
+            <motion.span
               className="text-xl font-semibold block"
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
@@ -394,7 +388,10 @@ export default function About() {
               Bizimlə əməkdaşlıq etmək istəyirsiniz?
             </motion.span>
             <motion.div className="mt-2">
-              <Link href="/contact" className="underline text-lg font-bold hover:text-blue-100 transition-colors duration-300">
+              <Link
+                href="/contact"
+                className="underline text-lg font-bold hover:text-blue-100 transition-colors duration-300"
+              >
                 Əlaqə saxlayın
               </Link>
             </motion.div>
