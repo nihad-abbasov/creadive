@@ -52,16 +52,16 @@ const teamMembers: TeamMember[] = [
       instagram: "https://www.instagram.com/javid.mammadli__",
     },
   },
-  {
-    name: "Fuad Şahbazov",
-    role: "UX/UI Dizayner",
-    image: "/images/team/fuad.jpg",
-    bio: "10+ illik təcrübə ilə kreativ dizayn və grafik dizayn sahəsində geniş biliklərə malikdir. Ən yaxşı nəticələri əldə etmək üçün müxtəlif dizayn texnikalarını və proqram tətbiqlərini tətbiq edir.",
-    social: {
-      linkedin: "https://www.linkedin.com/in/fuad-shahbazov-048702159/",
-      instagram: "https://www.instagram.com/fuadd.012",
-    },
-  },
+  // {
+  //   name: "Fuad Şahbazov",
+  //   role: "UX/UI Dizayner",
+  //   image: "/images/team/fuad.jpg",
+  //   bio: "10+ illik təcrübə ilə kreativ dizayn və grafik dizayn sahəsində geniş biliklərə malikdir. Ən yaxşı nəticələri əldə etmək üçün müxtəlif dizayn texnikalarını və proqram tətbiqlərini tətbiq edir.",
+  //   social: {
+  //     linkedin: "https://www.linkedin.com/in/fuad-shahbazov-048702159/",
+  //     instagram: "https://www.instagram.com/fuadd.012",
+  //   },
+  // },
 ];
 
 const sections = [

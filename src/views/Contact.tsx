@@ -48,18 +48,17 @@ export default function Contact() {
     },
   });
 
-  const handleSubmit = async (data: ContactFormData) => {
+  const handleSubmit = async (formData: ContactFormData) => {
     try {
-      // Here you would typically make an API call to send the form data
-      console.log(data);
+      console.log(formData);
 
-      // Show success toast
       showToast("success", "Müraciətiniz uğurla göndərildi!");
 
-      // Reset form
-      methods.reset();
+      await setTimeout(() => {
+        methods.reset();
+      }, 2000);
+
     } catch (error) {
-      // Show error toast
       showToast(
         "error",
         `Müraciətiniz göndərilərkən xəta baş verdi. Zəhmət olmasa yenidən cəhd edin: ${error}`
@@ -86,7 +85,6 @@ export default function Contact() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}

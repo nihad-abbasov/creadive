@@ -10,7 +10,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Creadive - Yaradıcı Rəqəmsal Agentlik",
+  title: "Creadive - İdeallarınızı gerçəkləşdirək ✨",
   description:
     "Biz veb inkişaf, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik.",
 };

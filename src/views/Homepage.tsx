@@ -400,7 +400,6 @@ const pricingCategories = [
           'Mobil uyğun dizayn',
           'Əsas SEO optimizasiya',
           'Sürətli yüklənmə',
-          '1 il hostinq və domen',
         ],
       },
       {
@@ -413,7 +412,6 @@ const pricingCategories = [
           'SEO optimizasiya',
           'Admin panel',
           'Əlaqə forması',
-          '1 il hostinq və domen',
         ],
         popular: true,
       },
@@ -427,19 +425,15 @@ const pricingCategories = [
           'Ödəniş inteqrasiyası',
           'Admin panel',
           'SEO və sürət optimizasiyası',
-          '1 il hostinq və domen',
         ],
       },
     ],
     notIncluded: [
       'Əlavə dil dəstəyi',
-      'Premium plagin və ya modul lisenziyaları',
       'Əlavə illik hostinq və domen haqqı',
       'Məzmunun (text və şəkil) hazırlanması',
       'SEO-nun tam audit və ya davamlı xidməti',
       'Saytın davamlı texniki dəstəyi',
-      'Ödənişli üçüncü tərəf xidmətləri',
-      'Əlavə funksionallıq və ya fərdi proqramlaşdırma',
     ],
   },
   {
@@ -808,13 +802,13 @@ const Homepage = () => {
                   <div className="text-center text-gray-500 py-12 text-lg">Tezliklə əlavə olunacaq.</div>
                 )}
                 {['smm', 'website', 'design'].includes(cat.id) && cat.notIncluded && (
-                  <div className={`mt-10 max-w-xl mx-auto flex items-start gap-4 ${cat.id === 'smm' ? 'bg-red-100 border-red-300' : 'bg-yellow-100 border-yellow-300'} border rounded-xl shadow-sm p-5`}>
+                  <div className={`mt-10 max-w-xl mx-auto flex items-start gap-4 bg-red-100 border-red-300 border rounded-xl shadow-sm p-5`}>
                     <div className="pt-1">
-                      <InfoIcon className={`w-7 h-7 ${cat.id === 'smm' ? 'text-red-500' : 'text-yellow-500'}`} />
+                      <InfoIcon className={`w-7 h-7 text-red-500`} />
                     </div>
                     <div className="flex-1">
-                      <div className={`font-bold text-lg mb-2 ${cat.id === 'smm' ? 'text-red-800' : 'text-yellow-800'}`}>QİYMƏTLƏRƏ DAXİL DEYİL</div>
-                      <ul className={`list-disc list-inside space-y-1 text-base pl-2 ${cat.id === 'smm' ? 'text-red-900' : 'text-yellow-900'}`}>
+                      <div className={`font-bold text-base mb-2 text-red-800`}>QİYMƏTLƏRƏ DAXİL DEYİL</div>
+                      <ul className={`list-disc list-inside space-y-1 text-sm pl-2 ${cat.id === 'smm' ? 'text-red-900' : 'text-yellow-900'}`}>
                         {cat.notIncluded.map((item, idx) => (
                           <li key={idx}>{item}</li>
                         ))}
