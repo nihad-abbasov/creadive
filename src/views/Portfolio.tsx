@@ -1,10 +1,10 @@
 "use client";
 
+import { motion, AnimatePresence } from "framer-motion";
 import { Suspense, useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
 
 type PortfolioItem = {
   id: number;
@@ -202,24 +202,24 @@ export default function Portfolio() {
                     </motion.div>
                   );
                 }
-                
+
                 return activeCategoryData.items.map((item, index) => (
                   <motion.div
                     key={item.id}
                     initial={{ opacity: 0, y: 30, scale: 0.9 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ 
-                      duration: 0.4, 
+                    transition={{
+                      duration: 0.4,
                       delay: index * 0.1,
                       ease: "easeOut"
                     }}
-                    whileHover={{ 
+                    whileHover={{
                       y: -8,
                       transition: { duration: 0.2 }
                     }}
                     className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
                   >
-                    <motion.div 
+                    <motion.div
                       className="relative aspect-video mb-4 overflow-hidden rounded-xl"
                       whileHover={{ scale: 1.02 }}
                       transition={{ duration: 0.2 }}
@@ -233,7 +233,7 @@ export default function Portfolio() {
                         className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-300"
                       />
                     </motion.div>
-                    <motion.h2 
+                    <motion.h2
                       className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300"
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}

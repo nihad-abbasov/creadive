@@ -1,6 +1,6 @@
-import { notFound } from 'next/navigation';
-import BlogDetail from '@/views/BlogDetail';
 import { blogDetailData } from '@/data/blogDetailData';
+import BlogDetail from '@/views/BlogDetail';
+import { notFound } from 'next/navigation';
 
 interface BlogDetailPageProps {
   params: Promise<{

@@ -117,142 +117,290 @@ const faqs = [
 export default function About() {
   const [openFaqId, setOpenFaqId] = useState<number | null>(null);
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.9, y: 20 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  const teamCardVariants = {
+    hidden: { opacity: 0, y: 50, rotateY: -15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotateY: 0,
+      transition: {
+        duration: 0.6
+      }
+    }
+  };
+
   return (
-    <div className="py-16 min-h-screen bg-white">
+    <motion.div 
+      className="py-16 min-h-screen bg-white"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-2 tracking-tight">
-          Haqqımızda
-        </h1>
-        <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Creadive — rəqəmsal dünyada brendinizi inkişaf etdirmək üçün etibarlı tərəfdaş
-        </p>
+        <motion.div
+          variants={itemVariants}
+          className="text-center mb-12"
+        >
+          <motion.h1 
+            className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight"
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            Haqqımızda
+          </motion.h1>
+          <motion.p 
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          >
+            Creadive — rəqəmsal dünyada brendinizi inkişaf etdirmək üçün etibarlı tərəfdaş
+          </motion.p>
+        </motion.div>
 
         {/* Mission, Vision & Values Section */}
-        <section className="mb-20">
+        <motion.section 
+          className="mb-20"
+          variants={containerVariants}
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
             {sections.map((section, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-gradient-to-br from-blue-900 via-blue-800 to-black p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                variants={cardVariants}
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -5,
+                  transition: { duration: 0.2 }
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="bg-gradient-to-br from-blue-900 via-blue-800 to-black p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <h3 className="text-2xl font-bold text-white mb-4">
+                <motion.h3 
+                  className="text-2xl font-bold text-white mb-4"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
                   {section.title}
-                </h3>
+                </motion.h3>
                 <p className="text-gray-200 leading-relaxed">
                   {section.content}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* Team Section */}
-        <section id="team_section" className="mb-20">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+        <motion.section 
+          id="team_section" 
+          className="mb-20"
+          variants={containerVariants}
+        >
+          <motion.h2 
+            className="text-3xl font-bold text-center text-gray-900 mb-12"
+            variants={itemVariants}
+          >
             Komandamız
-          </h2>
+          </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member) => (
-              <div
+            {teamMembers.map((member, index) => (
+              <motion.div
                 key={member.name}
+                variants={teamCardVariants}
+                whileHover={{ 
+                  y: -10,
+                  rotateY: 5,
+                  transition: { duration: 0.3 }
+                }}
                 className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
               >
-                <div className="relative w-32 h-32 mx-auto mb-4">
+                <motion.div 
+                  className="relative w-32 h-32 mx-auto mb-4"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
                     className="rounded-full object-cover"
                   />
-                </div>
-                <h3 className="text-xl font-bold text-center text-gray-900 mb-2">
+                </motion.div>
+                <motion.h3 
+                  className="text-xl font-bold text-center text-gray-900 mb-2"
+                  whileHover={{ color: "#2563eb" }}
+                  transition={{ duration: 0.2 }}
+                >
                   {member.name}
-                </h3>
+                </motion.h3>
                 <p className="text-gray-600 text-center mb-4">{member.role}</p>
                 <p className="text-gray-600 text-center mb-6">{member.bio}</p>
-                <div className="flex justify-center space-x-4 mt-4">
+                <motion.div 
+                  className="flex justify-center space-x-4 mt-4"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                >
                   {member.social.linkedin && (
-                    <a
+                    <motion.a
                       href={member.social.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                      whileHover={{ scale: 1.2, y: -2 }}
+                      whileTap={{ scale: 0.9 }}
                     >
                       <FaLinkedin className="w-5 h-5" />
-                    </a>
+                    </motion.a>
                   )}
                   {member.social.instagram && (
-                    <a
+                    <motion.a
                       href={member.social.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 hover:text-pink-600 transition-colors duration-200"
+                      whileHover={{ scale: 1.2, y: -2 }}
+                      whileTap={{ scale: 0.9 }}
                     >
                       <FaInstagram className="w-5 h-5" />
-                    </a>
+                    </motion.a>
                   )}
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* FAQ Section */}
-        <section id="faq_section" className="mb-20">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+        <motion.section 
+          id="faq_section" 
+          className="mb-20"
+          variants={containerVariants}
+        >
+          <motion.h2 
+            className="text-3xl font-bold text-center text-gray-900 mb-12"
+            variants={itemVariants}
+          >
             Tez-tez soruşulan suallar
-          </h2>
-          <div className="max-w-3xl mx-auto">
+          </motion.h2>
+          <motion.div 
+            className="max-w-3xl mx-auto"
+            variants={containerVariants}
+          >
             {faqs.map((faq) => (
-              <div
+              <motion.div
                 key={faq.id}
+                variants={itemVariants}
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
                 className="mb-4 bg-white rounded-2xl border border-gray-100 overflow-hidden"
               >
-                <button
+                <motion.button
                   onClick={() => setOpenFaqId(openFaqId === faq.id ? null : faq.id)}
                   className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
+                  whileHover={{ backgroundColor: "#f9fafb" }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <span className="text-lg font-semibold text-gray-900">
                     {faq.question}
                   </span>
-                  <IoIosArrowUp
-                    className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${openFaqId === faq.id ? "transform rotate-180" : ""
-                      }`}
-                  />
-                </button>
+                  <motion.div
+                    animate={{ rotate: openFaqId === faq.id ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <IoIosArrowUp className="w-5 h-5 text-gray-500" />
+                  </motion.div>
+                </motion.button>
                 <AnimatePresence>
                   {openFaqId === faq.id && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 py-4 text-gray-600">
+                      <motion.div 
+                        className="px-6 py-4 text-gray-600"
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                      >
                         {faq.answer}
-                      </div>
+                      </motion.div>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* CTA Section */}
-        <section className="text-center">
-          <div className="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-            <span className="text-xl font-semibold">
+        <motion.section 
+          className="text-center"
+          variants={itemVariants}
+        >
+          <motion.div 
+            className="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <motion.span 
+              className="text-xl font-semibold block"
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+            >
               Bizimlə əməkdaşlıq etmək istəyirsiniz?
-            </span>
-            <br />
-            <Link href="/contact" className="underline text-lg font-bold hover:text-blue-100 transition-colors duration-300">
-              Əlaqə saxlayın
-            </Link>
-          </div>
-        </section>
+            </motion.span>
+            <motion.div className="mt-2">
+              <Link href="/contact" className="underline text-lg font-bold hover:text-blue-100 transition-colors duration-300">
+                Əlaqə saxlayın
+              </Link>
+            </motion.div>
+          </motion.div>
+        </motion.section>
       </div>
-    </div>
+    </motion.div>
   );
 }
