@@ -305,7 +305,7 @@ export default function Blog() {
 
               {/* Content */}
               <div className="p-6">
-                <div className="flex items-center gap-4 mb-4">
+                {/* <div className="flex items-center gap-4 mb-4">
                   <Image
                     src={post.author.image}
                     alt={post.author.name}
@@ -318,10 +318,10 @@ export default function Blog() {
                     <p className="text-sm text-gray-600">{post.author.name}</p>
                     <p className="text-xs text-gray-500">{post.date}</p>
                   </div>
-                </div>
+                </div> */}
 
                 <Link href={`/blog/${post.id}`}>
-                  <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300 cursor-pointer">
+                  <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300 cursor-pointer truncate">
                     {post.title}
                   </h2>
                 </Link>
