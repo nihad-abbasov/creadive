@@ -403,7 +403,7 @@ const pricingCategories = [
       {
         id: "landing",
         name: "Landing Page",
-        price: "600 AZN",
+        price: "500 AZN",
         features: [
           "1 səhifəlik vebsayt",
           "Mobil uyğun dizayn",
@@ -414,7 +414,7 @@ const pricingCategories = [
       {
         id: "business",
         name: "Biznes Vebsayt",
-        price: "900 AZN",
+        price: "800 AZN",
         features: [
           "5 səhifəyə qədər",
           "Mobil və masaüstü uyğunluq",
@@ -427,7 +427,7 @@ const pricingCategories = [
       {
         id: "ecommerce",
         name: "E-ticarət",
-        price: "2000 AZN",
+        price: "1500 AZN",
         features: [
           "10+ səhifə",
           "Onlayn satış sistemi",
@@ -692,7 +692,7 @@ const Homepage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-center mt-12"
+            className="text-center mt-6"
           >
             <Link
               href="/services"
@@ -1320,22 +1320,26 @@ const Homepage = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
+            className="mx-auto w-full"
           >
             <Swiper
-              effect={"coverflow"}
-              grabCursor={true}
+              // effect={"coverflow"}
+              // grabCursor={true}
               centeredSlides={true}
               slidesPerView={"auto"}
               loop={true}
+              speed={5000}
+              loopAdditionalSlides={1}
+              loopPreventsSliding={true}
+              allowTouchMove={false}
               autoplay={{
-                delay: 3000,
+                delay: 0,
                 disableOnInteraction: false,
               }}
               // pagination={{
               //   clickable: false,
               // }}
-              navigation={true}
+              // navigation={true}
               modules={[Autoplay, Pagination, Navigation, EffectCards]}
               className="testimonials-swiper"
             >
