@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 type BlogPost = {
   id: number;
@@ -170,47 +171,117 @@ export default function Blog() {
     new Set(blogPosts.map((post) => post.category))
   );
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const headerVariants = {
+    hidden: { opacity: 0, y: -30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+      },
+    },
+  };
+
+  const categoryVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+      },
+    },
+  };
+
   return (
-    <div className="py-16 min-h-screen bg-white">
+    <motion.div
+      className="py-16 min-h-screen bg-white"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-8 tracking-tight">
-          Bloq
-        </h1>
-        <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Agentliyimizin yenilikləri, məqalələri və xəbərləri.
-        </p>
+        <motion.div variants={headerVariants}>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-8 tracking-tight">
+            Bloq
+          </h1>
+          <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Agentliyimizin yenilikləri, məqalələri və xəbərləri.
+          </p>
+        </motion.div>
 
         {/* Categories */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          <button
+        <motion.div
+          className="flex flex-wrap justify-center gap-4 mb-12"
+          variants={categoryVariants}
+        >
+          <motion.button
             onClick={() => setSelectedCategory(null)}
             className={`px-4 py-2 rounded-full transition-colors duration-300 ${selectedCategory === null
               ? "bg-blue-500 text-white"
               : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             Hamısı
-          </button>
-          {categories.map((category) => (
-            <button
+          </motion.button>
+          {categories.map((category, index) => (
+            <motion.button
               key={category}
               onClick={() => setSelectedCategory(category)}
               className={`px-4 py-2 rounded-full transition-colors duration-300 ${selectedCategory === category
                 ? "bg-blue-500 text-white"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 + 0.3 }}
             >
               {category}
-            </button>
+            </motion.button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredPosts.map((post) => (
-            <article
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+        >
+          {filteredPosts.map((post, index) => (
+            <motion.article
               key={post.id}
               className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100"
+              variants={cardVariants}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ y: -8 }}
             >
               {/* Image Container */}
               <Link href={`/blog/${post.id}`}>
@@ -270,19 +341,24 @@ export default function Blog() {
                   </Link>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
 
         {/* No Results Message */}
         {filteredPosts.length === 0 && (
-          <div className="text-center py-12">
+          <motion.div
+            className="text-center py-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             <p className="text-gray-600 text-lg">
               Bu kateqoriyada məqalə tapılmadı.
             </p>
-          </div>
+          </motion.div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }

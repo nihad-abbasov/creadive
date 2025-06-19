@@ -67,6 +67,15 @@ const testimonials: Testimonial[] = [
     // companyLogo: "/logos/wild.svg",
     instagramUrl: "https://instagram.com/wildathleticc",
   },
+  {
+    id: 6,
+    name: "Buketchim",
+    thoughts:
+      "Sosial media reklamları ilə satışlarımız əhəmiyyətli dərəcədə artdı. Peşəkar yanaşmaları və effektiv strategiyaları sayəsində gözəl nəticələr əldə etdik.",
+    role: "Gül buketləri satışı",
+    // companyLogo: "/logos/wild.svg",
+    instagramUrl: "https://instagram.com/buketchim",
+  },
 ];
 
 interface Service {
@@ -336,154 +345,154 @@ const processSteps = [
 // PRICING DATA
 const pricingCategories = [
   {
-    id: 'smm',
-    name: 'SMM Paketləri',
-    description: 'Sosial media idarəçiliyi üçün paketlərimiz.',
+    id: "smm",
+    name: "SMM Paketləri",
+    description: "Sosial media idarəçiliyi üçün paketlərimiz.",
     packages: [
       {
-        id: 'roket',
-        name: 'ROKET paket',
-        price: '349 AZN',
+        id: "roket",
+        name: "ROKET paket",
+        price: "349 AZN",
         features: [
-          '12 statik post',
-          '2 reels/motion video',
-          '6 hekayə dizaynı',
+          "12 statik post",
+          "2 reels/motion video",
+          "6 hekayə dizaynı",
         ],
       },
       {
-        id: 'kosmos',
-        name: 'KOSMOS paket',
-        price: '699 AZN',
+        id: "kosmos",
+        name: "KOSMOS paket",
+        price: "699 AZN",
         features: [
-          '16 statik post',
-          '15 hekayə dizaynı',
-          '2 Motion video',
-          '2 Reels video',
-          'Xüsusi günlərə aid postların hazırlanması',
-          'Highlights bölməsinin hazırlanması',
-          'Targeting (1 kampaniya daxilində 10 post)',
+          "16 statik post",
+          "15 hekayə dizaynı",
+          "2 Motion video",
+          "2 Reels video",
+          "Xüsusi günlərə aid postların hazırlanması",
+          "Highlights bölməsinin hazırlanması",
+          "Targeting (1 kampaniya daxilində 10 post)",
         ],
         popular: true,
       },
       {
-        id: 'ulduz',
-        name: 'ULDUZ paket',
-        price: '999 AZN',
+        id: "ulduz",
+        name: "ULDUZ paket",
+        price: "999 AZN",
         features: [
-          'Loqo hazırlanması',
-          '1 profesional video çəkiliş',
-          '30 hekayə dizaynı',
-          'Hər ay 1 giveaway/yarişma postu hazırlamaq',
-          'Targeting (1 kampaniya daxilində 15 post)',
-          'Sosial media hesablarının idarə edilməsi',
-          'Tiktok üzərindən reklam',
+          "Loqo hazırlanması",
+          "1 profesional video çəkiliş",
+          "30 hekayə dizaynı",
+          "Hər ay 1 giveaway/yarişma postu hazırlamaq",
+          "Targeting (1 kampaniya daxilində 15 post)",
+          "Sosial media hesablarının idarə edilməsi",
+          "Tiktok üzərindən reklam",
         ],
       },
     ],
     notIncluded: [
-      'Vergi',
-      'Reklam büdcəsi/xərcləri',
-      'Giveaway hədiyyələrinin xərcləri',
+      "Vergi",
+      "Reklam büdcəsi/xərcləri",
+      "Giveaway hədiyyələrinin xərcləri",
     ],
   },
   {
-    id: 'website',
-    name: 'Vebsayt Paketləri',
-    description: 'Vebsayt hazırlanması üçün paketlərimiz.',
+    id: "website",
+    name: "Vebsayt Paketləri",
+    description: "Vebsayt hazırlanması üçün paketlərimiz.",
     packages: [
       {
-        id: 'landing',
-        name: 'Landing Page',
-        price: '600 AZN',
+        id: "landing",
+        name: "Landing Page",
+        price: "600 AZN",
         features: [
-          '1 səhifəlik vebsayt',
-          'Mobil uyğun dizayn',
-          'Əsas SEO optimizasiya',
-          'Sürətli yüklənmə',
+          "1 səhifəlik vebsayt",
+          "Mobil uyğun dizayn",
+          "Əsas SEO optimizasiya",
+          "Sürətli yüklənmə",
         ],
       },
       {
-        id: 'business',
-        name: 'Biznes Vebsayt',
-        price: '900 AZN',
+        id: "business",
+        name: "Biznes Vebsayt",
+        price: "900 AZN",
         features: [
-          '5 səhifəyə qədər',
-          'Mobil və masaüstü uyğunluq',
-          'SEO optimizasiya',
-          'Admin panel',
-          'Əlaqə forması',
+          "5 səhifəyə qədər",
+          "Mobil və masaüstü uyğunluq",
+          "SEO optimizasiya",
+          "Admin panel",
+          "Əlaqə forması",
         ],
         popular: true,
       },
       {
-        id: 'ecommerce',
-        name: 'E-ticarət',
-        price: '2000 AZN',
+        id: "ecommerce",
+        name: "E-ticarət",
+        price: "2000 AZN",
         features: [
-          '10+ səhifə',
-          'Onlayn satış sistemi',
-          'Ödəniş inteqrasiyası',
-          'Admin panel',
-          'SEO və sürət optimizasiyası',
+          "10+ səhifə",
+          "Onlayn satış sistemi",
+          "Ödəniş inteqrasiyası",
+          "Admin panel",
+          "SEO və sürət optimizasiyası",
         ],
       },
     ],
     notIncluded: [
-      'Əlavə dil dəstəyi',
-      'Əlavə illik hostinq və domen haqqı',
-      'Məzmunun (text və şəkil) hazırlanması',
-      'SEO-nun tam audit və ya davamlı xidməti',
-      'Saytın davamlı texniki dəstəyi',
+      "Əlavə dil dəstəyi",
+      "Əlavə illik hostinq və domen haqqı",
+      "Məzmunun (text və şəkil) hazırlanması",
+      "SEO-nun tam audit və ya davamlı xidməti",
+      "Saytın davamlı texniki dəstəyi",
     ],
   },
   {
-    id: 'design',
-    name: 'Dizayn Paketləri',
-    description: 'Qrafik və brendinq dizayn xidmətləri.',
+    id: "design",
+    name: "Dizayn Paketləri",
+    description: "Qrafik və brendinq dizayn xidmətləri.",
     packages: [
       {
-        id: 'logo',
-        name: 'Logo Dizaynı',
-        price: '150 AZN',
+        id: "logo",
+        name: "Logo Dizaynı",
+        price: "150 AZN",
         features: [
-          '3 fərqli konsept',
-          '2 dəfə düzəliş imkanı',
-          'Final fayllar (PNG, SVG, JPG)',
-          'Rəng və şrift təlimatı',
+          "3 fərqli konsept",
+          "2 dəfə düzəliş imkanı",
+          "Final fayllar (PNG, SVG, JPG)",
+          "Rəng və şrift təlimatı",
         ],
       },
       {
-        id: 'branding',
-        name: 'Brendinq Paketi',
-        price: '400 AZN',
+        id: "branding",
+        name: "Brendinq Paketi",
+        price: "400 AZN",
         features: [
-          'Logo dizaynı',
-          'Vizit kart dizaynı',
-          'Sosial media şablonları',
-          'Brend kitabçası',
+          "Logo dizaynı",
+          "Vizit kart dizaynı",
+          "Sosial media şablonları",
+          "Brend kitabçası",
         ],
       },
       {
-        id: 'social',
-        name: 'Sosial Media Dizayn Paketi',
-        price: '70 AZN',
+        id: "social",
+        name: "Sosial Media Dizayn Paketi",
+        price: "70 AZN",
         features: [
-          '3 post dizaynı',
-          '1 story dizaynı',
-          'Brend rənglərinə uyğun',
-          'Yüksək keyfiyyətli fayllar (JPG/PNG)',
-          '2 dəfə dəyişmə imkanı',
+          "3 post dizaynı",
+          "1 story dizaynı",
+          "Brend rənglərinə uyğun",
+          "Yüksək keyfiyyətli fayllar (JPG/PNG)",
+          "2 dəfə dəyişmə imkanı",
         ],
       },
     ],
     notIncluded: [
-      'Çap xərcləri',
-      'Stock şəkil və ya font lisenziyaları',
-      'Əlavə konsept və ya düzəlişlər',
-      'Animasiya və ya motion dizayn (paketdə yoxdursa)',
-      'Brend strategiyası və ya konsultasiya',
-      'Sosial media idarəçiliyi',
-      'Faylların əlavə formatlarda hazırlanması',
+      "Çap xərcləri",
+      "Stock şəkil və ya font lisenziyaları",
+      "Əlavə konsept və ya düzəlişlər",
+      "Animasiya və ya motion dizayn (paketdə yoxdursa)",
+      "Brend strategiyası və ya konsultasiya",
+      "Sosial media idarəçiliyi",
+      "Faylların əlavə formatlarda hazırlanması",
     ],
   },
 ];
@@ -516,8 +525,22 @@ const InfoIcon = (props: React.SVGProps<SVGSVGElement>) => (
     strokeLinejoin="round"
     className={props.className || "w-6 h-6 text-red-500"}
   >
-    <circle cx="10" cy="10" r="9" stroke="currentColor" strokeWidth="1.5" fill="#FEE2E2" />
-    <line x1="10" y1="7" x2="10" y2="11" stroke="currentColor" strokeWidth="1.5" />
+    <circle
+      cx="10"
+      cy="10"
+      r="9"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      fill="#FEE2E2"
+    />
+    <line
+      x1="10"
+      y1="7"
+      x2="10"
+      y2="11"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    />
     <circle cx="10" cy="14" r="1" fill="currentColor" />
   </svg>
 );
@@ -527,7 +550,9 @@ const Homepage = () => {
     threshold: 0.3,
     triggerOnce: true,
   });
-  const [activePricingTab, setActivePricingTab] = useState(pricingCategories[0].id);
+  const [activePricingTab, setActivePricingTab] = useState(
+    pricingCategories[0].id
+  );
 
   return (
     <section>
@@ -616,7 +641,7 @@ const Homepage = () => {
       </div>
 
       {/* Services Section */}
-      <div className="py-20">
+      <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -625,33 +650,70 @@ const Homepage = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Xidmətlərimiz
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Biznesiniz üçün ən yaxşı həlləri təklif edirik
             </p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gradient-to-br from-blue-50 via-blue-100 via-50% to-blue-200 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="group"
               >
-                <div className="text-blue-600 mb-4">
-                  <service.icon className="w-12 h-12" />
+                <div className="bg-white border border-gray-100 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group-hover:border-blue-200">
+                  {/* Icon */}
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-50 rounded-xl mb-6 group-hover:bg-blue-100 transition-colors duration-300">
+                    <service.icon className="w-8 h-8 text-blue-600" />
+                  </div>
+
+                  {/* Content */}
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600">{service.description}</p>
               </motion.div>
             ))}
           </div>
+
+          {/* See all services button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="text-center mt-12"
+          >
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              <span>Bütün Xidmətlər</span>
+              <svg
+                className="w-5 h-5 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </Link>
+          </motion.div>
         </div>
       </div>
 
@@ -737,17 +799,39 @@ const Homepage = () => {
         className="py-20 bg-gradient-to-br from-blue-50 via-white to-blue-100 relative"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Qiymət Paketləri</h2>
-            <p className="text-xl text-gray-600">Xidmətlərimiz üçün ən uyğun paketləri seçin</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Qiymət Paketləri
+            </h2>
+            <p className="text-xl text-gray-600">
+              Xidmətlərimiz üçün ən uyğun paketləri seçin
+            </p>
+          </motion.div>
           {/* Tabs with animated underline */}
-          <div className="flex justify-center gap-2 md:gap-4 mb-10 relative">
-            {pricingCategories.map((cat) => (
-              <button
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex justify-center gap-2 md:gap-4 mb-10 relative"
+          >
+            {pricingCategories.map((cat, index) => (
+              <motion.button
                 key={cat.id}
                 onClick={() => setActivePricingTab(cat.id)}
                 className={`relative px-2 md:px-6 py-2 rounded-full font-semibold transition-colors duration-200`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {cat.name}
                 {activePricingTab === cat.id && (
@@ -757,65 +841,139 @@ const Homepage = () => {
                     style={{ zIndex: 1 }}
                   />
                 )}
-              </button>
+              </motion.button>
             ))}
-          </div>
+          </motion.div>
           {/* Tab Content */}
           <div className="">
             {pricingCategories.map((cat) => (
-              <div key={cat.id} className={activePricingTab === cat.id ? '' : 'hidden'}>
+              <div
+                key={cat.id}
+                className={activePricingTab === cat.id ? "" : "hidden"}
+              >
                 {cat.packages.length > 0 ? (
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {cat.packages.map((pkg) => {
+                    {cat.packages.map((pkg, index) => {
                       const isPopular = pkg.popular;
                       return (
-                        <div
+                        <motion.div
                           key={pkg.id}
-                          className={`relative bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 p-8 rounded-xl shadow-sm transition-all flex flex-col items-center border-2 ${isPopular ? 'border-blue-600 scale-105 shadow-lg z-10' : 'border-transparent'} hover:scale-[1.01] hover:shadow-xl duration-200`}
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.6, delay: index * 0.1 }}
+                          whileHover={{ y: -10, scale: 1.02 }}
+                          className={`relative bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 p-8 rounded-xl shadow-sm transition-all flex flex-col items-center border-2 ${
+                            isPopular
+                              ? "border-blue-600 scale-105 shadow-lg z-10"
+                              : "border-transparent"
+                          } hover:shadow-xl duration-200`}
                         >
                           {isPopular && (
-                            <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg z-20">Ən Populyar</span>
+                            <motion.span
+                              initial={{ opacity: 0, y: -20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.5, delay: 0.5 }}
+                              className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg z-20"
+                            >
+                              Ən Populyar
+                            </motion.span>
                           )}
-                          <h3 className="text-2xl font-bold text-blue-700 mb-2">{pkg.name}</h3>
-                          <div className="text-4xl font-extrabold mb-4 bg-gradient-to-r from-blue-600 to-green-400 bg-clip-text text-transparent flex flex-col items-center">{pkg.price}{cat.id === 'website' && pkg.name === "E-ticarət" && <span className="text-sm text-gray-500 font-normal">-dən başlayaraq</span>}</div>
+                          <h3 className="text-2xl font-bold text-blue-700 mb-2">
+                            {pkg.name}
+                          </h3>
+                          <div className="text-4xl font-extrabold mb-4 bg-gradient-to-r from-blue-600 to-green-400 bg-clip-text text-transparent flex flex-col items-center">
+                            {pkg.price}
+                            {cat.id === "website" &&
+                              pkg.name === "E-ticarət" && (
+                                <span className="text-sm text-gray-500 font-normal">
+                                  -dən başlayaraq
+                                </span>
+                              )}
+                          </div>
                           <ul className="mb-6 text-gray-700 text-left w-full max-w-xs mx-auto space-y-2">
                             {pkg.features.map((feature, i) => (
-                              <li key={i} className="flex items-center gap-2">
+                              <motion.li
+                                key={i}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{
+                                  duration: 0.4,
+                                  delay: 0.6 + i * 0.1,
+                                }}
+                                className="flex items-center gap-2"
+                              >
                                 <CheckIcon className="w-5 h-5 text-green-500 flex-shrink-0" />
                                 <span className="text-sm">{feature}</span>
-                              </li>
+                              </motion.li>
                             ))}
                           </ul>
-                          <a
-                            href={`https://wa.me/994105319987?text=${encodeURIComponent(`Salam! Mən sizin saytınızdan ${cat.name} kateqoriyasından ${pkg.name} sifariş etmək istəyirəm.\nQiymət: ${pkg.price}\nZəhmət olmasa, mənimlə əlaqə saxlayın.`)}`}
+                          <motion.a
+                            href={`https://wa.me/994105319987?text=${encodeURIComponent(
+                              `Salam! Mən sizin saytınızdan ${cat.name} kateqoriyasından ${pkg.name} sifariş etmək istəyirəm.\nQiymət: ${pkg.price}\nZəhmət olmasa, mənimlə əlaqə saxlayın.`
+                            )}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="mt-auto bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gradient-to-r hover:from-blue-700 hover:to-green-500 hover:scale-105 transition-all duration-200 shadow-md flex items-center justify-center"
+                            className="mt-auto bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gradient-to-r hover:from-blue-700 hover:to-green-500 transition-all duration-200 shadow-md flex items-center justify-center"
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
                           >
                             Sifariş et
-                          </a>
-                        </div>
+                          </motion.a>
+                        </motion.div>
                       );
                     })}
                   </div>
                 ) : (
-                  <div className="text-center text-gray-500 py-12 text-lg">Tezliklə əlavə olunacaq.</div>
-                )}
-                {['smm', 'website', 'design'].includes(cat.id) && cat.notIncluded && (
-                  <div className={`mt-10 max-w-xl mx-auto flex items-start gap-4 bg-red-100 border-red-300 border rounded-xl shadow-sm p-5`}>
-                    <div className="pt-1">
-                      <InfoIcon className={`w-7 h-7 text-red-500`} />
-                    </div>
-                    <div className="flex-1">
-                      <div className={`font-bold text-base mb-2 text-red-800`}>QİYMƏTLƏRƏ DAXİL DEYİL</div>
-                      <ul className={`list-disc list-inside space-y-1 text-sm pl-2 ${cat.id === 'smm' ? 'text-red-900' : 'text-yellow-900'}`}>
-                        {cat.notIncluded.map((item, idx) => (
-                          <li key={idx}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
+                  <div className="text-center text-gray-500 py-12 text-lg">
+                    Tezliklə əlavə olunacaq.
                   </div>
                 )}
+                {["smm", "website", "design"].includes(cat.id) &&
+                  cat.notIncluded && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                      className={`mt-10 max-w-xl mx-auto flex items-start gap-4 bg-red-100 border-red-300 border rounded-xl shadow-sm p-5`}
+                    >
+                      <div className="pt-1">
+                        <InfoIcon className={`w-7 h-7 text-red-500`} />
+                      </div>
+                      <div className="flex-1">
+                        <div
+                          className={`font-bold text-base mb-2 text-red-800`}
+                        >
+                          QİYMƏTLƏRƏ DAXİL DEYİL
+                        </div>
+                        <ul
+                          className={`list-disc list-inside space-y-1 text-sm pl-2 ${
+                            cat.id === "smm"
+                              ? "text-red-900"
+                              : "text-yellow-900"
+                          }`}
+                        >
+                          {cat.notIncluded.map((item, idx) => (
+                            <motion.li
+                              key={idx}
+                              initial={{ opacity: 0, x: -10 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{
+                                duration: 0.4,
+                                delay: 1 + idx * 0.1,
+                              }}
+                            >
+                              {item}
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
               </div>
             ))}
           </div>
@@ -823,48 +981,81 @@ const Homepage = () => {
       </motion.div>
 
       {/* Why Choose Us Section */}
-      <div className="py-20 bg-gray-50">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="py-20 bg-gray-50"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Niyə Creadive?
             </h2>
             <p className="text-xl text-gray-600">
               Bizi fərqləndirən xüsusiyyətlər
             </p>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <div className="text-4xl mb-4">🎯</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Peşəkar Yanaşma
-              </h3>
-              <p className="text-gray-600">
-                Hər bir layihəyə fərdi və peşəkar yanaşma tətbiq edirik
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <div className="text-4xl mb-4">⚡</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Sürətli İcra
-              </h3>
-              <p className="text-gray-600">
-                Layihələri vaxtında və keyfiyyətlə təhvil veririk
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <div className="text-4xl mb-4">💡</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                İnnovativ Həllər
-              </h3>
-              <p className="text-gray-600">
-                Ən son texnologiyalardan istifadə edərək innovativ həllər təklif
-                edirik
-              </p>
-            </div>
+            {[
+              {
+                icon: "🎯",
+                title: "Peşəkar Yanaşma",
+                description:
+                  "Hər bir layihəyə fərdi və peşəkar yanaşma tətbiq edirik",
+              },
+              {
+                icon: "⚡",
+                title: "Sürətli İcra",
+                description:
+                  "Layihələri vaxtında və keyfiyyətlə təhvil veririk",
+              },
+              {
+                icon: "💡",
+                title: "İnnovativ Həllər",
+                description:
+                  "Ən son texnologiyalardan istifadə edərək innovativ həllər təklif edirik",
+              },
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300"
+              >
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.5 + index * 0.2,
+                    type: "spring",
+                    stiffness: 200,
+                  }}
+                  className="text-4xl mb-4"
+                >
+                  {feature.icon}
+                </motion.div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Blog Section */}
       {/* <div className="py-20">
@@ -1048,100 +1239,192 @@ const Homepage = () => {
       </div> */}
 
       {/* Contact CTA Section */}
-      <div className="py-20">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="py-20"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-tl from-slate-950 to-emerald-600 rounded-2xl py-16 px-8 md:px-12 flex flex-col md:flex-row items-center justify-between">
-            <div className="text-center md:text-left mb-8 md:mb-0">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            whileHover={{ scale: 1.02 }}
+            className="bg-gradient-to-tl from-slate-950 to-emerald-600 rounded-2xl py-16 px-8 md:px-12 flex flex-col md:flex-row items-center justify-between"
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-center md:text-left mb-8 md:mb-0"
+            >
               <h2 className="text-3xl font-bold text-white mb-2">
                 Layihənizi müzakirə edək
               </h2>
               <p className="text-white text-base font-light">
                 Bizimlə əlaqə saxlayın və layihənizi həyata keçirək
               </p>
-            </div>
-            <Link
-              // href="/contact"
-              href="https://wa.me/994105319987"
-              target="_blank"
-              className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-blue-600 transition-colors w-full md:w-max"
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Bizə yazın
-            </Link>
-          </div>
+              <Link
+                href="https://wa.me/994105319987"
+                target="_blank"
+                className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-blue-600 transition-colors w-full md:w-max"
+              >
+                <motion.span
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Bizə yazın
+                </motion.span>
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Testimonials Section */}
-      <div className="py-20 bg-gray-50">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="py-20 bg-gray-50"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Müştərilərimizin Rəyləri
             </h2>
             <p className="text-xl text-gray-600">
               Bizə etibar edən müştərilərimizin təəssüratları
             </p>
-          </div>
-          <div className="max-w-4xl mx-auto">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto"
+          >
             <Swiper
-              effect={"cards"}
+              effect={"coverflow"}
               grabCursor={true}
               centeredSlides={true}
               slidesPerView={"auto"}
+              loop={true}
               autoplay={{
                 delay: 3000,
                 disableOnInteraction: false,
               }}
-              pagination={{
-                clickable: true,
-              }}
+              // pagination={{
+              //   clickable: false,
+              // }}
               navigation={true}
               modules={[Autoplay, Pagination, Navigation, EffectCards]}
               className="testimonials-swiper"
             >
-              {testimonials.map((testimonial) => (
+              {testimonials.map((testimonial, index) => (
                 <SwiperSlide key={testimonial.id}>
-                  <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    whileHover={{ y: -5, scale: 1.02 }}
+                    className="bg-white px-8 py-10 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300"
+                  >
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex-1">
-                        <div className="flex items-center gap-2">
+                        <motion.div
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                          className="flex items-center gap-2"
+                        >
                           <div className="font-semibold text-gray-900">
                             {testimonial.name}
                           </div>
-                          <svg
-                            className="w-5 h-5 text-pink-500"
+                          <motion.svg
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{
+                              duration: 0.5,
+                              delay: 0.5,
+                              type: "spring",
+                              stiffness: 200,
+                            }}
+                            className="w-5 h-5 text-blue-500"
                             fill="currentColor"
                             viewBox="0 0 24 24"
                             aria-hidden="true"
                           >
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                          </svg>
-                        </div>
-                        <div className="text-sm text-gray-500">
+                          </motion.svg>
+                        </motion.div>
+                        <motion.div
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: 0.4 }}
+                          className="text-sm text-gray-900"
+                        >
                           {testimonial.role}
-                        </div>
+                        </motion.div>
                       </div>
                     </div>
-                    <div className="relative">
-                      <svg
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.6 }}
+                      className="relative"
+                    >
+                      <motion.svg
+                        initial={{ scale: 0, rotate: -10 }}
+                        whileInView={{ scale: 1, rotate: 0 }}
+                        viewport={{ once: true }}
+                        transition={{
+                          duration: 0.5,
+                          delay: 0.7,
+                          type: "spring",
+                          stiffness: 200,
+                        }}
                         className="absolute -top-2 -left-2 w-8 h-8 text-blue-100"
                         fill="currentColor"
                         viewBox="0 0 32 32"
                         aria-hidden="true"
                       >
                         <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                      </svg>
-                      <p className="text-gray-600 text-sm italic relative pl-6">
+                      </motion.svg>
+                      <p className="text-gray-900 text-sm italic relative pl-6">
                         {testimonial.thoughts}
                       </p>
-                    </div>
-                  </div>
+                    </motion.div>
+                  </motion.div>
                 </SwiperSlide>
               ))}
             </Swiper>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

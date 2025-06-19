@@ -161,7 +161,7 @@ export default function Footer() {
               className="text-2xl font-bold text-gray-900 mb-0 md:mb-0"
               aria-label="Creadive Logo"
             >
-              <Logo />
+              <Logo isWhite={true} isForHeader={false} />
             </Link>
             <p className="text-gray-400 text-sm">
               İdeallarınızı gerçəkləşdirək ✨
