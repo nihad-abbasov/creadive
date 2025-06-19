@@ -39,6 +39,13 @@ const categories: Category[] = [
         image: "/images/portfolio/buketchim-website.png",
         url: "https://buketchim.vercel.app",
       },
+      {
+        id: 3,
+        title: "Mirror Studio",
+        description: "3D Interior Design",
+        image: "/images/portfolio/mirror-website.png",
+        url: "https://mirror-cgi.vercel.app",
+      },
     ],
   },
   {
@@ -46,17 +53,23 @@ const categories: Category[] = [
     name: "Tarqetinq",
     items: [
       {
-        id: 7,
+        id: 4,
         title: "21 Couture House Tarqetinq",
         description:
           "Facebook və Instagram üzrə hədəflənmiş reklam kampaniyaları",
-        image: "/images/portfolio/21couture-targeting.jpeg",
+        image: "/images/portfolio/21couture-targeting-fake.jpeg",
       },
       {
-        id: 8,
+        id: 5,
         title: "Buketchim Tarqetinq",
         description: "Instagram və Google Ads üzrə reklam kampaniyaları",
         image: "/images/portfolio/buketchim-targeting.jpeg",
+      },
+      {
+        id: 6,
+        title: "Xaricdə Təhsil Şirkəti(Anonim)",
+        description: "Xaricdə Təhsil Şirkəti",
+        image: "/images/portfolio/xaricde-tehsil-targeting.jpeg",
       },
     ],
   },
@@ -96,16 +109,17 @@ const categories: Category[] = [
       // },
     ],
   },
-
 ];
 
 export default function Portfolio() {
   const searchParams = useSearchParams();
-  const categoryId = searchParams.get('category');
-  const [activeCategory, setActiveCategory] = useState(categoryId || categories[0].id);
+  const categoryId = searchParams.get("category");
+  const [activeCategory, setActiveCategory] = useState(
+    categoryId || categories[0].id
+  );
 
   useEffect(() => {
-    if (categoryId && categories.some(cat => cat.id === categoryId)) {
+    if (categoryId && categories.some((cat) => cat.id === categoryId)) {
       setActiveCategory(categoryId);
     }
   }, [categoryId]);
@@ -127,10 +141,11 @@ export default function Portfolio() {
               <motion.button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === category.id
-                  ? "bg-blue-600 text-white shadow-lg shadow-blue-200"
-                  : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-100"
-                  }`}
+                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeCategory === category.id
+                    ? "bg-blue-600 text-white shadow-lg shadow-blue-200"
+                    : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-100"
+                }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -150,8 +165,13 @@ export default function Portfolio() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {(() => {
-                const activeCategoryData = categories.find((cat) => cat.id === activeCategory);
-                if (!activeCategoryData || activeCategoryData.items.length === 0) {
+                const activeCategoryData = categories.find(
+                  (cat) => cat.id === activeCategory
+                );
+                if (
+                  !activeCategoryData ||
+                  activeCategoryData.items.length === 0
+                ) {
                   return (
                     <motion.div
                       initial={{ opacity: 0, scale: 0.9 }}
@@ -194,10 +214,14 @@ export default function Portfolio() {
                         transition={{ duration: 0.4, delay: 0.4 }}
                         className="text-gray-600 max-w-md"
                       >
-                        {activeCategory === "smm" && "SMM layihələrimiz tezliklə əlavə olunacaq."}
-                        {activeCategory === "branding" && "Brendinq layihələrimiz tezliklə əlavə olunacaq."}
-                        {activeCategory === "websites" && "Veb sayt layihələrimiz tezliklə əlavə olunacaq."}
-                        {activeCategory === "targeting" && "Tarqetinq layihələrimiz tezliklə əlavə olunacaq."}
+                        {activeCategory === "smm" &&
+                          "SMM layihələrimiz tezliklə əlavə olunacaq."}
+                        {activeCategory === "branding" &&
+                          "Brendinq layihələrimiz tezliklə əlavə olunacaq."}
+                        {activeCategory === "websites" &&
+                          "Veb sayt layihələrimiz tezliklə əlavə olunacaq."}
+                        {activeCategory === "targeting" &&
+                          "Tarqetinq layihələrimiz tezliklə əlavə olunacaq."}
                       </motion.p>
                     </motion.div>
                   );
@@ -211,11 +235,11 @@ export default function Portfolio() {
                     transition={{
                       duration: 0.4,
                       delay: index * 0.1,
-                      ease: "easeOut"
+                      ease: "easeOut",
                     }}
                     whileHover={{
                       y: -8,
-                      transition: { duration: 0.2 }
+                      transition: { duration: 0.2 },
                     }}
                     className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
                   >
