@@ -470,34 +470,34 @@ const pricingCategories = [
 
 interface Partner {
   name: string;
-  logoUrl: string;
+  logoImgName: string;
   partnerInstagram: string;
 }
 
 const partners: Partner[] = [
   {
     name: "21 Couture house",
-    logoUrl: "/images/partnerlogos/21ch-logo.png",
+    logoImgName: "21ch-logo.png",
     partnerInstagram: "https://www.instagram.com/21couturehouse",
   },
   {
     name: "Buketchim",
-    logoUrl: "/images/partnerlogos/buketchim-logo.png",
+    logoImgName: "buketchim-logo.png",
     partnerInstagram: "https://www.instagram.com/buketchim",
   },
   {
     name: "Wild Athletics",
-    logoUrl: "/images/partnerlogos/wildathletics-logo.png",
+    logoImgName: "wildathletics-logo.png",
     partnerInstagram: "https://www.instagram.com/wildathleticc",
   },
   {
     name: "Calissa Group",
-    logoUrl: "/images/partnerlogos/calissa-logo.png",
+    logoImgName: "calissa-logo.png",
     partnerInstagram: "https://www.instagram.com/calissagroup",
   },
   {
     name: "Mirror Studio",
-    logoUrl: "/images/partnerlogos/mirror-logo.png",
+    logoImgName: "mirror-logo.png",
     partnerInstagram: "https://www.instagram.com/mirror.cgi",
   }
 ];
@@ -846,23 +846,11 @@ const Homepage = () => {
                   <div key={`first-${index}`} className="partner-item">
                     <Link href={partner.partnerInstagram} target="_blank" rel="noopener noreferrer">
                       <Image
-                        src={partner.logoUrl}
+                        src={`/images/partnerlogos/${partner.logoImgName}`}
                         alt={partner.name}
                         width={120}
                         height={60}
                         className="w-auto h-12 md:h-16 object-contain transition-all duration-300"
-                        onError={(e) => {
-                          console.error(`Failed to load image: ${partner.logoUrl}`);
-                          // Fallback to regular img tag
-                          const img = e.currentTarget;
-                          const fallbackImg = document.createElement('img');
-                          fallbackImg.src = partner.logoUrl;
-                          fallbackImg.alt = partner.name;
-                          fallbackImg.className = img.className;
-                          img.parentNode?.replaceChild(fallbackImg, img);
-                        }}
-                        priority={index < 3} // Prioritize first 3 images
-                        unoptimized={true} // Bypass Next.js image optimization
                       />
                     </Link>
                   </div>
@@ -872,21 +860,11 @@ const Homepage = () => {
                   <div key={`second-${index}`} className="partner-item">
                     <Link href={partner.partnerInstagram} target="_blank" rel="noopener noreferrer">
                       <Image
-                        src={partner.logoUrl}
+                        src={`/images/partnerlogos/${partner.logoImgName}`}
                         alt={partner.name}
                         width={120}
                         height={60}
                         className="w-auto h-12 md:h-16 object-contain transition-all duration-300"
-                        onError={(e) => {
-                          console.error(`Failed to load image: ${partner.logoUrl}`);
-                          const img = e.currentTarget;
-                          const fallbackImg = document.createElement('img');
-                          fallbackImg.src = partner.logoUrl;
-                          fallbackImg.alt = partner.name;
-                          fallbackImg.className = img.className;
-                          img.parentNode?.replaceChild(fallbackImg, img);
-                        }}
-                        unoptimized={true} // Bypass Next.js image optimization
                       />
                     </Link>
                   </div>
@@ -896,21 +874,11 @@ const Homepage = () => {
                   <div key={`third-${index}`} className="partner-item">
                     <Link href={partner.partnerInstagram} target="_blank" rel="noopener noreferrer">
                       <Image
-                        src={partner.logoUrl}
+                        src={`/images/partnerlogos/${partner.logoImgName}`}
                         alt={partner.name}
                         width={120}
                         height={60}
                         className="w-auto h-12 md:h-16 object-contain transition-all duration-300"
-                        onError={(e) => {
-                          console.error(`Failed to load image: ${partner.logoUrl}`);
-                          const img = e.currentTarget;
-                          const fallbackImg = document.createElement('img');
-                          fallbackImg.src = partner.logoUrl;
-                          fallbackImg.alt = partner.name;
-                          fallbackImg.className = img.className;
-                          img.parentNode?.replaceChild(fallbackImg, img);
-                        }}
-                        unoptimized={true} // Bypass Next.js image optimization
                       />
                     </Link>
                   </div>
