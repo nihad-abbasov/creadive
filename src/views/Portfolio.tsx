@@ -62,7 +62,7 @@ const categories: Category[] = [
       {
         id: 5,
         title: "Buketchim Tarqetinq",
-        description: "Instagram və Google Ads üzrə reklam kampaniyaları",
+        description: "Instagram və Google Ads üzrə reklam kampaniyaları", 
         image: "/images/portfolio/buketchim-targeting.jpeg",
       },
       {

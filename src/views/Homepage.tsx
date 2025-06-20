@@ -313,35 +313,6 @@ const processSteps = [
 //   },
 // ];
 
-// interface Partner {
-//   id: number;
-//   name: string;
-//   logo: string;
-// }
-
-// const partners: Partner[] = [
-//   {
-//     id: 1,
-//     name: "Partner 1",
-//     logo: "/partners/partner1.png",
-//   },
-//   {
-//     id: 2,
-//     name: "Partner 2",
-//     logo: "/partners/partner2.png",
-//   },
-//   {
-//     id: 3,
-//     name: "Partner 3",
-//     logo: "/partners/partner3.png",
-//   },
-//   {
-//     id: 4,
-//     name: "Partner 4",
-//     logo: "/partners/partner4.png",
-//   },
-// ];
-
 // PRICING DATA
 const pricingCategories = [
   {
@@ -497,6 +468,40 @@ const pricingCategories = [
   },
 ];
 
+interface Partner {
+  name: string;
+  logoUrl: string;
+  partnerInstagram: string;
+}
+
+const partners: Partner[] = [
+  {
+    name: "21 Couture house",
+    logoUrl: "/images/partnerlogos/21ch-logo.png",
+    partnerInstagram: "https://www.instagram.com/21couturehouse",
+  },
+  {
+    name: "Buketchim",
+    logoUrl: "/images/partnerlogos/buketchim-logo.png",
+    partnerInstagram: "https://www.instagram.com/buketchim",
+  },
+  {
+    name: "Wild Athletics",
+    logoUrl: "/images/partnerlogos/wildathletics-logo.png",
+    partnerInstagram: "https://www.instagram.com/wildathleticc",
+  },
+  {
+    name: "Calissa Group",
+    logoUrl: "/images/partnerlogos/calissa-logo.png",
+    partnerInstagram: "https://www.instagram.com/calissagroup",
+  },
+  {
+    name: "Mirror Studio",
+    logoUrl: "/images/partnerlogos/mirror-logo.png",
+    partnerInstagram: "https://www.instagram.com/mirror.cgi",
+  }
+];
+
 // Add Checkmark SVG icon
 const CheckIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -641,7 +646,7 @@ const Homepage = () => {
       </div>
 
       {/* Services Section */}
-      <div className="py-20 bg-white">
+      <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -650,11 +655,11 @@ const Homepage = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Xidmətlərimiz
+            <h2 className="text-4xl font-bold text-gray-900 mb-2">
+              Creadive nə təklif edir?
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Biznesiniz üçün ən yaxşı həlləri təklif edirik
+            <p className="text-base text-gray-600 max-w-2xl mx-auto">
+              Biznesiniz üçün ən yaxşı həllər
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -721,10 +726,10 @@ const Homepage = () => {
       {/* <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Son İşlərimiz
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base text-gray-600">
               Uğurla tamamladığımız layihələrdən nümunələr
             </p>
           </div>
@@ -790,13 +795,93 @@ const Homepage = () => {
         </motion.div>
       </div>
 
+      {/* Partners Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="py-20"
+      >
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              Tərəfdaşlarımız
+            </h2>
+            <p className="text-base text-gray-600">
+              Bizə etibar edən və uğurla işlədiyimiz brendlər
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mx-auto w-full"
+          >
+            <div className="partners-marquee-container overflow-hidden">
+              <div className="partners-marquee py-6">
+                {/* First set of logos */}
+                {partners.map((partner: Partner, index: number) => (
+                  <div key={`first-${index}`} className="partner-item">
+                    <Link href={partner.partnerInstagram} target="_blank" rel="noopener noreferrer">
+                      <Image
+                        src={partner.logoUrl}
+                        alt={partner.name}
+                        width={120}
+                        height={60}
+                        className="w-auto h-12 md:h-16 object-contain transition-all duration-300"
+                      />
+                    </Link>
+                  </div>
+                ))}
+                {/* Duplicate set for seamless loop */}
+                {partners.map((partner: Partner, index: number) => (
+                  <div key={`second-${index}`} className="partner-item">
+                    <Link href={partner.partnerInstagram} target="_blank" rel="noopener noreferrer">
+                      <Image
+                        src={partner.logoUrl}
+                        alt={partner.name}
+                        width={120}
+                        height={60}
+                        className="w-auto h-12 md:h-16 object-contain transition-all duration-300"
+                      />
+                    </Link>
+                  </div>
+                ))}
+                {/* Third set for better coverage with fewer partners */}
+                {partners.map((partner: Partner, index: number) => (
+                  <div key={`third-${index}`} className="partner-item">
+                    <Link href={partner.partnerInstagram} target="_blank" rel="noopener noreferrer">
+                      <Image
+                        src={partner.logoUrl}
+                        alt={partner.name}
+                        width={120}
+                        height={60}
+                        className="w-auto h-12 md:h-16 object-contain transition-all duration-300"
+                      />
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+
       {/* Pricing Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="py-20 bg-gradient-to-br from-blue-50 via-white to-blue-100 relative"
+        className="py-20"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -806,10 +891,10 @@ const Homepage = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Qiymət Paketləri
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              Qiymətlərimizlə tanış olmaq istəyirsiniz?
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base text-gray-600">
               Xidmətlərimiz üçün ən uyğun paketləri seçin
             </p>
           </motion.div>
@@ -863,11 +948,10 @@ const Homepage = () => {
                           viewport={{ once: true }}
                           transition={{ duration: 0.6, delay: index * 0.1 }}
                           whileHover={{ y: -10, scale: 1.02 }}
-                          className={`relative bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 p-8 rounded-xl shadow-sm transition-all flex flex-col items-center border-2 ${
-                            isPopular
-                              ? "border-blue-600 scale-105 shadow-lg z-10"
-                              : "border-transparent"
-                          } hover:shadow-xl duration-200`}
+                          className={`relative bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 p-8 rounded-xl shadow-sm transition-all flex flex-col items-center border-2 ${isPopular
+                            ? "border-blue-600 scale-105 shadow-lg z-10"
+                            : "border-transparent"
+                            } hover:shadow-xl duration-200`}
                         >
                           {isPopular && (
                             <motion.span
@@ -950,11 +1034,10 @@ const Homepage = () => {
                           QİYMƏTLƏRƏ DAXİL DEYİL
                         </div>
                         <ul
-                          className={`list-disc list-inside space-y-1 text-sm pl-2 ${
-                            cat.id === "smm"
-                              ? "text-red-900"
-                              : "text-yellow-900"
-                          }`}
+                          className={`list-disc list-inside space-y-1 text-sm pl-2 ${cat.id === "smm"
+                            ? "text-red-900"
+                            : "text-yellow-900"
+                            }`}
                         >
                           {cat.notIncluded.map((item, idx) => (
                             <motion.li
@@ -986,7 +1069,7 @@ const Homepage = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="py-20 bg-gray-50"
+        className="py-20"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -996,10 +1079,10 @@ const Homepage = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Niyə Creadive?
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              Niyə məhz Creadive?
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base text-gray-600">
               Bizi fərqləndirən xüsusiyyətlər
             </p>
           </motion.div>
@@ -1067,10 +1150,10 @@ const Homepage = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Blog
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base text-gray-600">
               Son xəbərlər və məqalələr
             </p>
           </motion.div>
@@ -1111,7 +1194,7 @@ const Homepage = () => {
       </div> */}
 
       {/* Process Steps Section */}
-      <div className="py-20 bg-gray-50">
+      <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1120,11 +1203,11 @@ const Homepage = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              İş Prosesimiz
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              İş Prosesimizi Bilmək İstəyirsiniz?
             </h2>
-            <p className="text-xl text-gray-600">
-              Layihələrimizi necə həyata keçiririk
+            <p className="text-base text-gray-600">
+              Layihələrimizi necə həyata keçirirdiyimizə baxın
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -1161,10 +1244,10 @@ const Homepage = () => {
       {/* <div className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Texnologiyalar
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base text-gray-600">
               İstifadə etdiyimiz müasir texnologiyalar
             </p>
           </div>
@@ -1189,52 +1272,6 @@ const Homepage = () => {
               </div>
             ))}
           </div>
-        </div>
-      </div> */}
-
-      {/* Partners Section */}
-      {/* <div className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Tərəfdaşlarımız
-            </h2>
-            <p className="text-xl text-gray-600">
-              Bizimlə əməkdaşlıq edən şirkətlər
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8"
-          >
-            {partners.map((partner, index) => (
-              <motion.div
-                key={partner.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-center justify-center"
-              >
-                <Image
-                  src={partner.logo}
-                  alt={partner.name}
-                  width={150}
-                  height={60}
-                  className="opacity-50 hover:opacity-100 transition-opacity"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </div> */}
 
@@ -1298,7 +1335,7 @@ const Homepage = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="py-20 bg-gray-50"
+        className="py-20"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -1308,10 +1345,10 @@ const Homepage = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Müştərilərimizin Rəyləri
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              Creadive haqqında nə deyirlər?
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base text-gray-600">
               Bizə etibar edən müştərilərimizin təəssüratları
             </p>
           </motion.div>
@@ -1336,10 +1373,6 @@ const Homepage = () => {
                 delay: 0,
                 disableOnInteraction: false,
               }}
-              // pagination={{
-              //   clickable: false,
-              // }}
-              // navigation={true}
               modules={[Autoplay, Pagination, Navigation, EffectCards]}
               className="testimonials-swiper"
             >
