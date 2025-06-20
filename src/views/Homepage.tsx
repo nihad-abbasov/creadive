@@ -851,6 +851,18 @@ const Homepage = () => {
                         width={120}
                         height={60}
                         className="w-auto h-12 md:h-16 object-contain transition-all duration-300"
+                        onError={(e) => {
+                          console.error(`Failed to load image: ${partner.logoUrl}`);
+                          // Fallback to regular img tag
+                          const img = e.currentTarget;
+                          const fallbackImg = document.createElement('img');
+                          fallbackImg.src = partner.logoUrl;
+                          fallbackImg.alt = partner.name;
+                          fallbackImg.className = img.className;
+                          img.parentNode?.replaceChild(fallbackImg, img);
+                        }}
+                        priority={index < 3} // Prioritize first 3 images
+                        unoptimized={true} // Bypass Next.js image optimization
                       />
                     </Link>
                   </div>
@@ -865,6 +877,16 @@ const Homepage = () => {
                         width={120}
                         height={60}
                         className="w-auto h-12 md:h-16 object-contain transition-all duration-300"
+                        onError={(e) => {
+                          console.error(`Failed to load image: ${partner.logoUrl}`);
+                          const img = e.currentTarget;
+                          const fallbackImg = document.createElement('img');
+                          fallbackImg.src = partner.logoUrl;
+                          fallbackImg.alt = partner.name;
+                          fallbackImg.className = img.className;
+                          img.parentNode?.replaceChild(fallbackImg, img);
+                        }}
+                        unoptimized={true} // Bypass Next.js image optimization
                       />
                     </Link>
                   </div>
@@ -879,6 +901,16 @@ const Homepage = () => {
                         width={120}
                         height={60}
                         className="w-auto h-12 md:h-16 object-contain transition-all duration-300"
+                        onError={(e) => {
+                          console.error(`Failed to load image: ${partner.logoUrl}`);
+                          const img = e.currentTarget;
+                          const fallbackImg = document.createElement('img');
+                          fallbackImg.src = partner.logoUrl;
+                          fallbackImg.alt = partner.name;
+                          fallbackImg.className = img.className;
+                          img.parentNode?.replaceChild(fallbackImg, img);
+                        }}
+                        unoptimized={true} // Bypass Next.js image optimization
                       />
                     </Link>
                   </div>
