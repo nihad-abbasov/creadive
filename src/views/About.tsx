@@ -64,7 +64,12 @@ const teamMembers: TeamMember[] = [
   // },
 ];
 
-const sections = [
+interface Section {
+  title: string;
+  content: string;
+}
+
+const sections: Section[] = [
   {
     title: "Biz kimik?",
     content:
@@ -87,30 +92,60 @@ const sections = [
   },
 ];
 
-const faqs = [
+interface Faq {
+  id: number;
+  question: string;
+  answer: string;
+}
+
+const faqs: Faq[] = [
   {
     id: 1,
-    question: "Creadive nə üçün yaradılıb?",
+    question: "Creadive ilə işləmək üçün minimum büdcə nə qədərdir?",
     answer:
-      "Creadive, bizneslərin rəqəmsal dünyada uğur qazanmasına kömək etmək üçün yaradılıb. Biz, müştərilərimizə innovativ və effektiv həllər təklif edirik.",
+      "Hər layihə fərdidir və büdcə layihənin mürəkkəbliyindən asılıdır. Kiçik brendlər üçün 500 AZN-dən başlayan paketlərimiz var. Daha dəqiq məlumat üçün bizimlə əlaqə saxlayın və layihənizi müzakirə edək.",
   },
   {
     id: 2,
-    question: "Hansı xidmətləri təklif edirsiniz?",
+    question: "Vebsayt layihəsi nə qədər vaxt aparır?",
     answer:
-      "Biz veb sayt yaradılması, UI/UX dizayn, rəqəmsal marketinq, SEO optimallaşdırma, qrafik dizayn, SMM və tarqetinq kimi xidmətlər təklif edirik.",
+      "Sadə landing page 1-2 həftə, tam vebsayt 3-4 həftə, e-ticarət saytı isə 4-6 həftə vaxt aparır. Layihənin mürəkkəbliyi və müştərinin tələbləri vaxtı təsir edir. Hər layihə üçün dəqiq təqvim təqdim edirik.",
   },
   {
     id: 3,
-    question: "Layihələr nə qədər vaxt aparır?",
+    question: "Sosial media idarəçiliyi xidmətinizə nə daxildir?",
     answer:
-      "Layihələrin müddəti onun mürəkkəbliyindən və tələblərdən asılı olaraq dəyişir. Hər layihə üçün fərdi təklif hazırlayırıq.",
+      "SMM paketlərimizə post dizaynı, reels/motion video hazırlanması, hekayə dizaynı, targeting kampaniyaları, hesab idarəçiliyi və hesabatlar daxildir. Hər paket fərqli xidmətlər təklif edir.",
   },
   {
     id: 4,
-    question: "Ödəniş şərtləri necədir?",
+    question: "Layihə tamamlandıqdan sonra dəstək verirsinizmi?",
     answer:
-      "Layihələrin əksəriyyətində 50% avans, 50% isə layihənin tamamlanmasından sonra ödəniş sistemi tətbiq edirik.",
+      "Bəli! Bütün layihələrimizə 1 ay pulsuz dəstək daxildir. Bundan sonra da davamlı texniki dəstək və yeniləmə xidmətləri təklif edirik. Müştərilərimizlə uzunmüddətli əməkdaşlıq edirik.",
+  },
+  {
+    id: 5,
+    question: "SEO optimizasiyası nə qədər vaxtda nəticə verir?",
+    answer:
+      "SEO uzunmüddətli strategiyadır. İlk nəticələr 2-3 ay ərzində görünə bilər, tam effekt isə 6-12 ay ərzində əldə edilir. Düzgün strategiya və davamlı işlə nəticələr təminat vericidir.",
+  },
+  {
+    id: 6,
+    question: "Layihə prosesində dəyişikliklər edə bilərəmmi?",
+    answer:
+      "Əlbəttə! Layihə prosesində 2 dəfə pulsuz dəyişiklik hüququ veririk. Əlavə dəyişikliklər üçün kiçik əlavə ödəniş tələb olunur. Müştəri məmnuniyyəti bizim üçün ən vacibdir.",
+  },
+  {
+    id: 7,
+    question: "Hansı ödəniş şərtləri tətbiq edirsiniz?",
+    answer:
+      "Standart şərtlərimiz: 50% avans, 50% layihə tamamlandıqdan sonra. Böyük layihələr üçün 3-4 hissəli ödəniş sistemi də təklif edə bilərik. Bütün ödənişlər müqavilə ilə təsdiqlənir.",
+  },
+  {
+    id: 8,
+    question: "Mövcud vebsaytımı yeniləyə bilərsinizmi?",
+    answer:
+      "Bəli! Mövcud vebsaytların yenilənməsi, redesign və funksional əlavələr xidmətlərimizə daxildir. Köhnə texnologiyalardan müasir həllərə keçid də edə bilərik.",
   },
 ];
 
@@ -179,7 +214,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            Haqqımızda
+            Biz kimik?
           </motion.h1>
           <motion.p
             className="text-lg text-gray-600 max-w-2xl mx-auto"
@@ -187,8 +222,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            Creadive — rəqəmsal dünyada brendinizi inkişaf etdirmək üçün
-            etibarlı tərəfdaş
+            Creadive, bizneslərin rəqəmsal dünyada uğur qazanmasına kömək etmək üçün yaradılıb. Biz, müştərilərimizə innovativ və effektiv həllər təklif edirik.
           </motion.p>
         </motion.div>
 
@@ -373,7 +407,7 @@ export default function About() {
         {/* CTA Section */}
         <motion.section className="text-center" variants={itemVariants}>
           <motion.div
-            className="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+            className="inline-block bg-gradient-to-r from-blue-500 to-emerald-500 text-white px-4 md:px-8 py-3 md:py-5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
             whileHover={{
               scale: 1.05,
               boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
@@ -381,7 +415,7 @@ export default function About() {
             whileTap={{ scale: 0.95 }}
           >
             <motion.span
-              className="text-xl font-semibold block"
+              className="text-lg md:text-xl font-semibold block"
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
             >
@@ -390,7 +424,7 @@ export default function About() {
             <motion.div className="mt-2">
               <Link
                 href="/contact"
-                className="underline text-lg font-bold hover:text-blue-100 transition-colors duration-300"
+                className="underline text-base md:text-lg font-bold hover:text-blue-100 transition-colors duration-300"
               >
                 Əlaqə saxlayın
               </Link>
