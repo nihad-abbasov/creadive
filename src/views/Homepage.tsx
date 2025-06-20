@@ -2,6 +2,7 @@
 import { Autoplay, Pagination, Navigation, EffectCards } from "swiper/modules";
 import { useInView } from "react-intersection-observer";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { IoRocketOutline } from "react-icons/io5";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
@@ -11,7 +12,6 @@ import "swiper/css/pagination";
 import Image from "next/image";
 import Link from "next/link";
 import "swiper/css";
-
 interface Testimonial {
   id: number;
   name: string;
@@ -613,15 +613,29 @@ const Homepage = () => {
               >
                 <Link
                   href="/contact"
-                  className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                  className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
                 >
-                  Bizimlə əlaqə
+                  <IoRocketOutline className="w-5 h-5" />
+                  Layihənizi başladaq
                 </Link>
                 <Link
                   href="/portfolio"
-                  className="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-8 py-3 rounded-lg font-medium hover:bg-white/20 transition-colors"
+                  className="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-8 py-3 rounded-lg font-medium hover:bg-white/20 transition-colors flex items-center justify-center gap-2"
                 >
-                  İşlərimiz
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                    />
+                  </svg>
+                  Portfoliomuza baxın
                 </Link>
               </motion.div>
             </div>
