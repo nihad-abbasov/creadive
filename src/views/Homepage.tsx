@@ -470,34 +470,34 @@ const pricingCategories = [
 
 interface Partner {
   name: string;
-  logoImgName: string;
+  logoUrl: string;
   partnerInstagram: string;
 }
 
 const partners: Partner[] = [
   {
     name: "21 Couture house",
-    logoImgName: "21ch-logo.png",
+    logoUrl: "/images/partnerLogos/21ch-logo.png",
     partnerInstagram: "https://www.instagram.com/21couturehouse",
   },
   {
     name: "Buketchim",
-    logoImgName: "buketchim-logo.png",
+    logoUrl: "/images/partnerLogos/buketchim-logo.png",
     partnerInstagram: "https://www.instagram.com/buketchim",
   },
   {
     name: "Wild Athletics",
-    logoImgName: "wildathletics-logo.png",
+    logoUrl: "/images/partnerLogos/wildathletics-logo.png",
     partnerInstagram: "https://www.instagram.com/wildathleticc",
   },
   {
     name: "Calissa Group",
-    logoImgName: "calissa-logo.png",
+    logoUrl: "/images/partnerLogos/calissa-logo.png",
     partnerInstagram: "https://www.instagram.com/calissagroup",
   },
   {
     name: "Mirror Studio",
-    logoImgName: "mirror-logo.png",
+    logoUrl: "/images/partnerLogos/mirror-logo.png",
     partnerInstagram: "https://www.instagram.com/mirror.cgi",
   }
 ];
@@ -846,7 +846,7 @@ const Homepage = () => {
                   <div key={`first-${index}`} className="partner-item">
                     <Link href={partner.partnerInstagram} target="_blank" rel="noopener noreferrer">
                       <Image
-                        src={`/images/partnerlogos/${partner.logoImgName}`}
+                        src={partner.logoUrl}
                         alt={partner.name}
                         width={120}
                         height={60}
@@ -860,7 +860,7 @@ const Homepage = () => {
                   <div key={`second-${index}`} className="partner-item">
                     <Link href={partner.partnerInstagram} target="_blank" rel="noopener noreferrer">
                       <Image
-                        src={`/images/partnerlogos/${partner.logoImgName}`}
+                        src={partner.logoUrl}
                         alt={partner.name}
                         width={120}
                         height={60}
@@ -874,7 +874,7 @@ const Homepage = () => {
                   <div key={`third-${index}`} className="partner-item">
                     <Link href={partner.partnerInstagram} target="_blank" rel="noopener noreferrer">
                       <Image
-                        src={`/images/partnerlogos/${partner.logoImgName}`}
+                        src={partner.logoUrl}
                         alt={partner.name}
                         width={120}
                         height={60}
