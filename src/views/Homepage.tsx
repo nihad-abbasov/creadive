@@ -839,7 +839,8 @@ const Homepage = () => {
             transition={{ duration: 0.8 }}
             className="mx-auto w-full"
           >
-            <div className="partners-marquee-container overflow-hidden">
+            {/* overflow-hidden */}
+            <div className="partners-marquee-container">
               <div className="partners-marquee py-6">
                 {/* First set of logos */}
                 {partners.map((partner: Partner, index: number) => (
@@ -850,7 +851,7 @@ const Homepage = () => {
                         alt={partner.name}
                         width={120}
                         height={60}
-                        className="w-auto h-12 md:h-16 object-contain transition-all duration-300"
+                        className="w-auto h-16 md:h-20 object-contain transition-all duration-300"
                       />
                     </Link>
                   </div>
@@ -864,7 +865,7 @@ const Homepage = () => {
                         alt={partner.name}
                         width={120}
                         height={60}
-                        className="w-auto h-12 md:h-16 object-contain transition-all duration-300"
+                        className="w-auto h-16 md:h-20 object-contain transition-all duration-300"
                       />
                     </Link>
                   </div>
@@ -878,7 +879,7 @@ const Homepage = () => {
                         alt={partner.name}
                         width={120}
                         height={60}
-                        className="w-auto h-12 md:h-16 object-contain transition-all duration-300"
+                        className="w-auto h-16 md:h-20 object-contain transition-all duration-300"
                       />
                     </Link>
                   </div>
