@@ -57,12 +57,12 @@ const categories: Category[] = [
         title: "21 Couture House Tarqetinq",
         description:
           "Facebook və Instagram üzrə hədəflənmiş reklam kampaniyaları",
-        image: "/images/portfolio/21couture-targeting-fake.jpeg",
+        image: "/images/portfolio/21couture-targeting.jpeg",
       },
       {
         id: 5,
         title: "Buketchim Tarqetinq",
-        description: "Instagram və Google Ads üzrə reklam kampaniyaları", 
+        description: "Instagram və Google Ads üzrə reklam kampaniyaları",
         image: "/images/portfolio/buketchim-targeting.jpeg",
       },
       {
@@ -141,11 +141,10 @@ export default function Portfolio() {
               <motion.button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeCategory === category.id
-                    ? "bg-blue-600 text-white shadow-lg shadow-blue-200"
-                    : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-100"
-                }`}
+                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === category.id
+                  ? "bg-blue-600 text-white shadow-lg shadow-blue-200"
+                  : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-100"
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
