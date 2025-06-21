@@ -1,6 +1,7 @@
 "use client";
 
 import { BlogDetailPost, blogDetailData } from "@/data/blogDetailData";
+import Schema from "@/components/Schema";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -52,6 +53,9 @@ export default function BlogDetail({ blogPost }: BlogDetailProps) {
       animate="visible"
       variants={containerVariants}
     >
+      {/* Schema Markup for Article */}
+      <Schema type="article" data={blogPost} />
+      
       <div className="max-w-4xl mx-auto px-4">
         {/* Breadcrumb */}
         <motion.nav className="mb-8" variants={itemVariants}>

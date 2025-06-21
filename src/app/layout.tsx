@@ -1,6 +1,7 @@
 import RootLayoutWrapper from "@/components/RootLayoutWrapper";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import type { Metadata } from "next";
+import Schema from "@/components/Schema";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -120,6 +121,10 @@ export default function RootLayout({
         /> */}
       </head>
       <body className={`${plusJakartaSans.variable} font-sans antialiased`}>
+        {/* Schema Markup */}
+        <Schema type="organization" />
+        <Schema type="website" />
+        
         <RootLayoutWrapper>{children}</RootLayoutWrapper>
       </body>
     </html>

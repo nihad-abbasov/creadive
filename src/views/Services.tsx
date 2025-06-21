@@ -1,8 +1,9 @@
 "use client"
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import Schema from "@/components/Schema";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -97,6 +98,11 @@ export default function Services() {
 
   return (
     <div className="py-16 min-h-screen bg-white">
+      {/* Schema Markup for Services */}
+      {services.map((service) => (
+        <Schema key={service.id} type="service" data={service} />
+      ))}
+
       <div className="max-w-7xl mx-auto px-4">
         <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-2 tracking-tight">
           Xidmətlərimiz
@@ -111,11 +117,10 @@ export default function Services() {
             <Link
               key={service.id}
               href={`/services?service=${service.id}`}
-              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 text-sm ${
-                activeService === service.id
-                  ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
+              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 text-sm ${activeService === service.id
+                ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
+                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
             >
               {service.title}
             </Link>
@@ -148,17 +153,17 @@ export default function Services() {
                 </motion.div>
                 {/* Content */}
                 <div className="p-6 md:p-8">
-                  <motion.h2 
+                  <motion.h2
                     className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300"
                   >
                     {service.title}
                   </motion.h2>
-                  <motion.p 
+                  <motion.p
                     className="text-gray-600 mb-6"
                   >
                     {service.description}
                   </motion.p>
-                  <motion.div 
+                  <motion.div
                     className="text-gray-600"
                   >
                     {service.details}
