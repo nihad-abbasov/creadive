@@ -96,7 +96,7 @@ export default function Navigation() {
     return pathname?.startsWith(href);
   };
 
-  const currentYear = new Date().getFullYear();
+  // const currentYear = new Date().getFullYear();
 
   const handleDropdownEnter = (id: number) => {
     setActiveDropdown(id);
