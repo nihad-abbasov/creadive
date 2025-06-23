@@ -816,7 +816,7 @@ const Homepage = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="py-20"
+        className="py-20 w-full max-w-full overflow-hidden"
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
