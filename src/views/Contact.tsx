@@ -1,73 +1,74 @@
 "use client";
 
-import { InputTextareaField } from "@/components/form/inputs/InputTextareaField";
-import { InputTextField } from "@/components/form/inputs/InputTextField";
+// import { InputTextareaField } from "@/components/form/inputs/InputTextareaField";
+// import { InputTextField } from "@/components/form/inputs/InputTextField";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import { CFormProvider } from "@/components/form/CFormProvider";
-import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useToast } from "@/context/ToastContext";
-import { useForm } from "react-hook-form";
+// import { CFormProvider } from "@/components/form/CFormProvider";
+// import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import { useToast } from "@/context/ToastContext";
+// import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import * as yup from "yup";
+// import * as yup from "yup";
 
-interface ContactFormData {
-  fullName: string;
-  email: string;
-  phone: string;
-  company?: string;
-  subject: string;
-}
+// interface ContactFormData {
+//   fullName: string;
+//   email: string;
+//   phone: string;
+//   company?: string;
+//   subject: string;
+// }
 
-const schema = yup.object<ContactFormData>().shape({
-  fullName: yup.string().required("Bu xana vacibdir"),
-  email: yup
-    .string()
-    .required("Bu xana vacibdir")
-    .email("Düzgün email formatı daxil edin"),
-  phone: yup
-    .string()
-    .required("Bu xana vacibdir")
-    .matches(/^[0-9+\-\s()]*$/, "Düzgün telefon nömrəsi daxil edin"),
-  company: yup.string().required("Bu xana vacibdir"),
-  subject: yup.string().required("Bu xana vacibdir"),
-});
+// const schema = yup.object<ContactFormData>().shape({
+//   fullName: yup.string().required("Bu xana vacibdir"),
+//   email: yup
+//     .string()
+//     .required("Bu xana vacibdir")
+//     .email("Düzgün email formatı daxil edin"),
+//   phone: yup
+//     .string()
+//     .required("Bu xana vacibdir")
+//     .matches(/^[0-9+\-\s()]*$/, "Düzgün telefon nömrəsi daxil edin"),
+//   company: yup.string().required("Bu xana vacibdir"),
+//   subject: yup.string().required("Bu xana vacibdir"),
+// });
 
 export default function Contact() {
-  const { showToast } = useToast();
-  const methods = useForm({
-    resolver: yupResolver(schema),
-    reValidateMode: "onChange",
-    mode: "onChange",
-    defaultValues: {
-      fullName: "",
-      email: "",
-      phone: "",
-      company: "",
-      subject: "",
-    },
-  });
+  // const { showToast } = useToast();
+  // const methods = useForm({
+  //   resolver: yupResolver(schema),
+  //   reValidateMode: "onChange",
+  //   mode: "onChange",
+  //   defaultValues: {
+  //     fullName: "",
+  //     email: "",
+  //     phone: "",
+  //     company: "",
+  //     subject: "",
+  //   },
+  // });
 
-  const handleSubmit = async (formData: ContactFormData) => {
-    try {
-      console.log(formData);
+  // const handleSubmit = async (formData: ContactFormData) => {
+  //   try {
+  //     console.log(formData);
 
-      showToast("success", "Müraciətiniz uğurla göndərildi!");
+  //     showToast("success", "Müraciətiniz uğurla göndərildi!");
 
-      await setTimeout(() => {
-        methods.reset();
-      }, 2000);
+  //     await setTimeout(() => {
+  //       methods.reset();
+  //     }, 2000);
 
-    } catch (error) {
-      showToast(
-        "error",
-        `Müraciətiniz göndərilərkən xəta baş verdi. Zəhmət olmasa yenidən cəhd edin: ${error}`
-      );
-    }
-  };
+  //   } catch (error) {
+  //     showToast(
+  //       "error",
+  //       `Müraciətiniz göndərilərkən xəta baş verdi. Zəhmət olmasa yenidən cəhd edin: ${error}`
+  //     );
+  //   }
+  // };
 
   return (
-    <div className="py-16 min-h-screen bg-white">
+    // min-h-screen
+    <div className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -84,12 +85,13 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* grid-cols-2 */}
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-2"
+            className="space-y-2 w-full md:w-1/3 mx-auto"
           >
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300">
               <div className="flex items-center space-x-4">
@@ -129,7 +131,8 @@ export default function Contact() {
                     Ünvan
                   </h3>
                   <p className="text-gray-600">
-                    Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 89
+                    Bakı şəhəri, Azərbaycan
+                    {/* Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 89 */}
                   </p>
                 </div>
               </div>
@@ -137,7 +140,7 @@ export default function Contact() {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -186,7 +189,7 @@ export default function Contact() {
                 </button>
               </div>
             </CFormProvider>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </div>

@@ -8,7 +8,8 @@ const products = [
   {
     id: 1,
     name: "Creatrax",
-    url: "https://creatrax.vercel.app",
+    url: "https://creatrax.az",
+    // url: "https://creatrax.vercel.app",
     img: "/images/products/creatrax.png",
     description:
       "Creatrax — kreativ layihələrinizi və komandanızı asanlıqla idarə etməyə imkan verən müasir platformadır. Tapşırıqlar, layihələr və əməkdaşlıq üçün ideal seçim!",

@@ -26,7 +26,7 @@ const teamMembers: TeamMember[] = [
     name: "Nihad Abbasov",
     role: "Founder & CEO",
     image: "/images/team/nihad.jpg",
-    bio: "10+ illik proqramlaşdırma təcrübəsi ilə texnologiya və biznes sahəsində geniş biliklərə malikdir.",
+    bio: "Tətbiqi texnologiyalara fokuslanan frontend mütəxəssisidir. Kod keyfiyyəti, istifadəçi təcrübəsi və layihə idarəçiliyi sahəsində dayanıqlı sistemlər qurur və komandanı strateji istiqamətləndirir.",
     social: {
       linkedin: "https://www.linkedin.com/in/nihad-abbasov-dev/",
       instagram: "https://www.instagram.com/weristnihad/",
@@ -36,7 +36,7 @@ const teamMembers: TeamMember[] = [
     name: "Ənvər Nağıyev",
     role: "Rəqəmsal Marketinq Mütəxəssisi",
     image: "/images/team/enver.jpeg",
-    bio: "5+ illik təcrübə ilə rəqəmsal marketinq strategiyaları və sosial media kampaniyalarının idarə edilməsi. Ən yaxşı nəticələri əldə etmək üçün müxtəlif marketinq texnikalarını və proqram tətbiqlərini tətbiq edir.",
+    bio: "Performansa əsaslanan marketinq sahəsində ixtisaslaşıb. Brend tanıdılması, hədəfli reklam və nəticəyə yönəlik strategiyaların qurulması üzrə praktiki təcrübəyə malikdir.",
     social: {
       linkedin: "https://www.linkedin.com/in/enver-nagiyev-digital",
       instagram: "https://www.instagram.com/enver_nagiyeff",
@@ -46,12 +46,13 @@ const teamMembers: TeamMember[] = [
     name: "Cavid Məmmədli",
     role: "Creative Dizayner",
     image: "/images/team/javid.jpg",
-    bio: "10+ illik təcrübə ilə kreativ dizayn və grafik dizayn sahəsində geniş biliklərə malikdir. Ən yaxşı nəticələri əldə etmək üçün müxtəlif dizayn texnikalarını və proqram tətbiqlərini tətbiq edir.",
+    bio: "Brend kimliyi və istifadəçi interfeysi dizaynlarında güclü portfolioya sahibdir. Vizual dilin funksionallıqla balansını qoruyaraq, istifadəyə hazır dizayn həlləri yaradır.",
     social: {
       linkedin: "https://www.linkedin.com/in/",
       instagram: "https://www.instagram.com/javid.mammadli__",
     },
   },
+
   // {
   //   name: "Fuad Şahbazov",
   //   role: "UX/UI Dizayner",
