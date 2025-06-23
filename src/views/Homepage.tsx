@@ -314,10 +314,11 @@ const processSteps = [
 // ];
 
 // PRICING DATA
+
 const pricingCategories = [
   {
     id: "smm",
-    name: "SMM Paketləri",
+    name: "SMM",
     description: "Sosial media idarəçiliyi üçün paketlərimiz.",
     packages: [
       {
@@ -368,7 +369,7 @@ const pricingCategories = [
   },
   {
     id: "website",
-    name: "Vebsayt Paketləri",
+    name: "Vebsayt",
     description: "Vebsayt hazırlanması üçün paketlərimiz.",
     packages: [
       {
@@ -418,7 +419,7 @@ const pricingCategories = [
   },
   {
     id: "design",
-    name: "Dizayn Paketləri",
+    name: "Dizayn",
     description: "Qrafik və brendinq dizayn xidmətləri.",
     packages: [
       {
@@ -851,7 +852,7 @@ const Homepage = () => {
                         alt={partner.name}
                         width={120}
                         height={60}
-                        className="w-auto h-16 md:h-20 object-contain transition-all duration-300"
+                        className="h-16 md:h-16 object-contain transition-all duration-300"
                       />
                     </Link>
                   </div>
@@ -865,7 +866,7 @@ const Homepage = () => {
                         alt={partner.name}
                         width={120}
                         height={60}
-                        className="w-auto h-16 md:h-20 object-contain transition-all duration-300"
+                        className="h-16 md:h-16 object-contain transition-all duration-300"
                       />
                     </Link>
                   </div>
@@ -879,7 +880,7 @@ const Homepage = () => {
                         alt={partner.name}
                         width={120}
                         height={60}
-                        className="w-auto h-16 md:h-20 object-contain transition-all duration-300"
+                        className="h-16 md:h-16 object-contain transition-all duration-300"
                       />
                     </Link>
                   </div>
@@ -896,7 +897,7 @@ const Homepage = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="py-20"
+        className="py-20 bg-gradient-to-b from-gray-50 to-white"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -906,45 +907,52 @@ const Homepage = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Qiymətlərimizlə tanış olmaq istəyirsiniz?
             </h2>
-            <p className="text-base text-gray-600">
-              Xidmətlərimiz üçün ən uyğun paketləri seçin
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Xidmətlərimiz üçün ən uyğun paketləri seçin və biznesinizi növbəti səviyyəyə qaldırın
             </p>
           </motion.div>
-          {/* Tabs with animated underline */}
+
+          {/* Enhanced Tabs with animated underline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex justify-center gap-2 md:gap-4 mb-10 relative"
+            className="flex justify-center gap-1 md:gap-2 mb-12 relative"
           >
-            {pricingCategories.map((cat, index) => (
-              <motion.button
-                key={cat.id}
-                onClick={() => setActivePricingTab(cat.id)}
-                className={`relative px-2 md:px-6 py-2 rounded-full font-semibold transition-colors duration-200`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {cat.name}
-                {activePricingTab === cat.id && (
-                  <motion.div
-                    layoutId="pricing-tab-underline"
-                    className="absolute left-0 right-0 -bottom-1 h-1 rounded-full bg-gradient-to-r from-blue-500 to-green-400"
-                    style={{ zIndex: 1 }}
-                  />
-                )}
-              </motion.button>
-            ))}
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-2 shadow-lg border border-gray-200">
+              {pricingCategories.map((cat, index) => (
+                <motion.button
+                  key={cat.id}
+                  onClick={() => setActivePricingTab(cat.id)}
+                  className={`relative px-4 md:px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${activePricingTab === cat.id
+                    ? 'text-white'
+                    : 'text-gray-600 hover:text-gray-900'
+                    }`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {cat.name}
+                  {activePricingTab === cat.id && (
+                    <motion.div
+                      layoutId="pricing-tab-underline"
+                      className="absolute inset-0 bg-gradient-to-r from-blue-600 to-emerald-500 rounded-xl shadow-lg"
+                      style={{ zIndex: -1 }}
+                    />
+                  )}
+                </motion.button>
+              ))}
+            </div>
           </motion.div>
-          {/* Tab Content */}
+
+          {/* Enhanced Tab Content */}
           <div className="">
             {pricingCategories.map((cat) => (
               <div
@@ -962,65 +970,122 @@ const Homepage = () => {
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.6, delay: index * 0.1 }}
-                          whileHover={{ y: -10, scale: 1.02 }}
-                          className={`relative bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 p-8 rounded-xl shadow-sm transition-all flex flex-col items-center border-2 ${isPopular
-                            ? "border-blue-600 scale-105 shadow-lg z-10"
-                            : "border-transparent"
-                            } hover:shadow-xl duration-200`}
+                          whileHover={{ y: -8, scale: 1.02 }}
+                          className={`relative group overflow-hidden rounded-3xl ${isPopular
+                            ? 'md:scale-105 z-20'
+                            : 'z-10'
+                            }`}
                         >
-                          {isPopular && (
-                            <motion.span
-                              initial={{ opacity: 0, y: -20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 0.5, delay: 0.5 }}
-                              className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg z-20"
-                            >
-                              Ən Populyar
-                            </motion.span>
-                          )}
-                          <h3 className="text-2xl font-bold text-blue-700 mb-2">
-                            {pkg.name}
-                          </h3>
-                          <div className="text-4xl font-extrabold mb-4 bg-gradient-to-r from-blue-600 to-green-400 bg-clip-text text-transparent flex flex-col items-center">
-                            {pkg.price}
-                            {cat.id === "website" &&
-                              pkg.name === "E-ticarət" && (
-                                <span className="text-sm text-gray-500 font-normal">
-                                  -dən başlayaraq
-                                </span>
-                              )}
-                          </div>
-                          <ul className="mb-6 text-gray-700 text-left w-full max-w-xs mx-auto space-y-2">
-                            {pkg.features.map((feature, i) => (
-                              <motion.li
-                                key={i}
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
+                          {/* Card Background */}
+                          <div className={`relative h-full rounded-3xl shadow-xl transition-all duration-500 ${isPopular
+                            ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-emerald-600 shadow-2xl shadow-blue-500/25'
+                            : 'bg-white hover:shadow-2xl hover:shadow-gray-200/50'
+                            }`}>
+
+                            {/* Popular Badge */}
+                            {/* {isPopular && (
+                              <motion.div
+                                initial={{ opacity: 0, y: -20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{
-                                  duration: 0.4,
-                                  delay: 0.6 + i * 0.1,
-                                }}
-                                className="flex items-center gap-2"
+                                transition={{ duration: 0.5, delay: 0.5 }}
+                                className="absolute -top-10 left-1/2 -translate-x-1/2 z-[60]"
                               >
-                                <CheckIcon className="w-5 h-5 text-green-500 flex-shrink-0" />
-                                <span className="text-sm">{feature}</span>
-                              </motion.li>
-                            ))}
-                          </ul>
-                          <motion.a
-                            href={`https://wa.me/994105319987?text=${encodeURIComponent(
-                              `Salam! Mən sizin saytınızdan ${cat.name} kateqoriyasından ${pkg.name} sifariş etmək istəyirəm.\nQiymət: ${pkg.price}\nZəhmət olmasa, mənimlə əlaqə saxlayın.`
-                            )}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-auto bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gradient-to-r hover:from-blue-700 hover:to-green-500 transition-all duration-200 shadow-md flex items-center justify-center"
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            Sifariş et
-                          </motion.a>
+                                <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg border-2 border-white">
+                                  ⭐ Ən Populyar
+                                </div>
+                              </motion.div>
+                            )} */}
+
+                            {/* Decorative Elements */}
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+                            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-white/5 to-transparent rounded-full translate-y-12 -translate-x-12"></div>
+
+                            {/* Card Content */}
+                            <div className="relative p-8 h-full flex flex-col">
+                              {/* Package Icon */}
+                              <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center ${isPopular
+                                ? 'bg-white/20 text-white'
+                                : 'bg-gradient-to-br from-blue-50 to-emerald-50 text-blue-600'
+                                }`}>
+                                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                </svg>
+                              </div>
+
+                              {/* Package Name */}
+                              <h3 className={`text-2xl font-bold mb-1 ${isPopular ? 'text-white' : 'text-gray-900'
+                                }`}>
+                                {pkg.name}
+                              </h3>
+
+                              {/* Price */}
+                              <div className="mb-6">
+                                <div className={`text-5xl font-extrabold mb-1 ${isPopular
+                                  ? 'text-white'
+                                  : 'bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent'
+                                  }`}>
+                                  {pkg.price}
+                                </div>
+                                {cat.id === "website" && pkg.name === "E-ticarət" && (
+                                  <span className={`text-sm font-medium ${isPopular ? 'text-white/80' : 'text-gray-500'
+                                    }`}>
+                                    -dən başlayaraq
+                                  </span>
+                                )}
+                              </div>
+
+                              {/* Features List */}
+                              <ul className="mb-8 flex-1 space-y-3">
+                                {pkg.features.map((feature, i) => (
+                                  <motion.li
+                                    key={i}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                      duration: 0.4,
+                                      delay: 0.6 + i * 0.1,
+                                    }}
+                                    className="flex items-start gap-3"
+                                  >
+                                    <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${isPopular
+                                      ? 'bg-white/20 text-white'
+                                      : 'bg-green-100 text-green-600'
+                                      }`}>
+                                      <CheckIcon className="w-3 h-3" />
+                                    </div>
+                                    <span className={`text-sm leading-relaxed ${isPopular ? 'text-white/90' : 'text-gray-700'
+                                      }`}>
+                                      {feature}
+                                    </span>
+                                  </motion.li>
+                                ))}
+                              </ul>
+
+                              {/* CTA Button */}
+                              <motion.a
+                                href={`https://wa.me/994105319987?text=${encodeURIComponent(
+                                  `Salam! Mən sizin saytınızdan ${cat.name} kateqoriyasından ${pkg.name} sifariş etmək istəyirəm.\nQiymət: ${pkg.price}\nZəhmət olmasa, mənimlə əlaqə saxlayın.`
+                                )}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`w-full py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300 shadow-lg ${isPopular
+                                  ? 'bg-white text-blue-600 hover:bg-gray-50 hover:shadow-xl'
+                                  : 'bg-gradient-to-r from-blue-600 to-emerald-600 text-white hover:from-blue-700 hover:to-emerald-700 hover:shadow-xl'
+                                  }`}
+                                whileHover={{ scale: 1.02, y: -2 }}
+                                whileTap={{ scale: 0.98 }}
+                              >
+                                <span className="flex items-center justify-center gap-2">
+                                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+                                  </svg>
+                                  Sifariş et
+                                </span>
+                              </motion.a>
+                            </div>
+                          </div>
                         </motion.div>
                       );
                     })}
@@ -1030,48 +1095,50 @@ const Homepage = () => {
                     Tezliklə əlavə olunacaq.
                   </div>
                 )}
-                {["smm", "website", "design"].includes(cat.id) &&
-                  cat.notIncluded && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.8 }}
-                      className={`mt-10 max-w-xl mx-auto flex items-start gap-4 bg-red-100 border-red-300 border rounded-xl shadow-sm p-5`}
-                    >
-                      <div className="pt-1">
-                        <InfoIcon className={`w-7 h-7 text-red-500`} />
-                      </div>
-                      <div className="flex-1">
-                        <div
-                          className={`font-bold text-base mb-2 text-red-800`}
-                        >
-                          QİYMƏTLƏRƏ DAXİL DEYİL
+
+                {/* Enhanced Not Included Section */}
+                {["smm", "website", "design"].includes(cat.id) && cat.notIncluded && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                    className="mt-12 max-w-2xl mx-auto"
+                  >
+                    <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-2xl shadow-lg p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0">
+                          <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                            <InfoIcon className="w-6 h-6 text-red-600" />
+                          </div>
                         </div>
-                        <ul
-                          className={`list-disc list-inside space-y-1 text-sm pl-2 ${cat.id === "smm"
-                            ? "text-red-900"
-                            : "text-yellow-900"
-                            }`}
-                        >
-                          {cat.notIncluded.map((item, idx) => (
-                            <motion.li
-                              key={idx}
-                              initial={{ opacity: 0, x: -10 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              viewport={{ once: true }}
-                              transition={{
-                                duration: 0.4,
-                                delay: 1 + idx * 0.1,
-                              }}
-                            >
-                              {item}
-                            </motion.li>
-                          ))}
-                        </ul>
+                        <div className="flex-1">
+                          <h4 className="font-bold text-lg mb-3 text-red-800">
+                            ⚠️ QİYMƏTLƏRƏ DAXİL DEYİL
+                          </h4>
+                          <ul className="space-y-2">
+                            {cat.notIncluded.map((item, idx) => (
+                              <motion.li
+                                key={idx}
+                                initial={{ opacity: 0, x: -10 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{
+                                  duration: 0.4,
+                                  delay: 1 + idx * 0.1,
+                                }}
+                                className="flex items-center gap-2 text-sm text-red-700"
+                              >
+                                <div className="w-1.5 h-1.5 bg-red-500 rounded-full flex-shrink-0"></div>
+                                {item}
+                              </motion.li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                    </motion.div>
-                  )}
+                    </div>
+                  </motion.div>
+                )}
               </div>
             ))}
           </div>

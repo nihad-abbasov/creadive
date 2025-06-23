@@ -1,7 +1,7 @@
 import RootLayoutWrapper from "@/components/RootLayoutWrapper";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import type { Metadata } from "next";
 import Schema from "@/components/Schema";
+import type { Metadata } from "next";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -11,11 +11,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Creadive - İdeallarınızı gerçəkləşdirək ✨",
+  title: "Creadive - İdealarınızı gerçəkləşdirək ✨",
   description:
     "Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik.",
   openGraph: {
-    title: "Creadive - İdeallarınızı gerçəkləşdirək ✨",
+    title: "Creadive - İdealarınızı gerçəkləşdirək ✨",
     description:
       "Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik.",
     type: "website",
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
         url: "https://creadive.az/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Creadive - İdeallarınızı gerçəkləşdirək ✨",
+        alt: "Creadive - İdealarınızı gerçəkləşdirək ✨",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Creadive - İdeallarınızı gerçəkləşdirək ✨",
+    title: "Creadive - İdealarınızı gerçəkləşdirək ✨",
     description:
       "Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik.",
     images: ["https://creadive.az/og-image.png"],
@@ -51,7 +51,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
-          content="Creadive Agency - İdeallarınızı gerçəkləşdirək ✨"
+          content="Creadive Agency - İdealarınızı gerçəkləşdirək ✨"
         />
         <meta
           name="keywords"

@@ -164,7 +164,7 @@ export default function Footer() {
               <Logo isWhite={true} isForHeader={false} />
             </Link>
             <p className="text-gray-400 text-sm">
-              İdeallarınızı gerçəkləşdirək ✨
+              İdealarınızı gerçəkləşdirək ✨
             </p>
           </div>
           <div className="flex flex-col items-start gap-2 md:gap-4">
