@@ -170,23 +170,20 @@ export default function Navigation() {
               >
                 <div className="relative w-6 h-6 flex items-center justify-center">
                   <span
-                    className={`absolute h-0.5 w-6 bg-slate-800 rounded-full transition-all duration-300 ease-in-out transform ${
-                      isMobileMenuOpen
+                    className={`absolute h-0.5 w-6 bg-slate-800 rounded-full transition-all duration-300 ease-in-out transform ${isMobileMenuOpen
                         ? "rotate-45 translate-y-0"
                         : "-translate-y-1.5"
-                    }`}
+                      }`}
                   />
                   <span
-                    className={`absolute h-0.5 w-6 bg-slate-800 rounded-full transition-all duration-300 ease-in-out ${
-                      isMobileMenuOpen ? "opacity-0" : "opacity-100"
-                    }`}
+                    className={`absolute h-0.5 w-6 bg-slate-800 rounded-full transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "opacity-0" : "opacity-100"
+                      }`}
                   />
                   <span
-                    className={`absolute h-0.5 w-6 bg-slate-800 rounded-full transition-all duration-300 ease-in-out transform ${
-                      isMobileMenuOpen
+                    className={`absolute h-0.5 w-6 bg-slate-800 rounded-full transition-all duration-300 ease-in-out transform ${isMobileMenuOpen
                         ? "-rotate-45 translate-y-0"
                         : "translate-y-1.5"
-                    }`}
+                      }`}
                   />
                 </div>
               </button>
@@ -208,11 +205,10 @@ export default function Navigation() {
                   >
                     <Link
                       href={link.href}
-                      className={`text-gray-900 hover:text-gray-900 transition-all duration-300 relative group flex flex-row items-center ${
-                        isActiveLink(link.href)
+                      className={`text-gray-900 hover:text-gray-900 transition-all duration-300 relative group flex flex-row items-center ${isActiveLink(link.href)
                           ? "text-gray-900 font-semibold"
                           : "text-gray-900"
-                      }`}
+                        }`}
                     >
                       {link.label}
                       {link.dropdown && (
@@ -239,11 +235,10 @@ export default function Navigation() {
                         </motion.span>
                       )}
                       <span
-                        className={`absolute -bottom-1 left-0 w-0 h-[1px] bg-gray-900 rounded-full transition-all duration-300 ease-out ${
-                          isActiveLink(link.href)
+                        className={`absolute -bottom-1 left-0 w-0 h-[1px] bg-gray-900 rounded-full transition-all duration-300 ease-out ${isActiveLink(link.href)
                             ? "w-full"
                             : "group-hover:w-full"
-                        }`}
+                          }`}
                       />
                     </Link>
                     {link.dropdown && activeDropdown === link.id && (
@@ -271,13 +266,11 @@ export default function Navigation() {
                               >
                                 <Link
                                   href={item.url}
-                                  className={`block px-4 py-2 text-sm text-gray-900 hover:bg-gray-200 hover:text-gray-900 transition-colors duration-200 ${
-                                    index === 0 ? "rounded-t-md" : ""
-                                  } ${
-                                    index === (link.dropdown?.length ?? 0) - 1
+                                  className={`block px-4 py-2 text-sm text-gray-900 hover:bg-gray-200 hover:text-gray-900 transition-colors duration-200 ${index === 0 ? "rounded-t-md" : ""
+                                    } ${index === (link.dropdown?.length ?? 0) - 1
                                       ? "rounded-b-md"
                                       : ""
-                                  }`}
+                                    }`}
                                   role="menuitem"
                                 >
                                   {item.text}
@@ -298,9 +291,8 @@ export default function Navigation() {
 
       {/* Mobile menu overlay */}
       <motion.div
-        className={`md:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[9998] transition-opacity duration-300 ${
-          isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`md:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[9998] transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
         onClick={toggleMobileMenu}
         aria-hidden={!isMobileMenuOpen}
         initial={{ opacity: 0 }}
@@ -310,16 +302,15 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       <motion.div
-        className={`md:hidden fixed inset-y-0 right-0 w-[280px] bg-slate-900 z-[9999] transform transition-transform duration-300 ease-in-out h-screen ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`md:hidden fixed inset-y-0 right-0 w-[280px] bg-white z-[9999] transform transition-transform duration-300 ease-in-out h-screen ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
         initial={{ x: "100%" }}
         animate={{ x: isMobileMenuOpen ? 0 : "100%" }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         <div className="flex flex-col h-full">
           {/* Menu Header */}
-          <div className="flex items-center justify-end p-4 border-b border-slate-800">
+          <div className="flex items-center justify-between p-4 border-b border-gray-200">
             {/* <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -333,54 +324,9 @@ export default function Navigation() {
                 <Logo isWhite={false} isForHeader={true} />
               </Link>
             </motion.div> */}
-            <button
-              onClick={toggleMobileMenu}
-              className="relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-800/50 transition-all duration-200 focus:outline-none group"
-              aria-label="Close mobile menu"
-            >
-              <div className="relative w-6 h-6 flex items-center justify-center">
-                <span className="absolute h-0.5 w-6 bg-gray-100 rounded-full transition-all duration-300 ease-in-out transform rotate-45" />
-                <span className="absolute h-0.5 w-6 bg-gray-100 rounded-full transition-all duration-300 ease-in-out transform -rotate-45" />
-              </div>
-            </button>
-          </div>
 
-          {/* Menu Items */}
-          <div className="flex flex-col px-6 space-y-2 flex-grow py-6">
-            {navLinks.map((link, index) => (
-              <motion.div
-                key={link.id}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
-              >
-                <Link
-                  href={link.href}
-                  className={`block w-full text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-slate-800/50 text-lg font-medium relative group ${
-                    isActiveLink(link.href) ? "bg-slate-800/50" : ""
-                  }`}
-                  onClick={toggleMobileMenu}
-                >
-                  {link.label}
-                  <span
-                    className={`absolute left-0 top-0 w-1 h-0 bg-white rounded-r-full transition-all duration-300 ease-out ${
-                      isActiveLink(link.href) ? "h-full" : "group-hover:h-full"
-                    }`}
-                  />
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Menu Footer */}
-          <motion.div
-            className="border-t border-slate-800 p-6 space-y-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
-          >
             {/* Social Links */}
-            <div className="flex justify-center space-x-6">
+            <div className="flex justify-center space-x-4">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -390,7 +336,7 @@ export default function Navigation() {
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-gray-300 transition-colors duration-200"
+                  className="text-gray-900 hover:text-gray-900 transition-colors duration-200"
                   aria-label="Facebook"
                 >
                   <FaFacebook className="w-6 h-6" />
@@ -405,7 +351,7 @@ export default function Navigation() {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-gray-300 transition-colors duration-200"
+                  className="text-gray-900 hover:text-gray-900 transition-colors duration-200"
                   aria-label="Instagram"
                 >
                   <FaInstagram className="w-6 h-6" />
@@ -420,13 +366,58 @@ export default function Navigation() {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-gray-300 transition-colors duration-200"
+                  className="text-gray-900 hover:text-gray-900 transition-colors duration-200"
                   aria-label="LinkedIn"
                 >
                   <FaLinkedin className="w-6 h-6" />
                 </Link>
               </motion.div>
             </div>
+            <button
+              onClick={toggleMobileMenu}
+              className="relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-800/50 transition-all duration-200 focus:outline-none group"
+              aria-label="Close mobile menu"
+            >
+              <div className="relative w-6 h-6 flex items-center justify-center">
+                <span className="absolute h-0.5 w-6 bg-gray-900 rounded-full transition-all duration-300 ease-in-out transform rotate-45" />
+                <span className="absolute h-0.5 w-6 bg-gray-900 rounded-full transition-all duration-300 ease-in-out transform -rotate-45" />
+              </div>
+            </button>
+          </div>
+
+          {/* Menu Items */}
+          <div className="flex flex-col px-4 md:px-6 space-y-2 flex-grow py-4 md:py-6">
+            {navLinks.map((link, index) => (
+              <motion.div
+                key={link.id}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
+              >
+                <Link
+                  href={link.href}
+                  className={`block w-full text-gray-900 py-3 px-4 rounded-lg transition-all duration-300 hover:bg-slate-800/50 text-lg font-medium relative group ${isActiveLink(link.href) ? "bg-black/20 !text-black" : ""
+                    }`}
+                  onClick={toggleMobileMenu}
+                >
+                  {link.label}
+                  <span
+                    className={`absolute left-0 top-0 w-1 h-0 bg-gray-900 rounded-l-full transition-all duration-300 ease-out ${isActiveLink(link.href) ? "h-full" : "group-hover:h-full"
+                      }`}
+                  />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Menu Footer */}
+          <motion.div
+            className="border-t border-gray-200 p-6 space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+          >
+
 
             {/* Contact Info */}
             <div className="space-y-3 text-center">
@@ -437,7 +428,7 @@ export default function Navigation() {
               >
                 <Link
                   href="tel:+994501234567"
-                  className="flex items-center justify-center text-gray-400 hover:text-gray-300 transition-colors duration-200"
+                  className="flex items-center justify-center text-gray-900 hover:text-gray-900 transition-colors duration-200"
                 >
                   <FaPhone className="w-4 h-4 mr-2" />
                   <span>+994 50 123 45 67</span>
@@ -450,7 +441,7 @@ export default function Navigation() {
               >
                 <Link
                   href="mailto:info@creadive.az"
-                  className="flex items-center justify-center text-gray-400 hover:text-gray-300 transition-colors duration-200"
+                  className="flex items-center justify-center text-gray-900 hover:text-gray-900 transition-colors duration-200"
                 >
                   <FaEnvelope className="w-4 h-4 mr-2" />
                   <span>info@creadive.az</span>
@@ -459,14 +450,14 @@ export default function Navigation() {
             </div>
 
             {/* Copyright */}
-            <motion.div
+            {/* <motion.div
               className="text-center text-xs text-gray-300 font-light"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.4, duration: 0.3 }}
             >
               © {currentYear} Creadive. Bütün hüquqlar qorunur.
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </motion.div>

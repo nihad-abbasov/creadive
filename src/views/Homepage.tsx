@@ -1114,7 +1114,7 @@ const Homepage = () => {
                         </div>
                         <div className="flex-1">
                           <h4 className="font-bold text-lg mb-3 text-red-800">
-                            ⚠️ QİYMƏTLƏRƏ DAXİL DEYİL
+                            QİYMƏTLƏRƏ DAXİL DEYİL
                           </h4>
                           <ul className="space-y-2">
                             {cat.notIncluded.map((item, idx) => (
