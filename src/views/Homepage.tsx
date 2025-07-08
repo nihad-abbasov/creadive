@@ -585,7 +585,7 @@ const Homepage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-[0_0_30px_rgba(255,255,255,0.6)]"
+                className="text-5xl sm:text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-[0_0_30px_rgba(255,255,255,0.6)]"
               >
                 Biznesinizi{" "}
                 <span className="bg-gradient-to-l from-[#15B6B0] to-[#20C943] bg-clip-text text-transparent font-bold drop-shadow-[0_0_30px_rgba(22,182,176,0.8)]">
@@ -636,7 +636,7 @@ const Homepage = () => {
                       d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                     />
                   </svg>
-                  Portfoliomuz
+                  Portfoliomuza bax
                 </Link>
               </motion.div>
             </div>

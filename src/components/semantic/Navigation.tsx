@@ -46,7 +46,7 @@ const navLinks: NavLink[] = [
     href: "/about",
     label: "Haqqımızda",
     dropdown: [
-      { text: "Creadive kimdir?", url: "/about" },
+      { text: "Biz kimik?", url: "/about" },
       { text: "Komandamız", url: "/about/#team_section" },
       { text: "FAQ", url: "/about/#faq_section" },
     ],
@@ -263,7 +263,7 @@ export default function Navigation() {
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.05 }}
-                                className="bg-white text-gray-900"
+                                className="bg-white text-gray-900 rounded-md"
                               >
                                 <Link
                                   href={item.url}
@@ -285,6 +285,13 @@ export default function Navigation() {
                   </motion.div>
                 ))}
               </div>
+            </div>
+
+            <div className="hidden md:block">
+              <Link href="tel:+994105319987" className="bg-white hover:bg-gray-300 text-black text-sm px-4 py-2 rounded-full flex items-center transition-all duration-300">
+                <FaPhone className="w-4 h-4 mr-2 text-blue-600" />
+                +994 10 531 99 87
+              </Link>
             </div>
           </div>
         </div>
@@ -397,7 +404,7 @@ export default function Navigation() {
               >
                 <Link
                   href={link.href}
-                  className={`block w-full text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-slate-800/50 text-lg font-medium relative group ${isActiveLink(link.href) ? "bg-black/20 !text-black" : ""
+                  className={`block w-full !text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-slate-800/50 text-lg font-medium relative group ${isActiveLink(link.href) ? "bg-black/20 !text-black" : ""
                     }`}
                   onClick={toggleMobileMenu}
                 >

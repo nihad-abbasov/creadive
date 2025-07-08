@@ -164,7 +164,7 @@ export default function Portfolio() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {(() => {
                 const activeCategoryData = categories.find(
@@ -206,7 +206,7 @@ export default function Portfolio() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.3 }}
-                        className="text-xl font-semibold text-gray-900 mb-2"
+                        className="text-2xl font-semibold text-white mb-2"
                       >
                         Bu kateqoriyada hələ layihə yoxdur
                       </motion.h3>
@@ -214,7 +214,7 @@ export default function Portfolio() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.4 }}
-                        className="text-gray-600 max-w-md"
+                        className="text-white/80 text-base max-w-md"
                       >
                         {activeCategory === "smm" &&
                           "SMM layihələrimiz tezliklə əlavə olunacaq."}
