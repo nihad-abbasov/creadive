@@ -604,7 +604,7 @@ const Homepage = () => {
                 <span className="bg-gradient-to-l from-[#15B6B0] to-[#20C943] bg-clip-text text-transparent font-bold">
                   brendlərin
                 </span>{" "}
-                inkişafına kömək edən kreativ rəqəmsal agentlikik.
+                inkişafına kömək edirik.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -668,14 +668,14 @@ const Homepage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-4xl font-bold text-white mb-2">
-              Creadive nə təklif edir?
+              Creadive nələr təklif edir?
             </h2>
-            <p className="text-base text-white/80 max-w-2xl mx-auto">
+            {/* <p className="text-base text-white/80 max-w-2xl mx-auto">
               Biznesiniz üçün ən yaxşı həllər
-            </p>
+            </p> */}
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
@@ -740,7 +740,7 @@ const Homepage = () => {
       {/* Portfolio Section */}
       {/* <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Son İşlərimiz
             </h2>
@@ -824,14 +824,14 @@ const Homepage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-2">
               Tərəfdaşlarımız
             </h2>
-            <p className="text-base text-white/80">
+            {/* <p className="text-base text-white/80">
               Bizə etibar edən və uğurla işlədiyimiz brendlər
-            </p>
+            </p> */}
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -906,7 +906,7 @@ const Homepage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Qiymətlərimizlə tanış olmaq istəyirsiniz?
@@ -1160,14 +1160,14 @@ const Homepage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-2">
               Niyə məhz Creadive?
             </h2>
-            <p className="text-base text-white/80">
+            {/* <p className="text-base text-white/80">
               Bizi fərqləndirən xüsusiyyətlər
-            </p>
+            </p> */}
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             {[
@@ -1231,7 +1231,7 @@ const Homepage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Blog
@@ -1284,14 +1284,14 @@ const Homepage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-2">
               İş Prosesimizi Bilmək İstəyirsiniz?
             </h2>
-            <p className="text-base text-white/80">
+            {/* <p className="text-base text-white/80">
               Layihələrimizi necə həyata keçirirdiyimizə baxın
-            </p>
+            </p> */}
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {processSteps.map((step, index) => (
@@ -1326,7 +1326,7 @@ const Homepage = () => {
       {/* Technologies Section */}
       {/* <div className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Texnologiyalar
             </h2>
@@ -1372,14 +1372,14 @@ const Homepage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-2">
               Creadive haqqında nə deyirlər?
             </h2>
-            <p className="text-base text-white/80">
+            {/* <p className="text-base text-white/80">
               Bizə etibar edən müştərilərimizin təəssüratları
-            </p>
+            </p> */}
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}

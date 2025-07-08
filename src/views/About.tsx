@@ -48,8 +48,18 @@ const teamMembers: TeamMember[] = [
     image: "/images/team/javid.jpg",
     bio: "Brend kimliyi və istifadəçi interfeysi dizaynlarında güclü portfolioya sahibdir. Vizual dilin funksionallıqla balansını qoruyaraq, istifadəyə hazır dizayn həlləri yaradır.",
     social: {
-      linkedin: "https://www.linkedin.com/in/",
+      linkedin: "https://www.linkedin.com",
       instagram: "https://www.instagram.com/javid.mammadli__",
+    },
+  },
+  {
+    name: "Alış Həziyev",
+    role: "İnsan resursları mütəxəssisi",
+    image: "/images/team/alish.jpg",
+    bio: "İnsan resursları sahəsində 10+ illik təcrübəyə malikdir. İxtisaslaşmış təcrübəsi ilə müştəri məmnuniyyəti və iş qabiliyyəti artırmaq üçün müxtəlif strategiyaları tətbiq edir.",
+    social: {
+      linkedin: "https://www.linkedin.com/in/alish-heziyev-857729195",
+      instagram: "https://www.instagram.com/alish.heziyev",
     },
   },
 
@@ -295,7 +305,7 @@ export default function About() {
                   />
                 </motion.div>
                 <motion.h3
-                  className="text-xl font-bold text-center text-gray-900 mb-2"
+                  className="text-xl font-bold text-center text-gray-900 mb-1"
                   whileHover={{ color: "#2563eb" }}
                   transition={{ duration: 0.2 }}
                 >
@@ -371,7 +381,7 @@ export default function About() {
                   whileHover={{ backgroundColor: "#f9fafb" }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-base font-semibold text-gray-900">
                     {faq.question}
                   </span>
                   <motion.div
