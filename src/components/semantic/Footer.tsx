@@ -2,8 +2,6 @@ import { FaTwitter, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
 import Link from "next/link";
 import Logo from "../Logo";
 
-// TODO: Add a scroll to top button
-
 type FooterLink = {
   id: number;
   href: string;
@@ -152,7 +150,8 @@ const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-tl from-blue-900 to-black text-white pt-12 pb-8">
+    // bg-gradient-to-tl from-blue-900 to-black 
+    <footer className="text-white pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="flex flex-col items-start gap-2 md:gap-4">

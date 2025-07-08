@@ -120,11 +120,11 @@ export default function RootLayout({
           type="image/webp"
         /> */}
       </head>
-      <body className={`${plusJakartaSans.variable} font-sans antialiased`}>
+      <body className={`${plusJakartaSans.variable} font-sans antialiased bg-gradient-to-br from-slate-950 via-blue-900 to-slate-950`}>
         {/* Schema Markup */}
         <Schema type="organization" />
         <Schema type="website" />
-        
+
         <RootLayoutWrapper>{children}</RootLayoutWrapper>
       </body>
     </html>

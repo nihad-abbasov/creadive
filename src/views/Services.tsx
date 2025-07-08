@@ -68,7 +68,7 @@ const services: Service[] = [
 
   {
     id: "mobile-development",
-    title: "Mobile Development",
+    title: "Mobil Tətbiqlərin Yaradılması",
     description: "iOS və Android üçün yüksək keyfiyyətli mobil tətbiqlər.",
     details: `Mobil istifadəçilər üçün sürətli, funksional və estetik tətbiqlər hazırlayırıq. iOS və Android platformalarında mükəmməl işləyən həllər təqdim edirik. İstifadəçi təcrübəsi və performans bizim üçün ön plandadır.`,
     image: "/images/services/mobile-development.jpg"
@@ -97,81 +97,85 @@ export default function Services() {
   }, [serviceId]);
 
   return (
-    <div className="py-16 min-h-screen bg-white">
+    // bg-white
+    <div className="py-16 min-h-screen">
       {/* Schema Markup for Services */}
       {services.map((service) => (
         <Schema key={service.id} type="service" data={service} />
       ))}
 
       <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-2 tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-center !text-white mb-2 tracking-tight">
           Xidmətlərimiz
         </h1>
-        <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+        <p className="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">
           Biznesiniz üçün ən yaxşı həlləri təklif edirik
         </p>
 
-        {/* Service Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12 sticky top-0 bg-white z-10 py-4 shadow-sm">
-          {services.map((service) => (
-            <Link
-              key={service.id}
-              href={`/services?service=${service.id}`}
-              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 text-sm ${activeService === service.id
-                ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-            >
-              {service.title}
-            </Link>
-          ))}
-        </div>
+        <div className="flex flex-col md:flex-row items-start gap-12">
+          {/* Service Tabs */}
+          {/* bg-white */}
+          <div className="flex flex-row md:flex-col flex-wrap md:flex-nowrap justify-center gap-4 md:sticky top-4 z-10 shadow-sm w-full">
+            {services.map((service) => (
+              <Link
+                key={service.id}
+                href={`/services?service=${service.id}`}
+                className={`px-6 py-4 rounded-xl font-semibold transition-all duration-300 text-sm ${activeService === service.id
+                  ? "bg-gradient-to-r from-slate-800 to-blue-700 text-white shadow-lg border border-slate-400"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }`}
+              >
+                {service.title}
+              </Link>
+            ))}
+          </div>
 
-        {/* Service Items */}
-        <div className="flex flex-col gap-12">
-          {services.map((service, idx) => (
-            <motion.section
-              key={service.id}
-              id={service.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group rounded-2xl overflow-hidden shadow-sm bg-white hover:shadow-lg transition-all duration-300 border border-gray-100"
-              onClick={() => handleServiceClick(service.id)}
-            >
-              <div className={`grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-12 items-center ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                {/* Image */}
-                <motion.div
-                  className={`relative w-full h-64 md:h-80 ${idx % 2 === 1 ? 'md:order-2' : ''}`}
-                >
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover w-full h-full rounded-none md:rounded-2xl shadow-sm"
-                  />
-                </motion.div>
-                {/* Content */}
-                <div className="p-6 md:p-8">
-                  <motion.h2
-                    className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300"
-                  >
-                    {service.title}
-                  </motion.h2>
-                  <motion.p
-                    className="text-gray-600 mb-6"
-                  >
-                    {service.description}
-                  </motion.p>
+          {/* Service Items */}
+          <div className="flex flex-col gap-12">
+            {services.map((service, idx) => (
+              <motion.section
+                key={service.id}
+                id={service.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="group rounded-2xl overflow-hidden shadow-sm bg-white hover:shadow-lg transition-all duration-300 border border-gray-100"
+                onClick={() => handleServiceClick(service.id)}
+              >
+                <div className={`grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-12 items-center ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                  {/* Image */}
                   <motion.div
-                    className="text-gray-600"
+                    className={`relative w-full h-64 md:h-80 ${idx % 2 === 1 ? 'md:order-2' : ''}`}
                   >
-                    {service.details}
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover w-full h-full rounded-none md:rounded-2xl shadow-sm"
+                    />
                   </motion.div>
+                  {/* Content */}
+                  <div className="p-6 md:p-8">
+                    <motion.h2
+                      className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300"
+                    >
+                      {service.title}
+                    </motion.h2>
+                    <motion.p
+                      className="text-gray-600 mb-6"
+                    >
+                      {service.description}
+                    </motion.p>
+                    <motion.div
+                      className="text-gray-600"
+                    >
+                      {service.details}
+                    </motion.div>
+                  </div>
                 </div>
-              </div>
-            </motion.section>
-          ))}
+              </motion.section>
+            ))}
+          </div>
         </div>
       </div>
     </div>

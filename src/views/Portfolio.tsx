@@ -128,12 +128,13 @@ export default function Portfolio() {
 
   return (
     <Suspense>
-      <div className="py-16 min-h-screen bg-white">
+      {/* bg-white */}
+      <div className="py-16 min-h-screen">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-2 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-center !text-white mb-2 tracking-tight">
             Portfolio
           </h1>
-          <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">
             Layihələrimiz və uğurlu işlərimiz.
           </p>
 

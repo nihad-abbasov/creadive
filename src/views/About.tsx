@@ -202,7 +202,8 @@ export default function About() {
 
   return (
     <motion.div
-      className="py-16 min-h-screen bg-white"
+      // bg-white
+      className="py-16 min-h-screen"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -210,7 +211,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4">
         <motion.div variants={itemVariants} className="text-center mb-12">
           <motion.h1
-            className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight"
+            className="text-4xl md:text-5xl font-extrabold !text-white mb-2 tracking-tight"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -218,7 +219,7 @@ export default function About() {
             Biz kimik?
           </motion.h1>
           <motion.p
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            className="text-lg text-white/80 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -243,7 +244,7 @@ export default function About() {
                 className="bg-gradient-to-br from-blue-900 via-blue-800 to-black p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <motion.h3
-                  className="text-2xl font-bold text-white mb-4"
+                  className="text-2xl font-bold !text-white mb-4"
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -264,7 +265,7 @@ export default function About() {
           variants={containerVariants}
         >
           <motion.h2
-            className="text-3xl font-bold text-center text-gray-900 mb-12"
+            className="text-3xl font-bold text-center !text-white mb-12"
             variants={itemVariants}
           >
             Komandamız
@@ -345,7 +346,7 @@ export default function About() {
           variants={containerVariants}
         >
           <motion.h2
-            className="text-3xl font-bold text-center text-gray-900 mb-12"
+            className="text-3xl font-bold text-center !text-white mb-12"
             variants={itemVariants}
           >
             Tez-tez soruşulan suallar
@@ -377,7 +378,7 @@ export default function About() {
                     animate={{ rotate: openFaqId === faq.id ? 0 : 180 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <IoIosArrowUp className="w-5 h-5 text-gray-500" />
+                    <IoIosArrowUp className="w-5 h-5 text-gray-600" />
                   </motion.div>
                 </motion.button>
                 <AnimatePresence>
@@ -390,7 +391,7 @@ export default function About() {
                       className="overflow-hidden"
                     >
                       <motion.div
-                        className="px-6 py-4 text-gray-600"
+                        className="px-6 py-4 text-gray-700"
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}

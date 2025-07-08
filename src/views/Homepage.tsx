@@ -374,7 +374,7 @@ const pricingCategories = [
     packages: [
       {
         id: "landing",
-        name: "Landing Page",
+        name: "Açılış Səhifəsi",
         price: "500 AZN",
         features: [
           "1 səhifəlik vebsayt",
@@ -424,7 +424,7 @@ const pricingCategories = [
     packages: [
       {
         id: "logo",
-        name: "Logo Dizaynı",
+        name: "Loqo Dizaynı",
         price: "150 AZN",
         features: [
           "3 fərqli konsept",
@@ -438,7 +438,7 @@ const pricingCategories = [
         name: "Brendinq Paketi",
         price: "400 AZN",
         features: [
-          "Logo dizaynı",
+          "Loqo dizaynı",
           "Vizit kart dizaynı",
           "Sosial media şablonları",
           "Brend kitabçası",
@@ -446,7 +446,7 @@ const pricingCategories = [
       },
       {
         id: "social",
-        name: "Sosial Media Dizayn Paketi",
+        name: "Post və Story Dizaynı",
         price: "70 AZN",
         features: [
           "3 post dizaynı",
@@ -565,7 +565,7 @@ const Homepage = () => {
       {/* Hero Section */}
       <div className="relative min-h-auto md:min-h-[93vh] flex items-center">
         {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
+        {/* <div className="absolute inset-0 z-0">
           <Image
             src="/hero2.jpg"
             alt="Hero Background"
@@ -575,7 +575,7 @@ const Homepage = () => {
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/90 to-black/50" />
-        </div>
+        </div> */}
 
         {/* Content */}
         <div className="relative z-10 w-full pt-32 pb-20 px-4 sm:px-6 lg:px-8">
@@ -585,10 +585,10 @@ const Homepage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6"
+                className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-[0_0_30px_rgba(255,255,255,0.6)]"
               >
                 Biznesinizi{" "}
-                <span className="bg-gradient-to-l from-[#15B6B0] to-[#20C943] bg-clip-text text-transparent font-bold">
+                <span className="bg-gradient-to-l from-[#15B6B0] to-[#20C943] bg-clip-text text-transparent font-bold drop-shadow-[0_0_30px_rgba(22,182,176,0.8)]">
                   Creadive
                 </span>{" "}
                 ilə <br />
@@ -617,7 +617,7 @@ const Homepage = () => {
                   className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
                 >
                   <IoRocketOutline className="w-5 h-5" />
-                  Layihənizi başladaq
+                  Layihənizə başlayaq
                 </Link>
                 <Link
                   href="/portfolio"
@@ -636,7 +636,7 @@ const Homepage = () => {
                       d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                     />
                   </svg>
-                  Portfoliomuza baxın
+                  Portfoliomuz
                 </Link>
               </motion.div>
             </div>
@@ -648,7 +648,7 @@ const Homepage = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+          className="absolute bottom-0 md:bottom-8 left-1/2 transform -translate-x-1/2 z-10"
         >
           <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
             <motion.div
@@ -670,10 +670,10 @@ const Homepage = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-2">
+            <h2 className="text-4xl font-bold text-white mb-2">
               Creadive nə təklif edir?
             </h2>
-            <p className="text-base text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base text-white/80 max-w-2xl mx-auto">
               Biznesiniz üçün ən yaxşı həllər
             </p>
           </motion.div>
@@ -826,10 +826,10 @@ const Homepage = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="text-3xl font-bold text-white mb-2">
               Tərəfdaşlarımız
             </h2>
-            <p className="text-base text-gray-600">
+            <p className="text-base text-white/80">
               Bizə etibar edən və uğurla işlədiyimiz brendlər
             </p>
           </motion.div>
@@ -846,7 +846,7 @@ const Homepage = () => {
                 {/* First set of logos */}
                 {partners.map((partner: Partner, index: number) => (
                   <div key={`first-${index}`} className="partner-item">
-                    <Link href={partner.partnerInstagram} target="_blank" rel="noopener noreferrer">
+                    <Link href={partner.partnerInstagram} target="_blank" rel="noopener noreferrer" className="bg-white rounded-lg p-2">
                       <Image
                         src={partner.logoUrl}
                         alt={partner.name}
@@ -860,7 +860,7 @@ const Homepage = () => {
                 {/* Duplicate set for seamless loop */}
                 {partners.map((partner: Partner, index: number) => (
                   <div key={`second-${index}`} className="partner-item">
-                    <Link href={partner.partnerInstagram} target="_blank" rel="noopener noreferrer">
+                    <Link href={partner.partnerInstagram} target="_blank" rel="noopener noreferrer" className="bg-white rounded-lg p-2">
                       <Image
                         src={partner.logoUrl}
                         alt={partner.name}
@@ -874,7 +874,7 @@ const Homepage = () => {
                 {/* Third set for better coverage with fewer partners */}
                 {partners.map((partner: Partner, index: number) => (
                   <div key={`third-${index}`} className="partner-item">
-                    <Link href={partner.partnerInstagram} target="_blank" rel="noopener noreferrer">
+                    <Link href={partner.partnerInstagram} target="_blank" rel="noopener noreferrer" className="bg-white rounded-lg p-2">
                       <Image
                         src={partner.logoUrl}
                         alt={partner.name}
@@ -897,7 +897,8 @@ const Homepage = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="py-20 bg-gradient-to-b from-gray-50 to-white"
+        className="py-20"
+      // bg-gradient-to-b from-gray-50 to-white
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -907,12 +908,12 @@ const Homepage = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Qiymətlərimizlə tanış olmaq istəyirsiniz?
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            {/* <p className="text-lg text-white/80 max-w-2xl mx-auto">
               Xidmətlərimiz üçün ən uyğun paketləri seçin və biznesinizi növbəti səviyyəyə qaldırın
-            </p>
+            </p> */}
           </motion.div>
 
           {/* Enhanced Tabs with animated underline */}
@@ -923,7 +924,7 @@ const Homepage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex justify-center gap-1 md:gap-2 mb-12 relative"
           >
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-2 shadow-lg border border-gray-200">
+            <div className="bg-white backdrop-blur-sm rounded-2xl p-2 shadow-lg border border-gray-200">
               {pricingCategories.map((cat, index) => (
                 <motion.button
                   key={cat.id}
@@ -1105,7 +1106,7 @@ const Homepage = () => {
                     transition={{ duration: 0.6, delay: 0.8 }}
                     className="mt-12 max-w-2xl mx-auto"
                   >
-                    <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-2xl shadow-lg p-6">
+                    <div className="bg-white rounded-2xl shadow-lg p-6">
                       <div className="flex items-start gap-4">
                         <div className="flex-shrink-0">
                           <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
@@ -1113,7 +1114,7 @@ const Homepage = () => {
                           </div>
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-bold text-lg mb-3 text-red-800">
+                          <h4 className="font-bold text-lg mb-3 text-gray-900">
                             QİYMƏTLƏRƏ DAXİL DEYİL
                           </h4>
                           <ul className="space-y-2">
@@ -1127,9 +1128,9 @@ const Homepage = () => {
                                   duration: 0.4,
                                   delay: 1 + idx * 0.1,
                                 }}
-                                className="flex items-center gap-2 text-sm text-red-700"
+                                className="flex items-center gap-2 text-sm text-gray-900"
                               >
-                                <div className="w-1.5 h-1.5 bg-red-500 rounded-full flex-shrink-0"></div>
+                                <div className="w-1.5 h-1.5 bg-gray-900 rounded-full flex-shrink-0"></div>
                                 {item}
                               </motion.li>
                             ))}
@@ -1161,10 +1162,10 @@ const Homepage = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="text-3xl font-bold text-white mb-2">
               Niyə məhz Creadive?
             </h2>
-            <p className="text-base text-gray-600">
+            <p className="text-base text-white/80">
               Bizi fərqləndirən xüsusiyyətlər
             </p>
           </motion.div>
@@ -1285,10 +1286,10 @@ const Homepage = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="text-3xl font-bold text-white mb-2">
               İş Prosesimizi Bilmək İstəyirsiniz?
             </h2>
-            <p className="text-base text-gray-600">
+            <p className="text-base text-white/80">
               Layihələrimizi necə həyata keçirirdiyimizə baxın
             </p>
           </motion.div>
@@ -1310,10 +1311,10 @@ const Homepage = () => {
                     <div className="hidden md:block absolute top-8 left-[65.5%] w-[80%] h-0.5 bg-blue-600" />
                   )}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-semibold text-white mb-2">
                   {step.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed max-w-[200px] mx-auto">
+                <p className="text-white/80 text-sm leading-relaxed max-w-[200px] mx-auto">
                   {step.description}
                 </p>
               </motion.div>
@@ -1357,60 +1358,6 @@ const Homepage = () => {
         </div>
       </div> */}
 
-      {/* Contact CTA Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="py-20"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            whileHover={{ scale: 1.02 }}
-            className="bg-gradient-to-tl from-slate-950 to-emerald-600 rounded-2xl py-16 px-8 md:px-12 flex flex-col md:flex-row items-center justify-between"
-          >
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-center md:text-left mb-8 md:mb-0"
-            >
-              <h2 className="text-3xl font-bold text-white mb-2">
-                Layihənizi müzakirə edək
-              </h2>
-              <p className="text-white text-base font-light">
-                Bizimlə əlaqə saxlayın və layihənizi həyata keçirək
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <Link
-                href="https://wa.me/994105319987"
-                target="_blank"
-                className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-blue-600 transition-colors w-full md:w-max"
-              >
-                <motion.span
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Bizə yazın
-                </motion.span>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </motion.div>
-
       {/* Testimonials Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -1427,10 +1374,10 @@ const Homepage = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="text-3xl font-bold text-white mb-2">
               Creadive haqqında nə deyirlər?
             </h2>
-            <p className="text-base text-gray-600">
+            <p className="text-base text-white/80">
               Bizə etibar edən müştərilərimizin təəssüratları
             </p>
           </motion.div>
@@ -1544,6 +1491,61 @@ const Homepage = () => {
           </motion.div>
         </div>
       </motion.div>
+
+      {/* Contact CTA Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="py-20"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            whileHover={{ scale: 1.02 }}
+            className="bg-gradient-to-t from-slate-950 to-blue-600 rounded-2xl py-16 px-8 md:px-12 flex flex-col md:flex-row items-center justify-between"
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-center md:text-left mb-8 md:mb-0"
+            >
+              <h2 className="text-3xl font-bold text-white mb-2">
+                Layihənizi müzakirə edək
+              </h2>
+              <p className="text-white text-base font-light">
+                Bizimlə əlaqə saxlayın və layihənizi həyata keçirək
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Link
+                href="https://wa.me/994105319987"
+                target="_blank"
+                className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-blue-600 transition-colors w-full md:w-max"
+              >
+                <motion.span
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Bizə yazın
+                </motion.span>
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.div>
+
     </section>
   );
 };

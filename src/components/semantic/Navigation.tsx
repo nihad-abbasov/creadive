@@ -9,8 +9,8 @@ import {
 } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import Logo from "../Logo";
 
 type NavLink = {
@@ -149,7 +149,8 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="w-full bg-gray-100 backdrop-blur-md z-[9997] relative">
+      {/* bg-gray-100 backdrop-blur-md */}
+      <nav className="w-full z-[9997] relative pt-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <motion.div
@@ -158,8 +159,8 @@ export default function Navigation() {
               initial="hidden"
               animate="visible"
             >
-              <Link href="/" className="text-2xl font-bold text-gray-900">
-                <Logo isWhite={false} isForHeader={true} />
+              <Link href="/" className="text-2xl font-bold text-white">
+                <Logo isWhite={true} isForHeader={true} />
               </Link>
             </motion.div>
             <div className="block md:hidden">
@@ -170,19 +171,19 @@ export default function Navigation() {
               >
                 <div className="relative w-6 h-6 flex items-center justify-center">
                   <span
-                    className={`absolute h-0.5 w-6 bg-slate-800 rounded-full transition-all duration-300 ease-in-out transform ${isMobileMenuOpen
-                        ? "rotate-45 translate-y-0"
-                        : "-translate-y-1.5"
+                    className={`absolute h-0.5 w-6 bg-white/90 rounded-full transition-all duration-300 ease-in-out transform ${isMobileMenuOpen
+                      ? "rotate-45 translate-y-0"
+                      : "-translate-y-1.5"
                       }`}
                   />
                   <span
-                    className={`absolute h-0.5 w-6 bg-slate-800 rounded-full transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "opacity-0" : "opacity-100"
+                    className={`absolute h-0.5 w-6 bg-white/90 rounded-full transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "opacity-0" : "opacity-100"
                       }`}
                   />
                   <span
-                    className={`absolute h-0.5 w-6 bg-slate-800 rounded-full transition-all duration-300 ease-in-out transform ${isMobileMenuOpen
-                        ? "-rotate-45 translate-y-0"
-                        : "translate-y-1.5"
+                    className={`absolute h-0.5 w-6 bg-white/90 rounded-full transition-all duration-300 ease-in-out transform ${isMobileMenuOpen
+                      ? "-rotate-45 translate-y-0"
+                      : "translate-y-1.5"
                       }`}
                   />
                 </div>
@@ -205,9 +206,9 @@ export default function Navigation() {
                   >
                     <Link
                       href={link.href}
-                      className={`text-gray-900 hover:text-gray-900 transition-all duration-300 relative group flex flex-row items-center ${isActiveLink(link.href)
-                          ? "text-gray-900 font-semibold"
-                          : "text-gray-900"
+                      className={`text-white hover:text-white transition-all duration-300 relative group flex flex-row items-center ${isActiveLink(link.href)
+                        ? "text-white font-semibold"
+                        : "text-white"
                         }`}
                     >
                       {link.label}
@@ -235,9 +236,9 @@ export default function Navigation() {
                         </motion.span>
                       )}
                       <span
-                        className={`absolute -bottom-1 left-0 w-0 h-[1px] bg-gray-900 rounded-full transition-all duration-300 ease-out ${isActiveLink(link.href)
-                            ? "w-full"
-                            : "group-hover:w-full"
+                        className={`absolute -bottom-1 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 ease-out ${isActiveLink(link.href)
+                          ? "w-full"
+                          : "group-hover:w-full"
                           }`}
                       />
                     </Link>
@@ -291,7 +292,7 @@ export default function Navigation() {
 
       {/* Mobile menu overlay */}
       <motion.div
-        className={`md:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[9998] transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        className={`md:hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-[9998] transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         onClick={toggleMobileMenu}
         aria-hidden={!isMobileMenuOpen}
@@ -302,7 +303,7 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       <motion.div
-        className={`md:hidden fixed inset-y-0 right-0 w-[280px] bg-white z-[9999] transform transition-transform duration-300 ease-in-out h-screen ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        className={`md:hidden fixed inset-y-0 right-0 w-[280px] bg-gradient-to-br from-slate-950 via-blue-900 to-slate-950 z-[9999] transform transition-transform duration-300 ease-in-out h-screen ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         initial={{ x: "100%" }}
         animate={{ x: isMobileMenuOpen ? 0 : "100%" }}
@@ -310,7 +311,7 @@ export default function Navigation() {
       >
         <div className="flex flex-col h-full">
           {/* Menu Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-200">
+          <div className="flex items-center justify-between p-4 border-b border-gray-700">
             {/* <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -336,7 +337,7 @@ export default function Navigation() {
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-900 hover:text-gray-900 transition-colors duration-200"
+                  className="text-white hover:text-white transition-colors duration-200"
                   aria-label="Facebook"
                 >
                   <FaFacebook className="w-6 h-6" />
@@ -351,7 +352,7 @@ export default function Navigation() {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-900 hover:text-gray-900 transition-colors duration-200"
+                  className="text-white hover:text-white transition-colors duration-200"
                   aria-label="Instagram"
                 >
                   <FaInstagram className="w-6 h-6" />
@@ -366,7 +367,7 @@ export default function Navigation() {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-900 hover:text-gray-900 transition-colors duration-200"
+                  className="text-white hover:text-white transition-colors duration-200"
                   aria-label="LinkedIn"
                 >
                   <FaLinkedin className="w-6 h-6" />
@@ -379,8 +380,8 @@ export default function Navigation() {
               aria-label="Close mobile menu"
             >
               <div className="relative w-6 h-6 flex items-center justify-center">
-                <span className="absolute h-0.5 w-6 bg-gray-900 rounded-full transition-all duration-300 ease-in-out transform rotate-45" />
-                <span className="absolute h-0.5 w-6 bg-gray-900 rounded-full transition-all duration-300 ease-in-out transform -rotate-45" />
+                <span className="absolute h-0.5 w-6 bg-white/90 rounded-full transition-all duration-300 ease-in-out transform rotate-45" />
+                <span className="absolute h-0.5 w-6 bg-white/90 rounded-full transition-all duration-300 ease-in-out transform -rotate-45" />
               </div>
             </button>
           </div>
@@ -396,7 +397,7 @@ export default function Navigation() {
               >
                 <Link
                   href={link.href}
-                  className={`block w-full text-gray-900 py-3 px-4 rounded-lg transition-all duration-300 hover:bg-slate-800/50 text-lg font-medium relative group ${isActiveLink(link.href) ? "bg-black/20 !text-black" : ""
+                  className={`block w-full text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-slate-800/50 text-lg font-medium relative group ${isActiveLink(link.href) ? "bg-black/20 !text-black" : ""
                     }`}
                   onClick={toggleMobileMenu}
                 >
@@ -412,13 +413,11 @@ export default function Navigation() {
 
           {/* Menu Footer */}
           <motion.div
-            className="border-t border-gray-200 p-6 space-y-6"
+            className="border-t border-gray-700 p-6 space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.5 }}
           >
-
-
             {/* Contact Info */}
             <div className="space-y-3 text-center">
               <motion.div
@@ -428,7 +427,7 @@ export default function Navigation() {
               >
                 <Link
                   href="tel:+994501234567"
-                  className="flex items-center justify-center text-gray-900 hover:text-gray-900 transition-colors duration-200"
+                  className="flex items-center justify-center text-white hover:text-white transition-colors duration-200"
                 >
                   <FaPhone className="w-4 h-4 mr-2" />
                   <span>+994 50 123 45 67</span>
@@ -441,7 +440,7 @@ export default function Navigation() {
               >
                 <Link
                   href="mailto:info@creadive.az"
-                  className="flex items-center justify-center text-gray-900 hover:text-gray-900 transition-colors duration-200"
+                  className="flex items-center justify-center text-white hover:text-white transition-colors duration-200"
                 >
                   <FaEnvelope className="w-4 h-4 mr-2" />
                   <span>info@creadive.az</span>

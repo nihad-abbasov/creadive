@@ -48,23 +48,23 @@ export default function BlogDetail({ blogPost }: BlogDetailProps) {
 
   return (
     <motion.div
-      className="py-16 min-h-screen bg-white"
+      className="py-16 min-h-screen blogDetailPage"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
       {/* Schema Markup for Article */}
       <Schema type="article" data={blogPost} />
-      
+
       <div className="max-w-4xl mx-auto px-4">
         {/* Breadcrumb */}
         <motion.nav className="mb-8" variants={itemVariants}>
-          <ol className="flex items-center space-x-2 text-sm text-gray-600">
+          <ol className="flex items-center space-x-2 text-sm text-white/80">
             <li>
               <motion.div whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>
                 <Link
                   href="/"
-                  className="hover:text-blue-600 transition-colors"
+                  className="hover:text-blue-600 transition-colors text-white/80"
                 >
                   Əsas səhifə
                 </Link>
@@ -75,14 +75,14 @@ export default function BlogDetail({ blogPost }: BlogDetailProps) {
               <motion.div whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>
                 <Link
                   href="/blog"
-                  className="hover:text-blue-600 transition-colors"
+                  className="hover:text-blue-600 transition-colors text-white/80"
                 >
                   Bloq
                 </Link>
               </motion.div>
             </li>
             <li>/</li>
-            <li className="text-gray-900 font-medium">{blogPost.title}</li>
+            <li className="text-white font-medium">{blogPost.title}</li>
           </ol>
         </motion.nav>
 
@@ -101,7 +101,7 @@ export default function BlogDetail({ blogPost }: BlogDetailProps) {
 
           {/* Title */}
           <motion.h1
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight"
+            className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight"
             variants={itemVariants}
           >
             {blogPost.title}
@@ -153,7 +153,7 @@ export default function BlogDetail({ blogPost }: BlogDetailProps) {
 
           {/* Article Content */}
           <motion.div
-            className="prose prose-lg max-w-none"
+            className="prose prose-lg max-w-none !text-white"
             variants={itemVariants}
             dangerouslySetInnerHTML={{ __html: blogPost.content }}
           />
@@ -163,7 +163,7 @@ export default function BlogDetail({ blogPost }: BlogDetailProps) {
             className="mt-8 pt-8 border-t border-gray-200"
             variants={itemVariants}
           >
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Tags:</h3>
+            <h3 className="text-lg font-semibold !text-white mb-4">Tags:</h3>
             <div className="flex flex-wrap gap-2">
               {blogPost.tags.map((tag, index) => (
                 <motion.span
@@ -226,7 +226,7 @@ export default function BlogDetail({ blogPost }: BlogDetailProps) {
           variants={containerVariants}
         >
           <motion.h3
-            className="text-2xl font-bold text-gray-900 mb-8"
+            className="text-2xl font-bold !text-white mb-8"
             variants={itemVariants}
           >
             Əlaqəli məqalələr

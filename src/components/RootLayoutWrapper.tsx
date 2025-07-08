@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Navigation from "@/components/semantic/Navigation";
 import { ToastProvider } from "@/context/ToastContext";
 import { ScrollProgress } from "./ScrollProgress";
 import Footer from "@/components/semantic/Footer";
 import Main from "@/components/semantic/Main";
+import { useEffect, useState } from "react";
 import BackToTop from "./BackToTop";
 
 export default function RootLayoutWrapper({

@@ -1,9 +1,9 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { motion } from "framer-motion";
 
 type BlogPost = {
   id: number;
@@ -218,17 +218,17 @@ export default function Blog() {
 
   return (
     <motion.div
-      className="py-16 min-h-screen bg-white"
+      className="py-16 min-h-screen"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
       <div className="max-w-7xl mx-auto px-4">
         <motion.div variants={headerVariants}>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-8 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-center text-white mb-4 tracking-tight">
             Bloq
           </h1>
-          <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">
             Agentliyimizin yenilikləri, məqalələri və xəbərləri.
           </p>
         </motion.div>
@@ -276,7 +276,7 @@ export default function Blog() {
           {filteredPosts.map((post, index) => (
             <motion.article
               key={post.id}
-              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100"
+              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               variants={cardVariants}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
