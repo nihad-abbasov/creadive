@@ -43,6 +43,16 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
+    name: "Fəxri Nağıyev",
+    role: "Copyrighter & Content Creator",
+    image: "/images/team/fexri.jpeg",
+    bio: "İxtisaslaşmış copyrighter və content creator. Rəqəmsal marketinq sahəsində 5+ il təcrübəyə malikdir. Brend kimliyi və istifadəçi interfeysi dizaynlarında güclü portfolioya sahibdir. Vizual dilin funksionallıqla balansını qoruyaraq, istifadəyə hazır dizayn həlləri yaradır.",
+    social: {
+      linkedin: "https://www.linkedin.com/in/fakhrinaghiyev",
+      instagram: "https://www.instagram.com/faxrinagiyev",
+    },
+  },
+  {
     name: "Cavid Məmmədli",
     role: "Creative Dizayner",
     image: "/images/team/javid.jpg",
@@ -234,7 +244,9 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            Creadive, bizneslərin rəqəmsal dünyada uğur qazanmasına kömək etmək üçün yaradılıb. Biz, müştərilərimizə innovativ və effektiv həllər təklif edirik.
+            Creadive, bizneslərin rəqəmsal dünyada uğur qazanmasına kömək etmək
+            üçün yaradılıb. Biz, müştərilərimizə innovativ və effektiv həllər
+            təklif edirik.
           </motion.p>
         </motion.div>
 
