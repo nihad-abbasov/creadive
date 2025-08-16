@@ -1,36 +1,37 @@
 export interface BlogDetailPost {
-    id: number;
-    title: string;
-    excerpt: string;
-    category: string;
-    date: string;
-    readTime: string;
+  id: number;
+  title: string;
+  excerpt: string;
+  category: string;
+  date: string;
+  readTime: string;
+  image: string;
+  author: {
+    name: string;
     image: string;
-    author: {
-        name: string;
-        image: string;
-        bio: string;
-    };
-    content: string;
-    tags: string[];
-    relatedPosts: number[];
+    bio: string;
+  };
+  content: string;
+  tags: string[];
+  relatedPosts: number[];
 }
 
 export const blogDetailData: BlogDetailPost[] = [
-    {
-        id: 1,
-        title: "Rəqəmsal Marketinq Strategiyaları 2025",
-        excerpt: "2025-ci ildə rəqəmsal marketinqdə ən effektiv strategiyalar və trendlər haqqında dərin analiz.",
-        category: "Marketinq",
-        date: "19 İyun 2025",
-        readTime: "5 dəq",
-        image: "/images/blog/digital-marketing.jpg",
-        author: {
-            name: "Rəşad Məmmədli",
-            image: "/images/team/nihad.jpg",
-            bio: "Rəqəmsal marketinq mütəxəssisi, 5+ il təcrübə"
-        },
-        content: `
+  {
+    id: 1,
+    title: "Rəqəmsal Marketinq Strategiyaları 2025",
+    excerpt:
+      "2025-ci ildə rəqəmsal marketinqdə ən effektiv strategiyalar və trendlər haqqında dərin analiz.",
+    category: "Marketinq",
+    date: "19 İyun 2025",
+    readTime: "5 dəq",
+    image: "/images/blog/digital-marketing.jpg",
+    author: {
+      name: "Rəşad Məmmədli",
+      image: "/images/team/nihad.jpg",
+      bio: "Rəqəmsal marketinq mütəxəssisi, 5+ il təcrübə",
+    },
+    content: `
       <p>2025-ci ildə rəqəmsal marketinq sahəsində böyük dəyişikliklər baş verir. Artifisial intellekt, avtomatlaşdırma və personalizasiya əsas trendlərə çevrilir. Bu məqalədə ən effektiv strategiyaları və onların tətbiq edilməsi üsullarını araşdıraq.</p>
       
       <h2>1. AI və Maşın Öyrənməsi</h2>
@@ -102,23 +103,31 @@ export const blogDetailData: BlogDetailPost[] = [
       <h2>Nəticə</h2>
       <p>2025-ci ildə uğurlu rəqəmsal marketinq üçün bu trendləri birləşdirmək vacibdir. AI, personalizasiya, video content və sustainability əsas diqqət mərkəzində olmalıdır. Daim yenilikləri izləmək və strategiyaları uyğunlaşdırmaq uğurun açarıdır.</p>
     `,
-        tags: ["rəqəmsal marketinq", "AI", "video marketinq", "personalizasiya", "2025", "influencer marketinq"],
-        relatedPosts: [4, 7, 5]
+    tags: [
+      "rəqəmsal marketinq",
+      "AI",
+      "video marketinq",
+      "personalizasiya",
+      "2025",
+      "influencer marketinq",
+    ],
+    relatedPosts: [4, 7, 5],
+  },
+  {
+    id: 2,
+    title: "UI/UX Dizayn Prinsipləri",
+    excerpt:
+      "İstifadəçi təcrübəsini yaxşılaşdıran əsas dizayn prinsipləri və best practice-lər.",
+    category: "Dizayn",
+    date: "12 Mart 2025",
+    readTime: "7 dəq",
+    image: "/images/blog/ux-ui.jpg",
+    author: {
+      name: "Leyla Əliyeva",
+      image: "/images/team/nihad.jpg",
+      bio: "UI/UX Dizayner, 3+ il təcrübə",
     },
-    {
-        id: 2,
-        title: "UI/UX Dizayn Prinsipləri",
-        excerpt: "İstifadəçi təcrübəsini yaxşılaşdıran əsas dizayn prinsipləri və best practice-lər.",
-        category: "Dizayn",
-        date: "12 Mart 2025",
-        readTime: "7 dəq",
-        image: "/images/blog/ux-ui.jpg",
-        author: {
-            name: "Leyla Əliyeva",
-            image: "/images/team/nihad.jpg",
-            bio: "UI/UX Dizayner, 3+ il təcrübə"
-        },
-        content: `
+    content: `
       <p>UI/UX dizaynı müasir rəqəmsal dünyada uğurlu məhsul yaratmağın əsas amillərindən biridir. İstifadəçi mərkəzli yanaşma ilə dizayn etmək vacibdir. Bu məqalədə ən vacib prinsipləri və onların praktiki tətbiqini araşdıraq.</p>
       
       <h2>1. İstifadəçi Mərkəzli Dizayn (User-Centered Design)</h2>
@@ -245,23 +254,30 @@ export const blogDetailData: BlogDetailPost[] = [
       <h2>Nəticə</h2>
       <p>Uğurlu UI/UX dizaynı üçün bu prinsipləri birləşdirmək və daim istifadəçi feedback-ini nəzərə almaq vacibdir. Dizayn prosesi iterativ olmalı və daim təkmilləşdirilməlidir.</p>
     `,
-        tags: ["UI/UX", "dizayn prinsipləri", "istifadəçi təcrübəsi", "accessibility", "responsive design"],
-        relatedPosts: [8, 6, 3]
+    tags: [
+      "UI/UX",
+      "dizayn prinsipləri",
+      "istifadəçi təcrübəsi",
+      "accessibility",
+      "responsive design",
+    ],
+    relatedPosts: [8, 6, 3],
+  },
+  {
+    id: 3,
+    title: "SEO Optimizasiyası",
+    excerpt:
+      "Axtarış sistemlərində yüksək sıralanma üçün effektiv SEO strategiyaları.",
+    category: "SEO",
+    date: "10 Mart 2025",
+    readTime: "6 dəq",
+    image: "/images/blog/seo.jpg",
+    author: {
+      name: "Nihad Abbasov",
+      image: "/images/team/nihad.jpg",
+      bio: "SEO mütəxəssisi, 4+ il təcrübə",
     },
-    {
-        id: 3,
-        title: "SEO Optimizasiyası",
-        excerpt: "Axtarış sistemlərində yüksək sıralanma üçün effektiv SEO strategiyaları.",
-        category: "SEO",
-        date: "10 Mart 2025",
-        readTime: "6 dəq",
-        image: "/images/blog/seo.jpg",
-        author: {
-            name: "Nihad Abbasov",
-            image: "/images/team/nihad.jpg",
-            bio: "SEO mütəxəssisi, 4+ il təcrübə"
-        },
-        content: `
+    content: `
       <p>SEO (Search Engine Optimization) saytınızın axtarış sistemlərində yüksək sıralanması üçün vacib strategiyadır. On-page və off-page SEO-nun birlikdə tətbiq edilməsi lazımdır. Bu məqalədə ən effektiv SEO strategiyalarını araşdıraq.</p>
       
       <h2>1. On-Page SEO</h2>
@@ -414,23 +430,30 @@ export const blogDetailData: BlogDetailPost[] = [
       <h2>Nəticə</h2>
       <p>Uğurlu SEO strategiyası üçün bütün bu elementləri birləşdirmək və daim monitorinq etmək lazımdır. SEO uzunmüddətli prosesdir və nəticələr zamanla görünür.</p>
     `,
-        tags: ["SEO", "axtarış optimizasiyası", "Google", "content marketing", "technical SEO"],
-        relatedPosts: [1, 7, 10]
+    tags: [
+      "SEO",
+      "axtarış optimizasiyası",
+      "Google",
+      "content marketing",
+      "technical SEO",
+    ],
+    relatedPosts: [1, 7, 10],
+  },
+  {
+    id: 4,
+    title: "Sosial Media Marketinqi",
+    excerpt:
+      "Sosial media platformalarında uğurlu marketinq strategiyaları və content planlaması.",
+    category: "Marketinq",
+    date: "8 Mart 2025",
+    readTime: "4 dəq",
+    image: "/images/blog/smm.jpg",
+    author: {
+      name: "Zəhra Qurbanova",
+      image: "/images/team/nihad.jpg",
+      bio: "SMM mütəxəssisi, 3+ il təcrübə",
     },
-    {
-        id: 4,
-        title: "Sosial Media Marketinqi",
-        excerpt: "Sosial media platformalarında uğurlu marketinq strategiyaları və content planlaması.",
-        category: "Marketinq",
-        date: "8 Mart 2025",
-        readTime: "4 dəq",
-        image: "/images/blog/smm.jpg",
-        author: {
-            name: "Zəhra Qurbanova",
-            image: "/images/team/nihad.jpg",
-            bio: "SMM mütəxəssisi, 3+ il təcrübə"
-        },
-        content: `
+    content: `
       <p>Sosial media marketinqi müasir biznes dünyasında vacib strategiyadır. Düzgün platforma seçimi və content strategiyası uğurun əsasını təşkil edir. Bu məqalədə ən effektiv SMM strategiyalarını araşdıraq.</p>
       
       <h2>1. Platforma Seçimi və Strategiya</h2>
@@ -616,23 +639,30 @@ export const blogDetailData: BlogDetailPost[] = [
       <h2>Nəticə</h2>
       <p>Uğurlu sosial media marketinqi üçün consistent content, authentic engagement və data-driven decisions vacibdir. Daim yenilikləri izləmək və strategiyaları uyğunlaşdırmaq lazımdır.</p>
     `,
-        tags: ["SMM", "sosial media", "content marketing", "influencer marketing", "paid advertising"],
-        relatedPosts: [1, 7, 2]
+    tags: [
+      "SMM",
+      "sosial media",
+      "content marketing",
+      "influencer marketing",
+      "paid advertising",
+    ],
+    relatedPosts: [1, 7, 2],
+  },
+  {
+    id: 5,
+    title: "Web Development Trendləri",
+    excerpt:
+      "2025-ci ildə web development sahəsində ən populyar texnologiyalar və trendlər.",
+    category: "Development",
+    date: "5 Mart 2025",
+    readTime: "8 dəq",
+    image: "/images/blog/web-development.jpg",
+    author: {
+      name: "Əli Hüseynov",
+      image: "/images/team/nihad.jpg",
+      bio: "Full-stack Developer, 6+ il təcrübə",
     },
-    {
-        id: 5,
-        title: "Web Development Trendləri",
-        excerpt: "2025-ci ildə web development sahəsində ən populyar texnologiyalar və trendlər.",
-        category: "Development",
-        date: "5 Mart 2025",
-        readTime: "8 dəq",
-        image: "/images/blog/web-development.jpg",
-        author: {
-            name: "Əli Hüseynov",
-            image: "/images/team/nihad.jpg",
-            bio: "Full-stack Developer, 6+ il təcrübə"
-        },
-        content: `
+    content: `
       <p>Web development sahəsində texnologiyalar sürətlə inkişaf edir. 2025-ci ildə əsas trendlər və texnologiyalar haqqında məlumat veririk. Bu məqalədə ən populyar və perspektivli texnologiyaları araşdıraq.</p>
       
       <h2>1. Progressive Web Apps (PWA)</h2>
@@ -828,23 +858,31 @@ export const blogDetailData: BlogDetailPost[] = [
       <h2>Nəticə</h2>
       <p>2025-ci ildə web development sahəsində performans, təhlükəsizlik və istifadəçi təcrübəsi əsas diqqət mərkəzindədir. Bu trendləri izləmək və tətbiq etmək uğurlu web tətbiqlər yaratmaq üçün vacibdir.</p>
     `,
-        tags: ["web development", "PWA", "JAMstack", "WebAssembly", "AI", "JavaScript"],
-        relatedPosts: [2, 8, 1]
+    tags: [
+      "web development",
+      "PWA",
+      "JAMstack",
+      "WebAssembly",
+      "AI",
+      "JavaScript",
+    ],
+    relatedPosts: [2, 8, 1],
+  },
+  {
+    id: 6,
+    title: "Branding Strategiyaları",
+    excerpt:
+      "Uğurlu brend yaratmaq üçün əsas strategiyalar və best practice-lər.",
+    category: "Branding",
+    date: "3 Mart 2025",
+    readTime: "5 dəq",
+    image: "/images/blog/branding.jpg",
+    author: {
+      name: "Aynur Məmmədova",
+      image: "/images/team/nihad.jpg",
+      bio: "Brand Strategist, 4+ il təcrübə",
     },
-    {
-        id: 6,
-        title: "Branding Strategiyaları",
-        excerpt: "Uğurlu brend yaratmaq üçün əsas strategiyalar və best practice-lər.",
-        category: "Branding",
-        date: "3 Mart 2025",
-        readTime: "5 dəq",
-        image: "/images/blog/branding.jpg",
-        author: {
-            name: "Aynur Məmmədova",
-            image: "/images/team/nihad.jpg",
-            bio: "Brand Strategist, 4+ il təcrübə"
-        },
-        content: `
+    content: `
       <p>Brending sadəcə logo və rəng seçimi deyil, bütöv bir strategiyadır. Brendinizin dəyərlərini, missiyasını və vizyonunu əks etdirən hərtərəfli yanaşmadır. Bu məqalədə uğurlu brending strategiyalarını araşdıraq.</p>
       
       <h2>1. Brand Identity və Foundation</h2>
@@ -1035,23 +1073,30 @@ export const blogDetailData: BlogDetailPost[] = [
       <h2>Nəticə</h2>
       <p>Uğurlu brending üçün consistent, authentic və customer-focused yanaşma vacibdir. Brendiniz müştərilərin həyatında məna kəsb etməlidir və onların dəyərlərini əks etdirməlidir.</p>
     `,
-        tags: ["branding", "brand identity", "brand strategy", "visual identity", "brand experience"],
-        relatedPosts: [2, 1, 4]
+    tags: [
+      "branding",
+      "brand identity",
+      "brand strategy",
+      "visual identity",
+      "brand experience",
+    ],
+    relatedPosts: [2, 1, 4],
+  },
+  {
+    id: 7,
+    title: "Content Marketing",
+    excerpt:
+      "Content marketing strategiyaları və effektiv content yaratma üsulları.",
+    category: "Marketinq",
+    date: "1 Mart 2025",
+    readTime: "6 dəq",
+    image: "/images/blog/content.jpg",
+    author: {
+      name: "Zəhra Qurbanova",
+      image: "/images/team/nihad.jpg",
+      bio: "Content Marketing Specialist, 3+ il təcrübə",
     },
-    {
-        id: 7,
-        title: "Content Marketing",
-        excerpt: "Content marketing strategiyaları və effektiv content yaratma üsulları.",
-        category: "Marketinq",
-        date: "1 Mart 2025",
-        readTime: "6 dəq",
-        image: "/images/blog/content.jpg",
-        author: {
-            name: "Zəhra Qurbanova",
-            image: "/images/team/nihad.jpg",
-            bio: "Content Marketing Specialist, 3+ il təcrübə"
-        },
-        content: `
+    content: `
       <p>Content marketing müasir marketinqin əsas strategiyalarından biridir. Keyfiyyətli content ilə hədəf auditoriyanızı cəlb edə və onları müştəriyə çevirə bilərsiniz. Bu məqalədə ən effektiv content marketing strategiyalarını araşdıraq.</p>
       
       <h2>1. Content Strategy və Planning</h2>
@@ -1219,23 +1264,29 @@ export const blogDetailData: BlogDetailPost[] = [
       <h2>Nəticə</h2>
       <p>Uğurlu content marketing üçün consistent, valuable və audience-focused content yaratmaq vacibdir. Daim yenilikləri izləmək və strategiyaları uyğunlaşdırmaq lazımdır.</p>
     `,
-        tags: ["content marketing", "content strategy", "SEO", "blogging", "content creation"],
-        relatedPosts: [1, 3, 4]
+    tags: [
+      "content marketing",
+      "content strategy",
+      "SEO",
+      "blogging",
+      "content creation",
+    ],
+    relatedPosts: [1, 3, 4],
+  },
+  {
+    id: 8,
+    title: "Mobile App Dizaynı",
+    excerpt: "İstifadəçi dostu mobile app dizaynı üçün əsas prinsiplər.",
+    category: "Dizayn",
+    date: "28 Fevral 2025",
+    readTime: "7 dəq",
+    image: "/images/blog/mobile.jpg",
+    author: {
+      name: "Leyla Əliyeva",
+      image: "/images/team/nihad.jpg",
+      bio: "Mobile UI/UX Designer, 3+ il təcrübə",
     },
-    {
-        id: 8,
-        title: "Mobile App Dizaynı",
-        excerpt: "İstifadəçi dostu mobile app dizaynı üçün əsas prinsiplər.",
-        category: "Dizayn",
-        date: "28 Fevral 2025",
-        readTime: "7 dəq",
-        image: "/images/blog/mobile.jpg",
-        author: {
-            name: "Leyla Əliyeva",
-            image: "/images/team/nihad.jpg",
-            bio: "Mobile UI/UX Designer, 3+ il təcrübə"
-        },
-        content: `
+    content: `
       <p>Mobile app dizaynı desktop dizaynından fərqlənir. Touch interface, limited screen space və mobile context-i nəzərə almalısınız. Bu məqalədə mobile app dizaynının əsas prinsiplərini araşdıraq.</p>
       
       <h2>1. Mobile-First Design Approach</h2>
@@ -1424,23 +1475,30 @@ export const blogDetailData: BlogDetailPost[] = [
       <h2>Nəticə</h2>
       <p>Uğurlu mobile app dizaynı üçün istifadəçi mərkəzli yanaşma, platform guidelines-ə uyğunluq və daim test etmək vacibdir. Mobile context-i həmişə nəzərə alın və performansa diqqət edin.</p>
     `,
-        tags: ["mobile design", "UI/UX", "app design", "responsive design", "mobile-first"],
-        relatedPosts: [2, 5, 6]
+    tags: [
+      "mobile design",
+      "UI/UX",
+      "app design",
+      "responsive design",
+      "mobile-first",
+    ],
+    relatedPosts: [2, 5, 6],
+  },
+  {
+    id: 9,
+    title: "E-commerce Strategiyaları",
+    excerpt:
+      "Online satışları artırmaq üçün effektiv e-commerce strategiyaları.",
+    category: "E-commerce",
+    date: "25 Fevral 2025",
+    readTime: "5 dəq",
+    image: "/images/blog/e-commerce.jpg",
+    author: {
+      name: "Rəşad Məmmədli",
+      image: "/images/team/nihad.jpg",
+      bio: "E-commerce Specialist, 5+ il təcrübə",
     },
-    {
-        id: 9,
-        title: "E-commerce Strategiyaları",
-        excerpt: "Online satışları artırmaq üçün effektiv e-commerce strategiyaları.",
-        category: "E-commerce",
-        date: "25 Fevral 2025",
-        readTime: "5 dəq",
-        image: "/images/blog/e-commerce.jpg",
-        author: {
-            name: "Rəşad Məmmədli",
-            image: "/images/team/nihad.jpg",
-            bio: "E-commerce Specialist, 5+ il təcrübə"
-        },
-        content: `
+    content: `
       <p>E-commerce sahəsində uğur qazanmaq üçün comprehensive strategiya lazımdır. Müştəri təcrübəsindən tutmuş marketing-ə qədər hər sahəni əhatə etməlidir. Bu məqalədə ən effektiv e-commerce strategiyalarını araşdıraq.</p>
       
       <h2>1. User Experience (UX) Optimization</h2>
@@ -1600,23 +1658,29 @@ export const blogDetailData: BlogDetailPost[] = [
       <h2>Nəticə</h2>
       <p>Uğurlu e-commerce üçün müştəri təcrübəsi, marketing strategiyası və operational efficiency-ni birləşdirmək vacibdir. Daim yenilikləri izləmək və müştəri feedback-ini nəzərə almaq lazımdır.</p>
     `,
-        tags: ["e-commerce", "online sales", "conversion optimization", "customer experience", "mobile commerce"],
-        relatedPosts: [1, 4, 10]
+    tags: [
+      "e-commerce",
+      "online sales",
+      "conversion optimization",
+      "customer experience",
+      "mobile commerce",
+    ],
+    relatedPosts: [1, 4, 10],
+  },
+  {
+    id: 10,
+    title: "Data Analytics",
+    excerpt: "Business qərarlar üçün data analizi və reporting.",
+    category: "Analytics",
+    date: "22 Fevral 2025",
+    readTime: "6 dəq",
+    image: "/images/blog/analytics.jpg",
+    author: {
+      name: "Nihad Abbasov",
+      image: "/images/team/nihad.jpg",
+      bio: "Data Analyst, 4+ il təcrübə",
     },
-    {
-        id: 10,
-        title: "Data Analytics",
-        excerpt: "Business qərarlar üçün data analizi və reporting.",
-        category: "Analytics",
-        date: "22 Fevral 2025",
-        readTime: "6 dəq",
-        image: "/images/blog/analytics.jpg",
-        author: {
-            name: "Nihad Abbasov",
-            image: "/images/team/nihad.jpg",
-            bio: "Data Analyst, 4+ il təcrübə"
-        },
-        content: `
+    content: `
       <p>Data analytics müasir biznes dünyasında qərarlar qəbul etmək üçün vacib alətdir. Düzgün data analizi ilə business performance-ni artıra bilərsiniz. Bu məqalədə ən effektiv data analytics strategiyalarını araşdıraq.</p>
       
       <h2>1. Data Collection və Sources</h2>
@@ -1842,7 +1906,13 @@ export const blogDetailData: BlogDetailPost[] = [
       <h2>Nəticə</h2>
       <p>Data analytics müasir biznes dünyasında uğur qazanmaq üçün vacib alətdir. Düzgün data collection, analysis və interpretation ilə business performance-ni artıra və competitive advantage əldə edə bilərsiniz. Daim yenilikləri izləmək və analytics capabilities-ni təkmilləşdirmək lazımdır.</p>
     `,
-        tags: ["data analytics", "business intelligence", "reporting", "predictive analytics", "data visualization"],
-        relatedPosts: [3, 9, 1]
-    }
-]; 
+    tags: [
+      "data analytics",
+      "business intelligence",
+      "reporting",
+      "predictive analytics",
+      "data visualization",
+    ],
+    relatedPosts: [3, 9, 1],
+  },
+];
