@@ -61,6 +61,11 @@ export default function RootLayout({
       <body
         className={`${plusJakartaSans.variable} font-sans antialiased bg-gradient-to-br from-slate-950 via-blue-900 to-slate-950`}
       >
+        {/* Google Site Verification */}
+        <meta
+          name="google-site-verification"
+          content="cB9OBIZQMTaHp6z1iahw8faF0E9WJnWVq1KDcogBl70"
+        />
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
