@@ -2,6 +2,7 @@ import RootLayoutWrapper from "@/components/RootLayoutWrapper";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Schema from "@/components/Schema";
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -14,12 +15,18 @@ export const metadata: Metadata = {
   title: "Creadive - İdealarınızı gerçəkləşdirək ✨",
   description:
     "Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik.",
+  keywords:
+    "Creadive, Website, Targeting, Marketing, Agency, Design, Development, SEO, Digital",
+  authors: [{ name: "Creadive Agency" }],
+  robots: "index, follow",
   openGraph: {
     title: "Creadive - İdealarınızı gerçəkləşdirək ✨",
     description:
       "Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik.",
     type: "website",
     url: "https://creadive.az",
+    siteName: "Creadive Agency",
+    locale: "az_AZ",
     images: [
       {
         url: "https://creadive.az/og-image.png",
@@ -36,6 +43,12 @@ export const metadata: Metadata = {
       "Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik.",
     images: ["https://creadive.az/og-image.png"],
   },
+  alternates: {
+    canonical: "https://creadive.az",
+    languages: {
+      az: "https://creadive.az",
+    },
+  },
 };
 
 export default function RootLayout({
@@ -44,83 +57,43 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        {/* Meta tags */}
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          name="description"
-          content="Creadive Agency - İdealarınızı gerçəkləşdirək ✨"
-        />
-        <meta
-          name="keywords"
-          content="Creadive, Website, Targeting, Marketing, Agency, Design, Development, SEO, Digital, Marketing, Agency, Design, Development, SEO, Digital"
-        />
-        <meta name="author" content="Creadive Agency" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Creadive Agency" />
-        <meta
-          property="og:description"
-          content="Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://creadive.az" />
-        <meta property="og:image" content="https://creadive.az/og-img.png" />
-        <meta property="og:locale" content="az_AZ" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Creadive Agency" />
-        <meta
-          name="twitter:description"
-          content="Əl işləri ilə hazırlanmış dəbdəbəli geyimlər və yeni kolleksiyalar. 21 Couture House ilə tanış olun."
-        />
-        <meta name="twitter:image" content="https://creadive.az/og-img.png" />
+    <html lang="az">
+      <body
+        className={`${plusJakartaSans.variable} font-sans antialiased bg-gradient-to-br from-slate-950 via-blue-900 to-slate-950`}
+      >
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PLJ7VTBH"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
 
-        <link rel="canonical" href="https://creadive.az" />
-        <link rel="alternate" hrefLang="az" href="https://creadive.az" />
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-PLJ7VTBH');
+              
+              // Test event to verify GTM is working
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({
+                'event': 'gtm_test',
+                'test_message': 'GTM is working!',
+                'timestamp': new Date().toISOString()
+              });
+            `,
+          }}
+        />
 
-        {/* Favicon */}
-        {/* <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        /> */}
-        {/* <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        /> */}
-        {/* <link rel="manifest" href="/site.webmanifest" /> */}
-
-        {/* Preload critical assets */}
-        {/* <link
-          rel="preload"
-          href="/hero/hero-1.webp"
-          as="image"
-          type="image/webp"
-        />
-        <link
-          rel="preload"
-          href="/hero/hero-2.webp"
-          as="image"
-          type="image/webp"
-        />
-        <link
-          rel="preload"
-          href="/hero/hero-3.webp"
-          as="image"
-          type="image/webp"
-        />
-        <link
-          rel="preload"
-          href="/hero/hero-4.webp"
-          as="image"
-          type="image/webp"
-        /> */}
-      </head>
-      <body className={`${plusJakartaSans.variable} font-sans antialiased bg-gradient-to-br from-slate-950 via-blue-900 to-slate-950`}>
         {/* Schema Markup */}
         <Schema type="organization" />
         <Schema type="website" />
