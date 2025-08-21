@@ -12,11 +12,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Creadive - İdealarınızı gerçəkləşdirək ✨",
+  // title: "Creadive - İdealarınızı gerçəkləşdirək ✨",
   description:
     "Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik.",
-  keywords:
-    "Creadive, Website, Targeting, Marketing, Agency, Design, Development, SEO, Digital",
+  // keywords:
+  //   "Creadive, Website, Targeting, Marketing, Agency, Design, Development, SEO, Digital",
   authors: [{ name: "Creadive Agency" }],
   robots: "index, follow",
   manifest: "/manifest.json",
@@ -111,7 +111,7 @@ export default function RootLayout({
         {/* Page Title and Description */}
         <title>Creadive - İdealarınızı gerçəkləşdirək ✨</title>
         <meta name="description" content="Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik." />
-        <meta name="keywords" content="Creadive, Website, Targeting, Marketing, Agency, Design, Development, SEO, Digital" />
+        <meta name="keywords" content="Creadive, vebsayt yaradılması, targeting, rəqəmsal marketinq, agentlik, dizayn, web development, SEO, digital marketing, social media marketing, e-commerce, branding, UI/UX design, mobile development, content marketing, analytics, Baku, Azerbaijan" />
         
         {/* Open Graph Meta Tags */}
         <meta property="og:title" content="Creadive - İdealarınızı gerçəkləşdirək ✨" />
@@ -203,7 +203,7 @@ export default function RootLayout({
                 window.addEventListener('load', function() {
                   navigator.serviceWorker.register('/sw.js')
                     .then(function(registration) {
-                      console.log('SW registered: ', registration);
+                      // console.log('SW registered: ', registration);
                     })
                     .catch(function(registrationError) {
                       console.log('SW registration failed: ', registrationError);
