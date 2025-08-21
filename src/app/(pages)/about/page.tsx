@@ -1,14 +1,22 @@
 import About from '@/views/About';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: "Haqqımızda - Creadive",
-  description: "Creadive haqqında ətraflı məlumat. Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq sahəsində ixtisaslaşmış yaradıcı agentliyik.",
-  alternates: {
-    canonical: "https://creadive.az/about",
-  },
-};
+import DynamicMetaTags from '@/components/DynamicMetaTags';
 
 export default function AboutPage() {
-  return <About />;
+  return (
+    <>
+      <DynamicMetaTags
+        title="Haqqımızda - Creadive"
+        description="Creadive haqqında ətraflı məlumat. Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq sahəsində ixtisaslaşmış yaradıcı agentliyik."
+        canonical="https://creadive.az/about"
+        ogTitle="Haqqımızda - Creadive"
+        ogDescription="Creadive haqqında ətraflı məlumat. Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq sahəsində ixtisaslaşmış yaradıcı agentliyik."
+        ogUrl="https://creadive.az/about"
+        ogImage="https://creadive.az/og-img.png"
+        twitterTitle="Haqqımızda - Creadive"
+        twitterDescription="Creadive haqqında ətraflı məlumat. Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq sahəsində ixtisaslaşmış yaradıcı agentliyik."
+        twitterImage="https://creadive.az/og-img.png"
+      />
+      <About />
+    </>
+  );
 } 

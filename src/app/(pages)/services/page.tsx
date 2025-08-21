@@ -1,19 +1,25 @@
 import Services from '@/views/Services';
 import { Suspense } from 'react';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: "Xidmətlər - Creadive",
-  description: "Creadive xidmətləri: vebsayt yaradılması, dizayn, rəqəmsal marketinq, SEO və daha çox. Peşəkar həllər üçün bizimlə əlaqə saxlayın.",
-  alternates: {
-    canonical: "https://creadive.az/services",
-  },
-};
+import DynamicMetaTags from '@/components/DynamicMetaTags';
 
 export default function ServicesPage() {
   return (
-    <Suspense>
-      <Services />
-    </Suspense>
+    <>
+      <DynamicMetaTags
+        title="Xidmətlər - Creadive"
+        description="Creadive xidmətləri: vebsayt yaradılması, dizayn, rəqəmsal marketinq, SEO və daha çox. Peşəkar həllər üçün bizimlə əlaqə saxlayın."
+        canonical="https://creadive.az/services"
+        ogTitle="Xidmətlər - Creadive"
+        ogDescription="Creadive xidmətləri: vebsayt yaradılması, dizayn, rəqəmsal marketinq, SEO və daha çox. Peşəkar həllər üçün bizimlə əlaqə saxlayın."
+        ogUrl="https://creadive.az/services"
+        ogImage="https://creadive.az/og-img.png"
+        twitterTitle="Xidmətlər - Creadive"
+        twitterDescription="Creadive xidmətləri: vebsayt yaradılması, dizayn, rəqəmsal marketinq, SEO və daha çox. Peşəkar həllər üçün bizimlə əlaqə saxlayın."
+        twitterImage="https://creadive.az/og-img.png"
+      />
+      <Suspense>
+        <Services />
+      </Suspense>
+    </>
   )
 } 

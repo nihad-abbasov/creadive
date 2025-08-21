@@ -53,7 +53,6 @@ export const metadata: Metadata = {
     images: ["https://creadive.az/og-img.png"],
   },
   alternates: {
-    // canonical: "https://creadive.az",
     languages: {
       az: "https://creadive.az",
     },
@@ -109,6 +108,29 @@ export default function RootLayout({
         {/* Canonical URL */}
         <link rel="canonical" href="https://creadive.az" />
         
+        {/* Page Title and Description */}
+        <title>Creadive - İdealarınızı gerçəkləşdirək ✨</title>
+        <meta name="description" content="Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik." />
+        <meta name="keywords" content="Creadive, Website, Targeting, Marketing, Agency, Design, Development, SEO, Digital" />
+        
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Creadive - İdealarınızı gerçəkləşdirək ✨" />
+        <meta property="og:description" content="Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik." />
+        <meta property="og:url" content="https://creadive.az" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Creadive Agency" />
+        <meta property="og:locale" content="az_AZ" />
+        <meta property="og:image" content="https://creadive.az/og-img.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Creadive - İdealarınızı gerçəkləşdirək ✨" />
+        
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Creadive - İdealarınızı gerçəkləşdirək ✨" />
+        <meta name="twitter:description" content="Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik." />
+        <meta name="twitter:image" content="https://creadive.az/og-img.png" />
+
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
