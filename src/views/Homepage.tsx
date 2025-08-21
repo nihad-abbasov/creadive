@@ -436,13 +436,14 @@ const pricingCategories = [
       {
         id: "branding",
         name: "Brendinq Paketi",
-        price: "400 AZN",
+        price: "529 AZN",
         features: [
           "Loqo dizaynı",
           "Vizit kart dizaynı",
           "Sosial media şablonları",
           "Brend kitabçası",
         ],
+        popular: true,
       },
       {
         id: "social",
