@@ -1,0 +1,100 @@
+{
+  "id": "/",
+  "name": "Creadive - İdealarınızı gerçəkləşdirək ✨",
+  "short_name": "Creadive",
+  "description": "Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik.",
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay"
+  ],
+  "background_color": "#0f172a",
+  "theme_color": "#1e40af",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "az",
+  "dir": "ltr",
+  "categories": [
+    "business",
+    "productivity",
+    "design",
+    "marketing"
+  ],
+  "icons": [
+    {
+      "src": "/logos/white_h.png",
+      "sizes": "1200x1200",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Xidmətlər",
+      "short_name": "Xidmətlər",
+      "description": "Creadive xidmətlərimizi kəşf edin",
+      "url": "/services",
+      "icons": [
+        {
+          "src": "/logos/white_h.png",
+          "sizes": "1200x1200"
+        }
+      ]
+    },
+    {
+      "name": "Portfolio",
+      "short_name": "Portfolio",
+      "description": "İşlərimizi görün",
+      "url": "/portfolio",
+      "icons": [
+        {
+          "src": "/logos/white_h.png",
+          "sizes": "1200x1200"
+        }
+      ]
+    },
+    {
+      "name": "Əlaqə",
+      "short_name": "Əlaqə",
+      "description": "Bizimlə əlaqə saxlayın",
+      "url": "/contact",
+      "icons": [
+        {
+          "src": "/logos/white_h.png",
+          "sizes": "1200x1200"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-img.png",
+      "sizes": "1600x840",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Creadive - Ana səhifə"
+    },
+    {
+      "src": "/og-img.png",
+      "sizes": "1600x840",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Creadive - Ana səhifə (Mobil)"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "handle_links": "preferred",
+  "protocol_handlers": [
+    {
+      "protocol": "web+creadive",
+      "url": "/%s"
+    }
+  ]
+}

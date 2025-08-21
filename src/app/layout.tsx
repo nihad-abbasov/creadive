@@ -19,6 +19,15 @@ export const metadata: Metadata = {
     "Creadive, Website, Targeting, Marketing, Agency, Design, Development, SEO, Digital",
   authors: [{ name: "Creadive Agency" }],
   robots: "index, follow",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Creadive",
+  },
+  formatDetection: {
+    telephone: false,
+  },
   openGraph: {
     title: "Creadive - İdealarınızı gerçəkləşdirək ✨",
     description:
@@ -51,6 +60,14 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: "#1e40af",
+  colorScheme: "dark",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -66,6 +83,28 @@ export default function RootLayout({
           name="google-site-verification"
           content="cB9OBIZQMTaHp6z1iahw8faF0E9WJnWVq1KDcogBl70"
         />
+        
+        {/* PWA Meta Tags */}
+        <meta name="application-name" content="Creadive" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Creadive" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta name="msapplication-TileColor" content="#1e40af" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        
+        {/* Apple Touch Icons */}
+        <link rel="apple-touch-icon" href="/logos/white_h.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/logos/white_h.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/logos/white_h.png" />
+        <link rel="apple-touch-icon" sizes="167x167" href="/logos/white_h.png" />
+        
+        {/* Favicon */}
+        <link rel="icon" type="image/png" sizes="32x32" href="/logos/white_h.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/logos/white_h.png" />
+        <link rel="mask-icon" href="/logos/white_h.svg" color="#1e40af" />
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -127,6 +166,27 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Meta Pixel Code */}
+
+        {/* Service Worker Registration */}
+        <Script
+          id="sw-registration"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                      console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                      console.log('SW registration failed: ', registrationError);
+                    });
+                });
+              }
+            `,
+          }}
+        />
 
         {/* Schema Markup */}
         <Schema type="organization" />
