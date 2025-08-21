@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     images: ["https://creadive.az/og-img.png"],
   },
   alternates: {
-    canonical: "https://creadive.az",
+    // canonical: "https://creadive.az",
     languages: {
       az: "https://creadive.az",
     },
