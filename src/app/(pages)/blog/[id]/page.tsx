@@ -7,20 +7,23 @@ import DynamicMetaTags from '@/components/DynamicMetaTags';
 import { useEffect, useState } from 'react';
 
 interface BlogDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default function BlogDetailPage({ params }: BlogDetailPageProps) {
-  const { id } = params;
-  const blogId = parseInt(id);
-  const [blogPost, setBlogPost] = useState(blogDetailData.find(post => post.id === blogId));
+  const [blogPost, setBlogPost] = useState<typeof blogDetailData[0] | undefined>(undefined);
 
   useEffect(() => {
-    const post = blogDetailData.find(post => post.id === blogId);
-    setBlogPost(post);
-  }, [blogId]);
+    const getBlogPost = async () => {
+      const { id } = await params;
+      const blogId = parseInt(id);
+      const post = blogDetailData.find(post => post.id === blogId);
+      setBlogPost(post);
+    };
+    getBlogPost();
+  }, [params]);
 
   if (!blogPost) {
     notFound();
@@ -31,10 +34,10 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
       <DynamicMetaTags
         title={`${blogPost.title} - Creadive`}
         description={blogPost.excerpt || "Creadive blog məqaləsi"}
-        canonical={`https://creadive.az/blog/${id}`}
+        canonical={`https://creadive.az/blog/${blogPost.id}`}
         ogTitle={`${blogPost.title} - Creadive`}
         ogDescription={blogPost.excerpt || "Creadive blog məqaləsi"}
-        ogUrl={`https://creadive.az/blog/${id}`}
+        ogUrl={`https://creadive.az/blog/${blogPost.id}`}
         ogImage="https://creadive.az/og-img.png"
         twitterTitle={`${blogPost.title} - Creadive`}
         twitterDescription={blogPost.excerpt || "Creadive blog məqaləsi"}
