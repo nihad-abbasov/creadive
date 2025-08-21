@@ -83,7 +83,7 @@ export default function RootLayout({
           name="google-site-verification"
           content="cB9OBIZQMTaHp6z1iahw8faF0E9WJnWVq1KDcogBl70"
         />
-        
+
         {/* PWA Meta Tags */}
         <meta name="application-name" content="Creadive" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -94,17 +94,20 @@ export default function RootLayout({
         <meta name="msapplication-config" content="/browserconfig.xml" />
         <meta name="msapplication-TileColor" content="#1e40af" />
         <meta name="msapplication-tap-highlight" content="no" />
-        
+
         {/* Apple Touch Icons */}
         <link rel="apple-touch-icon" href="/logos/white_h.png" />
         <link rel="apple-touch-icon" sizes="152x152" href="/logos/white_h.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/logos/white_h.png" />
         <link rel="apple-touch-icon" sizes="167x167" href="/logos/white_h.png" />
-        
+
         {/* Favicon */}
         <link rel="icon" type="image/png" sizes="32x32" href="/logos/white_h.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/logos/white_h.png" />
         <link rel="mask-icon" href="/logos/white_h.svg" color="#1e40af" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://creadive.az" />
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
