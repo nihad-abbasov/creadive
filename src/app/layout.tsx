@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     locale: "az_AZ",
     images: [
       {
-        url: "https://creadive.az/og-image.png",
+        url: "https://creadive.az/og-img.png",
         width: 1200,
         height: 630,
         alt: "Creadive - İdealarınızı gerçəkləşdirək ✨",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "Creadive - İdealarınızı gerçəkləşdirək ✨",
     description:
       "Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik.",
-    images: ["https://creadive.az/og-image.png"],
+    images: ["https://creadive.az/og-img.png"],
   },
   alternates: {
     canonical: "https://creadive.az",
