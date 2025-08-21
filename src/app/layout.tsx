@@ -106,7 +106,9 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/logos/white_h.png" />
         <link rel="mask-icon" href="/logos/white_h.svg" color="#1e40af" />
 
-        {/* Canonical URL - will be set per page */}
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://creadive.az" />
+        
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
