@@ -5,7 +5,7 @@ export default function AboutPage() {
   return (
     <>
       <DynamicMetaTags
-        title="Haqqımızda - Creadive"
+        title="Haqqımızda | Creadive - İdealarınızı gerçəkləşdirək ✨"
         description="Creadive haqqında ətraflı məlumat. Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq sahəsində ixtisaslaşmış yaradıcı agentliyik."
         canonical="https://creadive.az/about"
         ogTitle="Haqqımızda - Creadive"

@@ -5,7 +5,7 @@ export default function BlogPage() {
   return (
     <>
       <DynamicMetaTags
-        title="Blog - Creadive"
+        title="Blog | Creadive - İdealarınızı gerçəkləşdirək ✨"
         description="Creadive blog: vebsayt yaradılması, dizayn, rəqəmsal marketinq və texnologiya haqqında faydalı məqalələr."
         canonical="https://creadive.az/blog"
         ogTitle="Blog - Creadive"

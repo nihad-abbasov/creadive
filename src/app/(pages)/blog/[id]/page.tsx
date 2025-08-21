@@ -32,7 +32,7 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
   return (
     <>
       <DynamicMetaTags
-        title={`${blogPost.title} - Creadive`}
+        title={`${blogPost.title} | Creadive `}
         description={blogPost.excerpt || "Creadive blog məqaləsi"}
         canonical={`https://creadive.az/blog/${blogPost.id}`}
         ogTitle={`${blogPost.title} - Creadive`}

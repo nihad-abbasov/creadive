@@ -6,7 +6,7 @@ export default function PortfolioPage() {
   return (
     <>
       <DynamicMetaTags
-        title="Portfolio - Creadive"
+        title="Portfolio | Creadive - İdealarınızı gerçəkləşdirək ✨"
         description="Creadive portfolio: vebsayt yaradılması, dizayn və marketinq layihələrimiz. Peşəkar işlərimizi kəşf edin."
         canonical="https://creadive.az/portfolio"
         ogTitle="Portfolio - Creadive"

@@ -6,7 +6,7 @@ export default function ServicesPage() {
   return (
     <>
       <DynamicMetaTags
-        title="Xidmətlər - Creadive"
+        title="Xidmətlər | Creadive - İdealarınızı gerçəkləşdirək ✨"
         description="Creadive xidmətləri: vebsayt yaradılması, dizayn, rəqəmsal marketinq, SEO və daha çox. Peşəkar həllər üçün bizimlə əlaqə saxlayın."
         canonical="https://creadive.az/services"
         ogTitle="Xidmətlər - Creadive"
