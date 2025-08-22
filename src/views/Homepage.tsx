@@ -566,17 +566,20 @@ const Homepage = () => {
       {/* Hero Section */}
       <div className="relative min-h-auto md:min-h-[93vh] flex items-center">
         {/* Background Image with Overlay */}
-        {/* <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0">
           <Image
             src="/hero2.jpg"
             alt="Hero Background"
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="100vw"
             className="object-cover"
             priority
+            quality={85}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/90 to-black/50" />
-        </div> */}
+        </div>
 
         {/* Content */}
         <div className="relative z-10 w-full pt-32 pb-20 px-4 sm:px-6 lg:px-8">
