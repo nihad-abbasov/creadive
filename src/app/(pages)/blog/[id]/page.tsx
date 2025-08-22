@@ -1,9 +1,8 @@
 'use client';
 
+import DynamicMetaTags from '@/components/DynamicMetaTags';
 import { blogDetailData } from '@/data/blogDetailData';
 import BlogDetail from '@/views/BlogDetail';
-import { notFound } from 'next/navigation';
-import DynamicMetaTags from '@/components/DynamicMetaTags';
 import { useEffect, useState } from 'react';
 
 interface BlogDetailPageProps {
@@ -13,20 +12,23 @@ interface BlogDetailPageProps {
 }
 
 export default function BlogDetailPage({ params }: BlogDetailPageProps) {
-  const [blogPost, setBlogPost] = useState<typeof blogDetailData[0] | undefined>(undefined);
+  const [blogPost, setBlogPost] = useState<typeof blogDetailData[0]>(
+    blogDetailData[0]
+  );
 
   useEffect(() => {
     const getBlogPost = async () => {
       const { id } = await params;
       const blogId = parseInt(id);
       const post = blogDetailData.find(post => post.id === blogId);
-      setBlogPost(post);
+      setBlogPost(post || blogDetailData[0]);
     };
     getBlogPost();
   }, [params]);
 
   if (!blogPost) {
-    notFound();
+    console.log('Blog post not found');
+    return null;
   }
 
   return (
