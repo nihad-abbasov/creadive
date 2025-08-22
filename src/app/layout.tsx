@@ -59,14 +59,6 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-  themeColor: "#1e40af",
-  colorScheme: "dark",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -82,6 +74,10 @@ export default function RootLayout({
           name="google-site-verification"
           content="cB9OBIZQMTaHp6z1iahw8faF0E9WJnWVq1KDcogBl70"
         />
+
+        {/* Viewport Meta Tag */}
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" /> */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* PWA Meta Tags */}
         <meta name="application-name" content="Creadive" />
@@ -107,12 +103,12 @@ export default function RootLayout({
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://creadive.az" />
-        
+
         {/* Page Title and Description */}
         <title>Creadive - İdealarınızı gerçəkləşdirək ✨</title>
         <meta name="description" content="Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik." />
         <meta name="keywords" content="Creadive, vebsayt yaradılması, targeting, rəqəmsal marketinq, agentlik, dizayn, web development, SEO, digital marketing, social media marketing, e-commerce, branding, UI/UX design, mobile development, content marketing, analytics, Baku, Azerbaijan" />
-        
+
         {/* Open Graph Meta Tags */}
         <meta property="og:title" content="Creadive - İdealarınızı gerçəkləşdirək ✨" />
         <meta property="og:description" content="Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həlləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik." />
@@ -124,7 +120,7 @@ export default function RootLayout({
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Creadive - İdealarınızı gerçəkləşdirək ✨" />
-        
+
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Creadive - İdealarınızı gerçəkləşdirək ✨" />
