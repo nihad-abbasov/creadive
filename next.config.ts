@@ -11,10 +11,12 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ['framer-motion', 'react-icons'],
-    optimizeCss: true,
   },
   compress: true,
   poweredByHeader: false,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
   async redirects() {
     return [
       {

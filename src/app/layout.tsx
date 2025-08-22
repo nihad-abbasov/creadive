@@ -3,11 +3,12 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import Schema from "@/components/Schema";
 import type { Metadata } from "next";
 import Script from "next/script";
+import Image from "next/image";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-plus-jakarta-sans",
   display: "swap",
   preload: true,
@@ -68,6 +69,62 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="az">
+      <head>
+        {/* Critical CSS for Hero Section */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Critical hero styles */
+            .text-5xl { font-size: 3rem; line-height: 1; }
+            .sm\\:text-5xl { font-size: 3rem; line-height: 1; }
+            .md\\:text-6xl { font-size: 3.75rem; line-height: 1; }
+            .font-bold { font-weight: 700; }
+            .text-white { color: rgb(255 255 255); }
+            .mb-6 { margin-bottom: 1.5rem; }
+            .bg-gradient-to-l { background-image: linear-gradient(to left, var(--tw-gradient-stops)); }
+            .from-\\[\\#15B6B0\\] { --tw-gradient-from: #15B6B0; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(21, 182, 176, 0)); }
+            .to-\\[\\#20C943\\] { --tw-gradient-to: #20C943; }
+            .bg-clip-text { background-clip: text; }
+            .text-transparent { color: transparent; }
+            .drop-shadow-\\[0_0_30px_rgba\\(255\\,255\\,255\\,0\\.6\\)\\] { filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.6)); }
+            .drop-shadow-\\[0_0_30px_rgba\\(22\\,182\\,176\\,0\\.8\\)\\] { filter: drop-shadow(0 0 30px rgba(22, 182, 176, 0.8)); }
+            .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+            .text-gray-200 { color: rgb(229 231 235); }
+            .mb-8 { margin-bottom: 2rem; }
+            .max-w-3xl { max-width: 48rem; }
+            .mx-auto { margin-left: auto; margin-right: auto; }
+            .grid { display: grid; }
+            .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+            .md\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .gap-4 { gap: 1rem; }
+            .w-full { width: 100%; }
+            .md\\:w-max { width: max-content; }
+            .bg-blue-600 { background-color: rgb(37 99 235); }
+            .text-white { color: rgb(255 255 255); }
+            .px-8 { padding-left: 2rem; padding-right: 2rem; }
+            .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+            .rounded-lg { border-radius: 0.5rem; }
+            .font-medium { font-weight: 500; }
+            .hover\\:bg-blue-700:hover { background-color: rgb(29 78 216); }
+            .transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+            .flex { display: flex; }
+            .items-center { align-items: center; }
+            .justify-center { justify-content: center; }
+            .gap-2 { gap: 0.5rem; }
+            .bg-white\\/10 { background-color: rgb(255 255 255 / 0.1); }
+            .backdrop-blur-sm { backdrop-filter: blur(4px); }
+            .border { border-width: 1px; }
+            .border-white\\/20 { border-color: rgb(255 255 255 / 0.2); }
+            .hover\\:bg-white\\/20:hover { background-color: rgb(255 255 255 / 0.2); }
+            .w-5 { width: 1.25rem; }
+            .h-5 { height: 1.25rem; }
+            .fill-none { fill: none; }
+            .stroke-current { stroke: currentColor; }
+            .stroke-2 { stroke-width: 2; }
+            .stroke-linecap-round { stroke-linecap: round; }
+            .stroke-linejoin-round { stroke-linejoin: round; }
+          `
+        }} />
+      </head>
       <body
         className={`${plusJakartaSans.variable} font-sans antialiased bg-gradient-to-br from-slate-950 via-blue-900 to-slate-950`}
       >
@@ -104,14 +161,14 @@ export default function RootLayout({
         <link rel="mask-icon" href="/logos/white_h.svg" color="#1e40af" />
 
         {/* Preload Critical Resources */}
-        <link rel="preload" href="/hero2.jpg" as="image" type="image/jpeg" />
+        <link rel="preload" href="/hero2.jpg" as="image" type="image/jpeg" fetchPriority="high" />
         <link rel="preload" href="/logos/white_h.png" as="image" type="image/png" />
-        
+
         {/* DNS Prefetch for External Resources */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//connect.facebook.net" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        
+
         {/* Preconnect to External Domains */}
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://connect.facebook.net" crossOrigin="anonymous" />
@@ -154,12 +211,12 @@ export default function RootLayout({
           />
         </noscript>
 
-                 {/* Google Tag Manager */}
-         <Script
-           id="gtm-script"
-           strategy="lazyOnload"
-           dangerouslySetInnerHTML={{
-             __html: `
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm-script"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -174,15 +231,15 @@ export default function RootLayout({
                  'timestamp': new Date().toISOString()
                });
              `,
-           }}
-         />
+          }}
+        />
 
-         {/* Meta Pixel Code */}
-         <Script
-           id="meta-pixel-code"
-           strategy="lazyOnload"
-           dangerouslySetInnerHTML={{
-             __html: `
+        {/* Meta Pixel Code */}
+        <Script
+          id="meta-pixel-code"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
            !function(f,b,e,v,n,t,s)
            {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
              n.callMethod.apply(n, arguments) : n.queue.push(arguments)};
@@ -194,24 +251,25 @@ export default function RootLayout({
              fbq('init', '628846330279373');
              fbq('track', 'PageView');
              `,
-           }}
-         />
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=628846330279373&ev=PageView&noscript=1"
-          />
-        </noscript>
+          }}
+        />
+                 <noscript>
+           <Image
+             height={1}
+             width={1}
+             style={{ display: "none" }}
+             src="https://www.facebook.com/tr?id=628846330279373&ev=PageView&noscript=1"
+             alt=""
+           />
+         </noscript>
         {/* End Meta Pixel Code */}
 
-                 {/* Service Worker Registration */}
-         <Script
-           id="sw-registration"
-           strategy="lazyOnload"
-           dangerouslySetInnerHTML={{
-             __html: `
+        {/* Service Worker Registration */}
+        <Script
+          id="sw-registration"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
                if ('serviceWorker' in navigator) {
                  window.addEventListener('load', function() {
                    navigator.serviceWorker.register('/sw.js')
@@ -224,8 +282,8 @@ export default function RootLayout({
                  });
                }
              `,
-           }}
-         />
+          }}
+        />
 
         {/* Schema Markup */}
         <Schema type="organization" />
