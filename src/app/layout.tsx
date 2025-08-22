@@ -253,15 +253,15 @@ export default function RootLayout({
              `,
           }}
         />
-                 <noscript>
-           <Image
-             height={1}
-             width={1}
-             style={{ display: "none" }}
-             src="https://www.facebook.com/tr?id=628846330279373&ev=PageView&noscript=1"
-             alt=""
-           />
-         </noscript>
+        <noscript>
+          <Image
+            height={1}
+            width={1}
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=628846330279373&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
         {/* End Meta Pixel Code */}
 
         {/* Service Worker Registration */}
