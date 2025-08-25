@@ -22,11 +22,11 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Creadive - İdealarınızı gerçəkləşdirək ✨",
+    default: "Creadive — Kreativ Reklam Agentliyi | Marketinq Xidmətləri",
     template: "%s | Creadive",
   },
   description:
-    "Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həllləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik.",
+    "Creadive reklam agentliyi SMM, SEO, veb sayt və kreativ dizayn xidmətləri ilə brendinizi böyüdür. Xidmətlərimizlə yaxından tanış olmaq üçün saytımıza daxil olun.",
   authors: [{ name: "Creadive Agency" }],
   robots: { index: true, follow: true },
   manifest: "/manifest.json",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     google: "cB9OBIZQMTaHp6z1iahw8faF0E9WJnWVq1KDcogBl70",
   },
   openGraph: {
-    title: "Creadive - İdealarınızı gerçəkləşdirək ✨",
+    title: "Creadive — Kreativ Reklam Agentliyi | Marketinq Xidmətləri",
     description:
-      "Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həllləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik.",
+      "Creadive reklam agentliyi SMM, SEO, veb sayt və kreativ dizayn xidmətləri ilə brendinizi böyüdür. Xidmətlərimizlə yaxından tanış olmaq üçün saytımıza daxil olun.",
     type: "website",
     url: "https://creadive.az",
     siteName: "Creadive Agency",
@@ -54,15 +54,15 @@ export const metadata: Metadata = {
         url: "https://creadive.az/og-img.png",
         width: 1200,
         height: 630,
-        alt: "Creadive - İdealarınızı gerçəkləşdirək ✨",
+        alt: "Creadive — Kreativ Reklam Agentliyi | Marketinq Xidmətləri",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Creadive - İdealarınızı gerçəkləşdirək ✨",
+    title: "Creadive — Kreativ Reklam Agentliyi | Marketinq Xidmətləri",
     description:
-      "Biz vebsayt yaradılması, dizayn və rəqəmsal marketinq həllləri sahəsində ixtisaslaşmış yaradıcı rəqəmsal agentliyik.",
+      "Creadive reklam agentliyi SMM, SEO, veb sayt və kreativ dizayn xidmətləri ilə brendinizi böyüdür. Xidmətlərimizlə yaxından tanış olmaq üçün saytımıza daxil olun.",
     images: ["https://creadive.az/og-img.png"],
   },
   alternates: {

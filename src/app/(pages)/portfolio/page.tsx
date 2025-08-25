@@ -6,15 +6,15 @@ export default function PortfolioPage() {
   return (
     <>
       <DynamicMetaTags
-        title="Portfolio | Creadive - İdealarınızı gerçəkləşdirək ✨"
-        description="Creadive portfolio: vebsayt yaradılması, dizayn və marketinq layihələrimiz. Peşəkar işlərimizi kəşf edin."
+        title="Portfolio | Creadive — Kreativ Reklam Agentliyi | Marketinq Xidmətləri"
+        description="Creadive portfolio: SMM, SEO, veb sayt və kreativ dizayn xidmətləri ilə brendinizi böyüdür. Xidmətlərimizlə yaxından tanış olmaq üçün saytımıza daxil olun."
         canonical="https://creadive.az/portfolio"
         ogTitle="Portfolio - Creadive"
-        ogDescription="Creadive portfolio: vebsayt yaradılması, dizayn və marketinq layihələrimiz. Peşəkar işlərimizi kəşf edin."
+        ogDescription="Creadive portfolio: SMM, SEO, veb sayt və kreativ dizayn xidmətləri ilə brendinizi böyüdür. Xidmətlərimizlə yaxından tanış olmaq üçün saytımıza daxil olun."
         ogUrl="https://creadive.az/portfolio"
         ogImage="https://creadive.az/og-img.png"
         twitterTitle="Portfolio - Creadive"
-        twitterDescription="Creadive portfolio: vebsayt yaradılması, dizayn və marketinq layihələrimiz. Peşəkar işlərimizi kəşf edin."
+        twitterDescription="Creadive portfolio: SMM, SEO, veb sayt və kreativ dizayn xidmətləri ilə brendinizi böyüdür. Xidmətlərimizlə yaxından tanış olmaq üçün saytımıza daxil olun."
         twitterImage="https://creadive.az/og-img.png"
       />
       <Suspense>

@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <>
       <DynamicMetaTags
-        title="404 - Səhifə tapılmadı | Creadive - İdealarınızı gerçəkləşdirək ✨"
+        title="404 - Səhifə tapılmadı | Creadive — Kreativ Reklam Agentliyi | Marketinq Xidmətləri"
         description="Səhifə tapılmadı. Düzgün URL-i yoxlayın."
         canonical="https://creadive.az/404"
         ogTitle="404 - Səhifə tapılmadı"
