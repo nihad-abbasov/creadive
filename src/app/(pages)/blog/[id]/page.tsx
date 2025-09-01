@@ -27,7 +27,7 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
   }, [params]);
 
   if (!blogPost) {
-    console.log('Blog post not found');
+    // console.log('Blog post not found');
     return null;
   }
 

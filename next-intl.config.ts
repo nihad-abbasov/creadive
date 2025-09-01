@@ -2,11 +2,9 @@ import { getRequestConfig } from 'next-intl/server';
 
 export default getRequestConfig(async ({ locale }) => {
   const validLocale = locale || 'az';
-  console.log('Loading messages for locale:', validLocale);
   
   try {
     const messages = (await import(`./public/messages/${validLocale}.json`)).default;
-    console.log('Messages loaded successfully for', validLocale, ':', Object.keys(messages));
     
     return {
       locale: validLocale,

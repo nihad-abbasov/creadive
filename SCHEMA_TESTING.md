@@ -82,9 +82,9 @@ Visit: https://validator.schema.org/
 document.querySelectorAll('script[type="application/ld+json"]').length
 
 // View schema content
-document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
-  console.log(JSON.parse(script.textContent));
-});
+// document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+//   console.log(JSON.parse(script.textContent));
+// });
 ```
 
 ## 7. Expected Results
