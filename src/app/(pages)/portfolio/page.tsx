@@ -1,6 +1,6 @@
+import DynamicMetaTags from '@/components/DynamicMetaTags';
 import Portfolio from '@/views/Portfolio';
 import { Suspense } from 'react';
-import DynamicMetaTags from '@/components/DynamicMetaTags';
 
 export default function PortfolioPage() {
   return (

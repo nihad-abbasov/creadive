@@ -1,5 +1,5 @@
-import About from '@/views/About';
 import DynamicMetaTags from '@/components/DynamicMetaTags';
+import About from '@/views/About';
 
 export default function AboutPage() {
   return (

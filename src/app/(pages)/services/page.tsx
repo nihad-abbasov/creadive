@@ -1,6 +1,6 @@
+import DynamicMetaTags from '@/components/DynamicMetaTags';
 import Services from '@/views/Services';
 import { Suspense } from 'react';
-import DynamicMetaTags from '@/components/DynamicMetaTags';
 
 export default function ServicesPage() {
   return (

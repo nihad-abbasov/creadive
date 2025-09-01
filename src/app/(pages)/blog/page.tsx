@@ -1,5 +1,5 @@
-import Blog from '@/views/Blog';
 import DynamicMetaTags from '@/components/DynamicMetaTags';
+import Blog from '@/views/Blog';
 
 export default function BlogPage() {
   return (

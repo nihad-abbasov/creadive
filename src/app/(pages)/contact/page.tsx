@@ -1,5 +1,5 @@
-import Contact from '@/views/Contact';
 import DynamicMetaTags from '@/components/DynamicMetaTags';
+import Contact from '@/views/Contact';
 
 export default function ContactPage() {
   return (

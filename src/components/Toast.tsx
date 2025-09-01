@@ -1,14 +1,14 @@
 "use client";
 
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { Transition } from "@headlessui/react";
+import { Fragment, useEffect } from "react";
 import {
   CheckCircleIcon,
   ExclamationCircleIcon,
   InformationCircleIcon,
   ExclamationTriangleIcon,
 } from "@heroicons/react/24/solid";
-import { XMarkIcon } from "@heroicons/react/24/outline";
-import { Transition } from "@headlessui/react";
-import { Fragment, useEffect } from "react";
 
 export type ToastType = "success" | "error" | "warning" | "info";
 

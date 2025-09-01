@@ -46,7 +46,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
           const parsedData: CookieConsentData = JSON.parse(consentData);
           setHasConsented(parsedData.hasConsented);
           setPreferences(parsedData.preferences || defaultPreferences);
-          
+
           // Apply consent to tracking scripts
           applyConsentToTracking(parsedData.preferences);
         }
@@ -75,7 +75,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
       });
     } else {
       window.dataLayer.push({
-        event: "consent_update", 
+        event: "consent_update",
         analytics_consent: "denied",
         timestamp: new Date().toISOString(),
       });
@@ -88,7 +88,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
         marketing_consent: "granted",
         timestamp: new Date().toISOString(),
       });
-      
+
       // Initialize Facebook Pixel if marketing consent is granted
       if (typeof window.fbq === "function") {
         window.fbq("consent", "grant");
@@ -96,10 +96,10 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
     } else {
       window.dataLayer.push({
         event: "consent_update",
-        marketing_consent: "denied", 
+        marketing_consent: "denied",
         timestamp: new Date().toISOString(),
       });
-      
+
       // Revoke Facebook Pixel consent
       if (typeof window.fbq === "function") {
         window.fbq("consent", "revoke");
@@ -118,10 +118,10 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
       localStorage.setItem("cookie-consent", JSON.stringify(consentData));
       setHasConsented(true);
       setPreferences(newPreferences);
-      
+
       // Apply the new consent settings
       applyConsentToTracking(newPreferences);
-      
+
       // Trigger custom event for other parts of the app
       window.dispatchEvent(new CustomEvent("cookieConsentUpdated", {
         detail: { preferences: newPreferences }
@@ -136,7 +136,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
       localStorage.removeItem("cookie-consent");
       setHasConsented(false);
       setPreferences(defaultPreferences);
-      
+
       // Trigger custom event
       window.dispatchEvent(new CustomEvent("cookieConsentReset"));
     } catch (error) {
@@ -172,7 +172,7 @@ export function isCookieAllowed(type: keyof CookiePreferences): boolean {
   try {
     const consentData = localStorage.getItem("cookie-consent");
     if (!consentData) return false;
-    
+
     const parsedData: CookieConsentData = JSON.parse(consentData);
     return parsedData.preferences[type] || false;
   } catch {
