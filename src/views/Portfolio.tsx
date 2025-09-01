@@ -132,13 +132,16 @@ export default function Portfolio() {
       <div className="py-16 min-h-screen">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-extrabold text-center !text-white mb-2 tracking-tight">
-            Portfolio
+            Portfolio - Uğurlu Layihələrimiz
           </h1>
           <p className="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">
-            Layihələrimiz və uğurlu işlərimiz.
+            Müştərilərimiz üçün həyata keçirdiyimiz veb saytlar, reklam kampaniyaları və dizayn layihələri.
           </p>
 
           {/* Category Tabs */}
+          <h2 className="text-3xl font-bold text-center !text-white mb-8">
+            Layihə Kateqoriyaları
+          </h2>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {categories.map((category) => (
               <motion.button
@@ -259,13 +262,13 @@ export default function Portfolio() {
                         className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-300"
                       />
                     </motion.div>
-                    <motion.h2
+                    <motion.h3
                       className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300"
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
                     >
                       {item.title}
-                    </motion.h2>
+                    </motion.h3>
                     <p className="text-gray-600 mb-4">{item.description}</p>
                     {item.url && (
                       <motion.div

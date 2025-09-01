@@ -678,7 +678,7 @@ const Homepage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-4xl font-bold text-white mb-2">
-              Creadive nələr təklif edir?
+              Rəqəmsal Marketinq və Web Dizayn Xidmətlərimiz
             </h2>
             {/* <p className="text-base text-white/80 max-w-2xl mx-auto">
               Biznesiniz üçün ən yaxşı həllər
@@ -749,10 +749,10 @@ const Homepage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
-              Son İşlərimiz
+              Portfolio - Uğurlu Vebsaytlar və Reklam Layihələri
             </h2>
             <p className="text-base text-gray-600">
-              Uğurla tamamladığımız layihələrdən nümunələr
+              Müştərilərimiz üçün hazırladığımız veb saytlar və marketing kampaniyaları
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -834,7 +834,7 @@ const Homepage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-2">
-              Tərəfdaşlarımız
+              Bizə Etibar Edən Brendlər və Tərəfdaşlarımız
             </h2>
             {/* <p className="text-base text-white/80">
               Bizə etibar edən və uğurla işlədiyimiz brendlər
@@ -931,7 +931,7 @@ const Homepage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Qiymətlərimizlə tanış olmaq istəyirsiniz?
+              Web Dizayn və Rəqəmsal Marketinq Qiymətlərimiz
             </h2>
             {/* <p className="text-lg text-white/80 max-w-2xl mx-auto">
               Xidmətlərimiz üçün ən uyğun paketləri seçin və biznesinizi növbəti səviyyəyə qaldırın
@@ -1226,7 +1226,7 @@ const Homepage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-2">
-              Niyə məhz Creadive?
+              Niyə Creadive Rəqəmsal Marketinq Agentliyini Seçməlisiniz?
             </h2>
             {/* <p className="text-base text-white/80">
               Bizi fərqləndirən xüsusiyyətlər
@@ -1297,10 +1297,10 @@ const Homepage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
-              Blog
+              SEO və Rəqəmsal Marketinq Bloqu
             </h2>
             <p className="text-base text-gray-600">
-              Son xəbərlər və məqalələr
+              Web dizayn, SEO və social media marketinq haqqında məqalələr
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -1350,7 +1350,7 @@ const Homepage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-2">
-              İş Prosesimizi Bilmək İstəyirsiniz?
+              Vebsayt və Reklam Kampaniyası Hazırlanma Prosesimiz
             </h2>
             {/* <p className="text-base text-white/80">
               Layihələrimizi necə həyata keçirirdiyimizə baxın
@@ -1391,10 +1391,10 @@ const Homepage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
-              Texnologiyalar
+              Vebsayt Hazırlanmasında İstifadə Etdiyimiz Texnologiyalar
             </h2>
             <p className="text-base text-gray-600">
-              İstifadə etdiyimiz müasir texnologiyalar
+              React, Next.js, WordPress və digər müasir web development texnologiyaları
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
@@ -1438,7 +1438,7 @@ const Homepage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-2">
-              Creadive haqqında nə deyirlər?
+              Müştəri Rəyləri və Təəssüratları - Creadive Haqqında
             </h2>
             {/* <p className="text-base text-white/80">
               Bizə etibar edən müştərilərimizin təəssüratları
@@ -1580,7 +1580,7 @@ const Homepage = () => {
               className="text-center md:text-left mb-8 md:mb-0"
             >
               <h2 className="text-3xl font-bold text-white mb-2">
-                Layihənizi müzakirə edək
+                Vebsayt və Rəqəmsal Marketinq Layihənizi Müzakirə Edək
               </h2>
               <p className="text-white text-base font-light">
                 Bizimlə əlaqə saxlayın və layihənizi həyata keçirək

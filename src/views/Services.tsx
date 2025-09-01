@@ -106,10 +106,10 @@ export default function Services() {
 
       <div className="max-w-7xl mx-auto px-4">
         <h1 className="text-4xl md:text-5xl font-extrabold text-center !text-white mb-2 tracking-tight">
-          Xidmətlərimiz
+          Rəqəmsal Marketinq və Web Dizayn Xidmətlərimiz
         </h1>
         <p className="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">
-          Biznesiniz üçün ən yaxşı həlləri təklif edirik
+          Biznesiniz üçün ən yaxşı rəqəmsal həlləri və kreativ dizayn xidmətləri təklif edirik
         </p>
 
         <div className="flex flex-col md:flex-row items-start gap-12">
@@ -132,6 +132,9 @@ export default function Services() {
 
           {/* Service Items */}
           <div className="flex flex-col gap-12">
+            <h2 className="text-3xl font-bold text-center !text-white mb-4">
+              Bizim Xidmət Sahələrimiz
+            </h2>
             {services.map((service, idx) => (
               <motion.section
                 key={service.id}
@@ -156,11 +159,11 @@ export default function Services() {
                   </motion.div>
                   {/* Content */}
                   <div className="p-6 md:p-8">
-                    <motion.h2
+                    <motion.h3
                       className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300"
                     >
                       {service.title}
-                    </motion.h2>
+                    </motion.h3>
                     <motion.p
                       className="text-gray-600 mb-6"
                     >

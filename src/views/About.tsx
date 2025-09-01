@@ -252,6 +252,12 @@ export default function About() {
 
         {/* Mission, Vision & Values Section */}
         <motion.section className="mb-20" variants={containerVariants}>
+          <motion.h2
+            className="text-3xl font-bold text-center !text-white mb-8"
+            variants={itemVariants}
+          >
+            Bizim Haqqımızda Ətraflı
+          </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
             {sections.map((section, index) => (
               <motion.div
