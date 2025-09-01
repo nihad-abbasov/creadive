@@ -78,17 +78,17 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl font-bold !text-white mb-4">
-            Bizimlə Əlaqə Saxlayın - Kreativ Həllər Üçün
+            Vebsayt və Rəqəmsal Marketinq Xidmətləri Üçün Bizimlə Əlaqə Saxlayın
           </h1>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            Rəqəmsal marketinq və web dizayn layihəniz haqqında danışmaq üçün bizimlə
+            Rəqəmsal marketinq və veb dizayn layihəniz haqqında danışmaq üçün bizimlə
             əlaqə saxlayın. Peşəkar komandamız sizə kömək etməyə hazırdır!
           </p>
         </motion.div>
 
         {/* grid-cols-2 */}
         <h2 className="text-3xl font-bold text-center !text-white mb-8">
-          Əlaqə Məlumatları
+          Creadive Agentliyinin Əlaqə Məlumatları
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-1 gap-12">
           <motion.div

@@ -212,9 +212,9 @@ export default function BlogDetail({ blogPost }: BlogDetailProps) {
               />
             </motion.div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2">
+              <h3 className="font-semibold text-gray-900 mb-2">
                 {blogPost.author.name}
-              </h4>
+              </h3>
               <p className="text-gray-600">{blogPost.author.bio}</p>
             </div>
           </div>
@@ -270,9 +270,9 @@ export default function BlogDetail({ blogPost }: BlogDetailProps) {
                         </div>
                       </div>
                       <div className="p-6">
-                        <h4 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                           {relatedPost.title}
-                        </h4>
+                        </h3>
                         <p className="text-gray-600 text-sm mb-4 line-clamp-2">
                           {relatedPost.excerpt}
                         </p>

@@ -3,6 +3,8 @@ import { Autoplay, Pagination, Navigation, EffectCards } from "swiper/modules";
 import { useInView } from "react-intersection-observer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { IoRocketOutline } from "react-icons/io5";
+import { useTranslations } from "next-intl";
+import { Link } from "@/lib/navigation";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
@@ -10,8 +12,13 @@ import "swiper/css/effect-cards";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
-import Link from "next/link";
 import "swiper/css";
+
+interface OurFeature {
+  icon: string;
+  title: string;
+  description: string;
+}
 
 interface Testimonial {
   id: number;
@@ -89,8 +96,8 @@ interface Service {
 const services: Service[] = [
   {
     id: 1,
-    title: "Vebsayt hazırlama",
-    description: "Müasir və responsive vebsaytların hazırlanması",
+    title: "web",
+    description: "web",
     icon: ({ className }) => (
       <svg
         className={className}
@@ -110,8 +117,8 @@ const services: Service[] = [
   },
   {
     id: 2,
-    title: "UX/UI dizayn",
-    description: "İstifadəçi təcrübəsini təkmilləşdirən dizayn həlləri",
+    title: "uiux",
+    description: "uiux",
     icon: ({ className }) => (
       <svg
         className={className}
@@ -131,8 +138,8 @@ const services: Service[] = [
   },
   {
     id: 3,
-    title: "Rəqəmsal marketinq",
-    description: "Effektiv rəqəmsal marketinq strategiyaları",
+    title: "digital",
+    description: "digital",
     icon: ({ className }) => (
       <svg
         className={className}
@@ -158,8 +165,8 @@ const services: Service[] = [
   },
   {
     id: 4,
-    title: "Sosial Media Marketinqi",
-    description: "Sosial media platformalarında effektiv marketinq",
+    title: "social",
+    description: "social",
     icon: ({ className }) => (
       <svg
         className={className}
@@ -179,8 +186,8 @@ const services: Service[] = [
   },
   {
     id: 5,
-    title: "Məzmun yaratma",
-    description: "Keyfiyyətli və cəlbedici məzmun yaradılması",
+    title: "content",
+    description: "content",
     icon: ({ className }) => (
       <svg
         className={className}
@@ -200,8 +207,8 @@ const services: Service[] = [
   },
   {
     id: 6,
-    title: "Qrafik dizayn",
-    description: "Profesional qrafik dizayn həlləri",
+    title: "graphic",
+    description: "graphic",
     icon: ({ className }) => (
       <svg
         className={className}
@@ -232,25 +239,25 @@ const stats: StatItem[] = [
   {
     id: 1,
     end: 100,
-    label: "Tamamlanmış layihə",
+    label: "completedProjects",
     suffix: "+",
   },
   {
     id: 2,
     end: 50,
-    label: "Məmnun müştəri",
+    label: "satisfiedClients",
     suffix: "+",
   },
   {
     id: 3,
     end: 5,
-    label: "İl təcrübə",
+    label: "yearsExperience",
     suffix: "+",
   },
   {
     id: 4,
     end: 24,
-    label: "Müştəri dəstəyi",
+    label: "customerSupport",
     suffix: "/7",
   },
 ];
@@ -258,63 +265,25 @@ const stats: StatItem[] = [
 const processSteps = [
   {
     id: 1,
-    title: "Ehtiyaclarınızın Analizi",
-    description:
-      "Layihənizin məqsədlərini və hədəflərini dəqiq başa düşmək üçün ətraflı müzakirə",
+    title: "analysis",
+    description: "analysis",
   },
   {
     id: 2,
-    title: "Strategiya və Planlaşdırma",
-    description: "Layihəniz üçün ən uyğun həlləri və yanaşmaları müəyyən etmək",
+    title: "strategy",
+    description: "strategy",
   },
   {
     id: 3,
-    title: "İcra və İnkişaf",
-    description:
-      "Peşəkar komandamız tərəfindən layihənin keyfiyyətli şəkildə həyata keçirilməsi",
+    title: "execution",
+    description: "execution",
   },
   {
     id: 4,
-    title: "Nəticələrin Analizi",
-    description:
-      "Layihənin effektivliyini qiymətləndirmək və təkmilləşdirmək üçün monitorinq",
+    title: "monitoring",
+    description: "monitoring",
   },
 ];
-
-// interface BlogPost {
-//   id: number;
-//   title: string;
-//   excerpt: string;
-//   image: string;
-//   slug: string;
-// }
-
-// const blogPosts: BlogPost[] = [
-//   {
-//     id: 1,
-//     title: "Veb Dizaynın Əsas Prinsipləri",
-//     excerpt: "Müasir veb dizaynın əsas prinsipləri və trendləri haqqında",
-//     image: "/blog/web-design.jpg",
-//     slug: "web-design-principles",
-//   },
-//   {
-//     id: 2,
-//     title: "SEO Optimizasiyası",
-//     excerpt:
-//       "Veb saytınızın axtarış sistemlərində daha yaxşı görünməsi üçün tövsiyələr",
-//     image: "/blog/seo.jpg",
-//     slug: "seo-optimization",
-//   },
-//   {
-//     id: 3,
-//     title: "Rəqəmsal Marketinq Strategiyaları",
-//     excerpt: "Biznesiniz üçün effektiv rəqəmsal marketinq strategiyaları",
-//     image: "/blog/digital-marketing.jpg",
-//     slug: "digital-marketing-strategies",
-//   },
-// ];
-
-// PRICING DATA
 
 const pricingCategories = [
   {
@@ -471,6 +440,24 @@ const pricingCategories = [
   },
 ];
 
+const ourFeatures: OurFeature[] = [
+  {
+    icon: "🎯",
+    title: "professional",
+    description: "professional",
+  },
+  {
+    icon: "⚡",
+    title: "fast",
+    description: "fast",
+  },
+  {
+    icon: "💡",
+    title: "innovative",
+    description: "innovative",
+  },
+]
+
 interface Partner {
   name: string;
   logoUrl: string;
@@ -554,6 +541,7 @@ const InfoIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const Homepage = () => {
+  const t = useTranslations("homepage");
   const { ref, inView } = useInView({
     threshold: 0.3,
     triggerOnce: true,
@@ -592,12 +580,13 @@ const Homepage = () => {
                 transition={{ duration: 0.5 }}
                 className="text-5xl sm:text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-[0_0_30px_rgba(255,255,255,0.6)]"
               >
-                Biznesinizi{" "}
-                <span className="bg-gradient-to-l from-[#15B6B0] to-[#20C943] bg-clip-text text-transparent font-bold drop-shadow-[0_0_30px_rgba(22,182,176,0.8)]">
-                  Creadive
-                </span>{" "}
-                ilə <br />
-                gücləndirin
+                {t.rich("hero.title", {
+                  grad: (chunks) => (
+                    <span className="bg-gradient-to-l from-[#15B6B0] to-[#20C943] bg-clip-text text-transparent font-bold drop-shadow-[0_0_30px_rgba(22,182,176,0.8)]">
+                      {chunks}
+                    </span>
+                  ),
+                })}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -622,7 +611,7 @@ const Homepage = () => {
                   className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
                 >
                   <IoRocketOutline className="w-5 h-5" />
-                  Layihənizə başlayaq
+                  {t("hero.startProject")}
                 </Link>
                 <Link
                   id="home-portfolio-link"
@@ -644,7 +633,7 @@ const Homepage = () => {
                       d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                     />
                   </svg>
-                  Portfoliomuza bax
+                  {t("hero.viewPortfolio")}
                 </Link>
               </motion.div>
             </div>
@@ -679,7 +668,7 @@ const Homepage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-4xl font-bold text-white mb-2">
-              Rəqəmsal Marketinq və Web Dizayn Xidmətlərimiz
+              {t("services.title")}
             </h2>
             {/* <p className="text-base text-white/80 max-w-2xl mx-auto">
               Biznesiniz üçün ən yaxşı həllər
@@ -704,10 +693,10 @@ const Homepage = () => {
 
                   {/* Content */}
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    {service.title}
+                    {t(`services.items.${service.title}.title`)}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
-                    {service.description}
+                    {t(`services.items.${service.title}.description`)}
                   </p>
                 </div>
               </motion.div>
@@ -726,7 +715,7 @@ const Homepage = () => {
               href="/services"
               className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
-              <span>Bütün Xidmətlər</span>
+              <span>{t("services.viewAll")}</span>
               <svg
                 className="w-5 h-5 ml-2"
                 fill="none"
@@ -750,7 +739,7 @@ const Homepage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
-              Portfolio - Uğurlu Vebsaytlar və Reklam Layihələri
+              Uğurlu veb Dizayn və Rəqəmsal Marketinq Layihələrimiz
             </h2>
             <p className="text-base text-gray-600">
               Müştərilərimiz üçün hazırladığımız veb saytlar və marketing kampaniyaları
@@ -810,7 +799,7 @@ const Homepage = () => {
                   )}
                 </div>
                 <div className="text-xl font-normal text-white">
-                  {stat.label}
+                  {t(`stats.${stat.label}`)}
                 </div>
               </motion.div>
             ))}
@@ -835,7 +824,7 @@ const Homepage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-2">
-              Bizə Etibar Edən Brendlər və Tərəfdaşlarımız
+              {t("partners.title")}
             </h2>
             {/* <p className="text-base text-white/80">
               Bizə etibar edən və uğurla işlədiyimiz brendlər
@@ -932,7 +921,7 @@ const Homepage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Web Dizayn və Rəqəmsal Marketinq Qiymətlərimiz
+              {t("pricing.title")}
             </h2>
             {/* <p className="text-lg text-white/80 max-w-2xl mx-auto">
               Xidmətlərimiz üçün ən uyğun paketləri seçin və biznesinizi növbəti səviyyəyə qaldırın
@@ -953,8 +942,8 @@ const Homepage = () => {
                   key={cat.id}
                   onClick={() => setActivePricingTab(cat.id)}
                   className={`relative px-4 md:px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${activePricingTab === cat.id
-                      ? "text-white"
-                      : "text-gray-600 hover:text-gray-900"
+                    ? "text-white"
+                    : "text-gray-600 hover:text-gray-900"
                     }`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1001,8 +990,8 @@ const Homepage = () => {
                           {/* Card Background */}
                           <div
                             className={`relative h-full rounded-3xl shadow-xl transition-all duration-500 ${isPopular
-                                ? "bg-gradient-to-br from-blue-600 via-blue-700 to-emerald-600 shadow-2xl shadow-blue-500/25"
-                                : "bg-white hover:shadow-2xl hover:shadow-gray-200/50"
+                              ? "bg-gradient-to-br from-blue-600 via-blue-700 to-emerald-600 shadow-2xl shadow-blue-500/25"
+                              : "bg-white hover:shadow-2xl hover:shadow-gray-200/50"
                               }`}
                           >
                             {/* Popular Badge */}
@@ -1029,8 +1018,8 @@ const Homepage = () => {
                               {/* Package Icon */}
                               <div
                                 className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center ${isPopular
-                                    ? "bg-white/20 text-white"
-                                    : "bg-gradient-to-br from-blue-50 to-emerald-50 text-blue-600"
+                                  ? "bg-white/20 text-white"
+                                  : "bg-gradient-to-br from-blue-50 to-emerald-50 text-blue-600"
                                   }`}
                               >
                                 <svg
@@ -1060,8 +1049,8 @@ const Homepage = () => {
                               <div className="mb-6">
                                 <div
                                   className={`text-5xl font-extrabold mb-1 ${isPopular
-                                      ? "text-white"
-                                      : "bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent"
+                                    ? "text-white"
+                                    : "bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent"
                                     }`}
                                 >
                                   {pkg.price}
@@ -1070,8 +1059,8 @@ const Homepage = () => {
                                   pkg.name === "E-ticarət" && (
                                     <span
                                       className={`text-sm font-medium ${isPopular
-                                          ? "text-white/80"
-                                          : "text-gray-500"
+                                        ? "text-white/80"
+                                        : "text-gray-500"
                                         }`}
                                     >
                                       -dən başlayaraq
@@ -1095,16 +1084,16 @@ const Homepage = () => {
                                   >
                                     <div
                                       className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${isPopular
-                                          ? "bg-white/20 text-white"
-                                          : "bg-green-100 text-green-600"
+                                        ? "bg-white/20 text-white"
+                                        : "bg-green-100 text-green-600"
                                         }`}
                                     >
                                       <CheckIcon className="w-3 h-3" />
                                     </div>
                                     <span
                                       className={`text-sm leading-relaxed ${isPopular
-                                          ? "text-white/90"
-                                          : "text-gray-700"
+                                        ? "text-white/90"
+                                        : "text-gray-700"
                                         }`}
                                     >
                                       {feature}
@@ -1121,8 +1110,8 @@ const Homepage = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={`w-full py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300 shadow-lg ${isPopular
-                                    ? "bg-white text-blue-600 hover:bg-gray-50 hover:shadow-xl"
-                                    : "bg-gradient-to-r from-blue-600 to-emerald-600 text-white hover:from-blue-700 hover:to-emerald-700 hover:shadow-xl"
+                                  ? "bg-white text-blue-600 hover:bg-gray-50 hover:shadow-xl"
+                                  : "bg-gradient-to-r from-blue-600 to-emerald-600 text-white hover:from-blue-700 hover:to-emerald-700 hover:shadow-xl"
                                   }`}
                                 whileHover={{ scale: 1.02, y: -2 }}
                                 whileTap={{ scale: 0.98 }}
@@ -1168,9 +1157,9 @@ const Homepage = () => {
                             </div>
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-bold text-lg mb-3 text-gray-900">
+                            <h3 className="font-bold text-lg mb-3 text-gray-900">
                               QİYMƏTLƏRƏ DAXİL DEYİL
-                            </h4>
+                            </h3>
                             <ul className="space-y-2">
                               {cat.notIncluded.map((item, idx) => (
                                 <motion.li
@@ -1217,33 +1206,14 @@ const Homepage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-2">
-              Niyə Creadive Rəqəmsal Marketinq Agentliyini Seçməlisiniz?
+              {t("whyChooseUs.title")}
             </h2>
             {/* <p className="text-base text-white/80">
               Bizi fərqləndirən xüsusiyyətlər
             </p> */}
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-            {[
-              {
-                icon: "🎯",
-                title: "Peşəkar Yanaşma",
-                description:
-                  "Hər bir layihəyə fərdi və peşəkar yanaşma tətbiq edirik",
-              },
-              {
-                icon: "⚡",
-                title: "Sürətli İcra",
-                description:
-                  "Layihələri vaxtında və keyfiyyətlə təhvil veririk",
-              },
-              {
-                icon: "💡",
-                title: "İnnovativ Həllər",
-                description:
-                  "Ən son texnologiyalardan istifadə edərək innovativ həllər təklif edirik",
-              },
-            ].map((feature, index) => (
+            {ourFeatures.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -1268,67 +1238,14 @@ const Homepage = () => {
                   {feature.icon}
                 </motion.div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {feature.title}
+                  {t(`whyChooseUs.features.${feature.title}.title`)}
                 </h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <p className="text-gray-600">{t(`whyChooseUs.features.${feature.title}.description`)}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </motion.div>
-
-      {/* Blog Section */}
-      {/* <div className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
-              SEO və Rəqəmsal Marketinq Bloqu
-            </h2>
-            <p className="text-base text-gray-600">
-              Web dizayn, SEO və social media marketinq haqqında məqalələr
-            </p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
-              <motion.div
-                key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="relative h-48">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {post.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="text-blue-600 hover:text-blue-700 font-medium"
-                  >
-                    Ətraflı oxu →
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div> */}
 
       {/* Process Steps Section */}
       <div className="py-20">
@@ -1341,7 +1258,7 @@ const Homepage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-2">
-              Vebsayt və Reklam Kampaniyası Hazırlanma Prosesimiz
+              {t("process.title")}
             </h2>
             {/* <p className="text-base text-white/80">
               Layihələrimizi necə həyata keçirirdiyimizə baxın
@@ -1366,10 +1283,10 @@ const Homepage = () => {
                   )}
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-2">
-                  {step.title}
+                  {t(`process.steps.${step.title}.title`)}
                 </h3>
                 <p className="text-white/80 text-sm leading-relaxed max-w-[200px] mx-auto">
-                  {step.description}
+                  {t(`process.steps.${step.title}.description`)}
                 </p>
               </motion.div>
             ))}
@@ -1382,7 +1299,7 @@ const Homepage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
-              Vebsayt Hazırlanmasında İstifadə Etdiyimiz Texnologiyalar
+              Veb Dizayn və Vebsayt Hazırlanmasında İstifadə Etdiyimiz Texnologiyalar
             </h2>
             <p className="text-base text-gray-600">
               React, Next.js, WordPress və digər müasir web development texnologiyaları
@@ -1429,11 +1346,8 @@ const Homepage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-2">
-              Müştəri Rəyləri və Təəssüratları - Creadive Haqqında
+              {t("testimonials.title")}
             </h2>
-            {/* <p className="text-base text-white/80">
-              Bizə etibar edən müştərilərimizin təəssüratları
-            </p> */}
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -1570,11 +1484,11 @@ const Homepage = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-center md:text-left mb-8 md:mb-0"
             >
-              <h2 className="text-3xl font-bold text-white mb-2">
-                Vebsayt və Rəqəmsal Marketinq Layihənizi Müzakirə Edək
+              <h2 className="text-3xl font-bold text-white mb-2 md:w-[80%]">
+                {t("contactCTA.title")}
               </h2>
               <p className="text-white text-base font-light">
-                Bizimlə əlaqə saxlayın və layihənizi həyata keçirək
+                {t("contactCTA.subtitle")}
               </p>
             </motion.div>
             <motion.div
@@ -1584,15 +1498,17 @@ const Homepage = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <Link
+                aria-label="Contact via WhatsApp"
                 href="https://wa.me/994105319987"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-blue-600 transition-colors w-full md:w-max"
               >
                 <motion.span
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Bizə yazın
+                  {t("contactCTA.button")}
                 </motion.span>
               </Link>
             </motion.div>

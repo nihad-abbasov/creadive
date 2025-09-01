@@ -1,4 +1,4 @@
-import RootLayoutWrapper from "@/components/RootLayoutWrapper";
+
 import { Plus_Jakarta_Sans } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 import Schema from "@/components/Schema";
@@ -99,7 +99,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="az" className={plusJakartaSans.variable}>
+    <html className={plusJakartaSans.variable}>
       <head>
         {/* Critical CSS for Hero Section (keep minimal) */}
         {/* <style
@@ -272,7 +272,7 @@ export default function RootLayout({
         <Schema type="organization" />
         <Schema type="website" />
 
-        <RootLayoutWrapper>{children}</RootLayoutWrapper>
+        {children}
       </body>
     </html>
   );

@@ -16,6 +16,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "framer-motion": "^12.18.1",
     "next": "^15.3.3",
+    "next-intl": "4.3.5",
     "react": "^19.0.0",
     "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",

@@ -106,7 +106,7 @@ export default function Services() {
 
       <div className="max-w-7xl mx-auto px-4">
         <h1 className="text-4xl md:text-5xl font-extrabold text-center !text-white mb-2 tracking-tight">
-          Rəqəmsal Marketinq və Web Dizayn Xidmətlərimiz
+          Rəqəmsal Marketinq və Veb Dizayn Xidmətlərimiz
         </h1>
         <p className="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">
           Biznesiniz üçün ən yaxşı rəqəmsal həlləri və kreativ dizayn xidmətləri təklif edirik

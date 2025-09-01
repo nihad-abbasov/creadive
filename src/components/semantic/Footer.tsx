@@ -1,5 +1,6 @@
 import { FaTwitter, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
-import Link from "next/link";
+import { Link } from "@/lib/navigation";
+import { useTranslations } from "next-intl";
 import Logo from "../Logo";
 
 type FooterLink = {
@@ -8,38 +9,14 @@ type FooterLink = {
   label: string;
 };
 
-const footerLinks: FooterLink[] = [
-  {
-    id: 1,
-    href: "/",
-    label: "Əsas səhifə",
-  },
-  {
-    id: 2,
-    href: "/about",
-    label: "Haqqımızda",
-  },
-  {
-    id: 3,
-    href: "/services",
-    label: "Xidmətlərimiz",
-  },
-  {
-    id: 4,
-    href: "/contact",
-    label: "Əlaqə",
-  },
-  {
-    id: 5,
-    href: "/blog",
-    label: "Bloq",
-  },
-  {
-    id: 6,
-    href: "/portfolio",
-    label: "Portfolio",
-  },
-];
+const getFooterLinks = (t: ReturnType<typeof useTranslations>): FooterLink[] => ([
+  { id: 1, href: "/", label: t("footer.home") },
+  { id: 2, href: "/about", label: t("footer.about") },
+  { id: 3, href: "/services", label: t("footer.services") },
+  { id: 4, href: "/contact", label: t("footer.contact") },
+  { id: 5, href: "/blog", label: t("footer.blog") },
+  { id: 6, href: "/portfolio", label: t("footer.portfolio") },
+]);
 
 type Service = {
   id: number;
@@ -47,43 +24,15 @@ type Service = {
   label: string;
 };
 
-const services: Service[] = [
-  {
-    id: 1,
-    href: "/services?service=web-development",
-    label: "Vebsayt yaradılması",
-  },
-  {
-    id: 2,
-    href: "/services?service=ui-ux",
-    label: "UX/UI dizayn",
-  },
-  {
-    id: 3,
-    href: "/services?service=digital-marketing",
-    label: "Rəqəmsal marketinq",
-  },
-  {
-    id: 4,
-    href: "/services?service=seo",
-    label: "SEO",
-  },
-  {
-    id: 5,
-    href: "/services?service=graphic-design",
-    label: "Qrafik dizayn",
-  },
-  {
-    id: 6,
-    href: "/services?service=smm",
-    label: "SMM",
-  },
-  {
-    id: 7,
-    href: "/services?service=targeting",
-    label: "Tarqetinq",
-  },
-];
+const getServices = (t: ReturnType<typeof useTranslations>): Service[] => ([
+  { id: 1, href: "/services?service=web-development", label: t("nav.servicesItems.web") },
+  { id: 2, href: "/services?service=ui-ux", label: t("nav.servicesItems.uiux") },
+  { id: 3, href: "/services?service=digital-marketing", label: t("nav.servicesItems.dm") },
+  { id: 4, href: "/services?service=seo", label: t("nav.servicesItems.seo") },
+  { id: 5, href: "/services?service=graphic-design", label: t("nav.servicesItems.gd") },
+  { id: 6, href: "/services?service=smm", label: t("nav.servicesItems.smm") },
+  { id: 7, href: "/services?service=targeting", label: t("nav.servicesItems.targeting") },
+]);
 
 type Contact = {
   id: number;
@@ -149,6 +98,9 @@ const socials: Social[] = [
 const currentYear = new Date().getFullYear();
 
 export default function Footer() {
+  const t = useTranslations();
+  const footerLinks = getFooterLinks(t);
+  const services = getServices(t);
   return (
     // bg-gradient-to-tl from-blue-900 to-black 
     <footer className="text-white pt-12 pb-8">
@@ -162,14 +114,10 @@ export default function Footer() {
             >
               <Logo isWhite={true} isForHeader={false} />
             </Link>
-            <p className="text-gray-400 text-sm">
-              İdealarınızı gerçəkləşdirək ✨
-            </p>
+            <p className="text-gray-400 text-sm">{t("common.slogan")}</p>
           </div>
           <div className="flex flex-col items-start gap-2 md:gap-4">
-            <span className="text-lg font-semibold mb-0 md:mb-0">
-              Qısa yollar
-            </span>
+            <span className="text-lg font-semibold mb-0 md:mb-0">{t("footer.quickLinks")}</span>
             <ul className="space-y-2 text-gray-400 text-sm">
               {footerLinks.map((link) => (
                 <li key={link.id}>
@@ -185,9 +133,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="flex flex-col items-start gap-2 md:gap-4">
-            <span className="text-lg font-semibold mb-0 md:mb-0">
-              Xidmətlərimiz
-            </span>
+            <span className="text-lg font-semibold mb-0 md:mb-0">{t("footer.ourServices")}</span>
             <ul className="space-y-2 text-gray-400 text-sm">
               {services.map((service) => (
                 <li key={service.id}>
@@ -203,7 +149,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="flex flex-col items-start gap-2 md:gap-4">
-            <span className="text-lg font-semibold mb-0 md:mb-0">Əlaqə</span>
+            <span className="text-lg font-semibold mb-0 md:mb-0">{t("footer.contact")}</span>
             <ul className="space-y-2 text-gray-400 text-sm">
               {contacts.map((contact) => (
                 <li key={contact.id}>
@@ -238,7 +184,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm font-extralight">
-          <p>&copy; {currentYear} Creadive. Bütün hüquqlar qorunur.</p>
+          <p>&copy; {currentYear} Creadive. {t("footer.copyright")}</p>
         </div>
       </div>
     </footer>

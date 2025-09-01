@@ -1,0 +1,274 @@
+{
+  "common": {
+    "language": "Language",
+    "current": "Current",
+    "az": "AZ",
+    "en": "EN",
+    "ru": "RU",
+    "phone": "+994 10 531 99 87",
+    "ctaCall": "Call",
+    "slogan": "Let's realize your ideas ✨"
+  },
+  "nav": {
+    "services": "Services",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Contact",
+    "servicesItems": {
+      "web": "Website",
+      "smm": "SMM",
+      "dm": "Digital Marketing",
+      "uiux": "UI/UX Design",
+      "seo": "SEO",
+      "gd": "Graphic Design",
+      "targeting": "Targeting"
+    }
+  },
+  "about": {
+    "team": "Team",
+    "faq": "FAQ"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "ourServices": "Our Services",
+    "contact": "Contact",
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "blog": "Blog",
+    "portfolio": "Portfolio",
+    "copyright": "All rights reserved."
+  },
+  "meta": {
+    "titleDefault": "Creadive — Creative Advertising Agency | Marketing Services",
+    "descriptionDefault": "Creadive agency grows your brand with SMM, SEO, websites and creative design. Visit our site to explore our services."
+  },
+  "homepage": {
+    "hero": {
+      "startProject": "Let's Start Your Project",
+      "viewPortfolio": "View Our Portfolio",
+      "title": "Strengthen your business with <grad>Creadive</grad>",
+      "subtitle": "We help <grad>brands</grad> grow with innovative design, website and marketing solutions.",
+      "description": "Transform your business with our comprehensive digital solutions.<br/>From design to marketing, we've got you covered."
+    },
+    "services": {
+      "title": "Digital Marketing and Web Design Services",
+      "items": {
+        "web": {
+          "title": "Website Development",
+          "description": "Modern and responsive website development"
+        },
+        "uiux": {
+          "title": "UX/UI Design",
+          "description": "User experience enhancing design solutions"
+        },
+        "digital": {
+          "title": "Digital Marketing",
+          "description": "Effective digital marketing strategies"
+        },
+        "social": {
+          "title": "Social Media Marketing",
+          "description": "Effective marketing on social media platforms"
+        },
+        "content": {
+          "title": "Content Creation",
+          "description": "Quality and engaging content creation"
+        },
+        "graphic": {
+          "title": "Graphic Design",
+          "description": "Professional graphic design solutions"
+        }
+      },
+      "viewAll": "View All Services"
+    },
+    "stats": {
+      "completedProjects": "Completed Projects",
+      "satisfiedClients": "Satisfied Clients",
+      "yearsExperience": "Years Experience",
+      "customerSupport": "Customer Support"
+    },
+    "process": {
+      "title": "Our Website and Advertising Campaign Development Process",
+      "steps": {
+        "analysis": {
+          "title": "Analysis of Your Needs",
+          "description": "Detailed discussion to accurately understand your project goals and objectives"
+        },
+        "strategy": {
+          "title": "Strategy and Planning",
+          "description": "Determining the most suitable solutions and approaches for your project"
+        },
+        "execution": {
+          "title": "Execution and Development",
+          "description": "Quality implementation of the project by our professional team"
+        },
+        "monitoring": {
+          "title": "Results Analysis",
+          "description": "Monitoring to evaluate and improve project effectiveness"
+        }
+      }
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Creadive Digital Marketing Agency?",
+      "features": {
+        "professional": {
+          "title": "Professional Approach",
+          "description": "We apply individual and professional approach to each project"
+        },
+        "fast": {
+          "title": "Fast Execution",
+          "description": "We deliver projects on time and with quality"
+        },
+        "innovative": {
+          "title": "Innovative Solutions",
+          "description": "We offer innovative solutions using the latest technologies"
+        }
+      }
+    },
+    "contactCTA": {
+      "title": "Let's Discuss Your Website and Digital Marketing Project",
+      "subtitle": "Contact us and let's implement your project",
+      "button": "Write to Us"
+    },
+    "partners": {
+      "title": "Brands and Partners Who Trust Us"
+    },
+    "pricing": {
+      "title": "Veb Design and Digital Marketing Service Prices",
+      "categories": {
+        "smm": {
+          "name": "SMM",
+          "description": "Our packages for social media management.",
+          "packages": {
+            "roket": {
+              "name": "ROCKET package",
+              "features": [
+                "12 static posts",
+                "2 reels/motion videos",
+                "6 story designs"
+              ]
+            },
+            "kosmos": {
+              "name": "COSMOS package",
+              "features": [
+                "16 static posts",
+                "15 story designs",
+                "2 Motion videos",
+                "2 Reels videos",
+                "Special day posts creation",
+                "Highlights section creation",
+                "Targeting (Advertising)"
+              ]
+            },
+            "ulduz": {
+              "name": "STAR package",
+              "features": [
+                "Logo creation",
+                "1 professional video shooting",
+                "30 story designs",
+                "1 giveaway/contest post per month",
+                "Targeting (Advertising)",
+                "Social media account management",
+                "TikTok advertising"
+              ]
+            }
+          },
+          "notIncluded": [
+            "Tax",
+            "Advertising budget/costs",
+            "Giveaway gift costs"
+          ]
+        },
+        "website": {
+          "name": "Website",
+          "description": "Our packages for website development.",
+          "packages": {
+            "landing": {
+              "name": "Landing Page",
+              "features": [
+                "1-page website",
+                "Mobile-friendly design",
+                "Basic SEO optimization",
+                "Fast loading"
+              ]
+            },
+            "business": {
+              "name": "Business Website",
+              "features": [
+                "Up to 5 pages",
+                "Mobile and desktop compatibility",
+                "SEO optimization",
+                "Admin panel",
+                "Contact form"
+              ]
+            },
+            "ecommerce": {
+              "name": "E-commerce",
+              "features": [
+                "10+ pages",
+                "Online sales system",
+                "Payment integration",
+                "Admin panel",
+                "SEO and speed optimization"
+              ]
+            }
+          },
+          "notIncluded": [
+            "Additional language support",
+            "Additional annual hosting and domain fees",
+            "Content creation (text and images)",
+            "Full SEO audit or ongoing service",
+            "Ongoing technical support for the site"
+          ]
+        },
+        "design": {
+          "name": "Design",
+          "description": "Graphic and branding design services.",
+          "packages": {
+            "logo": {
+              "name": "Logo Design",
+              "features": [
+                "3 different concepts",
+                "2 revision opportunities",
+                "Final files (PNG, SVG, JPG)",
+                "Color and font guidelines"
+              ]
+            },
+            "branding": {
+              "name": "Branding Package",
+              "features": [
+                "Logo design",
+                "Business card design",
+                "Social media templates",
+                "Brand book"
+              ]
+            },
+            "social": {
+              "name": "Post and Story Design",
+              "features": [
+                "3 post designs",
+                "1 story design",
+                "Brand color matching",
+                "High-quality files (JPG/PNG)",
+                "2 revision opportunities"
+              ]
+            }
+          },
+          "notIncluded": [
+            "Printing costs",
+            "Stock image or font licenses",
+            "Additional concepts or revisions",
+            "Animation or motion design (if not in package)",
+            "Brand strategy or consultation",
+            "Social media management",
+            "Additional file format creation"
+          ]
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Customer Reviews and Impressions - About Creadive Agency"
+    }
+  }
+}

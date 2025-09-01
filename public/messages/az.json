@@ -1,0 +1,274 @@
+{
+  "common": {
+    "language": "Dil",
+    "current": "Cari",
+    "az": "AZ",
+    "en": "EN",
+    "ru": "RU",
+    "phone": "+994 10 531 99 87",
+    "ctaCall": "Zəng et",
+    "slogan": "İdealarınızı gerçəkləşdirək ✨"
+  },
+  "nav": {
+    "services": "Xidmətlər",
+    "about": "Haqqımızda",
+    "portfolio": "Portfolio",
+    "blog": "Bloq",
+    "contact": "Əlaqə",
+    "servicesItems": {
+      "web": "Vebsayt",
+      "smm": "SMM",
+      "dm": "Rəqəmsal marketinq",
+      "uiux": "UI/UX Dizayn",
+      "seo": "SEO",
+      "gd": "Qrafik Dizayn",
+      "targeting": "Tarqetinq"
+    }
+  },
+  "about": {
+    "team": "Komandamız",
+    "faq": "FAQ"
+  },
+  "footer": {
+    "quickLinks": "Qısa yollar",
+    "ourServices": "Xidmətlərimiz",
+    "contact": "Əlaqə",
+    "home": "Əsas səhifə",
+    "about": "Haqqımızda",
+    "services": "Xidmətlərimiz",
+    "blog": "Bloq",
+    "portfolio": "Portfolio",
+    "copyright": "Bütün hüquqlar qorunur."
+  },
+  "meta": {
+    "titleDefault": "Creadive — Kreativ Reklam Agentliyi | Marketinq Xidmətləri",
+    "descriptionDefault": "Creadive reklam agentliyi SMM, SEO, veb sayt və kreativ dizayn xidmətləri ilə brendinizi böyüdür. Xidmətlərimizlə yaxından tanış olmaq üçün saytımıza daxil olun."
+  },
+  "homepage": {
+    "hero": {
+      "startProject": "Layihənizə başlayaq",
+      "viewPortfolio": "Portfoliomuza bax",
+      "title": "Biznesinizi <grad>Creadive</grad> ilə gücləndirin",
+      "subtitle": "Biz innovativ dizayn, vebsayt və marketinq həlləri ilə <grad>brendlərin</grad> inkişafına kömək edirik.",
+      "description": "Biznesinizi hərtərəfli rəqəmsal həllərimizlə transformasiya edin.<br/>Dizayndan marketinqə qədər, hər şeyi təmin edirik."
+    },
+    "services": {
+      "title": "Rəqəmsal Marketinq və Veb dizayn Xidmətlərimiz",
+      "items": {
+        "web": {
+          "title": "Vebsayt hazırlama",
+          "description": "Müasir və responsive vebsaytların hazırlanması"
+        },
+        "uiux": {
+          "title": "UX/UI dizayn",
+          "description": "İstifadəçi təcrübəsini təkmilləşdirən dizayn həlləri"
+        },
+        "digital": {
+          "title": "Rəqəmsal marketinq",
+          "description": "Effektiv rəqəmsal marketinq strategiyaları"
+        },
+        "social": {
+          "title": "Sosial Media Marketinqi",
+          "description": "Sosial media platformalarında effektiv marketinq"
+        },
+        "content": {
+          "title": "Məzmun yaratma",
+          "description": "Keyfiyyətli və cəlbedici məzmun yaradılması"
+        },
+        "graphic": {
+          "title": "Qrafik dizayn",
+          "description": "Profesional qrafik dizayn həlləri"
+        }
+      },
+      "viewAll": "Bütün Xidmətlər"
+    },
+    "stats": {
+      "completedProjects": "Tamamlanmış layihə",
+      "satisfiedClients": "Məmnun müştəri",
+      "yearsExperience": "İl təcrübə",
+      "customerSupport": "Müştəri dəstəyi"
+    },
+    "process": {
+      "title": "Vebsayt və Reklam Kampaniyası Hazırlanma Prosesimiz",
+      "steps": {
+        "analysis": {
+          "title": "Ehtiyaclarınızın Analizi",
+          "description": "Layihənizin məqsədlərini və hədəflərini dəqiq başa düşmək üçün ətraflı müzakirə"
+        },
+        "strategy": {
+          "title": "Strategiya və Planlaşdırma",
+          "description": "Layihəniz üçün ən uyğun həlləri və yanaşmaları müəyyən etmək"
+        },
+        "execution": {
+          "title": "İcra və İnkişaf",
+          "description": "Peşəkar komandamız tərəfindən layihənin keyfiyyətli şəkildə həyata keçirilməsi"
+        },
+        "monitoring": {
+          "title": "Nəticələrin Analizi",
+          "description": "Layihənin effektivliyini qiymətləndirmək və təkmilləşdirmək üçün monitorinq"
+        }
+      }
+    },
+    "whyChooseUs": {
+      "title": "Niyə Creadive Rəqəmsal Marketinq Agentliyini Seçməlisiniz?",
+      "features": {
+        "professional": {
+          "title": "Peşəkar Yanaşma",
+          "description": "Hər bir layihəyə fərdi və peşəkar yanaşma tətbiq edirik"
+        },
+        "fast": {
+          "title": "Sürətli İcra",
+          "description": "Layihələri vaxtında və keyfiyyətlə təhvil veririk"
+        },
+        "innovative": {
+          "title": "İnnovativ Həllər",
+          "description": "Ən son texnologiyalardan istifadə edərək innovativ həllər təklif edirik"
+        }
+      }
+    },
+    "contactCTA": {
+      "title": "Vebsayt və Rəqəmsal Marketinq Layihənizi Müzakirə Edək",
+      "subtitle": "Bizimlə əlaqə saxlayın və layihənizi həyata keçirək",
+      "button": "Bizə yazın"
+    },
+    "partners": {
+      "title": "Bizə Etibar Edən Brendlər və Tərəfdaşlarımız"
+    },
+    "pricing": {
+      "title": "Veb Dizayn və Rəqəmsal Marketinq Xidmət Qiymətlərimiz",
+      "categories": {
+        "smm": {
+          "name": "SMM",
+          "description": "Sosial media idarəçiliyi üçün paketlərimiz.",
+          "packages": {
+            "roket": {
+              "name": "ROKET paket",
+              "features": [
+                "12 statik post",
+                "2 reels/motion video",
+                "6 hekayə dizaynı"
+              ]
+            },
+            "kosmos": {
+              "name": "KOSMOS paket",
+              "features": [
+                "16 statik post",
+                "15 hekayə dizaynı",
+                "2 Motion video",
+                "2 Reels video",
+                "Xüsusi günlərə aid postların hazırlanması",
+                "Highlights bölməsinin hazırlanması",
+                "Targeting (Reklam)"
+              ]
+            },
+            "ulduz": {
+              "name": "ULDUZ paket",
+              "features": [
+                "Loqo hazırlanması",
+                "1 profesional video çəkiliş",
+                "30 hekayə dizaynı",
+                "Hər ay 1 giveaway/yarişma postu hazırlamaq",
+                "Targeting (Reklam)",
+                "Sosial media hesablarının idarə edilməsi",
+                "Tiktok üzərindən reklam"
+              ]
+            }
+          },
+          "notIncluded": [
+            "Vergi",
+            "Reklam büdcəsi/xərcləri",
+            "Giveaway hədiyyələrinin xərcləri"
+          ]
+        },
+        "website": {
+          "name": "Vebsayt",
+          "description": "Vebsayt hazırlanması üçün paketlərimiz.",
+          "packages": {
+            "landing": {
+              "name": "Açılış Səhifəsi",
+              "features": [
+                "1 səhifəlik vebsayt",
+                "Mobil uyğun dizayn",
+                "Əsas SEO optimizasiya",
+                "Sürətli yüklənmə"
+              ]
+            },
+            "business": {
+              "name": "Biznes Vebsayt",
+              "features": [
+                "5 səhifəyə qədər",
+                "Mobil və masaüstü uyğunluq",
+                "SEO optimizasiya",
+                "Admin panel",
+                "Əlaqə forması"
+              ]
+            },
+            "ecommerce": {
+              "name": "E-ticarət",
+              "features": [
+                "10+ səhifə",
+                "Onlayn satış sistemi",
+                "Ödəniş inteqrasiyası",
+                "Admin panel",
+                "SEO və sürət optimizasiyası"
+              ]
+            }
+          },
+          "notIncluded": [
+            "Əlavə dil dəstəyi",
+            "Əlavə illik hostinq və domen haqqı",
+            "Məzmunun (text və şəkil) hazırlanması",
+            "SEO-nun tam audit və ya davamlı xidməti",
+            "Saytın davamlı texniki dəstəyi"
+          ]
+        },
+        "design": {
+          "name": "Dizayn",
+          "description": "Qrafik və brendinq dizayn xidmətləri.",
+          "packages": {
+            "logo": {
+              "name": "Loqo Dizaynı",
+              "features": [
+                "3 fərqli konsept",
+                "2 dəfə düzəliş imkanı",
+                "Final fayllar (PNG, SVG, JPG)",
+                "Rəng və şrift təlimatı"
+              ]
+            },
+            "branding": {
+              "name": "Brendinq Paketi",
+              "features": [
+                "Loqo dizaynı",
+                "Vizit kart dizaynı",
+                "Sosial media şablonları",
+                "Brend kitabçası"
+              ]
+            },
+            "social": {
+              "name": "Post və Story Dizaynı",
+              "features": [
+                "3 post dizaynı",
+                "1 story dizaynı",
+                "Brend rənglərinə uyğun",
+                "Yüksək keyfiyyətli fayllar (JPG/PNG)",
+                "2 dəfə dəyişmə imkanı"
+              ]
+            }
+          },
+          "notIncluded": [
+            "Çap xərcləri",
+            "Stock şəkil və ya font lisenziyaları",
+            "Əlavə konsept və ya düzəlişlər",
+            "Animasiya və ya motion dizayn (paketdə yoxdursa)",
+            "Brend strategiyası və ya konsultasiya",
+            "Sosial media idarəçiliyi",
+            "Faylların əlavə formatlarda hazırlanması"
+          ]
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Müştəri Rəyləri və Təəssüratları - Creadive Agentliyi Haqqında"
+    }
+  }
+}

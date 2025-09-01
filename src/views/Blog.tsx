@@ -226,10 +226,10 @@ export default function Blog() {
       <div className="max-w-7xl mx-auto px-4">
         <motion.div variants={headerVariants}>
           <h1 className="text-4xl md:text-5xl font-extrabold text-center text-white mb-4 tracking-tight">
-            Rəqəmsal Marketinq və Web Dizayn Bloqu
+            Rəqəmsal Marketinq və Veb dizayn Bloqu
           </h1>
           <p className="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">
-            SEO, social media marketinq, web dizayn və rəqəmsal strategiyalar haqqında məqalələr.
+            SEO, social media marketinq, veb dizayn və rəqəmsal strategiyalar haqqında məqalələr.
           </p>
         </motion.div>
 

@@ -7,10 +7,12 @@ import {
   FaPhone,
   FaEnvelope,
 } from "react-icons/fa";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useTranslations, useLocale } from "next-intl";
+import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { Link } from "@/lib/navigation";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import Logo from "../Logo";
 
 type NavLink = {
@@ -23,43 +25,46 @@ type NavLink = {
   }[];
 };
 
-const navLinks: NavLink[] = [
-  {
-    id: 1,
-    href: "/services",
-    label: "Xidmətlər",
-    dropdown: [
-      { text: "Vebsayt", url: "/services?service=web-development" },
-      { text: "SMM", url: "/services?service=smm" },
-      {
-        text: "Rəqəmsal marketinq",
-        url: "/services?service=digital-marketing",
-      },
-      { text: "UI/UX Dizayn", url: "/services?service=ui-ux" },
-      { text: "SEO", url: "/services?service=seo" },
-      { text: "Qrafik Dizayn", url: "/services?service=graphic-design" },
-      { text: "Tarqetinq", url: "/services?service=targeting" },
-    ],
-  },
-  {
-    id: 2,
-    href: "/about",
-    label: "Haqqımızda",
-    dropdown: [
-      { text: "Biz kimik?", url: "/about" },
-      { text: "Komandamız", url: "/about/#team_section" },
-      { text: "FAQ", url: "/about/#faq_section" },
-    ],
-  },
-  { id: 3, href: "/portfolio", label: "Portfolio" },
-  { id: 4, href: "/blog", label: "Bloq" },
-  { id: 5, href: "/contact", label: "Əlaqə" },
-];
-
 export default function Navigation() {
+  const t = useTranslations();
+  const locale = useLocale();
+
+  // Create navigation links with proper translation reactivity
+  const navLinks: NavLink[] = React.useMemo(() => [
+    {
+      id: 1,
+      href: "/services",
+      label: t("nav.services"),
+      dropdown: [
+        { text: t("nav.servicesItems.web"), url: "/services?service=web-development" },
+        { text: t("nav.servicesItems.smm"), url: "/services?service=smm" },
+        { text: t("nav.servicesItems.dm"), url: "/services?service=digital-marketing" },
+        { text: t("nav.servicesItems.uiux"), url: "/services?service=ui-ux" },
+        { text: t("nav.servicesItems.seo"), url: "/services?service=seo" },
+        { text: t("nav.servicesItems.gd"), url: "/services?service=graphic-design" },
+        { text: t("nav.servicesItems.targeting"), url: "/services?service=targeting" },
+      ],
+    },
+    {
+      id: 2,
+      href: "/about",
+      label: t("nav.about"),
+      dropdown: [
+        { text: t("nav.about"), url: "/about" },
+        { text: t("about.team"), url: "/about/#team_section" },
+        { text: t("about.faq"), url: "/about/#faq_section" },
+      ],
+    },
+    { id: 3, href: "/portfolio", label: t("nav.portfolio") },
+    { id: 4, href: "/blog", label: t("nav.blog") },
+    { id: 5, href: "/contact", label: t("nav.contact") },
+  ], [t, locale]);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const pathname = usePathname();
+
+  const stripLocale = (path?: string) =>
+    (path || "").replace(/^\/(az|en|ru)(?=\/|$)/, "");
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -90,10 +95,11 @@ export default function Navigation() {
   };
 
   const isActiveLink = (href: string) => {
+    const normalized = stripLocale(pathname) || "/";
     if (href === "/") {
-      return pathname === href;
+      return normalized === "/";
     }
-    return pathname?.startsWith(href);
+    return normalized.startsWith(href);
   };
 
   // const currentYear = new Date().getFullYear();
@@ -287,11 +293,12 @@ export default function Navigation() {
               </div>
             </div>
 
-            <div className="hidden md:block">
-              <Link href="tel:+994105319987" className="bg-white hover:bg-gray-300 text-black text-sm px-4 py-2 rounded-full flex items-center transition-all duration-300">
+            <div className="hidden md:flex items-center gap-2">
+              <Link href="tel:+994105319987" className="bg-white hover:bg-gray-300 text-black text-sm px-4 py-2 rounded-xl flex items-center transition-all duration-300">
                 <FaPhone className="w-4 h-4 mr-2 text-blue-600" />
                 +994 10 531 99 87
               </Link>
+              <LanguageSwitcher />
             </div>
           </div>
         </div>

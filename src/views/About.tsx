@@ -236,7 +236,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            Biz kimik?
+            Creadive Agentliyi - Biz Kimik?
           </motion.h1>
           <motion.p
             className="text-lg text-white/80 max-w-2xl mx-auto"
