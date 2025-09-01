@@ -8,7 +8,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Link } from "@/lib/navigation";
@@ -27,7 +27,6 @@ type NavLink = {
 
 export default function Navigation() {
   const t = useTranslations();
-  const locale = useLocale();
 
   // Create navigation links with proper translation reactivity
   const navLinks: NavLink[] = React.useMemo(() => [
@@ -58,7 +57,7 @@ export default function Navigation() {
     { id: 3, href: "/portfolio", label: t("nav.portfolio") },
     { id: 4, href: "/blog", label: t("nav.blog") },
     { id: 5, href: "/contact", label: t("nav.contact") },
-  ], [t, locale]);
+  ], [t]);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const pathname = usePathname();

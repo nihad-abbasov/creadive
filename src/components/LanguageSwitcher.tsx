@@ -74,7 +74,7 @@ export default function LanguageSwitcher() {
 
           {/* Language options */}
           <ul>
-            {locales.map((loc, index) => {
+            {locales.map((loc) => {
               const isActive = loc === currentLocale;
               return (
                 <li key={loc}>
