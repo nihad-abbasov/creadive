@@ -14,6 +14,7 @@ import { usePathname } from "next/navigation";
 import { Link } from "@/lib/navigation";
 import { motion } from "framer-motion";
 import Logo from "../Logo";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
 
 type NavLink = {
   id: number;
@@ -27,6 +28,7 @@ type NavLink = {
 
 export default function Navigation() {
   const t = useTranslations();
+  const { isScrolled } = useScrollPosition(50);
 
   // Create navigation links with proper translation reactivity
   const navLinks: NavLink[] = React.useMemo(() => [
@@ -88,6 +90,19 @@ export default function Navigation() {
       document.body.style.top = "";
     };
   }, [isMobileMenuOpen]);
+
+  // Add padding to body when header becomes fixed
+  useEffect(() => {
+    if (isScrolled) {
+      document.body.style.paddingTop = "80px";
+    } else {
+      document.body.style.paddingTop = "0";
+    }
+
+    return () => {
+      document.body.style.paddingTop = "0";
+    };
+  }, [isScrolled]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -154,8 +169,20 @@ export default function Navigation() {
 
   return (
     <>
-      {/* bg-gray-100 backdrop-blur-md */}
-      <nav className="w-full z-[9997] relative pt-2">
+      <motion.nav
+        className={`w-full z-[9997] transition-all duration-300 ${isScrolled
+          ? 'fixed top-0 left-0 right-0 bg-gradient-to-br from-slate-950 via-blue-900 to-slate-950 backdrop-blur-md shadow-lg'
+          : 'relative pt-2'
+          }`}
+        initial={{ y: 0 }}
+        animate={{
+          backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.9)' : 'transparent'
+        }}
+        transition={{
+          duration: 0.3,
+          ease: "easeInOut"
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <motion.div
@@ -164,9 +191,19 @@ export default function Navigation() {
               initial="hidden"
               animate="visible"
             >
-              <Link href="/" className="text-2xl font-bold text-white">
-                <Logo isWhite={true} isForHeader={true} />
-              </Link>
+              <motion.div
+                animate={{
+                  scale: isScrolled ? 0.9 : 1,
+                }}
+                transition={{
+                  duration: 0.3,
+                  ease: "easeInOut"
+                }}
+              >
+                <Link href="/" className="text-2xl font-bold text-white">
+                  <Logo isWhite={true} isForHeader={true} />
+                </Link>
+              </motion.div>
             </motion.div>
             <div className="block md:hidden">
               <button
@@ -209,44 +246,54 @@ export default function Navigation() {
                     }
                     onMouseLeave={handleDropdownLeave}
                   >
-                    <Link
-                      href={link.href}
-                      className={`text-white hover:text-white transition-all duration-300 relative group flex flex-row items-center ${isActiveLink(link.href)
-                        ? "text-white font-semibold"
-                        : "text-white"
-                        }`}
+                    <motion.div
+                      animate={{
+                        scale: isScrolled ? 0.95 : 1,
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        ease: "easeInOut"
+                      }}
                     >
-                      {link.label}
-                      {link.dropdown && (
-                        <motion.span
-                          className="ml-1 inline-block"
-                          animate={{
-                            rotate: activeDropdown === link.id ? 180 : 0,
-                          }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M19 9l-7 7-7-7"
-                            />
-                          </svg>
-                        </motion.span>
-                      )}
-                      <span
-                        className={`absolute -bottom-1 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 ease-out ${isActiveLink(link.href)
-                          ? "w-full"
-                          : "group-hover:w-full"
+                      <Link
+                        href={link.href}
+                        className={`text-white hover:text-white transition-all duration-300 relative group flex flex-row items-center ${isActiveLink(link.href)
+                          ? "text-white font-semibold"
+                          : "text-white"
                           }`}
-                      />
-                    </Link>
+                      >
+                        {link.label}
+                        {link.dropdown && (
+                          <motion.span
+                            className="ml-1 inline-block"
+                            animate={{
+                              rotate: activeDropdown === link.id ? 180 : 0,
+                            }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <svg
+                              className="w-4 h-4"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 9l-7 7-7-7"
+                              />
+                            </svg>
+                          </motion.span>
+                        )}
+                        <span
+                          className={`absolute -bottom-1 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 ease-out ${isActiveLink(link.href)
+                            ? "w-full"
+                            : "group-hover:w-full"
+                            }`}
+                        />
+                      </Link>
+                    </motion.div>
                     {link.dropdown && activeDropdown === link.id && (
                       <motion.div
                         variants={dropdownVariants}
@@ -294,14 +341,14 @@ export default function Navigation() {
 
             <div className="hidden md:flex items-center gap-2">
               <Link href="tel:+994105319987" className="bg-white hover:bg-gray-300 text-black text-sm px-4 py-2 rounded-xl flex items-center transition-all duration-300">
-                <FaPhone className="w-4 h-4 mr-2 text-blue-600" />
-                +994 10 531 99 87
+                <FaPhone className={`w-4 h-4 text-blue-600 ${!isScrolled && "mr-2"}`} />
+                {!isScrolled && "+994 10 531 99 87"}
               </Link>
               <LanguageSwitcher />
             </div>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Mobile menu overlay */}
       <motion.div

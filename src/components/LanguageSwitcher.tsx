@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "@/lib/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useState, useRef, useEffect } from "react";
 import { AppLocale } from "@/i18n/config";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
 
 const locales: AppLocale[] = ["az", "en", "ru"];
 
@@ -29,7 +30,7 @@ export default function LanguageSwitcher() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-
+  const { isScrolled } = useScrollPosition(50);
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -56,7 +57,9 @@ export default function LanguageSwitcher() {
         aria-label={t("language")}
       >
         <GlobeAltIcon className="w-4 h-4 text-white/80 group-hover:text-white transition-colors duration-300" />
-        <span className="font-medium">{currentLocale.toUpperCase()}</span>
+        {!isScrolled &&
+          <span className="font-medium">{currentLocale.toUpperCase()}</span>
+        }
         <ChevronDownIcon
           className={`w-4 h-4 text-white/80 group-hover:text-white transition-all duration-300 ${open ? "rotate-180" : ""}`}
         />
