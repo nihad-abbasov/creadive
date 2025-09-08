@@ -5,39 +5,42 @@ import { Suspense, useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { RxDoubleArrowRight } from "react-icons/rx";
 
 type PortfolioItem = {
   id: number;
   title: string;
   description: string;
   image: string;
-  url?: string;
+  link?: string;
 };
 
 type Category = {
   id: string;
   name: string;
   items: PortfolioItem[];
+  aspectRatio: string; // Add aspect ratio property
 };
 
 const categories: Category[] = [
   {
     id: "websites",
     name: "Veb Saytlar",
+    aspectRatio: "aspect-video", // 16:9 for landscape website images
     items: [
       {
         id: 1,
         title: "21 Couture House",
         description: "Premium geyim brendi üçün e-ticarət platforması",
-        image: "/images/portfolio/21ch-website.png",
-        url: "https://21couturehouse.az",
+        image: "/images/portfolio/websites/21ch-website.png",
+        link: "https://21couturehouse.az",
       },
       {
         id: 2,
         title: "Buketchim",
         description: "Florist xidmətləri üçün veb sayt",
         image: "/images/portfolio/buketchim-website.png",
-        url: "https://buketchim.az",
+        link: "https://buketchim.az",
         // url: "https://buketchim.vercel.app",
       },
       {
@@ -45,7 +48,7 @@ const categories: Category[] = [
         title: "Mirror Studio",
         description: "3D Interior Design",
         image: "/images/portfolio/mirror-website.png",
-        url: "https://mirror-cgi.az",
+        link: "https://mirror-cgi.az",
         // url: "https://mirror-cgi.vercel.app",
       },
     ],
@@ -53,64 +56,75 @@ const categories: Category[] = [
   {
     id: "targeting",
     name: "Tarqetinq",
+    aspectRatio: "aspect-video", // 16:9 for landscape targeting images
     items: [
       {
         id: 4,
-        title: "21 Couture House Tarqetinq",
+        title: "21 Couture House",
         description:
           "Facebook və Instagram üzrə hədəflənmiş reklam kampaniyaları",
-        image: "/images/portfolio/21couture-targeting.jpeg",
+        image: "/images/portfolio/targeting/21couture-targeting.jpeg",
       },
       {
         id: 5,
-        title: "Buketchim Tarqetinq",
+        title: "Buketchim",
         description: "Instagram və Google Ads üzrə reklam kampaniyaları",
-        image: "/images/portfolio/buketchim-targeting.jpeg",
+        image: "/images/portfolio/targeting/buketchim-targeting.jpeg",
       },
       {
         id: 6,
-        title: "Xaricdə Təhsil Şirkəti(Anonim)",
-        description: "Xaricdə Təhsil Şirkəti",
-        image: "/images/portfolio/xaricde-tehsil-targeting.jpeg",
+        title: "Xaricdə Təhsil Şirkəti",
+        description: "Xaricdə Təhsil Şirkəti(Anonim) üçün tarqetinq kampaniyaları",
+        image: "/images/portfolio/targeting/xaricde-tehsil-targeting.jpeg",
       },
     ],
   },
   {
     id: "smm",
     name: "SMM",
+    aspectRatio: "aspect-auto", // 9:16 for portrait SMM images
     items: [
-      // {
-      //   id: 3,
-      //   title: "21 Couture House SMM",
-      //   description: "Instagram və Facebook üzrə sosial media marketinq",
-      //   image: "/images/portfolio/21couture-smm.png",
-      // },
-      // {
-      //   id: 4,
-      //   title: "Buketchim SMM",
-      //   description: "Instagram üzrə kontent yaradıcılığı və marketinq",
-      //   image: "/images/portfolio/buketchim-smm.png",
-      // },
+      {
+        id: 3,
+        title: "Coffeshop SMM-folio",
+        description: "Instagram üzrə SMM postları və kontent",
+        image: "/images/portfolio/smm/coffeeshop-smm.jpg",
+        link: "https://www.instagram.com/p/DKXVmtkIMQU",
+      },
+      {
+        id: 4,
+        title: "Restaurant SMM-folio",
+        description: "Instagram üzrə SMM postları və kontent",
+        image: "/images/portfolio/smm/restoran-smm.jpg",
+        link: "https://www.instagram.com/p/DKUzctRoyMc",
+      },
+      {
+        id: 5,
+        title: "Maşın yağları üçün SMM-folio",
+        description: "Instagram üzrə SMM postları və kontent",
+        image: "/images/portfolio/smm/mashinyaglari-smm.jpg",
+        link: "https://www.instagram.com/p/DKKbtxkIgO7",
+      },
     ],
   },
-  {
-    id: "branding",
-    name: "Brendinq",
-    items: [
-      // {
-      //   id: 5,
-      //   title: "21 Couture House Branding",
-      //   description: "Brend identifikasiyası və vizual elementlər",
-      //   image: "/images/portfolio/21couture-branding.png",
-      // },
-      // {
-      //   id: 6,
-      //   title: "Buketchim Branding",
-      //   description: "Brend identifikasiyası və vizual elementlər",
-      //   image: "/images/portfolio/buketchim-branding.png",
-      // },
-    ],
-  },
+  // {
+  //   id: "branding",
+  //   name: "Brendinq",
+  //   items: [
+  //     {
+  //       id: 5,
+  //       title: "21 Couture House Branding",
+  //       description: "Brend identifikasiyası və vizual elementlər",
+  //       image: "/images/portfolio/21couture-branding.png",
+  //     },
+  //     {
+  //       id: 6,
+  //       title: "Buketchim Branding",
+  //       description: "Brend identifikasiyası və vizual elementlər",
+  //       image: "/images/portfolio/buketchim-branding.png",
+  //     },
+  //   ],
+  // },
 ];
 
 export default function Portfolio() {
@@ -249,7 +263,7 @@ export default function Portfolio() {
                     className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
                   >
                     <motion.div
-                      className="relative aspect-video mb-4 overflow-hidden rounded-xl"
+                      className={`relative ${activeCategoryData.aspectRatio} mb-4 overflow-hidden rounded-xl`}
                       whileHover={{ scale: 1.02 }}
                       transition={{ duration: 0.2 }}
                     >
@@ -270,32 +284,21 @@ export default function Portfolio() {
                       {item.title}
                     </motion.h3>
                     <p className="text-gray-600 mb-4">{item.description}</p>
-                    {item.url && (
+                    {item.link && (
                       <motion.div
                         whileHover={{ x: 5 }}
                         transition={{ duration: 0.2 }}
                       >
                         <Link
-                          href={item.url}
+                          href={item.link}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors duration-300"
                         >
-                          Sayta bax
-                          <motion.svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            whileHover={{ x: 3 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                              clipRule="evenodd"
-                            />
-                          </motion.svg>
+                          Ətraflı bax
+                          <motion.div whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>
+                            <RxDoubleArrowRight />
+                          </motion.div>
                         </Link>
                       </motion.div>
                     )}

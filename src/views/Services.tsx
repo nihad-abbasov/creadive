@@ -132,9 +132,9 @@ export default function Services() {
 
           {/* Service Items */}
           <div className="flex flex-col gap-12">
-            <h2 className="text-3xl font-bold text-center !text-white mb-4">
+            {/* <h2 className="text-3xl font-bold text-center !text-white mb-4">
               Bizim Xidmət Sahələrimiz
-            </h2>
+            </h2> */}
             {services.map((service, idx) => (
               <motion.section
                 key={service.id}
