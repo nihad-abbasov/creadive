@@ -340,7 +340,7 @@ export default function Navigation() {
             </div>
 
             <div className="hidden md:flex items-center gap-2">
-              <Link href="tel:+994105319987" className="bg-white hover:bg-gray-300 text-black text-sm px-4 py-2 rounded-xl flex items-center transition-all duration-300">
+              <Link href="tel:+994105319987" className="bg-white hover:bg-gray-300 text-black text-sm px-4 py-2.5 rounded-xl flex items-center transition-all duration-300">
                 <FaPhone className={`w-4 h-4 text-blue-600 ${!isScrolled && "mr-2"}`} />
                 {!isScrolled && "+994 10 531 99 87"}
               </Link>

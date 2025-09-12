@@ -3,8 +3,10 @@ Allow: /
 
 # Disallow admin or private areas (if any)
 Disallow: /admin/
+Disallow: /adminka/
 Disallow: /private/
 Disallow: /api/
+Disallow: /_next/
 
 # Allow all other pages
 Allow: /about/
@@ -12,6 +14,10 @@ Allow: /services/
 Allow: /portfolio/
 Allow: /blog/
 Allow: /contact/
+
+# Disallow 404 and error pages
+Disallow: /404
+Disallow: /not-found
 
 # Sitemap location
 Sitemap: https://creadive.az/sitemap.xml

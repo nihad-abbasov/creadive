@@ -50,8 +50,6 @@ export default function Contact() {
 
   // const handleSubmit = async (formData: ContactFormData) => {
   //   try {
-  //     console.log(formData);
-
   //     showToast("success", "Müraciətiniz uğurla göndərildi!");
 
   //     await setTimeout(() => {
@@ -81,8 +79,9 @@ export default function Contact() {
             Vebsayt və Rəqəmsal Marketinq Xidmətləri Üçün Bizimlə Əlaqə Saxlayın
           </h1>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            Rəqəmsal marketinq və veb dizayn layihəniz haqqında danışmaq üçün bizimlə
-            əlaqə saxlayın. Peşəkar komandamız sizə kömək etməyə hazırdır!
+            Rəqəmsal marketinq və veb dizayn layihəniz haqqında danışmaq üçün
+            bizimlə əlaqə saxlayın. Peşəkar komandamız sizə kömək etməyə
+            hazırdır!
           </p>
         </motion.div>
 
@@ -131,9 +130,7 @@ export default function Contact() {
                   <FaMapMarkerAlt className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    Ünvan
-                  </h3>
+                  <h3 className="text-lg font-semibold text-gray-900">Ünvan</h3>
                   <p className="text-gray-600">
                     Bakı şəhəri, Azərbaycan
                     {/* Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 89 */}
