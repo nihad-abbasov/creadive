@@ -26,7 +26,7 @@ const teamMembers: TeamMember[] = [
     name: "Nihad Abbasov",
     role: "Founder & CEO",
     image: "/images/team/nihad.jpg",
-    bio: "Tətbiqi texnologiyalara fokuslanan frontend mütəxəssisidir. Kod keyfiyyəti, istifadəçi təcrübəsi və layihə idarəçiliyi sahəsində dayanıqlı sistemlər qurur və komandanı strateji istiqamətləndirir.",
+    bio: "Creadive Agentliyinin qurucusu və baş icraçı direktorudur. Texnologiya və biznes strategiyalarının kəsişməsində innovativ həllər yaradır. 5+ il təcrübəyə malikdir.",
     social: {
       linkedin: "https://www.linkedin.com/in/nihad-abbasov-dev/",
       instagram: "https://www.instagram.com/weristnihad/",
@@ -36,7 +36,7 @@ const teamMembers: TeamMember[] = [
     name: "Ənvər Nağıyev",
     role: "Rəqəmsal Marketinq Mütəxəssisi",
     image: "/images/team/enver.jpeg",
-    bio: "Performansa əsaslanan marketinq sahəsində ixtisaslaşıb. Brend tanıdılması, hədəfli reklam və nəticəyə yönəlik strategiyaların qurulması üzrə praktiki təcrübəyə malikdir.",
+    bio: "Performansa əsaslanan marketinq sahəsində ixtisaslaşıb. Brend tanıdılması, hədəfli reklam və nəticəyə yönəlik strategiyaların qurulması üzrə 5+ il praktiki təcrübəyə malikdir.",
     social: {
       linkedin: "https://www.linkedin.com/in/enver-nagiyev-digital",
       instagram: "https://www.instagram.com/enver_nagiyeff",
@@ -46,7 +46,7 @@ const teamMembers: TeamMember[] = [
     name: "Fəxri Nağıyev",
     role: "Copyrighter & Content Creator",
     image: "/images/team/fexri.jpeg",
-    bio: "İxtisaslaşmış copyrighter və content creator. Rəqəmsal marketinq sahəsində 5+ il təcrübəyə malikdir. Brend kimliyi və istifadəçi interfeysi dizaynlarında güclü portfolioya sahibdir. Vizual dilin funksionallıqla balansını qoruyaraq, istifadəyə hazır dizayn həlləri yaradır.",
+    bio: "İxtisaslaşmış copyrighter və content creator. Marketinq sahəsində 5+ il təcrübəyə malikdir. Brend kimliyi və istifadəçi interfeysi dizaynlarında güclü portfolioya sahibdir.",
     social: {
       linkedin: "https://www.linkedin.com/in/fakhrinaghiyev",
       instagram: "https://www.instagram.com/faxrinagiyev",
@@ -66,7 +66,7 @@ const teamMembers: TeamMember[] = [
     name: "Alış Həziyev",
     role: "İnsan resursları mütəxəssisi",
     image: "/images/team/alish.jpg",
-    bio: "İnsan resursları sahəsində 10+ illik təcrübəyə malikdir. İxtisaslaşmış təcrübəsi ilə müştəri məmnuniyyəti və iş qabiliyyəti artırmaq üçün müxtəlif strategiyaları tətbiq edir.",
+    bio: "İnsan resursları sahəsində 4+ illik təcrübəyə malikdir. İxtisaslaşmış təcrübəsi ilə müştəri məmnuniyyəti və iş qabiliyyəti artırmaq üçün müxtəlif strategiyaları tətbiq edir.",
     social: {
       linkedin: "https://www.linkedin.com/in/alish-heziyev-857729195",
       instagram: "https://www.instagram.com/alish.heziyev",
@@ -77,7 +77,7 @@ const teamMembers: TeamMember[] = [
   //   name: "Fuad Şahbazov",
   //   role: "UX/UI Dizayner",
   //   image: "/images/team/fuad.jpg",
-  //   bio: "10+ illik təcrübə ilə kreativ dizayn və grafik dizayn sahəsində geniş biliklərə malikdir. Ən yaxşı nəticələri əldə etmək üçün müxtəlif dizayn texnikalarını və proqram tətbiqlərini tətbiq edir.",
+  //   bio: "4+ illik təcrübə ilə kreativ dizayn və grafik dizayn sahəsində geniş biliklərə malikdir. Ən yaxşı nəticələri əldə etmək üçün müxtəlif dizayn texnikalarını və proqram tətbiqlərini tətbiq edir.",
   //   social: {
   //     linkedin: "https://www.linkedin.com/in/fuad-shahbazov-048702159/",
   //     instagram: "https://www.instagram.com/fuadd.012",

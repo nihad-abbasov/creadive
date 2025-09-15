@@ -238,15 +238,15 @@ interface StatItem {
 const stats: StatItem[] = [
   {
     id: 1,
-    end: 100,
+    end: 50,
     label: "completedProjects",
     suffix: "+",
   },
   {
     id: 2,
-    end: 50,
+    end: 100,
     label: "satisfiedClients",
-    suffix: "+",
+    suffix: "%",
   },
   {
     id: 3,
@@ -911,7 +911,7 @@ const Homepage = () => {
         transition={{ duration: 0.6 }}
         className="py-20"
         id="home-pricing-section"
-        // bg-gradient-to-b from-gray-50 to-white
+      // bg-gradient-to-b from-gray-50 to-white
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -942,11 +942,10 @@ const Homepage = () => {
                 <motion.button
                   key={cat.id}
                   onClick={() => setActivePricingTab(cat.id)}
-                  className={`relative px-4 md:px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                    activePricingTab === cat.id
+                  className={`relative px-4 md:px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${activePricingTab === cat.id
                       ? "text-white"
                       : "text-gray-600 hover:text-gray-900"
-                  }`}
+                    }`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -986,17 +985,15 @@ const Homepage = () => {
                           viewport={{ once: true }}
                           transition={{ duration: 0.6, delay: index * 0.1 }}
                           whileHover={{ y: -8, scale: 1.02 }}
-                          className={`relative group overflow-hidden rounded-3xl ${
-                            isPopular ? "md:scale-105 z-20" : "z-10"
-                          }`}
+                          className={`relative group overflow-hidden rounded-3xl ${isPopular ? "md:scale-105 z-20" : "z-10"
+                            }`}
                         >
                           {/* Card Background */}
                           <div
-                            className={`relative h-full rounded-3xl shadow-xl transition-all duration-500 ${
-                              isPopular
+                            className={`relative h-full rounded-3xl shadow-xl transition-all duration-500 ${isPopular
                                 ? "bg-gradient-to-br from-blue-600 via-blue-700 to-emerald-600 shadow-2xl shadow-blue-500/25"
                                 : "bg-white hover:shadow-2xl hover:shadow-gray-200/50"
-                            }`}
+                              }`}
                           >
                             {/* Popular Badge */}
                             {/* {isPopular && (
@@ -1021,11 +1018,10 @@ const Homepage = () => {
                             <div className="relative p-8 h-full flex flex-col">
                               {/* Package Icon */}
                               <div
-                                className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center ${
-                                  isPopular
+                                className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center ${isPopular
                                     ? "bg-white/20 text-white"
                                     : "bg-gradient-to-br from-blue-50 to-emerald-50 text-blue-600"
-                                }`}
+                                  }`}
                               >
                                 <svg
                                   className="w-8 h-8"
@@ -1044,9 +1040,8 @@ const Homepage = () => {
 
                               {/* Package Name */}
                               <h3
-                                className={`text-2xl font-bold mb-1 ${
-                                  isPopular ? "text-white" : "text-gray-900"
-                                }`}
+                                className={`text-2xl font-bold mb-1 ${isPopular ? "text-white" : "text-gray-900"
+                                  }`}
                               >
                                 {pkg.name}
                               </h3>
@@ -1054,22 +1049,20 @@ const Homepage = () => {
                               {/* Price */}
                               <div className="mb-6">
                                 <div
-                                  className={`text-5xl font-extrabold mb-1 ${
-                                    isPopular
+                                  className={`text-5xl font-extrabold mb-1 ${isPopular
                                       ? "text-white"
                                       : "bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent"
-                                  }`}
+                                    }`}
                                 >
                                   {pkg.price}
                                 </div>
                                 {cat.id === "website" &&
                                   pkg.name === "E-ticarət" && (
                                     <span
-                                      className={`text-sm font-medium ${
-                                        isPopular
+                                      className={`text-sm font-medium ${isPopular
                                           ? "text-white/80"
                                           : "text-gray-500"
-                                      }`}
+                                        }`}
                                     >
                                       -dən başlayaraq
                                     </span>
@@ -1091,20 +1084,18 @@ const Homepage = () => {
                                     className="flex items-start gap-3"
                                   >
                                     <div
-                                      className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                                        isPopular
+                                      className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${isPopular
                                           ? "bg-white/20 text-white"
                                           : "bg-green-100 text-green-600"
-                                      }`}
+                                        }`}
                                     >
                                       <CheckIcon className="w-3 h-3" />
                                     </div>
                                     <span
-                                      className={`text-sm leading-relaxed ${
-                                        isPopular
+                                      className={`text-sm leading-relaxed ${isPopular
                                           ? "text-white/90"
                                           : "text-gray-700"
-                                      }`}
+                                        }`}
                                     >
                                       {feature}
                                     </span>
@@ -1119,11 +1110,10 @@ const Homepage = () => {
                                 )}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`w-full py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300 shadow-lg ${
-                                  isPopular
+                                className={`w-full py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300 shadow-lg ${isPopular
                                     ? "bg-white text-blue-600 hover:bg-gray-50 hover:shadow-xl"
                                     : "bg-gradient-to-r from-blue-600 to-emerald-600 text-white hover:from-blue-700 hover:to-emerald-700 hover:shadow-xl"
-                                }`}
+                                  }`}
                                 whileHover={{ scale: 1.02, y: -2 }}
                                 whileTap={{ scale: 0.98 }}
                               >
