@@ -6,21 +6,22 @@ import { useLocale, useTranslations } from "next-intl";
 import { useState, useRef, useEffect } from "react";
 import { AppLocale } from "@/i18n/config";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
+import { LOCALES } from "@/constants";
 
-const locales: AppLocale[] = ["az", "en", "ru"];
+const locales: AppLocale[] = LOCALES as AppLocale[];
 
 // Flag emojis for each locale
 const localeFlags: Record<AppLocale, string> = {
   az: "🇦🇿",
   en: "🇺🇸",
-  ru: "🇷🇺"
+  ru: "🇷🇺",
 };
 
 // Full language names
 const localeNames: Record<AppLocale, string> = {
   az: "Azərbaycan",
   en: "English",
-  ru: "Русский"
+  ru: "Русский",
 };
 
 export default function LanguageSwitcher() {
@@ -34,13 +35,16 @@ export default function LanguageSwitcher() {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const changeLocale = (nextLocale: AppLocale) => {
@@ -57,11 +61,13 @@ export default function LanguageSwitcher() {
         aria-label={t("language")}
       >
         <GlobeAltIcon className="w-4 h-4 text-white/80 group-hover:text-white transition-colors duration-300" />
-        {!isScrolled &&
+        {!isScrolled && (
           <span className="font-medium">{currentLocale.toUpperCase()}</span>
-        }
+        )}
         <ChevronDownIcon
-          className={`w-4 h-4 text-white/80 group-hover:text-white transition-all duration-300 ${open ? "rotate-180" : ""}`}
+          className={`w-4 h-4 text-white/80 group-hover:text-white transition-all duration-300 ${
+            open ? "rotate-180" : ""
+          }`}
         />
       </button>
 
@@ -83,10 +89,11 @@ export default function LanguageSwitcher() {
                 <li key={loc}>
                   <button
                     onClick={() => changeLocale(loc)}
-                    className={`w-full px-4 py-3 text-left transition-all duration-200 flex items-center gap-3 group ${isActive
-                      ? "bg-blue-100 text-blue-700 border-r-2 border-blue-500"
-                      : "text-gray-700 hover:bg-gray-200 hover:text-gray-900"
-                      }`}
+                    className={`w-full px-4 py-3 text-left transition-all duration-200 flex items-center gap-3 group ${
+                      isActive
+                        ? "bg-blue-100 text-blue-700 border-r-2 border-blue-500"
+                        : "text-gray-700 hover:bg-gray-200 hover:text-gray-900"
+                    }`}
                   >
                     {/* Flag */}
                     <span className="text-lg filter drop-shadow-sm">
@@ -124,5 +131,3 @@ export default function LanguageSwitcher() {
     </div>
   );
 }
-
-

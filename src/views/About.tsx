@@ -1,14 +1,16 @@
 "use client";
 
-import { FaLinkedin, FaInstagram } from "react-icons/fa";
+// import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoIosArrowUp } from "react-icons/io";
 import { useState } from "react";
+import { useRouter } from "@/lib/navigation";
 import Image from "next/image";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import Link from "next/link";
 import "swiper/css";
+
+// TODO: kollektiv shekiller qoymaq - fun formada
 
 interface TeamMember {
   name: string;
@@ -24,9 +26,10 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     name: "Nihad Abbasov",
-    role: "Founder & CEO",
+    role: "Təsisçi & CEO",
     image: "/images/team/nihad.jpg",
-    bio: "Creadive Agentliyinin qurucusu və baş icraçı direktorudur. Texnologiya və biznes strategiyalarının kəsişməsində innovativ həllər yaradır. 5+ il təcrübəyə malikdir.",
+    // bio: "Creadive Agentliyinin qurucusu və baş icraçı direktorudur. Texnologiya və biznes strategiyalarının kəsişməsində innovativ həllər yaradır. 5+ il təcrübəyə malikdir.",
+    bio: "Creadive Agentliyinin qurucusu və baş icraçı direktorudur. Texnologiya və biznes strategiyalarının kəsişməsində...",
     social: {
       linkedin: "https://www.linkedin.com/in/nihad-abbasov-dev/",
       instagram: "https://www.instagram.com/weristnihad/",
@@ -36,7 +39,8 @@ const teamMembers: TeamMember[] = [
     name: "Ənvər Nağıyev",
     role: "Rəqəmsal Marketinq Mütəxəssisi",
     image: "/images/team/enver.jpeg",
-    bio: "Performansa əsaslanan marketinq sahəsində ixtisaslaşıb. Brend tanıdılması, hədəfli reklam və nəticəyə yönəlik strategiyaların qurulması üzrə 5+ il praktiki təcrübəyə malikdir.",
+    // bio: "Performansa əsaslanan marketinq sahəsində ixtisaslaşıb. Brend tanıdılması, hədəfli reklam və nəticəyə yönəlik strategiyaların qurulması üzrə 5+ il praktiki təcrübəyə malikdir.",
+    bio: "Performansa əsaslanan marketinq sahəsində ixtisaslaşıb. Brend tanıdılması, hədəfli reklam və nəticəyə yönəlik...",
     social: {
       linkedin: "https://www.linkedin.com/in/enver-nagiyev-digital",
       instagram: "https://www.instagram.com/enver_nagiyeff",
@@ -44,9 +48,10 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Fəxri Nağıyev",
-    role: "Copyrighter & Content Creator",
+    role: "Kopirayter & Kontent Kreator",
     image: "/images/team/fexri.jpeg",
-    bio: "İxtisaslaşmış copyrighter və content creator. Marketinq sahəsində 5+ il təcrübəyə malikdir. Brend kimliyi və istifadəçi interfeysi dizaynlarında güclü portfolioya sahibdir.",
+    // bio: "İxtisaslaşmış copyrighter və content creator. Marketinq sahəsində 5+ il təcrübəyə malikdir. Brend kimliyi və istifadəçi interfeysi dizaynlarında güclü portfolioya sahibdir.",
+    bio: "İxtisaslaşmış copyrighter və content creator. Marketinq sahəsində 5+ il təcrübəyə malikdir. Brend kimliyi və istifad...",
     social: {
       linkedin: "https://www.linkedin.com/in/fakhrinaghiyev",
       instagram: "https://www.instagram.com/faxrinagiyev",
@@ -54,9 +59,10 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Cavid Məmmədli",
-    role: "Creative Dizayner",
+    role: "Kreativ Dizayner",
     image: "/images/team/javid.jpg",
-    bio: "Brend kimliyi və istifadəçi interfeysi dizaynlarında güclü portfolioya sahibdir. Vizual dilin funksionallıqla balansını qoruyaraq, istifadəyə hazır dizayn həlləri yaradır.",
+    // bio: "Brend kimliyi və istifadəçi interfeysi dizaynlarında güclü portfolioya sahibdir. Vizual dilin funksionallıqla balansını qoruyaraq, istifadəyə hazır dizayn həlləri yaradır.",
+    bio: "Brend kimliyi və istifadəçi interfeysi dizaynlarında güclü portfolioya sahibdir. Vizual dilin funksionallıqla balansını...",
     social: {
       linkedin: "https://www.linkedin.com",
       instagram: "https://www.instagram.com/javid.mammadli__",
@@ -66,7 +72,7 @@ const teamMembers: TeamMember[] = [
     name: "Alış Həziyev",
     role: "İnsan resursları mütəxəssisi",
     image: "/images/team/alish.jpg",
-    bio: "İnsan resursları sahəsində 4+ illik təcrübəyə malikdir. İxtisaslaşmış təcrübəsi ilə müştəri məmnuniyyəti və iş qabiliyyəti artırmaq üçün müxtəlif strategiyaları tətbiq edir.",
+    bio: "İnsan resursları sahəsində 4+ illik təcrübəyə malikdir. İxtisaslaşmış təcrübəsi ilə müştəri məmnuniyyəti və iş qabiliy...",
     social: {
       linkedin: "https://www.linkedin.com/in/alish-heziyev-857729195",
       instagram: "https://www.instagram.com/alish.heziyev",
@@ -172,6 +178,7 @@ const faqs: Faq[] = [
 
 export default function About() {
   const [openFaqId, setOpenFaqId] = useState<number | null>(null);
+  const router = useRouter();
 
   // Animation variants
   const containerVariants = {
@@ -220,9 +227,12 @@ export default function About() {
     },
   };
 
+  const handleRedirectToContact = () => {
+    router.push("/contact");
+  };
+
   return (
     <motion.div
-      // bg-white
       className="py-16 min-h-screen"
       initial="hidden"
       animate="visible"
@@ -250,7 +260,6 @@ export default function About() {
           </motion.p>
         </motion.div>
 
-        {/* Mission, Vision & Values Section */}
         <motion.section className="mb-20" variants={containerVariants}>
           <motion.h2
             className="text-3xl font-bold text-center !text-white mb-8"
@@ -298,8 +307,11 @@ export default function About() {
           >
             Komandamız
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
+          {/* TODO: Improve this section */}
+          {/* Idea 1: Only show the name and role, when hover, open with smooth animation mini modal, and have whole member info inside */}
+          {/* Idea 2: slider? */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+            {teamMembers.map((member) => (
               <motion.div
                 key={member.name}
                 variants={teamCardVariants}
@@ -323,15 +335,17 @@ export default function About() {
                   />
                 </motion.div>
                 <motion.h3
-                  className="text-xl font-bold text-center text-gray-900 mb-1"
+                  className="text-2xl font-bold text-center text-gray-900 mb-1"
                   whileHover={{ color: "#2563eb" }}
                   transition={{ duration: 0.2 }}
                 >
                   {member.name}
                 </motion.h3>
-                <p className="text-gray-600 text-center mb-4">{member.role}</p>
-                <p className="text-gray-600 text-center mb-6">{member.bio}</p>
-                <motion.div
+                <p className="text-gray-700 font-medium text-center mb-4">{member.role}</p>
+                <p className="text-gray-600 text-sm text-center mb-0">{member.bio}</p> {/* Add to this to bio: mb-6 (after removing comments of socials) */}
+
+                {/* TODO: Consider about adding socials, should we? */}
+                {/* <motion.div
                   className="flex justify-center space-x-4 mt-4"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -361,7 +375,7 @@ export default function About() {
                       <FaInstagram className="w-5 h-5" />
                     </motion.a>
                   )}
-                </motion.div>
+                </motion.div> */}
               </motion.div>
             ))}
           </div>
@@ -452,12 +466,14 @@ export default function About() {
               Bizimlə əməkdaşlıq etmək istəyirsiniz?
             </motion.span>
             <motion.div className="mt-2">
-              <Link
-                href="/contact"
+              <button
+                onClick={handleRedirectToContact}
+                aria-label="Contact via WhatsApp"
+                title="Əlaqə saxlayın"
                 className="underline text-base md:text-lg font-bold hover:text-blue-100 transition-colors duration-300"
               >
                 Əlaqə saxlayın
-              </Link>
+              </button>
             </motion.div>
           </motion.div>
         </motion.section>

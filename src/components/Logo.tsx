@@ -11,13 +11,13 @@ export default function Logo({
 }: LogoProps) {
   return (
     <Image
-      src={isWhite ? "/logos/white_h.svg" : "/logos/black_h.svg"}
+      src={isWhite ? "/logos/white_h.png" : "/logos/black_h.png"}
       alt="Creadive"
       width={0}
       height={0}
       sizes="100vw"
       priority
-      className={`${isForHeader ? "w-40 h-auto" : "w-full h-40"}`}
+      className={`${isForHeader ? "w-40 h-auto" : "w-full"}`}
     />
   );
 }

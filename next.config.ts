@@ -11,6 +11,16 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'www.facebook.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'creadive.az',
+      },
+      // After final deployment, change protocol to https
+      {
+        protocol: 'http',
+        hostname: '207.180.234.184',
+      },
+      
     ],
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],

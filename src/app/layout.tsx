@@ -1,10 +1,13 @@
-
 import { Plus_Jakarta_Sans } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 import Schema from "@/components/Schema";
 import Script from "next/script";
 import Image from "next/image";
 import "./globals.css";
+import { LOCALES } from "@/constants";
+import { notFound } from "next/navigation";
+import { AppLocale } from "@/i18n/config";
+import { ReactNode } from "react";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -82,9 +85,7 @@ export const metadata: Metadata = {
       { url: "/logos/white_h.png", sizes: "167x167" },
       { url: "/logos/white_h.png", sizes: "180x180" },
     ],
-    other: [
-      { rel: "mask-icon", url: "/logos/white_h.svg", color: "#1e40af" },
-    ],
+    other: [{ rel: "mask-icon", url: "/logos/white_h.svg", color: "#1e40af" }],
   },
   // Extra meta that Metadata doesn’t model directly:
   other: {
@@ -95,11 +96,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+type Props = {
+  children: ReactNode;
+  params: { locale: AppLocale };
+};
+
+export default async function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+  params,
+}: Readonly<Props>) {
+  const { locale } = await params;
+  // if (!LOCALES.includes(locale as "az" | "en" | "ru")) {
+  //   notFound();
+  // }
+
   return (
-    <html className={plusJakartaSans.variable}>
+    // need to test lang="az"
+    <html className={plusJakartaSans.variable} lang={locale}>
       <head>
         {/* Critical CSS for Hero Section (keep minimal) */}
         {/* <style
@@ -168,9 +181,6 @@ export default function RootLayout({
           fetchPriority="high"
         />
         <link rel="preload" href="/logos/white_h.png" as="image" type="image/png" /> */}
-
-
-
 
         {/* Connection hints (only if you really need them) */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />

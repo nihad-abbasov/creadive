@@ -4,7 +4,7 @@ import { BlogDetailPost, blogDetailData } from "@/data/blogDetailData";
 import Schema from "@/components/Schema";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/lib/navigation";
 
 interface BlogDetailProps {
   blogPost: BlogDetailPost;

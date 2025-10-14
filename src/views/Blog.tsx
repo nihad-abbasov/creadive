@@ -1,9 +1,9 @@
 "use client";
 
+import { Link } from "@/lib/navigation";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 type BlogPost = {
   id: number;
@@ -229,7 +229,8 @@ export default function Blog() {
             Rəqəmsal Marketinq və Veb dizayn Bloqu
           </h1>
           <p className="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">
-            SEO, social media marketinq, veb dizayn və rəqəmsal strategiyalar haqqında məqalələr.
+            SEO, social media marketinq, veb dizayn və rəqəmsal strategiyalar
+            haqqında məqalələr.
           </p>
         </motion.div>
 
@@ -246,10 +247,11 @@ export default function Blog() {
         >
           <motion.button
             onClick={() => setSelectedCategory(null)}
-            className={`px-4 py-2 rounded-full transition-colors duration-300 ${selectedCategory === null
-              ? "bg-blue-500 text-white"
-              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
+            className={`px-4 py-2 rounded-full transition-colors duration-300 ${
+              selectedCategory === null
+                ? "bg-blue-500 text-white"
+                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+            }`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -259,10 +261,11 @@ export default function Blog() {
             <motion.button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full transition-colors duration-300 ${selectedCategory === category
-                ? "bg-blue-500 text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+              className={`px-4 py-2 rounded-full transition-colors duration-300 ${
+                selectedCategory === category
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: 20 }}

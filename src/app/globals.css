@@ -218,6 +218,9 @@ body::-webkit-scrollbar-thumb {
   color: unset !important;
 }
 
+.homepage_3d_icons_section img {
+  @apply pointer-events-none select-none;
+}
 
 /* ANIMATIONS */
 .willAppear {
@@ -237,5 +240,24 @@ body::-webkit-scrollbar-thumb {
     transform: translateY(0);
     filter: blur(0);
     display: block;
+  }
+}
+
+.willFloatY {
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }

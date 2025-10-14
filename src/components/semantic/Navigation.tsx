@@ -1,65 +1,21 @@
 "use client";
 
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaPhone,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin, FaPhone } from "react-icons/fa";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { useTranslations } from "next-intl";
 import React, { useState, useEffect } from "react";
+import { getNavLinks } from "@/data/headerDatas";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Link } from "@/lib/navigation";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Logo from "../Logo";
-import { useScrollPosition } from "@/hooks/useScrollPosition";
-
-type NavLink = {
-  id: number;
-  href: string;
-  label: string;
-  dropdown?: {
-    text: string;
-    url: string;
-  }[];
-};
 
 export default function Navigation() {
   const t = useTranslations();
   const { isScrolled } = useScrollPosition(50);
 
-  // Create navigation links with proper translation reactivity
-  const navLinks: NavLink[] = React.useMemo(() => [
-    {
-      id: 1,
-      href: "/services",
-      label: t("nav.services"),
-      dropdown: [
-        { text: t("nav.servicesItems.web"), url: "/services?service=web-development" },
-        { text: t("nav.servicesItems.smm"), url: "/services?service=smm" },
-        { text: t("nav.servicesItems.dm"), url: "/services?service=digital-marketing" },
-        { text: t("nav.servicesItems.uiux"), url: "/services?service=ui-ux" },
-        { text: t("nav.servicesItems.seo"), url: "/services?service=seo" },
-        { text: t("nav.servicesItems.gd"), url: "/services?service=graphic-design" },
-        { text: t("nav.servicesItems.targeting"), url: "/services?service=targeting" },
-      ],
-    },
-    {
-      id: 2,
-      href: "/about",
-      label: t("nav.about"),
-      dropdown: [
-        { text: t("nav.about"), url: "/about" },
-        { text: t("about.team"), url: "/about/#team_section" },
-        { text: t("about.faq"), url: "/about/#faq_section" },
-      ],
-    },
-    { id: 3, href: "/portfolio", label: t("nav.portfolio") },
-    { id: 4, href: "/blog", label: t("nav.blog") },
-    { id: 5, href: "/contact", label: t("nav.contact") },
-  ], [t]);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const pathname = usePathname();
@@ -170,17 +126,20 @@ export default function Navigation() {
   return (
     <>
       <motion.nav
-        className={`w-full z-[9997] transition-all duration-300 ${isScrolled
-          ? 'fixed top-0 left-0 right-0 bg-gradient-to-br from-slate-950 via-blue-900 to-slate-950 backdrop-blur-md shadow-lg'
-          : 'relative pt-2'
-          }`}
+        className={`w-full z-[9997] transition-all duration-300 ${
+          isScrolled
+            ? "fixed top-0 left-0 right-0 bg-gradient-to-br from-slate-950 via-blue-900 to-slate-950 backdrop-blur-md shadow-lg"
+            : "relative pt-2"
+        }`}
         initial={{ y: 0 }}
         animate={{
-          backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.9)' : 'transparent'
+          backgroundColor: isScrolled
+            ? "rgba(0, 0, 0, 0.9)"
+            : "rgba(0, 0, 0, 0)", // or transparent instead of rgba(0, 0, 0, 0)
         }}
         transition={{
           duration: 0.3,
-          ease: "easeInOut"
+          ease: "easeInOut",
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -197,11 +156,22 @@ export default function Navigation() {
                 }}
                 transition={{
                   duration: 0.3,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
               >
                 <Link href="/" className="text-2xl font-bold text-white">
-                  <Logo isWhite={true} isForHeader={true} />
+                  {isScrolled ? (
+                    <Image
+                      src="/favicon.ico"
+                      alt="Creadive"
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                      className="w-10 h-10"
+                    />
+                  ) : (
+                    <Logo isWhite={true} isForHeader={true} />
+                  )}
                 </Link>
               </motion.div>
             </motion.div>
@@ -213,27 +183,30 @@ export default function Navigation() {
               >
                 <div className="relative w-6 h-6 flex items-center justify-center">
                   <span
-                    className={`absolute h-0.5 w-6 bg-white/90 rounded-full transition-all duration-300 ease-in-out transform ${isMobileMenuOpen
-                      ? "rotate-45 translate-y-0"
-                      : "-translate-y-1.5"
-                      }`}
+                    className={`absolute h-0.5 w-6 bg-white/90 rounded-full transition-all duration-300 ease-in-out transform ${
+                      isMobileMenuOpen
+                        ? "rotate-45 translate-y-0"
+                        : "-translate-y-1.5"
+                    }`}
                   />
                   <span
-                    className={`absolute h-0.5 w-6 bg-white/90 rounded-full transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "opacity-0" : "opacity-100"
-                      }`}
+                    className={`absolute h-0.5 w-6 bg-white/90 rounded-full transition-all duration-300 ease-in-out ${
+                      isMobileMenuOpen ? "opacity-0" : "opacity-100"
+                    }`}
                   />
                   <span
-                    className={`absolute h-0.5 w-6 bg-white/90 rounded-full transition-all duration-300 ease-in-out transform ${isMobileMenuOpen
-                      ? "-rotate-45 translate-y-0"
-                      : "translate-y-1.5"
-                      }`}
+                    className={`absolute h-0.5 w-6 bg-white/90 rounded-full transition-all duration-300 ease-in-out transform ${
+                      isMobileMenuOpen
+                        ? "-rotate-45 translate-y-0"
+                        : "translate-y-1.5"
+                    }`}
                   />
                 </div>
               </button>
             </div>
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <div className="ml-10 flex items-center space-x-8">
-                {navLinks.map((link, index) => (
+                {getNavLinks(t).map((link, index) => (
                   <motion.div
                     key={link.id}
                     className="relative"
@@ -252,15 +225,16 @@ export default function Navigation() {
                       }}
                       transition={{
                         duration: 0.3,
-                        ease: "easeInOut"
+                        ease: "easeInOut",
                       }}
                     >
                       <Link
                         href={link.href}
-                        className={`text-white hover:text-white transition-all duration-300 relative group flex flex-row items-center ${isActiveLink(link.href)
-                          ? "text-white font-semibold"
-                          : "text-white"
-                          }`}
+                        className={`text-white hover:text-white transition-all duration-300 relative group flex flex-row items-center ${
+                          isActiveLink(link.href)
+                            ? "text-white font-semibold"
+                            : "text-white"
+                        }`}
                       >
                         {link.label}
                         {link.dropdown && (
@@ -287,10 +261,11 @@ export default function Navigation() {
                           </motion.span>
                         )}
                         <span
-                          className={`absolute -bottom-1 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 ease-out ${isActiveLink(link.href)
-                            ? "w-full"
-                            : "group-hover:w-full"
-                            }`}
+                          className={`absolute -bottom-1 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 ease-out ${
+                            isActiveLink(link.href)
+                              ? "w-full"
+                              : "group-hover:w-full"
+                          }`}
                         />
                       </Link>
                     </motion.div>
@@ -319,11 +294,13 @@ export default function Navigation() {
                               >
                                 <Link
                                   href={item.url}
-                                  className={`block px-4 py-2 text-sm text-gray-900 hover:bg-gray-200 hover:text-gray-900 transition-colors duration-200 ${index === 0 ? "rounded-t-md" : ""
-                                    } ${index === (link.dropdown?.length ?? 0) - 1
+                                  className={`block px-4 py-2 text-sm text-gray-900 hover:bg-gray-200 hover:text-gray-900 transition-colors duration-200 ${
+                                    index === 0 ? "rounded-t-md" : ""
+                                  } ${
+                                    index === (link.dropdown?.length ?? 0) - 1
                                       ? "rounded-b-md"
                                       : ""
-                                    }`}
+                                  }`}
                                   role="menuitem"
                                 >
                                   {item.text}
@@ -340,9 +317,18 @@ export default function Navigation() {
             </div>
 
             <div className="hidden md:flex items-center gap-2">
-              <Link href="tel:+994105319987" className="bg-white hover:bg-gray-300 text-black text-sm px-4 py-2.5 rounded-xl flex items-center transition-all duration-300">
-                <FaPhone className={`w-4 h-4 text-blue-600 ${!isScrolled && "mr-2"}`} />
-                {!isScrolled && "+994 10 531 99 87"}
+              <Link
+                href="tel:+994105319987"
+                className="bg-white hover:bg-gray-300 text-black text-sm px-4 py-2.5 rounded-xl flex items-center transition-all duration-300"
+              >
+                <FaPhone
+                  className={`w-4 h-4 text-blue-600 ${
+                    !isScrolled && "mr-0 xl:mr-2"
+                  }`}
+                />
+                {!isScrolled && (
+                  <span className="hidden xl:block">+994 10 531 99 87</span>
+                )}
               </Link>
               <LanguageSwitcher />
             </div>
@@ -352,8 +338,9 @@ export default function Navigation() {
 
       {/* Mobile menu overlay */}
       <motion.div
-        className={`md:hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-[9998] transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
+        className={`md:hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-[9998] transition-opacity duration-300 ${
+          isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
         onClick={toggleMobileMenu}
         aria-hidden={!isMobileMenuOpen}
         initial={{ opacity: 0 }}
@@ -363,8 +350,9 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       <motion.div
-        className={`md:hidden fixed inset-y-0 right-0 w-[280px] bg-gradient-to-br from-slate-950 via-blue-900 to-slate-950 z-[9999] transform transition-transform duration-300 ease-in-out h-screen ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`md:hidden fixed inset-y-0 right-0 w-[280px] bg-gradient-to-br from-slate-950 via-blue-900 to-slate-950 z-[9999] transform transition-transform duration-300 ease-in-out h-screen ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
         initial={{ x: "100%" }}
         animate={{ x: isMobileMenuOpen ? 0 : "100%" }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -448,7 +436,7 @@ export default function Navigation() {
 
           {/* Menu Items */}
           <div className="flex flex-col px-4 md:px-6 space-y-2 flex-grow py-4 md:py-6">
-            {navLinks.map((link, index) => (
+            {getNavLinks(t).map((link, index) => (
               <motion.div
                 key={link.id}
                 initial={{ opacity: 0, x: 20 }}
@@ -457,14 +445,16 @@ export default function Navigation() {
               >
                 <Link
                   href={link.href}
-                  className={`block w-full !text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-slate-800/50 text-lg font-medium relative group ${isActiveLink(link.href) ? "bg-black/20 !text-black" : ""
-                    }`}
+                  className={`block w-full !text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-slate-800/50 text-lg font-medium relative group ${
+                    isActiveLink(link.href) ? "bg-black/20 !text-black" : ""
+                  }`}
                   onClick={toggleMobileMenu}
                 >
                   {link.label}
                   <span
-                    className={`absolute left-0 top-0 w-1 h-0 bg-gray-900 rounded-l-full transition-all duration-300 ease-out ${isActiveLink(link.href) ? "h-full" : "group-hover:h-full"
-                      }`}
+                    className={`absolute left-0 top-0 w-1 h-0 bg-gray-900 rounded-l-full transition-all duration-300 ease-out ${
+                      isActiveLink(link.href) ? "h-full" : "group-hover:h-full"
+                    }`}
                   />
                 </Link>
               </motion.div>
@@ -479,7 +469,7 @@ export default function Navigation() {
             transition={{ delay: 0.8, duration: 0.5 }}
           >
             {/* Contact Info */}
-            <div className="space-y-3 text-center">
+            {/* <div className="space-y-3 text-center">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -506,7 +496,9 @@ export default function Navigation() {
                   <span>info@creadive.az</span>
                 </Link>
               </motion.div>
-            </div>
+            </div> */}
+
+            <LanguageSwitcher />
 
             {/* Copyright */}
             {/* <motion.div

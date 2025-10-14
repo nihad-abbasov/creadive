@@ -5,21 +5,13 @@
   "description": "Creadive reklam agentliyi SMM, SEO, veb sayt və kreativ dizayn xidmətləri ilə brendinizi böyüdür. Xidmətlərimizlə yaxından tanış olmaq üçün saytımıza daxil olun.",
   "start_url": "/",
   "display": "standalone",
-  "display_override": [
-    "window-controls-overlay"
-  ],
+  "display_override": ["window-controls-overlay"],
   "background_color": "#0f172a",
   "theme_color": "#1e40af",
   "orientation": "portrait-primary",
   "scope": "/",
-  "lang": "az",
   "dir": "ltr",
-  "categories": [
-    "business",
-    "productivity",
-    "design",
-    "marketing"
-  ],
+  "categories": ["business", "productivity", "design", "marketing"],
   "icons": [
     {
       "src": "/logos/white_h.png",

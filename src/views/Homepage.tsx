@@ -1,11 +1,12 @@
 "use client";
 import { Autoplay, Pagination, Navigation, EffectCards } from "swiper/modules";
+import { processSteps, ourFeatures } from "@/data/homepage";
 import { useInView } from "react-intersection-observer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { IoRocketOutline } from "react-icons/io5";
 import { useTranslations } from "next-intl";
 import { Link } from "@/lib/navigation";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import "swiper/css/effect-cards";
@@ -13,12 +14,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
 import "swiper/css";
-
-interface OurFeature {
-  icon: string;
-  title: string;
-  description: string;
-}
 
 interface Testimonial {
   id: number;
@@ -262,29 +257,6 @@ const stats: StatItem[] = [
   },
 ];
 
-const processSteps = [
-  {
-    id: 1,
-    title: "analysis",
-    description: "analysis",
-  },
-  {
-    id: 2,
-    title: "strategy",
-    description: "strategy",
-  },
-  {
-    id: 3,
-    title: "execution",
-    description: "execution",
-  },
-  {
-    id: 4,
-    title: "monitoring",
-    description: "monitoring",
-  },
-];
-
 const pricingCategories = [
   {
     id: "smm",
@@ -440,24 +412,6 @@ const pricingCategories = [
   },
 ];
 
-const ourFeatures: OurFeature[] = [
-  {
-    icon: "🎯",
-    title: "professional",
-    description: "professional",
-  },
-  {
-    icon: "⚡",
-    title: "fast",
-    description: "fast",
-  },
-  {
-    icon: "💡",
-    title: "innovative",
-    description: "innovative",
-  },
-];
-
 interface Partner {
   name: string;
   logoUrl: string;
@@ -550,6 +504,38 @@ const Homepage = () => {
     pricingCategories[0].id
   );
 
+  // Handle hash navigation (e.g., /#home-pricing-section)
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        // Remove the # from the hash
+        const id = hash.replace("#", "");
+        const element = document.getElementById(id);
+
+        if (element) {
+          // Add a small delay to ensure the page is fully rendered
+          setTimeout(() => {
+            element.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }, 100);
+        }
+      }
+    };
+
+    // Run on mount
+    scrollToHash();
+
+    // Also listen for hash changes (when user clicks a link with hash)
+    window.addEventListener("hashchange", scrollToHash);
+
+    return () => {
+      window.removeEventListener("hashchange", scrollToHash);
+    };
+  }, []);
+
   return (
     <section>
       {/* Hero Section */}
@@ -573,7 +559,163 @@ const Homepage = () => {
         {/* Content */}
         <div className="relative z-10 w-full pt-32 pb-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center">
+            <div className="text-center relative">
+              <div className="homepage_3d_icons_section">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0, rotate: 180 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  transition={{
+                    duration: 1,
+                    delay: 1.2,
+                    type: "spring",
+                    stiffness: 100,
+                  }}
+                  whileHover={{ scale: 1.2, rotate: -15 }}
+                  className="absolute md:-bottom-24 right-0 md:right-28"
+                >
+                  <motion.div
+                    animate={{ y: [0, 8, 0] }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Image
+                      src="/images/3d_icons/target-dynamic-color.png"
+                      alt="Target"
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                      className="w-12 md:w-20 h-auto"
+                    />
+                  </motion.div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0, y: -30 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{
+                    duration: 1,
+                    delay: 0.6,
+                    type: "spring",
+                    stiffness: 150,
+                  }}
+                  whileHover={{ scale: 1.25, y: -5 }}
+                  className="absolute -top-20 right-12"
+                >
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Image
+                      src="/images/3d_icons/flash-dynamic-color.png"
+                      alt="Flash Icon"
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                      className="w-9 md:w-20 h-auto"
+                    />
+                  </motion.div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0, rotate: -90 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  transition={{
+                    duration: 1,
+                    delay: 1.4,
+                    type: "spring",
+                    stiffness: 100,
+                  }}
+                  whileHover={{ scale: 1.2, rotate: 20 }}
+                  className="absolute -top-20 left-40 md:left-[540px]"
+                >
+                  <motion.div
+                    animate={{ y: [0, -6, 0], rotate: [0, 3, -3, 0] }}
+                    transition={{
+                      duration: 3.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Image
+                      src="/images/3d_icons/notify-heart-dynamic-color.png"
+                      alt="Heart Notification Icon"
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                      className="w-12 md:w-20 h-auto"
+                    />
+                  </motion.div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0, rotate: 270 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  transition={{
+                    duration: 1,
+                    delay: 1.6,
+                    type: "spring",
+                    stiffness: 80,
+                  }}
+                  whileHover={{ scale: 1.4, y: -10 }}
+                  className="absolute top-6 md:-top-36 md:-left-12"
+                >
+                  <motion.div
+                    animate={{ y: [0, 12, 0], rotate: [0, -5, 5, 0] }}
+                    transition={{
+                      duration: 4.2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Image
+                      src="/images/3d_icons/rocket-dynamic-color.png"
+                      alt="Rocket Icon"
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                      className="w-12 md:w-32 h-auto"
+                    />
+                  </motion.div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0, rotate: 45 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  transition={{
+                    duration: 1,
+                    delay: 1.1,
+                    type: "spring",
+                    stiffness: 110,
+                  }}
+                  whileHover={{ scale: 1.25, rotate: -8 }}
+                  className="absolute -top-16 md:top-auto md:-bottom-12 left-6 md:left-56"
+                >
+                  <motion.div
+                    animate={{ y: [0, -5, 0], x: [0, 2, -2, 0] }}
+                    transition={{
+                      duration: 3.2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Image
+                      src="/images/3d_icons/thumb-up-dynamic-color.png"
+                      alt="Thumbs Up Icon"
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                      className="w-12 md:w-20 h-auto"
+                    />
+                  </motion.div>
+                </motion.div>
+              </div>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -645,7 +787,7 @@ const Homepage = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-0 md:bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+          className="absolute bottom-3 md:bottom-8 left-1/2 transform -translate-x-1/2 z-10"
         >
           <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
             <motion.div
@@ -685,7 +827,7 @@ const Homepage = () => {
                 whileHover={{ y: -5 }}
                 className="group"
               >
-                <div className="bg-white border border-gray-100 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group-hover:border-blue-200">
+                <div className="h-full bg-white border border-gray-100 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group-hover:border-blue-200">
                   {/* Icon */}
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-50 rounded-xl mb-6 group-hover:bg-blue-100 transition-colors duration-300">
                     <service.icon className="w-8 h-8 text-blue-600" />
@@ -776,7 +918,7 @@ const Homepage = () => {
           transition={{ duration: 0.6 }}
           className="bg-gradient-to-b from-blue-600 to-black py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-3xl"
         >
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.id}
@@ -852,9 +994,10 @@ const Homepage = () => {
                       <Image
                         src={partner.logoUrl}
                         alt={partner.name}
-                        width={120}
-                        height={60}
-                        className="h-16 md:h-16 object-contain transition-all duration-300"
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        className="w-[150px] md:w-[120px] h-[80px] md:h-[60px] object-contain transition-all duration-300"
                       />
                     </Link>
                   </div>
@@ -871,9 +1014,10 @@ const Homepage = () => {
                       <Image
                         src={partner.logoUrl}
                         alt={partner.name}
-                        width={120}
-                        height={60}
-                        className="h-16 md:h-16 object-contain transition-all duration-300"
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        className="w-[150px] md:w-[120px] h-[80px] md:h-[60px] object-contain transition-all duration-300"
                       />
                     </Link>
                   </div>
@@ -890,9 +1034,10 @@ const Homepage = () => {
                       <Image
                         src={partner.logoUrl}
                         alt={partner.name}
-                        width={120}
-                        height={60}
-                        className="h-16 md:h-16 object-contain transition-all duration-300"
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        className="w-[150px] md:w-[120px] h-[80px] md:h-[60px] object-contain transition-all duration-300"
                       />
                     </Link>
                   </div>
@@ -910,8 +1055,8 @@ const Homepage = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         className="py-20"
-        id="home-pricing-section"
-      // bg-gradient-to-b from-gray-50 to-white
+        // FIXME: when redirect this section from other pages, it doesnt come down to this section. Have some functional fix for this
+        // bg-gradient-to-b from-gray-50 to-white
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -936,16 +1081,18 @@ const Homepage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex justify-center gap-1 md:gap-2 mb-12 relative"
+            id="home-pricing-section"
           >
-            <div className="bg-white backdrop-blur-sm rounded-2xl p-2 shadow-lg border border-gray-200">
+            <div className="bg-white backdrop-blur-sm rounded-2xl p-2 shadow-lg border border-gray-200 grid grid-cols-3 w-full md:w-max">
               {pricingCategories.map((cat, index) => (
                 <motion.button
                   key={cat.id}
                   onClick={() => setActivePricingTab(cat.id)}
-                  className={`relative px-4 md:px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${activePricingTab === cat.id
+                  className={`relative px-4 md:px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                    activePricingTab === cat.id
                       ? "text-white"
                       : "text-gray-600 hover:text-gray-900"
-                    }`}
+                  }`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -985,15 +1132,17 @@ const Homepage = () => {
                           viewport={{ once: true }}
                           transition={{ duration: 0.6, delay: index * 0.1 }}
                           whileHover={{ y: -8, scale: 1.02 }}
-                          className={`relative group overflow-hidden rounded-3xl ${isPopular ? "md:scale-105 z-20" : "z-10"
-                            }`}
+                          className={`relative group overflow-hidden rounded-3xl ${
+                            isPopular ? "md:scale-105 z-20" : "z-10"
+                          }`}
                         >
                           {/* Card Background */}
                           <div
-                            className={`relative h-full rounded-3xl shadow-xl transition-all duration-500 ${isPopular
+                            className={`relative h-full rounded-3xl shadow-xl transition-all duration-500 ${
+                              isPopular
                                 ? "bg-gradient-to-br from-blue-600 via-blue-700 to-emerald-600 shadow-2xl shadow-blue-500/25"
                                 : "bg-white hover:shadow-2xl hover:shadow-gray-200/50"
-                              }`}
+                            }`}
                           >
                             {/* Popular Badge */}
                             {/* {isPopular && (
@@ -1018,10 +1167,11 @@ const Homepage = () => {
                             <div className="relative p-8 h-full flex flex-col">
                               {/* Package Icon */}
                               <div
-                                className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center ${isPopular
+                                className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center ${
+                                  isPopular
                                     ? "bg-white/20 text-white"
                                     : "bg-gradient-to-br from-blue-50 to-emerald-50 text-blue-600"
-                                  }`}
+                                }`}
                               >
                                 <svg
                                   className="w-8 h-8"
@@ -1040,8 +1190,9 @@ const Homepage = () => {
 
                               {/* Package Name */}
                               <h3
-                                className={`text-2xl font-bold mb-1 ${isPopular ? "text-white" : "text-gray-900"
-                                  }`}
+                                className={`text-2xl font-bold mb-1 ${
+                                  isPopular ? "text-white" : "text-gray-900"
+                                }`}
                               >
                                 {pkg.name}
                               </h3>
@@ -1049,20 +1200,22 @@ const Homepage = () => {
                               {/* Price */}
                               <div className="mb-6">
                                 <div
-                                  className={`text-5xl font-extrabold mb-1 ${isPopular
+                                  className={`text-5xl font-extrabold mb-1 ${
+                                    isPopular
                                       ? "text-white"
                                       : "bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent"
-                                    }`}
+                                  }`}
                                 >
                                   {pkg.price}
                                 </div>
                                 {cat.id === "website" &&
                                   pkg.name === "E-ticarət" && (
                                     <span
-                                      className={`text-sm font-medium ${isPopular
+                                      className={`text-sm font-medium ${
+                                        isPopular
                                           ? "text-white/80"
                                           : "text-gray-500"
-                                        }`}
+                                      }`}
                                     >
                                       -dən başlayaraq
                                     </span>
@@ -1084,18 +1237,20 @@ const Homepage = () => {
                                     className="flex items-start gap-3"
                                   >
                                     <div
-                                      className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${isPopular
+                                      className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                                        isPopular
                                           ? "bg-white/20 text-white"
                                           : "bg-green-100 text-green-600"
-                                        }`}
+                                      }`}
                                     >
                                       <CheckIcon className="w-3 h-3" />
                                     </div>
                                     <span
-                                      className={`text-sm leading-relaxed ${isPopular
+                                      className={`text-sm leading-relaxed ${
+                                        isPopular
                                           ? "text-white/90"
                                           : "text-gray-700"
-                                        }`}
+                                      }`}
                                     >
                                       {feature}
                                     </span>
@@ -1110,10 +1265,11 @@ const Homepage = () => {
                                 )}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`w-full py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300 shadow-lg ${isPopular
+                                className={`w-full py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300 shadow-lg ${
+                                  isPopular
                                     ? "bg-white text-blue-600 hover:bg-gray-50 hover:shadow-xl"
                                     : "bg-gradient-to-r from-blue-600 to-emerald-600 text-white hover:from-blue-700 hover:to-emerald-700 hover:shadow-xl"
-                                  }`}
+                                }`}
                                 whileHover={{ scale: 1.02, y: -2 }}
                                 whileTap={{ scale: 0.98 }}
                               >

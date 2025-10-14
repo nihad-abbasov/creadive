@@ -1,6 +1,7 @@
+import { CURRENT_YEAR, EMAIL, FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL, PHONE_NUMBER, TWITTER_URL } from "@/constants";
 import { FaTwitter, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
-import { Link } from "@/lib/navigation";
 import { useTranslations } from "next-intl";
+import { Link } from "@/lib/navigation";
 import Logo from "../Logo";
 
 type FooterLink = {
@@ -43,13 +44,13 @@ type Contact = {
 const contacts: Contact[] = [
   {
     id: 1,
-    href: "mailto:info@creadive.az",
-    label: "info@creadive.az",
+    href: `mailto:${EMAIL}`,
+    label: EMAIL,
   },
   {
     id: 2,
-    href: "tel:+994105319987",
-    label: "+994 10 531 99 87",
+    href: `tel:${PHONE_NUMBER}`,
+    label: PHONE_NUMBER,
   },
 ];
 
@@ -64,7 +65,7 @@ const socials: Social[] = [
   {
     id: 1,
     label: "Instagram",
-    href: "https://www.instagram.com/creadive.az",
+    href: INSTAGRAM_URL,
     icon: (
       <FaInstagram className="w-6 h-6 transition-colors duration-200 text-gray-400 hover:text-pink-500" />
     ),
@@ -72,7 +73,7 @@ const socials: Social[] = [
   {
     id: 2,
     label: "Facebook",
-    href: "https://www.facebook.com/creadive.az",
+    href: FACEBOOK_URL,
     icon: (
       <FaFacebook className="w-6 h-6 transition-colors duration-200 text-gray-400 hover:text-blue-600" />
     ),
@@ -80,7 +81,7 @@ const socials: Social[] = [
   {
     id: 3,
     label: "LinkedIn",
-    href: "https://www.linkedin.com/company/creadive-az/",
+    href: LINKEDIN_URL,
     icon: (
       <FaLinkedin className="w-6 h-6 transition-colors duration-200 text-gray-400 hover:text-blue-500" />
     ),
@@ -88,14 +89,12 @@ const socials: Social[] = [
   {
     id: 4,
     label: "Twitter",
-    href: "https://x.com/creadive_az",
+    href: TWITTER_URL,
     icon: (
       <FaTwitter className="w-6 h-6 transition-colors duration-200 text-gray-400 hover:text-sky-400" />
     ),
   },
 ];
-
-const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   const t = useTranslations();
@@ -184,7 +183,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm font-extralight">
-          <p>&copy; {currentYear} Creadive. {t("footer.copyright")}</p>
+          <p>&copy; {CURRENT_YEAR} Creadive. {t("footer.copyright")}</p>
         </div>
       </div>
     </footer>
