@@ -17,7 +17,7 @@ export const contactApi = {
       status: 'new'
     };
     const apiInstance = locale ? createApiInstance(locale) : api;
-    return apiInstance.post('/contacts/', payload);
+    return apiInstance.post('/contact/', payload);
   },
 
   // Get all contacts

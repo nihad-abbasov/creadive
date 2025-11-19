@@ -88,11 +88,13 @@ export default function LanguageSwitcher() {
                         priority
                       />
                       {/* Language info */}
-                      <div className="flex-1 text-left">
-                        <div className="text-xs text-slate-600 text-center font-semibold uppercase tracking-wide">
-                          {loc}
+                      {!isScrolled && (
+                        <div className="flex-1 text-left">
+                          <div className="text-xs text-slate-600 text-center font-semibold uppercase tracking-wide">
+                            {loc}
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </button>
                   </li>
                 );
