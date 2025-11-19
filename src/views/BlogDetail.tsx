@@ -1,16 +1,19 @@
 "use client";
 
+import BlogDetailBackIcon from "../../public/icons/blog/BlogDetailBackIcon";
 import { BlogDetailPost, blogDetailData } from "@/data/blogDetailData";
+import { useTranslations } from "next-intl";
 import Schema from "@/components/Schema";
+import { Link } from "@/lib/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Link } from "@/lib/navigation";
 
 interface BlogDetailProps {
   blogPost: BlogDetailPost;
 }
 
 export default function BlogDetail({ blogPost }: BlogDetailProps) {
+  const t = useTranslations("blog");
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -303,19 +306,8 @@ export default function BlogDetail({ blogPost }: BlogDetailProps) {
               href="/blog"
               className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              Bütün məqalələrə qayıt
+              <BlogDetailBackIcon />
+              {t("goBack")}
             </Link>
           </motion.div>
         </motion.div>

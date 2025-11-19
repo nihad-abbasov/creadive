@@ -1,0 +1,12 @@
+export { default as WebIcon } from "./WebIcon";
+export { default as UiuxIcon } from "./UiuxIcon";
+export { default as DigitalIcon } from "./DigitalIcon";
+export { default as SocialIcon } from "./SocialIcon";
+export { default as ContentIcon } from "./ContentIcon";
+export { default as GraphicIcon } from "./GraphicIcon";
+export { default as HomeCheckIcon } from "./HomeCheckIcon";
+export { default as HomeInfoIcon } from "./HomeInfoIcon";
+export { default as HomeSeePortfolioIcon } from "./HomeSeePortfolioIcon";
+export { default as HomeSeeAllServicesIcon } from "./HomeSeeAllServicesIcon";
+export { default as HomePricingCubeIcon } from "./HomePricingCubeIcon";
+export { default as HomeWpOrderIcon } from "./HomeWpOrderIcon";

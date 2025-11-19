@@ -9,12 +9,18 @@
     "ctaCall": "Call",
     "slogan": "Let's realize your ideas ✨"
   },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has been deleted. Please go to another page.",
+    "goBack": "Back to Home"
+  },
   "nav": {
     "services": "Services",
     "about": "About",
     "portfolio": "Portfolio",
     "blog": "Blog",
     "contact": "Contact",
+    "contactCTA": "Get a Consultation",
     "servicesItems": {
       "web": "Website",
       "smm": "SMM",
@@ -22,12 +28,14 @@
       "uiux": "UI/UX Design",
       "seo": "SEO",
       "gd": "Graphic Design",
-      "targeting": "Targeting"
+      "targeting": "Targeting",
+      "mobile_app": "Mobile App Development"
+    },
+    "aboutItems": {
+      "values": "Our Values",
+      "team": "Team",
+      "faq": "FAQ"
     }
-  },
-  "about": {
-    "team": "Team",
-    "faq": "FAQ"
   },
   "footer": {
     "quickLinks": "Quick Links",
@@ -53,7 +61,7 @@
       "description": "Transform your business with our comprehensive digital solutions.<br/>From design to marketing, we've got you covered."
     },
     "services": {
-      "title": "Digital Marketing and Web Design Services",
+      "title": "Digital Marketing and Web Services",
       "items": {
         "web": {
           "title": "Website Development",
@@ -270,5 +278,314 @@
     "testimonials": {
       "title": "Customer Reviews and Impressions - About Creadive Agency"
     }
+  },
+  "services": {
+    "title": "Digital Marketing and Design Services",
+    "subtitle": "We offer the best digital solutions and creative design services for your business",
+    "loading": "Loading services...",
+    "error": "Error loading services",
+    "items": {
+      "web-development": {
+        "title": "Website Development",
+        "description": "Modern and functional websites and applications.",
+        "details": "We create fully customized, fast and secure websites and applications for your business. We use responsive design, SEO optimization and the latest technologies. Our goal is to successfully represent your brand in the digital world."
+      },
+      "smm": {
+        "title": "SMM",
+        "description": "Professional management on social media platforms.",
+        "details": "We effectively manage your brand on Instagram, Facebook, LinkedIn and other platforms. Achieve success in social media with content planning, advertising and community management."
+      },
+      "targeting": {
+        "title": "Targeting",
+        "description": "Precise targeting and effective advertising campaigns.",
+        "details": "We develop precise targeting strategies to reach your target audience. Get maximum ROI by optimizing your advertising campaigns."
+      },
+      "ui-ux": {
+        "title": "UI/UX Design",
+        "description": "Creative design solutions that enhance user experience.",
+        "details": "We design interfaces with a user-centered approach. We reflect the spirit of your brand in color palette, typography and visual elements. Our goal is to create a comfortable and attractive experience for users."
+      },
+      "digital-marketing": {
+        "title": "Digital Marketing",
+        "description": "Introduce and grow your brand in the digital world.",
+        "details": "We strengthen your brand in the online environment with digital marketing strategies, social media management, advertising campaigns and analytics. We offer effective solutions to reach your target audience and increase your sales."
+      },
+      "seo": {
+        "title": "SEO",
+        "description": "Optimization for high ranking in search engines.",
+        "details": "We perform technical and content optimization for your site to appear in the top ranks of Google and other search engines. We increase your traffic and visibility."
+      },
+      "graphic-design": {
+        "title": "Graphic Design",
+        "description": "Professional graphic design and brand identification.",
+        "details": "We strengthen your brand with logos, brand books, social media designs and other visual elements. Stand out with creative and modern design solutions."
+      },
+      "mobile-development": {
+        "title": "Mobile App Development",
+        "description": "High-quality mobile applications for iOS and Android.",
+        "details": "We create fast, functional and aesthetic applications for mobile users. We present perfect solutions that work on iOS and Android platforms. User experience and performance are our priority."
+      }
+    }
+  },
+  "about": {
+    "title": "Creadive Agency - Who Are We?",
+    "subtitle": "Creadive was created to help businesses succeed in the digital world. We offer innovative and effective solutions to our clients.",
+    "sections": {
+      "title": "About Us in Detail",
+      "whoWeAre": {
+        "title": "Who are we?",
+        "content": "Hello! We are the Creadive Agency family. We are the smiling faces behind creative solutions with our team born in the heart of Baku. We know that every brand has its own story and we are eager to deliver these stories in the most beautiful way in the digital world."
+      },
+      "mission": {
+        "title": "Our Mission",
+        "content": "We believe that every brand has its own unique voice - our job is to make this voice heard in the digital world! We work hand in hand with our clients, accept their goals as our own goals and work with all our strength on this path."
+      },
+      "vision": {
+        "title": "Our Vision",
+        "content": "We have big dreams! We envision a future where Azerbaijani brands have a say at the world level in creativity and innovation. But this is not just a dream - we take steps towards this goal every day."
+      },
+      "values": {
+        "title": "Our Values",
+        "content": "Professionalism, innovation, reliability and customer satisfaction are our core values. We accept our clients' goals as our own goals and work with all our strength on this path."
+      }
+    },
+    "team": {
+      "title": "Our Team",
+      "members": {
+        "nihad": {
+          "role": "Founder & CEO",
+          "bio": "The founder and CEO of Creadive Agency. He is responsible for the creation and execution of creative solutions. He is also responsible for the technical and business strategy."
+        },
+        "enver": {
+          "role": "Digital Marketing Specialist",
+          "bio": "Specialized in performance-based marketing. Focus on brand recognition, targeted advertising and achieving results."
+        },
+        "fexri": {
+          "role": "Copywriter & Content Creator",
+          "bio": "Specialized in copywriting and content creation. Has 5+ years of experience in marketing. Strong portfolio in brand identity and user experience design."
+        },
+        "javid": {
+          "role": "Creative Designer",
+          "bio": "Strong portfolio in bran  d identity and user experience design. Balances functionality and aesthetics in visual design."
+        },
+        "alish": {
+          "role": "Human Resources Specialist",
+          "bio": "Has 4+ years of experience in human resources. Specialized in customer satisfaction and work performance."
+        },
+        "azad": {
+          "role": "Backend Developer (Python/Django)",
+          "bio": "Has 4+ years of experience in Python/Django development. Database management, API integrations and server-side solutions."
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "questions": {
+        "budget": {
+          "question": "What is the minimum budget to work with Creadive?",
+          "answer": "Each project is individual and the budget depends on the complexity of the project. We have packages starting from 500 AZN for small brands. Contact us for more accurate information and let's discuss your project."
+        },
+        "timeline": {
+          "question": "How long does a website project take?",
+          "answer": "Simple landing page takes 1-2 weeks, full website takes 3-4 weeks, e-commerce site takes 4-6 weeks. The complexity of the project and customer requirements affect the time. We provide an exact schedule for each project."
+        },
+        "smm": {
+          "question": "What is included in your social media management service?",
+          "answer": "Our SMM packages include post design, reels/motion video creation, story design, targeting campaigns, account management and reports. Each package offers different services."
+        },
+        "support": {
+          "question": "Do you provide support after the project is completed?",
+          "answer": "Yes! All our projects include 1 month of free support. After that, we also offer ongoing technical support and update services. We work with our clients for long-term cooperation."
+        },
+        "seo": {
+          "question": "How long does SEO optimization take to show results?",
+          "answer": "SEO is a long-term strategy. Initial results can be seen within 2-3 months, full effect is achieved within 6-12 months. With the right strategy and continuous work, results are guaranteed."
+        },
+        "changes": {
+          "question": "Can I make changes during the project process?",
+          "answer": "Of course! We provide 2 free change rights during the project process. Additional changes require a small additional payment. Customer satisfaction is our priority."
+        },
+        "payment": {
+          "question": "What payment terms do you apply?",
+          "answer": "Our standard terms: 50% advance, 50% after project completion. For large projects, we can also offer a 3-4 part payment system. All payments are confirmed by contract."
+        },
+        "update": {
+          "question": "Can you update my existing website?",
+          "answer": "Yes! Updating existing websites, redesign and functional additions are included in our services. We can also make the transition from old technologies to modern solutions."
+        }
+      }
+    },
+    "cta": {
+      "title": "Want to work with us?",
+      "button": "Contact us"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio - Successful Projects",
+    "description": "Websites, advertising campaigns and design projects for our clients.",
+    "loading": "Loading portfolio data...",
+    "error": "Error loading portfolio data",
+    "reload": "Reload",
+    "viewDetails": "View Details",
+    "categories": "Project Categories",
+    "noData": "No data yet",
+    "noDataDescription": "Portfolio data will be added soon.",
+    "noCategoryData": "No projects in this category yet",
+    "noCategoryDataDescription": "Projects in this category will be added soon."
+  },
+  "blog": {
+    "title": "Blog - SEO, social media marketing, web design and digital marketing strategies",
+    "description": "SEO, social media marketing, web design and digital marketing strategies.",
+    "loading": "Loading blog data...",
+    "error": "Error loading blog data",
+    "reload": "Reload",
+    "viewDetails": "View Details",
+    "noData": "No data yet",
+    "all": "All",
+    "readTime": "read time",
+    "blog1": {
+      "title": "Digital Marketing Strategy 2025",
+      "excerpt": "Deep analysis of the most effective strategies and trends in digital marketing in 2025.",
+      "category": "Marketing",
+      "date": "June 19, 2025",
+      "readTime": "5 minutes",
+      "image": "/images/blog/digital-marketing.jpg",
+      "author": {
+        "name": "Raghid Mammadli",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog2": {
+      "title": "UI/UX Design Principles",
+      "excerpt": "Essential design principles and best practices for enhancing user experience.",
+      "category": "Design",
+      "date": "March 12, 2025",
+      "readTime": "7 minutes",
+      "image": "/images/blog/ux-ui.jpg",
+      "author": {
+        "name": "Leyla Aliyeva",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog3": {
+      "title": "SEO Optimization",
+      "excerpt": "Effective SEO strategies for high search engine ranking.",
+      "category": "SEO",
+      "date": "February 25, 2025",
+      "readTime": "10 minutes",
+      "image": "/images/blog/seo.jpg",
+      "author": {
+        "name": "Nihad Mammadov",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog4": {
+      "title": "Social Media Marketing",
+      "excerpt": "Effective marketing strategies on social media platforms.",
+      "category": "Marketing",
+      "date": "March 8, 2025",
+      "readTime": "4 minutes",
+      "image": "/images/blog/smm.jpg",
+      "author": {
+        "name": "Zara Qurbanova",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog5": {
+      "title": "Web Development Trends 2025",
+      "excerpt": "The most popular technologies and trends in web development in 2025.",
+      "category": "Development",
+      "date": "March 5, 2025",
+      "readTime": "8 minutes",
+      "image": "/images/blog/web-development.jpg",
+      "author": {
+        "name": "Ali Huseyov",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog6": {
+      "title": "Branding Strategies",
+      "excerpt": "Effective branding strategies and best practices.",
+      "category": "Branding",
+      "date": "January 29, 2025",
+      "readTime": "12 minutes",
+      "image": "/images/blog/branding.jpg",
+      "author": {
+        "name": "Ayxan Aliyev",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog7": {
+      "title": "Content Marketing",
+      "excerpt": "Effective content marketing strategies and best practices.",
+      "category": "Marketing",
+      "date": "January 1, 2025",
+      "readTime": "6 minutes",
+      "image": "/images/blog/content.jpg",
+      "author": {
+        "name": "Zara Qurbanova",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog8": {
+      "title": "Mobile App Design",
+      "excerpt": "Essential design principles and best practices for mobile app design.",
+      "category": "Design",
+      "date": "February 28, 2025",
+      "readTime": "7 minutes",
+      "image": "/images/blog/mobile.jpg",
+      "author": {
+        "name": "Leyla Aliyeva",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog9": {
+      "title": "E-commerce Strategies",
+      "excerpt": "Effective e-commerce strategies and best practices.",
+      "category": "E-commerce",
+      "date": "February 25, 2025",
+      "readTime": "5 minutes",
+      "image": "/images/blog/e-commerce.jpg",
+      "author": {
+        "name": "Raghid Mammadli",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog10": {
+      "title": "Data Analytics",
+      "excerpt": "Data analytics and reporting for business decisions.",
+      "category": "Analytics",
+      "date": "February 22, 2025",
+      "readTime": "6 minutes",
+      "image": "/images/blog/analytics.jpg",
+      "author": {
+        "name": "Nihad Mammadov",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "goBack": "Back to all posts"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Let's discuss your digital marketing and website project. Our professional team is ready to help you.",
+    "fullName_label": "Full Name",
+    "fullName_placeholder": "Enter your full name",
+    "email_label": "Email",
+    "phone_label": "Phone",
+    "company_label": "Company",
+    "company_placeholder": "Your company name (e.g. Creadive Agency)",
+    "subject_label": "Subject",
+    "subject_placeholder": "Your message subject (e.g. Website creation, Accounting service, etc.)",
+    "sending_message": "Sending...",
+    "send": "Send",
+    "success_message": "Your message has been sent successfully!",
+    "error_message_default": "Something went wrong. Try again later.",
+    "error_message_2": "Something went wrong. Try again later.",
+    "error_message_3": "Something went wrong. Try again later.",
+    "unexpected_response_status": "Error. Status code: ",
+    "submission_error": "Contact form submission error: ",
+    "requiredText": "This field is required",
+    "validEmail": "Enter a valid email address",
+    "validPhone": "Enter a valid phone number"
   }
 }

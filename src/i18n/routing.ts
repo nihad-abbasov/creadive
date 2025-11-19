@@ -1,12 +1,11 @@
 import { createNavigation } from "next-intl/navigation";
 import { defineRouting } from "next-intl/routing";
-import { LOCALES } from "@/constants";
 
 export const routing = defineRouting({
-  locales: LOCALES,
+  locales: ["az", "en", "ru"],
   localePrefix: "as-needed",
   localeDetection: false,
-  defaultLocale: LOCALES[0],
+  defaultLocale: "az",
   // localeCookie: true,
 });
 

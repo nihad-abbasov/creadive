@@ -1,13 +1,10 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 import Schema from "@/components/Schema";
+import { ReactNode } from "react";
 import Script from "next/script";
 import Image from "next/image";
 import "./globals.css";
-import { LOCALES } from "@/constants";
-import { notFound } from "next/navigation";
-import { AppLocale } from "@/i18n/config";
-import { ReactNode } from "react";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -98,89 +95,13 @@ export const metadata: Metadata = {
 
 type Props = {
   children: ReactNode;
-  params: { locale: AppLocale };
 };
 
-export default async function RootLayout({
-  children,
-  params,
-}: Readonly<Props>) {
-  const { locale } = await params;
-  // if (!LOCALES.includes(locale as "az" | "en" | "ru")) {
-  //   notFound();
-  // }
-
+export default function RootLayout({ children }: Readonly<Props>) {
   return (
-    // need to test lang="az"
-    <html className={plusJakartaSans.variable} lang={locale}>
+    <html className={plusJakartaSans.variable} lang="az">
       <head>
-        {/* Critical CSS for Hero Section (keep minimal) */}
-        {/* <style
-          dangerouslySetInnerHTML={{
-            __html: `
-              .text-5xl { font-size: 3rem; line-height: 1; }
-              .sm\\:text-5xl { font-size: 3rem; line-height: 1; }
-              .md\\:text-6xl { font-size: 3.75rem; line-height: 1; }
-              .font-bold { font-weight: 700; }
-              .text-white { color: rgb(255 255 255); }
-              .mb-6 { margin-bottom: 1.5rem; }
-              .bg-gradient-to-l { background-image: linear-gradient(to left, var(--tw-gradient-stops)); }
-              .from-\\[\\#15B6B0\\] { --tw-gradient-from: #15B6B0; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(21, 182, 176, 0)); }
-              .to-\\[\\#20C943\\] { --tw-gradient-to: #20C943; }
-              .bg-clip-text { background-clip: text; }
-              .text-transparent { color: transparent; }
-              .drop-shadow-\\[0_0_30px_rgba\\(255\\,255\\,255\\,0\\.6\\)\\] { filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.6)); }
-              .drop-shadow-\\[0_0_30px_rgba\\(22\\,182\\,176\\,0\\.8\\)\\] { filter: drop-shadow(0 0 30px rgba(22, 182, 176, 0.8)); }
-              .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
-              .text-gray-200 { color: rgb(229 231 235); }
-              .mb-8 { margin-bottom: 2rem; }
-              .max-w-3xl { max-width: 48rem; }
-              .mx-auto { margin-left: auto; margin-right: auto; }
-              .grid { display: grid; }
-              .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-              .md\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-              .gap-4 { gap: 1rem; }
-              .w-full { width: 100%; }
-              .md\\:w-max { width: max-content; }
-              .bg-blue-600 { background-color: rgb(37 99 235); }
-              .text-white { color: rgb(255 255 255); }
-              .px-8 { padding-left: 2rem; padding-right: 2rem; }
-              .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
-              .rounded-lg { border-radius: 0.5rem; }
-              .font-medium { font-weight: 500; }
-              .hover\\:bg-blue-700:hover { background-color: rgb(29 78 216); }
-              .transition-colors { transition: color, background-color, border-color, text-decoration-color, fill, stroke 150ms cubic-bezier(0.4, 0, 0.2, 1); }
-              .flex { display: flex; }
-              .items-center { align-items: center; }
-              .justify-center { justify-content: center; }
-              .gap-2 { gap: 0.5rem; }
-              .bg-white\\/10 { background-color: rgb(255 255 255 / 0.1); }
-              .backdrop-blur-sm { backdrop-filter: blur(4px); }
-              .border { border-width: 1px; }
-              .border-white\\/20 { border-color: rgb(255 255 255 / 0.2); }
-              .hover\\:bg-white\\/20:hover { background-color: rgb(255 255 255 / 0.2); }
-              .w-5 { width: 1.25rem; }
-              .h-5 { height: 1.25rem; }
-              .fill-none { fill: none; }
-              .stroke-current { stroke: currentColor; }
-              .stroke-2 { stroke-width: 2; }
-              .stroke-linecap-round { stroke-linecap: round; }
-              .stroke-linejoin-round { stroke-linejoin: round; }
-            `,
-          }}
-        /> */}
-
-        {/* Preload critical images (only if they're immediately visible) */}
-        {/* Removed hero2.jpg preload as it's not immediately critical */}
-        {/* Removed white_h.png preload as Logo component uses white_h.svg */}
-        {/* <link
-          rel="preload"
-          href="/hero2.jpg"
-          as="image"
-          type="image/jpeg"
-          fetchPriority="high"
-        />
-        <link rel="preload" href="/logos/white_h.png" as="image" type="image/png" /> */}
+        {/* <link rel="preload" href="/logos/white_h.png" as="image" type="image/png" /> */}
 
         {/* Connection hints (only if you really need them) */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />

@@ -1,6 +1,7 @@
 "use client";
 
 import { FaFacebook, FaInstagram, FaLinkedin, FaPhone } from "react-icons/fa";
+import DropdownArrowIcon from "../../../public/icons/nav/DropdownArrowIcon";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import React, { useState, useEffect } from "react";
@@ -9,8 +10,9 @@ import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Link } from "@/lib/navigation";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Logo from "../Logo";
+
+// TODO: create endirim banner
 
 export default function Navigation() {
   const t = useTranslations();
@@ -160,7 +162,7 @@ export default function Navigation() {
                 }}
               >
                 <Link href="/" className="text-2xl font-bold text-white">
-                  {isScrolled ? (
+                  {/* {isScrolled ? (
                     <Image
                       src="/favicon.ico"
                       alt="Creadive"
@@ -169,9 +171,9 @@ export default function Navigation() {
                       sizes="100vw"
                       className="w-10 h-10"
                     />
-                  ) : (
-                    <Logo isWhite={true} isForHeader={true} />
-                  )}
+                  ) : ( */}
+                  <Logo isWhite={true} isForHeader={true} />
+                  {/* )} */}
                 </Link>
               </motion.div>
             </motion.div>
@@ -204,7 +206,7 @@ export default function Navigation() {
                 </div>
               </button>
             </div>
-            <div className="hidden lg:block">
+            <div className="hidden xl:block">
               <div className="ml-10 flex items-center space-x-8">
                 {getNavLinks(t).map((link, index) => (
                   <motion.div
@@ -245,19 +247,7 @@ export default function Navigation() {
                             }}
                             transition={{ duration: 0.2 }}
                           >
-                            <svg
-                              className="w-4 h-4"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M19 9l-7 7-7-7"
-                              />
-                            </svg>
+                            <DropdownArrowIcon />
                           </motion.span>
                         )}
                         <span
@@ -278,7 +268,7 @@ export default function Navigation() {
                       >
                         {/* Invisible bridge to prevent dropdown from closing */}
                         <div className="absolute left-0 w-full h-2" />
-                        <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                        <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
                           <div
                             className="rounded-md"
                             role="menu"

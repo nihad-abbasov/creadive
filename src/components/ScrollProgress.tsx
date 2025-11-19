@@ -26,7 +26,8 @@ export const ScrollProgress = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-[#15B6B0] to-[#20C943] z-[9999] rounded-full"
+      // bg-gradient-to-r from-[#15B6B0] to-[#20C943]
+      className="fixed top-0 left-0 h-[2px] z-[9999] rounded-full bg-white/80"
       style={{
         width: `${scrollYProgress * 100}%`,
       }}

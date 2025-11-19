@@ -1,61 +1,60 @@
 import type { NextConfig } from "next";
-import createNextIntlPlugin from 'next-intl/plugin';
+import createNextIntlPlugin from "next-intl/plugin";
 
-const withNextIntl = createNextIntlPlugin('./next-intl.config.ts');
+const withNextIntl = createNextIntlPlugin("./next-intl.config.ts");
 
 const nextConfig: NextConfig = {
   images: {
     unoptimized: false,
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'www.facebook.com',
+        protocol: "https",
+        hostname: "www.facebook.com",
       },
       {
-        protocol: 'https',
-        hostname: 'creadive.az',
+        protocol: "https",
+        hostname: "creadive.az",
       },
       // After final deployment, change protocol to https
       {
-        protocol: 'http',
-        hostname: '207.180.234.184',
+        protocol: "http",
+        hostname: "207.180.254.207",
       },
-      
     ],
-    formats: ['image/webp', 'image/avif'],
+    formats: ["image/webp", "image/avif"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   experimental: {
-    optimizePackageImports: ['framer-motion', 'react-icons'],
+    optimizePackageImports: ["framer-motion", "react-icons"],
   },
   compress: true,
   poweredByHeader: false,
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === "production",
   },
   async redirects() {
     return [
       {
-        source: '/:path*',
+        source: "/:path*",
         has: [
           {
-            type: 'host',
-            value: 'www.creadive.az',
+            type: "host",
+            value: "www.creadive.az",
           },
         ],
-        destination: 'https://creadive.az/:path*',
+        destination: "https://creadive.az/:path*",
         permanent: true,
       },
       {
-        source: '/:path*',
+        source: "/:path*",
         has: [
           {
-            type: 'host',
-            value: 'http://creadive.az',
+            type: "host",
+            value: "http://creadive.az",
           },
         ],
-        destination: 'https://creadive.az/:path*',
+        destination: "https://creadive.az/:path*",
         permanent: true,
       },
     ];

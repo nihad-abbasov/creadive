@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Add this after your existing styles */
 .testimonials-swiper {
   padding: 50px 0;
@@ -165,7 +170,7 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 .75rem;
+  padding: 0 0.75rem;
   min-width: 150px;
   transition: all 0.3s ease;
 }
@@ -210,7 +215,6 @@ body::-webkit-scrollbar-thumb {
 .testimonials-swiper .swiper-wrapper {
   gap: 1rem !important;
 }
-
 
 .blogDetailPage .prose h2,
 .blogDetailPage .prose h3,

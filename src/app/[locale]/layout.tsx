@@ -1,20 +1,20 @@
-import RootLayoutWrapper from '@/components/RootLayoutWrapper';
-import { NextIntlClientProvider } from 'next-intl';
-import { AppLocale, locales } from '@/i18n/config';
-import { getMessages } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-import { ReactNode } from 'react';
+import RootLayoutWrapper from "@/components/RootLayoutWrapper";
+import { Locale, NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+import { ReactNode } from "react";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 type Props = {
   children: ReactNode;
-  params: { locale: AppLocale };
+  params: { locale: Locale };
 };
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
-  if (!locales.includes(locale)) {
+  if (!routing.locales.includes(locale as "az" | "en" | "ru")) {
     notFound();
   }
 
@@ -26,5 +26,3 @@ export default async function LocaleLayout({ children, params }: Props) {
     </NextIntlClientProvider>
   );
 }
-
-

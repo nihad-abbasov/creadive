@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Link } from "@/lib/navigation";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -19,149 +20,143 @@ type BlogPost = {
   };
 };
 
-const blogPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "Rəqəmsal Marketinq Strategiyaları 2025",
-    excerpt:
-      "2025-ci ildə rəqəmsal marketinqdə ən effektiv strategiyalar və trendlər haqqında dərin analiz.",
-    category: "Marketinq",
-    date: "15 Mart 2025",
-    readTime: "5 dəq",
-    image: "/images/blog/digital-marketing.jpg",
-    author: {
-      name: "Rəşad Məmmədli",
-      image: "/images/team/nihad.jpg",
-    },
-  },
-  {
-    id: 2,
-    title: "UI/UX Dizayn Prinsipləri",
-    excerpt:
-      "İstifadəçi təcrübəsini yaxşılaşdıran əsas dizayn prinsipləri və best practice-lər.",
-    category: "Dizayn",
-    date: "12 Mart 2025",
-    readTime: "7 dəq",
-    image: "/images/blog/ux-ui.jpg",
-    author: {
-      name: "Leyla Əliyeva",
-      image: "/images/team/nihad.jpg",
-    },
-  },
-  {
-    id: 3,
-    title: "SEO Optimizasiyası",
-    excerpt:
-      "Axtarış sistemlərində yüksək sıralanma üçün effektiv SEO strategiyaları.",
-    category: "SEO",
-    date: "10 Mart 2025",
-    readTime: "6 dəq",
-    image: "/images/blog/seo.jpg",
-    author: {
-      name: "Nihad Abbasov",
-      image: "/images/team/nihad.jpg",
-    },
-  },
-  {
-    id: 4,
-    title: "Sosial Media Marketinqi",
-    excerpt:
-      "Sosial media platformalarında uğurlu marketinq strategiyaları və content planlaması.",
-    category: "Marketinq",
-    date: "8 Mart 2025",
-    readTime: "4 dəq",
-    image: "/images/blog/smm.jpg",
-    author: {
-      name: "Zəhra Qurbanova",
-      image: "/images/team/nihad.jpg",
-    },
-  },
-  {
-    id: 5,
-    title: "Web Development Trendləri",
-    excerpt:
-      "2025-ci ildə web development sahəsində ən populyar texnologiyalar və trendlər.",
-    category: "Development",
-    date: "5 Mart 2025",
-    readTime: "8 dəq",
-    image: "/images/blog/web-development.jpg",
-    author: {
-      name: "Əli Hüseynov",
-      image: "/images/team/nihad.jpg",
-    },
-  },
-  {
-    id: 6,
-    title: "Branding Strategiyaları",
-    excerpt:
-      "Uğurlu brend yaratmaq üçün əsas strategiyalar və best practice-lər.",
-    category: "Branding",
-    date: "3 Mart 2025",
-    readTime: "5 dəq",
-    image: "/images/blog/branding.jpg",
-    author: {
-      name: "Aynur Məmmədova",
-      image: "/images/team/nihad.jpg",
-    },
-  },
-  {
-    id: 7,
-    title: "Content Marketing",
-    excerpt:
-      "Content marketing strategiyaları və effektiv content yaratma üsulları.",
-    category: "Marketinq",
-    date: "1 Mart 2025",
-    readTime: "6 dəq",
-    image: "/images/blog/content.jpg",
-    author: {
-      name: "Zəhra Qurbanova",
-      image: "/images/team/nihad.jpg",
-    },
-  },
-  {
-    id: 8,
-    title: "Mobile App Dizaynı",
-    excerpt: "İstifadəçi dostu mobile app dizaynı üçün əsas prinsiplər.",
-    category: "Dizayn",
-    date: "28 Fevral 2025",
-    readTime: "7 dəq",
-    image: "/images/blog/mobile.jpg",
-    author: {
-      name: "Leyla Əliyeva",
-      image: "/images/team/nihad.jpg",
-    },
-  },
-  {
-    id: 9,
-    title: "E-commerce Strategiyaları",
-    excerpt:
-      "Online satışları artırmaq üçün effektiv e-commerce strategiyaları.",
-    category: "E-commerce",
-    date: "25 Fevral 2025",
-    readTime: "5 dəq",
-    image: "/images/blog/e-commerce.jpg",
-    author: {
-      name: "Rəşad Məmmədli",
-      image: "/images/team/nihad.jpg",
-    },
-  },
-  {
-    id: 10,
-    title: "Data Analytics",
-    excerpt: "Business qərarlar üçün data analizi və reporting.",
-    category: "Analytics",
-    date: "22 Fevral 2025",
-    readTime: "6 dəq",
-    image: "/images/blog/analytics.jpg",
-    author: {
-      name: "Nihad Abbasov",
-      image: "/images/team/nihad.jpg",
-    },
-  },
-];
-
 export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const t = useTranslations("blog");
+
+  const blogPosts: BlogPost[] = [
+    {
+      id: 1,
+      title: t("blog1.title"),
+      excerpt: t("blog1.excerpt"),
+      category: t("blog1.category"),
+      date: t("blog1.date"),
+      readTime: t("blog1.readTime"),
+      image: t("blog1.image"),
+      author: {
+        name: t("blog1.author.name"),
+        image: t("blog1.author.image"),
+      },
+    },
+    {
+      id: 2,
+      title: t("blog2.title"),
+      excerpt: t("blog2.excerpt"),
+      category: t("blog2.category"),
+      date: t("blog2.date"),
+      readTime: t("blog2.readTime"),
+      image: t("blog2.image"),
+      author: {
+        name: t("blog2.author.name"),
+        image: t("blog2.author.image"),
+      },
+    },
+    {
+      id: 3,
+      title: t("blog3.title"),
+      excerpt: t("blog3.excerpt"),
+      category: t("blog3.category"),
+      date: t("blog3.date"),
+      readTime: t("blog3.readTime"),
+      image: t("blog3.image"),
+      author: {
+        name: t("blog3.author.name"),
+        image: t("blog3.author.image"),
+      },
+    },
+    {
+      id: 4,
+      title: t("blog4.title"),
+      excerpt: t("blog4.excerpt"),
+      category: t("blog4.category"),
+      date: t("blog4.date"),
+      readTime: t("blog4.readTime"),
+      image: t("blog4.image"),
+      author: {
+        name: t("blog4.author.name"),
+        image: t("blog4.author.image"),
+      },
+    },
+    {
+      id: 5,
+      title: t("blog5.title"),
+      excerpt: t("blog5.excerpt"),
+      category: t("blog5.category"),
+      date: t("blog5.date"),
+      readTime: t("blog5.readTime"),
+      image: t("blog5.image"),
+      author: {
+        name: t("blog5.author.name"),
+        image: t("blog5.author.image"),
+      },
+    },
+    {
+      id: 6,
+      title: t("blog6.title"),
+      excerpt: t("blog6.excerpt"),
+      category: t("blog6.category"),
+      date: t("blog6.date"),
+      readTime: t("blog6.readTime"),
+      image: t("blog6.image"),
+      author: {
+        name: t("blog6.author.name"),
+        image: t("blog6.author.image"),
+      },
+    },
+    {
+      id: 7,
+      title: t("blog7.title"),
+      excerpt: t("blog7.excerpt"),
+      category: t("blog7.category"),
+      date: t("blog7.date"),
+      readTime: t("blog7.readTime"),
+      image: t("blog7.image"),
+      author: {
+        name: t("blog7.author.name"),
+        image: t("blog7.author.image"),
+      },
+    },
+    {
+      id: 8,
+      title: t("blog8.title"),
+      excerpt: t("blog8.excerpt"),
+      category: t("blog8.category"),
+      date: t("blog8.date"),
+      readTime: t("blog8.readTime"),
+      image: t("blog8.image"),
+      author: {
+        name: t("blog8.author.name"),
+        image: t("blog8.author.image"),
+      },
+    },
+    {
+      id: 9,
+      title: t("blog9.title"),
+      excerpt: t("blog9.excerpt"),
+      category: t("blog9.category"),
+      date: t("blog9.date"),
+      readTime: t("blog9.readTime"),
+      image: t("blog9.image"),
+      author: {
+        name: t("blog9.author.name"),
+        image: t("blog9.author.image"),
+      },
+    },
+    {
+      id: 10,
+      title: t("blog10.title"),
+      excerpt: t("blog10.excerpt"),
+      category: t("blog10.category"),
+      date: t("blog10.date"),
+      readTime: t("blog10.readTime"),
+      image: t("blog10.image"),
+      author: {
+        name: t("blog10.author.name"),
+        image: t("blog10.author.image"),
+      },
+    },
+  ];
 
   const filteredPosts = selectedCategory
     ? blogPosts.filter((post) => post.category === selectedCategory)
@@ -226,21 +221,20 @@ export default function Blog() {
       <div className="max-w-7xl mx-auto px-4">
         <motion.div variants={headerVariants}>
           <h1 className="text-4xl md:text-5xl font-extrabold text-center text-white mb-4 tracking-tight">
-            Rəqəmsal Marketinq və Veb dizayn Bloqu
+            {t("title")}
           </h1>
           <p className="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">
-            SEO, social media marketinq, veb dizayn və rəqəmsal strategiyalar
-            haqqında məqalələr.
+            {t("description")}
           </p>
         </motion.div>
 
         {/* Categories */}
-        <motion.h2
+        {/* <motion.h2
           className="text-3xl font-bold text-center text-white mb-8"
           variants={headerVariants}
         >
-          Bloq Kateqoriyaları
-        </motion.h2>
+          {t("categories")}
+        </motion.h2> */}
         <motion.div
           className="flex flex-wrap justify-center gap-4 mb-12"
           variants={categoryVariants}
@@ -255,7 +249,7 @@ export default function Blog() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Hamısı
+            {t("all")}
           </motion.button>
           {categories.map((category, index) => (
             <motion.button
@@ -279,7 +273,7 @@ export default function Blog() {
 
         {/* Blog Posts Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
           variants={containerVariants}
         >
           {filteredPosts.map((post, index) => (
@@ -340,13 +334,13 @@ export default function Blog() {
 
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                   <span className="text-xs text-gray-500">
-                    {post.readTime} oxumaq
+                    {post.readTime} {t("readTime")}
                   </span>
                   <Link
                     href={`/blog/${post.id}`}
                     className="text-blue-600 hover:text-blue-700 transition-colors duration-300"
                   >
-                    Ətraflı →
+                    {t("viewDetails")} →
                   </Link>
                 </div>
               </div>
@@ -362,9 +356,7 @@ export default function Blog() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-gray-600 text-lg">
-              Bu kateqoriyada məqalə tapılmadı.
-            </p>
+            <p className="text-gray-600 text-lg">{t("noData")}</p>
           </motion.div>
         )}
       </div>

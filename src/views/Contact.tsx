@@ -7,13 +7,14 @@ import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useToast } from "@/context/ToastContext";
 import { contactApi } from "@/services/contact";
+import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { contacts } from "@/data/contact";
-import { motion } from "framer-motion";
-import { useState } from "react";
 import { Link } from "@/lib/navigation";
-import * as yup from "yup";
+import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
+import { useState } from "react";
+import * as yup from "yup";
 
 interface ContactFormData {
   fullName: string;
@@ -23,23 +24,25 @@ interface ContactFormData {
   subject: string;
 }
 
-const schema = yup.object<ContactFormData>().shape({
-  fullName: yup.string().required("Bu xana vacibdir"),
-  email: yup
-    .string()
-    .required("Bu xana vacibdir")
-    .email("Düzgün email formatı daxil edin"),
-  phone: yup
-    .string()
-    .required("Bu xana vacibdir")
-    .matches(/^[0-9+\-\s()]*$/, "Düzgün telefon nömrəsi daxil edin"),
-  company: yup.string().required("Bu xana vacibdir"),
-  subject: yup.string().required("Bu xana vacibdir"),
-});
+const getSchema = (t: (key: string) => string) => {
+  return yup.object<ContactFormData>().shape({
+    fullName: yup.string().required(t("requiredText")),
+    email: yup.string().required(t("requiredText")).email(t("validEmail")),
+    phone: yup
+      .string()
+      .required(t("requiredText"))
+      .matches(/^[0-9+\-\s()]*$/, t("validPhone")),
+    company: yup.string().required(t("requiredText")),
+    subject: yup.string().required(t("requiredText")),
+  });
+};
 
 export default function Contact() {
   const { showToast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const t = useTranslations("contact");
+
+  const schema = getSchema(t);
 
   const methods = useForm({
     resolver: yupResolver(schema),
@@ -63,22 +66,30 @@ export default function Contact() {
       const response = await contactApi.create(formData, locale);
 
       if (response.status === 200 || response.status === 201) {
-        showToast("success", "Müraciətiniz uğurla göndərildi!");
+        showToast("success", t("success_message"));
         methods.reset();
       } else {
-        throw new Error(`Unexpected response status: ${response.status}`);
+        throw new Error(
+          `${t("unexpected_response_status")} ${response.status}`
+        );
       }
-    } catch (error: any) {
-      console.error('Contact form submission error:', error);
+    } catch (error: unknown) {
+      console.error(t("submission_error"), error);
 
-      let errorMessage = "Müraciətiniz göndərilərkən xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.";
+      let errorMessage = t("error_message_default");
 
-      if (error.response?.data?.message) {
-        // errorMessage = error.response.data.message;
-        errorMessage = "Something went wrong. Try again later.";
-      } else if (error.message) {
-        // errorMessage = error.message;
-        errorMessage = "Something went wrong. Try again later.";
+      if (error && typeof error === "object" && "response" in error) {
+        const apiError = error as {
+          response?: { data?: { message?: string } };
+        };
+        if (apiError.response?.data?.message) {
+          errorMessage = t("error_message_2");
+        }
+      } else if (error && typeof error === "object" && "message" in error) {
+        const messageError = error as { message: string };
+        if (messageError.message) {
+          errorMessage = t("error_message_3");
+        }
       }
 
       showToast("error", errorMessage);
@@ -96,13 +107,9 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="text-center mb-10"
         >
-          <h1 className="text-4xl font-bold !text-white mb-4">
-            Vebsayt və Rəqəmsal Marketinq Xidmətləri Üçün Bizimlə Əlaqə Saxlayın
-          </h1>
+          <h1 className="text-4xl font-bold !text-white mb-4">{t("title")}</h1>
           <p className="text- text-white/80 max-w-2xl mx-auto">
-            Rəqəmsal marketinq və veb layihəniz haqqında danışmaq üçün
-            bizimlə əlaqə saxlayın. Peşəkar komandamız sizə kömək etməyə
-            hazırdır!
+            {t("description")}
           </p>
         </motion.div>
 
@@ -113,20 +120,19 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="space-y-2 w-full md:w-full mx-auto list-none flex flex-col lg:flex-row justify-center md:justify-between items-center md:border md:border-white rounded-lg py-2 px-4"
           >
-            {
-              contacts.map((contact) => (
-                <li key={contact.id} className="!m-0">
-                  <Link href={contact.href} className="hover:text-white flex items-center space-x-1">
-                    <div>
-                      {contact.icon}
-                    </div>
-                    <div>
-                      <p className="text-gray-100">{contact.label}</p>
-                    </div>
-                  </Link>
-                </li>
-              ))
-            }
+            {contacts.map((contact) => (
+              <li key={contact.id} className="!m-0">
+                <Link
+                  href={contact.href}
+                  className="hover:text-white flex items-center space-x-1"
+                >
+                  <div>{contact.icon}</div>
+                  <div>
+                    <p className="text-gray-100">{contact.label}</p>
+                  </div>
+                </Link>
+              </li>
+            ))}
           </motion.ul>
 
           {/* Contact Form */}
@@ -143,32 +149,32 @@ export default function Contact() {
               <div>
                 <InputTextField
                   name="fullName"
-                  label="Ad Soyad"
-                  placeholder="Ad və Soyadınızı daxil edin"
+                  label={t("fullName_label")}
+                  placeholder={t("fullName_placeholder")}
                 />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <InputTextField
                     name="email"
-                    label="Email"
+                    label={t("email_label")}
                     placeholder="info@creadive.az"
                     type="email"
                   />
                   <InputTextField
                     name="phone"
-                    label="Telefon"
+                    label={t("phone_label")}
                     placeholder="+994 10 531 99 87"
                     type="tel"
                   />
                 </div>
                 <InputTextField
                   name="company"
-                  label="Şirkət"
-                  placeholder="Şirkətinizin adı (Məs. Creadive Agentliyi)"
+                  label={t("company_label")}
+                  placeholder={t("company_placeholder")}
                 />
                 <InputTextareaField
                   name="subject"
-                  label="Mövzu"
-                  placeholder="Müraciətinizin mövzusu (Məs. Vebsaytınızın yaradılması, Mühasibat xidməti, və s.)"
+                  label={t("subject_label")}
+                  placeholder={t("subject_placeholder")}
                 />
                 <button
                   type="submit"
@@ -177,12 +183,12 @@ export default function Contact() {
                 >
                   {isLoading ? (
                     <>
-                      Göndərilir...
+                      {t("sending_message")}
                       <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
                     </>
                   ) : (
                     <>
-                      Göndər
+                      {t("send")}
                       <PaperAirplaneIcon className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                     </>
                   )}

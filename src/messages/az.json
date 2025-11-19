@@ -9,12 +9,18 @@
     "ctaCall": "Zəng et",
     "slogan": "İdealarınızı gerçəkləşdirək ✨"
   },
+  "notFound": {
+    "title": "Səhifə tapılmadı",
+    "description": "Axtardığınız səhifə mövcud deyil və ya silinib. Zəhmət olmasa başqa bir səhifəyə keçin.",
+    "goBack": "Ana Səhifəyə Qayıt"
+  },
   "nav": {
     "services": "Xidmətlər",
     "about": "Haqqımızda",
     "portfolio": "Portfolio",
     "blog": "Bloq",
     "contact": "Əlaqə",
+    "contactCTA": "Konsultasiya Alın",
     "servicesItems": {
       "web": "Vebsayt",
       "smm": "SMM",
@@ -22,12 +28,14 @@
       "uiux": "UI/UX Dizayn",
       "seo": "SEO",
       "gd": "Qrafik Dizayn",
-      "targeting": "Tarqetinq"
+      "targeting": "Tarqetinq",
+      "mobile_app": "Mobil Tətbiq yaradılması"
+    },
+    "aboutItems": {
+      "values": "Dəyərlərimiz",
+      "team": "Komandamız",
+      "faq": "FAQ"
     }
-  },
-  "about": {
-    "team": "Komandamız",
-    "faq": "FAQ"
   },
   "footer": {
     "quickLinks": "Qısa yollar",
@@ -53,7 +61,7 @@
       "description": "Biznesinizi hərtərəfli rəqəmsal həllərimizlə transformasiya edin.<br/>Dizayndan marketinqə qədər, hər şeyi təmin edirik."
     },
     "services": {
-      "title": "Rəqəmsal Marketinq və Veb dizayn Xidmətlərimiz",
+      "title": "Rəqəmsal Marketinq və Veb Xidmətlərimiz",
       "items": {
         "web": {
           "title": "Vebsayt hazırlama",
@@ -270,5 +278,314 @@
     "testimonials": {
       "title": "Müştəri Rəyləri və Təəssüratları - Creadive Agentliyi Haqqında"
     }
+  },
+  "services": {
+    "title": "Rəqəmsal Marketinq və Veb Xidmətlərimiz",
+    "subtitle": "Biznesiniz üçün ən yaxşı rəqəmsal həlləri və kreativ dizayn xidmətləri təklif edirik",
+    "loading": "Xidmətlər yüklənir...",
+    "error": "Xidmətlər yüklənərkən xəta baş verdi",
+    "items": {
+      "web-development": {
+        "title": "Vebsayt yaradılması",
+        "description": "Modern və funksional veb saytlar və tətbiqlər.",
+        "details": "Biznesiniz üçün tam fərdiləşdirilmiş, sürətli və təhlükəsiz veb saytlar və tətbiqlər hazırlayırıq. Responsive dizayn, SEO Optimizasıyası və ən son texnologiyalardan istifadə edirik. Məqsədimiz, brendinizi rəqəmsal dünyada uğurla təmsil etməkdir."
+      },
+      "smm": {
+        "title": "SMM",
+        "description": "Sosial media platformalarında professional idarəetmə.",
+        "details": "Instagram, Facebook, LinkedIn və digər platformalarda brendinizi effektiv şəkildə idarə edirik. Kontent planlaması, reklam və icma idarəçiliyi ilə sosial mediada uğur qazanın."
+      },
+      "targeting": {
+        "title": "Tarqetinq",
+        "description": "Dəqiq hədəfləndirmə və effektiv reklam kampaniyaları.",
+        "details": "Hədəf auditoriyanıza çatmaq üçün dəqiq hədəfləndirmə strategiyaları hazırlayırıq. Reklam kampaniyalarınızı optimallaşdıraraq maksimum ROI əldə edin."
+      },
+      "ui-ux": {
+        "title": "UI/UX Dizayn",
+        "description": "İstifadəçi təcrübəsini artıran kreativ dizayn həlləri.",
+        "details": "İstifadəçi mərkəzli yanaşma ilə interfeyslər dizayn edirik. Rəng palitrası, tipografiya və vizual elementlərdə brendinizin ruhunu əks etdiririk. Məqsədimiz, istifadəçilər üçün rahat və cəlbedici təcrübə yaratmaqdır."
+      },
+      "digital-marketing": {
+        "title": "Rəqəmsal Marketinq",
+        "description": "Brendinizi rəqəmsal dünyada tanıdın və böyüdün.",
+        "details": "Rəqəmsal marketinq strategiyaları, sosial media idarəçiliyi, reklam kampaniyaları və analitika ilə brendinizi onlayn mühitdə gücləndiririk. Hədəf auditoriyanıza çatmaq və satışlarınızı artırmaq üçün effektiv həllər təklif edirik."
+      },
+      "seo": {
+        "title": "SEO",
+        "description": "Axtarış sistemlərində yüksək sıralama üçün Optimizasıyası.",
+        "details": "Saytınızın Google və digər axtarış sistemlərində ön sıralarda çıxması üçün texniki və məzmun Optimizasıyası edirik. Trafikinizi və görünürlüyünüzü artırırıq."
+      },
+      "graphic-design": {
+        "title": "Qrafik Dizayn",
+        "description": "Professional qrafik dizayn və brend identifikasiyası.",
+        "details": "Logo, brend kitabı, sosial media dizaynları və digər vizual elementlərlə brendinizi gücləndiririk. Kreativ və müasir dizayn həlləri ilə fərqlənin."
+      },
+      "mobile-development": {
+        "title": "Mobil Tətbiqlərin Yaradılması",
+        "description": "iOS və Android üçün yüksək keyfiyyətli mobil tətbiqlər.",
+        "details": "Mobil istifadəçilər üçün sürətli, funksional və estetik tətbiqlər hazırlayırıq. iOS və Android platformalarında mükəmməl işləyən həllər təqdim edirik. İstifadəçi təcrübəsi və performans bizim üçün ön plandadır."
+      }
+    }
+  },
+  "about": {
+    "title": "Creadive Agentliyi - Biz Kimik?",
+    "subtitle": "Creadive, bizneslərin rəqəmsal dünyada uğur qazanmasına kömək etmək üçün yaradılıb. Biz, müştərilərimizə innovativ və effektiv həllər təklif edirik.",
+    "sections": {
+      "title": "Bizim Haqqımızda Ətraflı",
+      "whoWeAre": {
+        "title": "Biz kimik?",
+        "content": "Salam! Biz Creadive Agency ailəsiyik. Bakının ürəyində yaranmış komandamızla kreativ həllərin arxasındakı gülər üzlərik. Bilirik ki, hər brendin öz hekayəsi var və biz bu hekayələri rəqəmsal dünyada ən gözəl şəkildə çatdırmağa can atırıq."
+      },
+      "mission": {
+        "title": "Missiyamız",
+        "content": "Biz inanırıq ki, hər brendin öz unique səsi var - bizim işimiz bu səsi rəqəmsal dünyada eşitdirməkdir! Müştərilərimizlə əl-ələ verib, onların məqsədlərini öz məqsədimiz kimi qəbul edir və bu yolda var gücümüzlə çalışırıq."
+      },
+      "vision": {
+        "title": "Vizyonumuz",
+        "content": "Böyük xəyallarımız var! Azərbaycan brendlərinin kreativlik və innovasiyada dünya səviyyəsində söz sahibi olduğu bir gələcək təsəvvür edirik. Amma bu sadəcə bir xəyal deyil - biz hər gün bu məqsədə doğru addımlayırıq."
+      },
+      "values": {
+        "title": "Dəyərlərimiz",
+        "content": "Peşəkarlıq, innovasiya, etibarlılıq və müştəri məmnuniyyəti bizim əsas dəyərlərimizdir. Biz müştərilərimizin məqsədlərini öz məqsədimiz kimi qəbul edir və bu yolda var gücümüzlə çalışırıq."
+      }
+    },
+    "team": {
+      "title": "Komandamız",
+      "members": {
+        "nihad": {
+          "role": "Təsisçi & CEO",
+          "bio": "Creadive Agentliyinin qurucusu və baş icraçı direktorudur. Texnologiya və biznes strategiyalarının kəsişməsində..."
+        },
+        "enver": {
+          "role": "Rəqəmsal Marketinq Mütəxəssisi",
+          "bio": "Performansa əsaslanan marketinq sahəsində ixtisaslaşıb. Brend tanıdılması, hədəfli reklam və nəticəyə yönəlik..."
+        },
+        "fexri": {
+          "role": "Kopirayter & Kontent Kreator",
+          "bio": "İxtisaslaşmış copyrighter və content creator. Marketinq sahəsində 5+ il təcrübəyə malikdir. Brend kimliyi və istifad..."
+        },
+        "javid": {
+          "role": "Kreativ Dizayner",
+          "bio": "Brend kimliyi və istifadəçi interfeysi dizaynlarında güclü portfolioya sahibdir. Vizual dilin funksionallıqla balansını..."
+        },
+        "alish": {
+          "role": "İnsan resursları mütəxəssisi",
+          "bio": "İnsan resursları sahəsində 4+ illik təcrübəyə malikdir. İxtisaslaşmış təcrübəsi ilə müştəri məmnuniyyəti və iş qabiliy..."
+        },
+        "azad": {
+          "role": "Backend Developer (Python/Django)",
+          "bio": "4+ illik təcrübəyə malik Python/Django developer. Məlumat bazaları, API inteqrasiyaları və server-side həllərin hazırlanm..."
+        }
+      }
+    },
+    "faq": {
+      "title": "Tez-tez soruşulan suallar",
+      "questions": {
+        "budget": {
+          "question": "Creadive ilə işləmək üçün minimum büdcə nə qədərdir?",
+          "answer": "Hər layihə fərdidir və büdcə layihənin mürəkkəbliyindən asılıdır. Kiçik brendlər üçün 500 AZN-dən başlayan paketlərimiz var. Daha dəqiq məlumat üçün bizimlə əlaqə saxlayın və layihənizi müzakirə edək."
+        },
+        "timeline": {
+          "question": "Vebsayt layihəsi nə qədər vaxt aparır?",
+          "answer": "Sadə landing page 1-2 həftə, tam vebsayt 3-4 həftə, e-ticarət saytı isə 4-6 həftə vaxt aparır. Layihənin mürəkkəbliyi və müştərinin tələbləri vaxtı təsir edir. Hər layihə üçün dəqiq təqvim təqdim edirik."
+        },
+        "smm": {
+          "question": "Sosial media idarəçiliyi xidmətinizə nə daxildir?",
+          "answer": "SMM paketlərimizə post dizaynı, reels/motion video hazırlanması, hekayə dizaynı, targeting kampaniyaları, hesab idarəçiliyi və hesabatlar daxildir. Hər paket fərqli xidmətlər təklif edir."
+        },
+        "support": {
+          "question": "Layihə tamamlandıqdan sonra dəstək verirsinizmi?",
+          "answer": "Bəli! Bütün layihələrimizə 1 ay pulsuz dəstək daxildir. Bundan sonra da davamlı texniki dəstək və yeniləmə xidmətləri təklif edirik. Müştərilərimizlə uzunmüddətli əməkdaşlıq edirik."
+        },
+        "seo": {
+          "question": "SEO optimizasiyası nə qədər vaxtda nəticə verir?",
+          "answer": "SEO uzunmüddətli strategiyadır. İlk nəticələr 2-3 ay ərzində görünə bilər, tam effekt isə 6-12 ay ərzində əldə edilir. Düzgün strategiya və davamlı işlə nəticələr təminat vericidir."
+        },
+        "changes": {
+          "question": "Layihə prosesində dəyişikliklər edə bilərəmmi?",
+          "answer": "Əlbəttə! Layihə prosesində 2 dəfə pulsuz dəyişiklik hüququ veririk. Əlavə dəyişikliklər üçün kiçik əlavə ödəniş tələb olunur. Müştəri məmnuniyyəti bizim üçün ən vacibdir."
+        },
+        "payment": {
+          "question": "Hansı ödəniş şərtləri tətbiq edirsiniz?",
+          "answer": "Standart şərtlərimiz: 50% avans, 50% layihə tamamlandıqdan sonra. Böyük layihələr üçün 3-4 hissəli ödəniş sistemi də təklif edə bilərik. Bütün ödənişlər müqavilə ilə təsdiqlənir."
+        },
+        "update": {
+          "question": "Mövcud vebsaytımı yeniləyə bilərsinizmi?",
+          "answer": "Bəli! Mövcud vebsaytların yenilənməsi, redesign və funksional əlavələr xidmətlərimizə daxildir. Köhnə texnologiyalardan müasir həllərə keçid də edə bilərik."
+        }
+      }
+    },
+    "cta": {
+      "title": "Bizimlə əməkdaşlıq etmək istəyirsiniz?",
+      "button": "Əlaqə saxlayın"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio - Uğurlu Layihələrimiz",
+    "description": "Müştərilərimiz üçün həyata keçirdiyimiz veb saytlar, reklam kampaniyaları və dizayn layihələri.",
+    "loading": "Portfolio məlumatları yüklənir...",
+    "error": "Xəta baş verdi",
+    "reload": "Yenidən yoxla",
+    "viewDetails": "Ətraflı bax",
+    "categories": "Layihə Kateqoriyaları",
+    "noData": "Hələ portfolio məlumatları yoxdur",
+    "noDataDescription": "Portfolio məlumatları tezliklə əlavə olunacaq.",
+    "noCategoryData": "Bu kateqoriyada hələ layihə yoxdur",
+    "noCategoryDataDescription": "Bu kateqoriyada layihələr tezliklə əlavə olunacaq."
+  },
+  "blog": {
+    "title": "Bloq - SEO, social media marketinq, veb dizayn və rəqəmsal strategiyalar haqqında məqalələr",
+    "description": "SEO, social media marketinq, veb dizayn və rəqəmsal strategiyalar haqqında məqalələr.",
+    "loading": "Bloq məlumatları yüklənir...",
+    "error": "Xəta baş verdi",
+    "reload": "Yenidən yoxla",
+    "viewDetails": "Ətraflı bax",
+    "noData": "Hələ bloq məlumatları yoxdur",
+    "all": "Hamısı",
+    "readTime": "oxumaq",
+    "blog1": {
+      "title": "Rəqəmsal Marketinq Strategiyaları 2025",
+      "excerpt": "2025-ci ildə rəqəmsal marketinqdə ən effektiv strategiyalar və trendlər haqqında dərin analiz.",
+      "category": "Marketinq",
+      "date": "19 İyun 2025",
+      "readTime": "5 dəq",
+      "image": "/images/blog/digital-marketing.jpg",
+      "author": {
+        "name": "Rəşad Məmmədli",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog2": {
+      "title": "UI/UX Dizayn Prinsipləri",
+      "excerpt": "İstifadəçi təcrübəsini yaxşılaşdıran əsas dizayn prinsipləri və best practice-lər.",
+      "category": "Dizayn",
+      "date": "12 Mart 2025",
+      "readTime": "7 dəq",
+      "image": "/images/blog/ux-ui.jpg",
+      "author": {
+        "name": "Leyla Əliyeva",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog3": {
+      "title": "SEO Optimizasiyası",
+      "excerpt": "Axtarış sistemlərində yüksək sıralanma üçün effektiv SEO strategiyaları.",
+      "category": "SEO",
+      "date": "25 Fevral 2025",
+      "readTime": "10 dəq",
+      "image": "/images/blog/seo.jpg",
+      "author": {
+        "name": "Nihad Məmmədov",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog4": {
+      "title": "Sosial Media Marketinqi",
+      "excerpt": "Sosial media platformalarında uğurlu marketinq strategiyaları və content planlaması.",
+      "category": "Marketinq",
+      "date": "8 Mart 2025",
+      "readTime": "4 dəq",
+      "image": "/images/blog/smm.jpg",
+      "author": {
+        "name": "Zəhra Qurbanova",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog5": {
+      "title": "Web Development Trendləri",
+      "excerpt": "2025-ci ildə web development sahəsində ən populyar texnologiyalar və trendlər.",
+      "category": "Development",
+      "date": "5 Mart 2025",
+      "readTime": "8 dəq",
+      "image": "/images/blog/web-development.jpg",
+      "author": {
+        "name": "Əli Hüseynov",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog6": {
+      "title": "Branding Strategiyaları",
+      "excerpt": "Uugurlu brend yaratmaq ucun esas strategiyalar ve best practice-ler.",
+      "category": "Branding",
+      "date": "29 Yanvar 2025",
+      "readTime": "12 dəq",
+      "image": "/images/blog/branding.jpg",
+      "author": {
+        "name": "Ayxan Əliyev",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog7": {
+      "title": "Content Marketing",
+      "excerpt": "Content marketing strategiyalari ve effektiv content yaratma usulları.",
+      "category": "Marketinq",
+      "date": "1 Mart 2025",
+      "readTime": "6 dəq",
+      "image": "/images/blog/content.jpg",
+      "author": {
+        "name": "Zəhra Qurbanova",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog8": {
+      "title": "Mobil App Dizaynı",
+      "excerpt": "İstifadəçi dostu mobile app dizaynı üçün əsas prinsiplər.",
+      "category": "Dizayn",
+      "date": "28 Fevral 2025",
+      "readTime": "7 dəq",
+      "image": "/images/blog/mobile.jpg",
+      "author": {
+        "name": "Leyla Əliyeva",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog9": {
+      "title": "E-commerce Strategiyaları",
+      "excerpt": "Online satışları artırmaq üçün effektiv e-commerce strategiyaları.",
+      "category": "E-commerce",
+      "date": "25 Fevral 2025",
+      "readTime": "5 dəq",
+      "image": "/images/blog/e-commerce.jpg",
+      "author": {
+        "name": "Rəşad Məmmədli",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "blog10": {
+      "title": "Data Analytics",
+      "excerpt": "Business qərarlar üçün data analizi və reporting.",
+      "category": "Analytics",
+      "date": "22 Fevral 2025",
+      "readTime": "6 dəq",
+      "image": "/images/blog/analytics.jpg",
+      "author": {
+        "name": "Nihad Məmmədov",
+        "image": "/images/team/nihad.jpg"
+      }
+    },
+    "goBack": "Bütün məqalələrə qayıt"
+  },
+  "contact": {
+    "title": "Əlaqə",
+    "description": "Rəqəmsal marketinq və veb layihəniz haqqında danışmaq üçün bizimlə əlaqə saxlayın. Peşəkar komandamız sizə kömək etməyə hazırdır!",
+    "fullName_label": "Ad Soyad",
+    "fullName_placeholder": "Ad və Soyadınızı daxil edin",
+    "email_label": "Email",
+    "phone_label": "Telefon",
+    "company_label": "Şirkət",
+    "company_placeholder": "Şirkətinizin adı (Məs. Creadive Agentliyi)",
+    "subject_label": "Mövzu",
+    "subject_placeholder": "Müraciətinizin mövzusu (Məs. Vebsaytınızın yaradılması, Mühasibat xidməti, və s.)",
+    "sending_message": "Göndərilir...",
+    "send": "Göndər",
+    "success_message": "Müraciətiniz uğurla göndərildi!",
+    "error_message_default": "Müraciətiniz göndərilərkən xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.",
+    "error_message_2": "Müraciətiniz göndərilərkən xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.",
+    "error_message_3": "Müraciətiniz göndərilərkən xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.",
+    "unexpected_response_status": "Xəta baş verdi. Status kodu: ",
+    "submission_error": "Müraciətiniz göndərilərkən xəta baş verdi: ",
+    "requiredText": "Bu xana vacibdir",
+    "validEmail": "Düzgün email formatı daxil edin",
+    "validPhone": "Düzgün telefon nömrəsi daxil edin"
   }
 }
