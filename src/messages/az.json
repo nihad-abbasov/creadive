@@ -46,6 +46,7 @@
     "services": "Xidmətlərimiz",
     "blog": "Bloq",
     "portfolio": "Portfolio",
+    "privacyPolicy": "Məxfilik Siyasəti",
     "copyright": "Bütün hüquqlar qorunur."
   },
   "meta": {
@@ -592,5 +593,98 @@
     "requiredText": "Bu xana vacibdir",
     "validEmail": "Düzgün email formatı daxil edin",
     "validPhone": "Düzgün telefon nömrəsi daxil edin"
+  },
+  "privacyPolicy": {
+    "title": "Məxfilik Siyasəti",
+    "lastUpdated": "Son yenilənmə: 2025",
+    "effectiveDate": "Qüvvəyə minmə tarixi: 2025",
+    "footerNote": "Bu məxfilik siyasəti Azərbaycan Respublikasının 'Şəxsi Məlumatlar haqqında' Qanununa uyğun olaraq hazırlanmışdır.",
+    "sections": {
+      "introduction": {
+        "title": "Giriş",
+        "content": "Creadive Agentliyi ('biz', 'bizim', 'agentlik') olaraq, vebsaytımızı ziyarət edən və xidmətlərimizdən istifadə edən istifadəçilərin şəxsi məlumatlarının məxfiliyini qorumağa sadiqik. Bu Məxfilik Siyasəti, Azərbaycan Respublikasının 'Şəxsi Məlumatlar haqqında' Qanununa uyğun olaraq, şəxsi məlumatların toplanması, istifadəsi, saxlanması və qorunması ilə bağlı məlumat verir."
+      },
+      "dataCollection": {
+        "title": "Şəxsi Məlumatların Toplanması",
+        "content": "Biz aşağıdakı növ şəxsi məlumatları toplaya bilərik:",
+        "items": [
+          "Ad, soyad və əlaqə məlumatları (e-poçt ünvanı, telefon nömrəsi)",
+          "Şirkət adı və vəzifə məlumatları",
+          "Vebsaytımızı ziyarət edərkən avtomatik toplanan texniki məlumatlar (IP ünvanı, brauzer növü, işləmə sistemi)",
+          "Cookies və oxşar texnologiyalar vasitəsilə toplanan məlumatlar",
+          "Əlaqə formaları və sorğular vasitəsilə təqdim etdiyiniz məlumatlar",
+          "Sosial media platformalarında bizimlə əlaqə saxladığınız zaman paylaşdığınız məlumatlar"
+        ]
+      },
+      "purpose": {
+        "title": "Şəxsi Məlumatların İstifadə Məqsədi",
+        "content": "Toplanan şəxsi məlumatlar aşağıdakı məqsədlər üçün istifadə olunur:",
+        "items": [
+          "Xidmətlərimizi təqdim etmək və müştəri sorğularına cavab vermək",
+          "Layihələrimizi planlaşdırmaq və həyata keçirmək",
+          "Vebsaytımızın funksionallığını yaxşılaşdırmaq və istifadəçi təcrübəsini təkmilləşdirmək",
+          "Hüquqi öhdəliklərimizi yerinə yetirmək və qanuni tələblərə cavab vermək",
+          "Marketinq və reklam kampaniyalarını həyata keçirmək (yalnız razılıq verildikdə)"
+        ]
+      },
+      "dataSharing": {
+        "title": "Şəxsi Məlumatların Paylaşılması",
+        "content": "Şəxsi məlumatlarınızı aşağıdakı hallarda üçüncü tərəflərlə paylaşa bilərik:",
+        "items": [
+          "Qanuni öhdəlikləri yerinə yetirmək üçün: Məhkəmə qərarı, məhkəmə əmri və ya qanuni tələb olduqda, habelə hüquqi hüquqlarımızı və maraqlarımızı qorumaq üçün",
+          "Xidmət təminatçıları ilə: Vebsaytımızın işləməsi və xidmətlərimizin təqdim edilməsi üçün bizimlə işləyən etibarlı üçüncü tərəf xidmət təminatçıları ilə (hostinq, analitika və s.)",
+          "İstifadəçi razılığı ilə: Açıq şəkildə razılıq verdiyiniz hallarda"
+        ]
+      },
+      "userRights": {
+        "title": "İstifadəçi Hüquqları",
+        "content": "Azərbaycan Respublikasının 'Şəxsi Məlumatlar haqqında' Qanununa uyğun olaraq, aşağıdakı hüquqlara maliksiniz:",
+        "items": [
+          "Şəxsi məlumatlarınıza daxil olmaq və onların hansı məlumatların toplandığını öyrənmək",
+          "Qeyri-dəqiq və ya köhnəlmiş şəxsi məlumatların düzəldilməsini tələb etmək",
+          "Şəxsi məlumatlarınızın silinməsini tələb etmək (qanuni öhdəliklərimiz olduqda istisna olmaqla)",
+          "Şəxsi məlumatların emalına məhdudiyyət qoymaq",
+          "Şəxsi məlumatların emalına etiraz etmək",
+          "Əvvəllər verilmiş razılığı geri götürmək",
+          "Şəxsi məlumatların toplanması və emalı ilə bağlı müvafiq nəzarət orqanına şikayət etmək",
+          "Qanunla təmin edilən digər hüquqları həyata keçirmək"
+        ]
+      },
+      "dataSecurity": {
+        "title": "Məlumatların Təhlükəsizliyi",
+        "content": "Şəxsi məlumatlarınızın qorunması üçün aşağıdakı texniki və təşkilati tədbirləri həyata keçiririk:",
+        "items": [
+          "Müasir şifrələmə texnologiyalarından istifadə",
+          "Məlumat bazalarına yetkisiz girişin qarşısının alınması üçün təhlükəsizlik sistemləri",
+          "Mütəmadi təhlükəsizlik auditləri və sistem yeniləmələri",
+          "İşçilərimizin məxfilik və təhlükəsizlik prinsipləri ilə tanış olması və təlim keçməsi"
+        ]
+      },
+      "dataRetention": {
+        "title": "Məlumatların Saxlanması və Məhv Edilməsi",
+        "content": "Şəxsi məlumatlarınız yalnız toplama məqsədləri üçün lazım olduğu müddət ərzində saxlanılır. Məlumatlar aşağıdakı hallarda məhv edilir: saxlanma müddəti bitdikdə, istifadəçi vəfat etdikdə, məlumatların toplanması və emalı məqsədləri yerinə yetirildikdə və ya saxlanması artıq lazım olmadıqda. Məlumatların məhv edilməsi qanuna uyğun şəkildə həyata keçirilir."
+      },
+      "cookies": {
+        "title": "Cookies və Oxşar Texnologiyalar",
+        "content": "Vebsaytımız istifadəçi təcrübəsini yaxşılaşdırmaq, xidmətlərimizi fərdiləşdirmək, təhlil aparmaq və təhlükəsizliyi təmin etmək üçün cookies və oxşar texnologiyalardan istifadə edir. Brauzerinizin parametrləri vasitəsilə cookies-ləri idarə edə və ya söndürə bilərsiniz. Nəzərə alın ki, cookies-ləri söndürmək bəzi xidmət funksionallığını məhdudlaşdıra bilər.",
+        "items": [
+          "Zəruri cookies: Vebsaytın əsas funksionallığını təmin edir",
+          "Analitik cookies: Vebsaytın istifadəsini təhlil etmək üçün istifadə olunur",
+          "Marketinq cookies: Fərdiləşdirilmiş reklamlar təqdim etmək üçün istifadə olunur"
+        ]
+      },
+      "children": {
+        "title": "Uşaqların Məxfilik Məlumatları",
+        "content": "Xidmətlərimiz 18 yaşdan kiçik uşaqlar üçün nəzərdə tutulmayıb. Biz bilərəkdən 18 yaşdan kiçik uşaqlardan şəxsi məlumat toplamırıq. Əgər uşağınızın bizə şəxsi məlumat təqdim etdiyini öyrənsək, bu məlumatları dərhal siləcəyik."
+      },
+      "changes": {
+        "title": "Məxfilik Siyasətində Dəyişikliklər",
+        "content": "Bu Məxfilik Siyasəti normativ hüquqi aktlarda dəyişikliklərə uyğun olaraq yenilənə bilər. Yenilənmiş Məxfilik Siyasəti dərc edildiyi tarixdən qüvvəyə minir. Dəyişikliklər barədə məlumatlandırılmaq üçün bu səhifəni müntəzəm olaraq yoxlayın."
+      },
+      "contact": {
+        "title": "Əlaqə Məlumatları",
+        "content": "Şəxsi məlumatlarınız və ya bu Məxfilik Siyasəti ilə bağlı suallarınız varsa, bizimlə əlaqə saxlayın: E-poçt: info@creadive.az, Telefon: +994 10 531 99 87, Ünvan: Bakı, Azərbaycan"
+      }
+    }
   }
 }

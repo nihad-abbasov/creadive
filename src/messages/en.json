@@ -46,6 +46,7 @@
     "services": "Services",
     "blog": "Blog",
     "portfolio": "Portfolio",
+    "privacyPolicy": "Privacy Policy",
     "copyright": "All rights reserved."
   },
   "meta": {
@@ -592,5 +593,98 @@
     "requiredText": "This field is required",
     "validEmail": "Enter a valid email address",
     "validPhone": "Enter a valid phone number"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last Updated: 2025",
+    "effectiveDate": "Effective Date: 2025",
+    "footerNote": "This privacy policy is prepared in accordance with the Law of the Republic of Azerbaijan 'On Personal Data'.",
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "content": "Creadive Agency ('we', 'us', 'agency') is committed to protecting the privacy of personal information of users who visit our website and use our services. This Privacy Policy provides information about the collection, use, storage and protection of personal data in accordance with the Law of the Republic of Azerbaijan 'On Personal Data'."
+      },
+      "dataCollection": {
+        "title": "Collection of Personal Data",
+        "content": "We may collect the following types of personal information:",
+        "items": [
+          "Name, surname and contact information (email address, phone number)",
+          "Company name and position information",
+          "Technical information automatically collected when visiting our website (IP address, browser type, operating system)",
+          "Information collected through cookies and similar technologies",
+          "Information you provide through contact forms and inquiries",
+          "Information you share when contacting us through social media platforms"
+        ]
+      },
+      "purpose": {
+        "title": "Purpose of Using Personal Data",
+        "content": "The collected personal data is used for the following purposes:",
+        "items": [
+          "To provide our services and respond to customer inquiries",
+          "To plan and implement our projects",
+          "To improve the functionality of our website and enhance user experience",
+          "To fulfill our legal obligations and comply with legal requirements",
+          "To conduct marketing and advertising campaigns (only with consent)"
+        ]
+      },
+      "dataSharing": {
+        "title": "Sharing of Personal Data",
+        "content": "We may share your personal data with third parties in the following cases:",
+        "items": [
+          "To fulfill legal obligations: When there is a court decision, court order or legal request, as well as to protect our legal rights and interests",
+          "With service providers: With trusted third-party service providers who work with us for the operation of our website and delivery of our services (hosting, analytics, etc.)",
+          "With user consent: In cases where you have given explicit consent"
+        ]
+      },
+      "userRights": {
+        "title": "User Rights",
+        "content": "In accordance with the Law of the Republic of Azerbaijan 'On Personal Data', you have the following rights:",
+        "items": [
+          "To access your personal data and learn what information is collected",
+          "To request correction of inaccurate or outdated personal data",
+          "To request deletion of your personal data (except when we have legal obligations)",
+          "To restrict the processing of personal data",
+          "To object to the processing of personal data",
+          "To withdraw previously given consent",
+          "To file a complaint with the relevant supervisory authority regarding the collection and processing of personal data",
+          "To exercise other rights provided by law"
+        ]
+      },
+      "dataSecurity": {
+        "title": "Data Security",
+        "content": "We implement the following technical and organizational measures to protect your personal data:",
+        "items": [
+          "Use of modern encryption technologies",
+          "Security systems to prevent unauthorized access to databases",
+          "Regular security audits and system updates",
+          "Training of our employees on privacy and security principles"
+        ]
+      },
+      "dataRetention": {
+        "title": "Data Retention and Destruction",
+        "content": "Your personal data is retained only for as long as necessary for the collection purposes. Data is destroyed in the following cases: when the retention period expires, when the user passes away, when the purposes of data collection and processing have been fulfilled, or when storage is no longer necessary. Data destruction is carried out in accordance with the law."
+      },
+      "cookies": {
+        "title": "Cookies and Similar Technologies",
+        "content": "Our website uses cookies and similar technologies to improve user experience, personalize our services, conduct analysis and ensure security. You can manage or disable cookies through your browser settings. Please note that disabling cookies may limit some service functionality.",
+        "items": [
+          "Essential cookies: Provide basic website functionality",
+          "Analytics cookies: Used to analyze website usage",
+          "Marketing cookies: Used to deliver personalized advertisements"
+        ]
+      },
+      "children": {
+        "title": "Children's Privacy Information",
+        "content": "Our services are not intended for children under the age of 18. We do not knowingly collect personal information from children under 18. If we learn that your child has provided us with personal information, we will delete this information immediately."
+      },
+      "changes": {
+        "title": "Changes to Privacy Policy",
+        "content": "This Privacy Policy may be updated to comply with changes in normative legal acts. The updated Privacy Policy takes effect from the date of its publication. Please check this page regularly to stay informed about changes."
+      },
+      "contact": {
+        "title": "Contact Information",
+        "content": "If you have any questions about your personal data or this Privacy Policy, please contact us: Email: info@creadive.az, Phone: +994 10 531 99 87, Address: Baku, Azerbaijan"
+      }
+    }
   }
 }

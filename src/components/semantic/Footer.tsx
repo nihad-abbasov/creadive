@@ -27,6 +27,7 @@ const getFooterLinks = (
   { id: 4, href: "/contact", label: t("footer.contact") },
   { id: 5, href: "/blog", label: t("footer.blog") },
   { id: 6, href: "/portfolio", label: t("footer.portfolio") },
+  { id: 7, href: "/privacy-policy", label: t("footer.privacyPolicy") },
 ];
 
 type Service = {
@@ -227,6 +228,15 @@ export default function Footer() {
           <p>
             &copy; {CURRENT_YEAR} Creadive. {t("footer.copyright")}
           </p>
+          {/* <p className="mt-2">
+            <Link
+              href="/privacy-policy"
+              className="hover:text-white underline"
+              aria-label={t("footer.privacyPolicy")}
+            >
+              {t("footer.privacyPolicy")}
+            </Link>
+          </p> */}
         </div>
       </div>
     </footer>
