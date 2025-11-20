@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations, useLocale } from "next-intl";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { blogApi } from "@/services/blog";
 import { Link } from "@/lib/navigation";
 import { motion } from "framer-motion";
@@ -48,8 +48,8 @@ export default function Blog() {
   const t = useTranslations("blog");
   const locale = useLocale();
 
-  // Mock blog data as fallback
-  const getMockBlogPosts = (): BlogPost[] => [
+  // Mock blog data as fallback - wrapped in useCallback to prevent unnecessary re-renders
+  const getMockBlogPosts = useCallback((): BlogPost[] => [
     {
       id: 1,
       title: t("blog1.title"),
@@ -180,7 +180,7 @@ export default function Blog() {
         image: t("blog10.author.image"),
       },
     },
-  ];
+  ], [t]);
 
   // Debounce search query to avoid too many API calls
   useEffect(() => {
@@ -290,7 +290,7 @@ export default function Blog() {
     fetchBlogPosts();
     // Note: selectedCategory is intentionally excluded from dependencies
     // to avoid unnecessary API calls. Category filtering is done client-side.
-  }, [locale, debouncedSearchQuery, t]);
+  }, [locale, debouncedSearchQuery, getMockBlogPosts, t]);
 
   // Filter posts by selected category and search query (client-side filtering)
   // This ensures search works even if API search parameter doesn't work properly

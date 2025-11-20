@@ -1,11 +1,12 @@
-'use client';
+"use client";
 
-import DynamicMetaTags from '@/components/DynamicMetaTags';
-import { blogDetailData, BlogDetailPost } from '@/data/blogDetailData';
-import BlogDetail from '@/views/BlogDetail';
-import { useEffect, useState } from 'react';
-import { blogApi } from '@/services/blog';
-import { useLocale } from 'next-intl';
+import DynamicMetaTags from "@/components/DynamicMetaTags";
+import { blogDetailData, BlogDetailPost } from "@/data/blogDetailData";
+import BlogDetail from "@/views/BlogDetail";
+import { useEffect, useState } from "react";
+import { blogApi } from "@/services/blog";
+import { useLocale } from "next-intl";
+import { AxiosError } from "axios";
 
 interface BlogDetailPageProps {
   params: Promise<{
@@ -54,7 +55,8 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
               id: apiPost.id,
               title: apiPost.title,
               excerpt: apiPost.excerpt,
-              category: apiPost.categories?.[0] || apiPost.tags?.[0] || "Uncategorized",
+              category:
+                apiPost.categories?.[0] || apiPost.tags?.[0] || "Uncategorized",
               date: apiPost.date,
               readTime: apiPost.readTime,
               image: apiPost.image,
@@ -72,15 +74,20 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
             setLoading(false);
             return; // Successfully fetched from API, exit early
           }
-        } catch (apiError: any) {
+        } catch (apiError: unknown) {
+          const axiosError = apiError as AxiosError;
           // API failed (404, network error, etc.), fall back to mock data
-          console.warn("API fetch failed, falling back to mock data:", apiError?.response?.status || apiError?.message);
+          console.warn(
+            "API fetch failed, falling back to mock data:",
+            axiosError.response?.status,
+            axiosError.message
+          );
         }
 
         // Fallback to mock data
         const blogIdNum = parseInt(blogId);
         if (!isNaN(blogIdNum)) {
-          const mockPost = blogDetailData.find(post => post.id === blogIdNum);
+          const mockPost = blogDetailData.find((post) => post.id === blogIdNum);
           if (mockPost) {
             setBlogPost(mockPost);
             setLoading(false);
@@ -89,7 +96,9 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
         }
 
         // If neither API nor mock data found, use first mock post as fallback
-        console.warn(`Blog post with ID ${blogId} not found in API or mock data, using fallback`);
+        console.warn(
+          `Blog post with ID ${blogId} not found in API or mock data, using fallback`
+        );
         setBlogPost(blogDetailData[0] || null);
         setError(`Blog post not found`);
       } catch (error) {
@@ -140,4 +149,4 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
       <BlogDetail blogPost={blogPost} />
     </>
   );
-} 
+}
