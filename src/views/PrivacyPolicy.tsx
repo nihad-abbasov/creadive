@@ -175,7 +175,7 @@ export default function PrivacyPolicy() {
 
         {/* Sections */}
         <div className="space-y-8">
-          {sections.slice(1).map((section, index) => (
+          {sections.slice(1).map((section) => (
             <motion.section
               key={section.key}
               variants={itemVariants}
