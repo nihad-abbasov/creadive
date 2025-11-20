@@ -380,6 +380,7 @@
     },
     "faq": {
       "title": "Tez-tez soruşulan suallar",
+      "loading": "Suallar yüklənir...",
       "questions": {
         "budget": {
           "question": "Creadive ilə işləmək üçün minimum büdcə nə qədərdir?",

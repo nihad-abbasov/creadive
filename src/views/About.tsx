@@ -1,18 +1,19 @@
 "use client";
 
+import AboutArrowLeftIcon from "../../public/icons/about/AboutArrowLeftIcon";
+import AboutArrowRightIcon from "../../public/icons/about/AboutArrowRightIcon";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { motion, AnimatePresence } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { IoIosArrowUp } from "react-icons/io";
 import { useRouter } from "@/lib/navigation";
-import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { faqApi, type FAQ } from "@/services/faq";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css";
-import AboutArrowLeftIcon from "../../public/icons/about/AboutArrowLeftIcon";
-import AboutArrowRightIcon from "../../public/icons/about/AboutArrowRightIcon";
 
 // Custom styles for team slider
 const teamSliderStyles = `
@@ -132,10 +133,19 @@ interface TeamMember {
 //   },
 // ];
 
+interface FAQItem {
+  id: number;
+  question: string;
+  answer: string;
+}
+
 export default function About() {
   const [openFaqId, setOpenFaqId] = useState<number | null>(null);
+  const [faqs, setFaqs] = useState<FAQItem[]>([]);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
   const t = useTranslations("about");
+  const locale = useLocale();
 
   const teamMembers: TeamMember[] = [
     {
@@ -196,49 +206,103 @@ export default function About() {
     },
   ];
 
-  // Function to get translated FAQs
-  const getTranslatedFAQs = () => [
-    {
-      id: 1,
-      question: t("faq.questions.budget.question"),
-      answer: t("faq.questions.budget.answer"),
-    },
-    {
-      id: 2,
-      question: t("faq.questions.timeline.question"),
-      answer: t("faq.questions.timeline.answer"),
-    },
-    {
-      id: 3,
-      question: t("faq.questions.smm.question"),
-      answer: t("faq.questions.smm.answer"),
-    },
-    {
-      id: 4,
-      question: t("faq.questions.support.question"),
-      answer: t("faq.questions.support.answer"),
-    },
-    {
-      id: 5,
-      question: t("faq.questions.seo.question"),
-      answer: t("faq.questions.seo.answer"),
-    },
-    {
-      id: 6,
-      question: t("faq.questions.changes.question"),
-      answer: t("faq.questions.changes.answer"),
-    },
-    {
-      id: 7,
-      question: t("faq.questions.payment.question"),
-      answer: t("faq.questions.payment.answer"),
-    },
-    {
-      id: 8,
-      question: t("faq.questions.update.question"),
-      answer: t("faq.questions.update.answer"),
-    },
-  ];
+  // Function to get translated FAQs (mock data as fallback)
+  const getTranslatedFAQs = useCallback(
+    (): FAQItem[] => [
+      {
+        id: 1,
+        question: t("faq.questions.budget.question"),
+        answer: t("faq.questions.budget.answer"),
+      },
+      {
+        id: 2,
+        question: t("faq.questions.timeline.question"),
+        answer: t("faq.questions.timeline.answer"),
+      },
+      {
+        id: 3,
+        question: t("faq.questions.smm.question"),
+        answer: t("faq.questions.smm.answer"),
+      },
+      {
+        id: 4,
+        question: t("faq.questions.support.question"),
+        answer: t("faq.questions.support.answer"),
+      },
+      {
+        id: 5,
+        question: t("faq.questions.seo.question"),
+        answer: t("faq.questions.seo.answer"),
+      },
+      {
+        id: 6,
+        question: t("faq.questions.changes.question"),
+        answer: t("faq.questions.changes.answer"),
+      },
+      {
+        id: 7,
+        question: t("faq.questions.payment.question"),
+        answer: t("faq.questions.payment.answer"),
+      },
+      {
+        id: 8,
+        question: t("faq.questions.update.question"),
+        answer: t("faq.questions.update.answer"),
+      },
+    ],
+    [t]
+  );
+
+  // Fetch FAQs from API
+  useEffect(() => {
+    const fetchFAQs = async () => {
+      try {
+        setLoading(true);
+
+        const response = await faqApi.getAll(
+          {
+            // You can add ordering or search params here if needed
+            // ordering: "id",
+            // search: "",
+          },
+          locale
+        );
+
+        // Handle both paginated response (with results) and direct array response
+        let apiFaqs: FAQ[] = [];
+        if (Array.isArray(response.data)) {
+          // Direct array response
+          apiFaqs = response.data;
+        } else if (response.data && "results" in response.data) {
+          // Paginated response with results property
+          apiFaqs = response.data.results || [];
+        }
+
+        if (Array.isArray(apiFaqs) && apiFaqs.length > 0) {
+          // Map API response to FAQItem type
+          // API uses Question/Answer (capitalized), component expects question/answer
+          const mappedFaqs: FAQItem[] = apiFaqs.map((faq: FAQ) => ({
+            id: faq.id,
+            question: faq.Question || "",
+            answer: faq.Answer || "",
+          }));
+
+          setFaqs(mappedFaqs);
+        } else {
+          // If API returns empty, use mock data
+          setFaqs(getTranslatedFAQs());
+        }
+      } catch (error) {
+        console.error("Error fetching FAQs:", error);
+        // Use mock data as fallback on error
+        setFaqs(getTranslatedFAQs());
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFAQs();
+  }, [locale, getTranslatedFAQs]);
 
   // Animation variants
   const containerVariants = {
@@ -496,52 +560,58 @@ export default function About() {
               className="max-w-3xl mx-auto"
               variants={containerVariants}
             >
-              {getTranslatedFAQs().map((faq) => (
-                <motion.div
-                  key={faq.id}
-                  variants={itemVariants}
-                  transition={{ duration: 0.2 }}
-                  className="mb-4 bg-white rounded-2xl overflow-hidden"
-                >
-                  <motion.button
-                    onClick={() =>
-                      setOpenFaqId(openFaqId === faq.id ? null : faq.id)
-                    }
-                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
-                    whileHover={{ backgroundColor: "#c9fafb" }}
+              {loading ? (
+                <div className="text-center text-white/80 py-8">
+                  {t("faq.loading")}
+                </div>
+              ) : (
+                faqs.map((faq) => (
+                  <motion.div
+                    key={faq.id}
+                    variants={itemVariants}
+                    transition={{ duration: 0.2 }}
+                    className="mb-4 bg-white rounded-2xl overflow-hidden"
                   >
-                    <span className="text-base font-semibold text-gray-900">
-                      {faq.question}
-                    </span>
-                    <motion.div
-                      animate={{ rotate: openFaqId === faq.id ? 0 : 180 }}
-                      transition={{ duration: 0.2 }}
+                    <motion.button
+                      onClick={() =>
+                        setOpenFaqId(openFaqId === faq.id ? null : faq.id)
+                      }
+                      className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
+                      whileHover={{ backgroundColor: "#c9fafb" }}
                     >
-                      <IoIosArrowUp className="w-5 h-5 text-gray-600" />
-                    </motion.div>
-                  </motion.button>
-                  <AnimatePresence>
-                    {openFaqId === faq.id && (
+                      <span className="text-base font-semibold text-gray-900">
+                        {faq.question}
+                      </span>
                       <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="overflow-hidden"
+                        animate={{ rotate: openFaqId === faq.id ? 0 : 180 }}
+                        transition={{ duration: 0.2 }}
                       >
-                        <motion.div
-                          className="px-6 py-4 text-gray-700"
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.1 }}
-                        >
-                          {faq.answer}
-                        </motion.div>
+                        <IoIosArrowUp className="w-5 h-5 text-gray-600" />
                       </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              ))}
+                    </motion.button>
+                    <AnimatePresence>
+                      {openFaqId === faq.id && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <motion.div
+                            className="px-6 py-4 text-gray-700"
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 }}
+                          >
+                            {faq.answer}
+                          </motion.div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                ))
+              )}
             </motion.div>
           </motion.section>
 

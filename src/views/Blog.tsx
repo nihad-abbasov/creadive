@@ -1,12 +1,12 @@
 "use client";
 
-import { useTranslations, useLocale } from "next-intl";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { useState, useEffect, useCallback } from "react";
+import { useTranslations, useLocale } from "next-intl";
 import { blogApi } from "@/services/blog";
 import { Link } from "@/lib/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 type BlogPost = {
   id: number;
@@ -49,138 +49,141 @@ export default function Blog() {
   const locale = useLocale();
 
   // Mock blog data as fallback - wrapped in useCallback to prevent unnecessary re-renders
-  const getMockBlogPosts = useCallback((): BlogPost[] => [
-    {
-      id: 1,
-      title: t("blog1.title"),
-      excerpt: t("blog1.excerpt"),
-      category: t("blog1.category"),
-      date: t("blog1.date"),
-      readTime: t("blog1.readTime"),
-      image: t("blog1.image"),
-      author: {
-        name: t("blog1.author.name"),
-        image: t("blog1.author.image"),
+  const getMockBlogPosts = useCallback(
+    (): BlogPost[] => [
+      {
+        id: 1,
+        title: t("blog1.title"),
+        excerpt: t("blog1.excerpt"),
+        category: t("blog1.category"),
+        date: t("blog1.date"),
+        readTime: t("blog1.readTime"),
+        image: t("blog1.image"),
+        author: {
+          name: t("blog1.author.name"),
+          image: t("blog1.author.image"),
+        },
       },
-    },
-    {
-      id: 2,
-      title: t("blog2.title"),
-      excerpt: t("blog2.excerpt"),
-      category: t("blog2.category"),
-      date: t("blog2.date"),
-      readTime: t("blog2.readTime"),
-      image: t("blog2.image"),
-      author: {
-        name: t("blog2.author.name"),
-        image: t("blog2.author.image"),
+      {
+        id: 2,
+        title: t("blog2.title"),
+        excerpt: t("blog2.excerpt"),
+        category: t("blog2.category"),
+        date: t("blog2.date"),
+        readTime: t("blog2.readTime"),
+        image: t("blog2.image"),
+        author: {
+          name: t("blog2.author.name"),
+          image: t("blog2.author.image"),
+        },
       },
-    },
-    {
-      id: 3,
-      title: t("blog3.title"),
-      excerpt: t("blog3.excerpt"),
-      category: t("blog3.category"),
-      date: t("blog3.date"),
-      readTime: t("blog3.readTime"),
-      image: t("blog3.image"),
-      author: {
-        name: t("blog3.author.name"),
-        image: t("blog3.author.image"),
+      {
+        id: 3,
+        title: t("blog3.title"),
+        excerpt: t("blog3.excerpt"),
+        category: t("blog3.category"),
+        date: t("blog3.date"),
+        readTime: t("blog3.readTime"),
+        image: t("blog3.image"),
+        author: {
+          name: t("blog3.author.name"),
+          image: t("blog3.author.image"),
+        },
       },
-    },
-    {
-      id: 4,
-      title: t("blog4.title"),
-      excerpt: t("blog4.excerpt"),
-      category: t("blog4.category"),
-      date: t("blog4.date"),
-      readTime: t("blog4.readTime"),
-      image: t("blog4.image"),
-      author: {
-        name: t("blog4.author.name"),
-        image: t("blog4.author.image"),
+      {
+        id: 4,
+        title: t("blog4.title"),
+        excerpt: t("blog4.excerpt"),
+        category: t("blog4.category"),
+        date: t("blog4.date"),
+        readTime: t("blog4.readTime"),
+        image: t("blog4.image"),
+        author: {
+          name: t("blog4.author.name"),
+          image: t("blog4.author.image"),
+        },
       },
-    },
-    {
-      id: 5,
-      title: t("blog5.title"),
-      excerpt: t("blog5.excerpt"),
-      category: t("blog5.category"),
-      date: t("blog5.date"),
-      readTime: t("blog5.readTime"),
-      image: t("blog5.image"),
-      author: {
-        name: t("blog5.author.name"),
-        image: t("blog5.author.image"),
+      {
+        id: 5,
+        title: t("blog5.title"),
+        excerpt: t("blog5.excerpt"),
+        category: t("blog5.category"),
+        date: t("blog5.date"),
+        readTime: t("blog5.readTime"),
+        image: t("blog5.image"),
+        author: {
+          name: t("blog5.author.name"),
+          image: t("blog5.author.image"),
+        },
       },
-    },
-    {
-      id: 6,
-      title: t("blog6.title"),
-      excerpt: t("blog6.excerpt"),
-      category: t("blog6.category"),
-      date: t("blog6.date"),
-      readTime: t("blog6.readTime"),
-      image: t("blog6.image"),
-      author: {
-        name: t("blog6.author.name"),
-        image: t("blog6.author.image"),
+      {
+        id: 6,
+        title: t("blog6.title"),
+        excerpt: t("blog6.excerpt"),
+        category: t("blog6.category"),
+        date: t("blog6.date"),
+        readTime: t("blog6.readTime"),
+        image: t("blog6.image"),
+        author: {
+          name: t("blog6.author.name"),
+          image: t("blog6.author.image"),
+        },
       },
-    },
-    {
-      id: 7,
-      title: t("blog7.title"),
-      excerpt: t("blog7.excerpt"),
-      category: t("blog7.category"),
-      date: t("blog7.date"),
-      readTime: t("blog7.readTime"),
-      image: t("blog7.image"),
-      author: {
-        name: t("blog7.author.name"),
-        image: t("blog7.author.image"),
+      {
+        id: 7,
+        title: t("blog7.title"),
+        excerpt: t("blog7.excerpt"),
+        category: t("blog7.category"),
+        date: t("blog7.date"),
+        readTime: t("blog7.readTime"),
+        image: t("blog7.image"),
+        author: {
+          name: t("blog7.author.name"),
+          image: t("blog7.author.image"),
+        },
       },
-    },
-    {
-      id: 8,
-      title: t("blog8.title"),
-      excerpt: t("blog8.excerpt"),
-      category: t("blog8.category"),
-      date: t("blog8.date"),
-      readTime: t("blog8.readTime"),
-      image: t("blog8.image"),
-      author: {
-        name: t("blog8.author.name"),
-        image: t("blog8.author.image"),
+      {
+        id: 8,
+        title: t("blog8.title"),
+        excerpt: t("blog8.excerpt"),
+        category: t("blog8.category"),
+        date: t("blog8.date"),
+        readTime: t("blog8.readTime"),
+        image: t("blog8.image"),
+        author: {
+          name: t("blog8.author.name"),
+          image: t("blog8.author.image"),
+        },
       },
-    },
-    {
-      id: 9,
-      title: t("blog9.title"),
-      excerpt: t("blog9.excerpt"),
-      category: t("blog9.category"),
-      date: t("blog9.date"),
-      readTime: t("blog9.readTime"),
-      image: t("blog9.image"),
-      author: {
-        name: t("blog9.author.name"),
-        image: t("blog9.author.image"),
+      {
+        id: 9,
+        title: t("blog9.title"),
+        excerpt: t("blog9.excerpt"),
+        category: t("blog9.category"),
+        date: t("blog9.date"),
+        readTime: t("blog9.readTime"),
+        image: t("blog9.image"),
+        author: {
+          name: t("blog9.author.name"),
+          image: t("blog9.author.image"),
+        },
       },
-    },
-    {
-      id: 10,
-      title: t("blog10.title"),
-      excerpt: t("blog10.excerpt"),
-      category: t("blog10.category"),
-      date: t("blog10.date"),
-      readTime: t("blog10.readTime"),
-      image: t("blog10.image"),
-      author: {
-        name: t("blog10.author.name"),
-        image: t("blog10.author.image"),
+      {
+        id: 10,
+        title: t("blog10.title"),
+        excerpt: t("blog10.excerpt"),
+        category: t("blog10.category"),
+        date: t("blog10.date"),
+        readTime: t("blog10.readTime"),
+        image: t("blog10.image"),
+        author: {
+          name: t("blog10.author.name"),
+          image: t("blog10.author.image"),
+        },
       },
-    },
-  ], [t]);
+    ],
+    [t]
+  );
 
   // Debounce search query to avoid too many API calls
   useEffect(() => {

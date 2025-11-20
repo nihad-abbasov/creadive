@@ -380,6 +380,7 @@
     },
     "faq": {
       "title": "Frequently Asked Questions",
+      "loading": "Loading FAQs...",
       "questions": {
         "budget": {
           "question": "What is the minimum budget to work with Creadive?",
