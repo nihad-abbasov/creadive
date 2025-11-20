@@ -48,111 +48,101 @@ type CategoriesApiResponse = {
   data: CategoryApiResponse[];
 };
 
-// Mock data - kept for admin panel usage
-// const categories: Category[] = [
-//   {
-//     id: "websites",
-//     name: "Veb Saytlar",
-//     aspectRatio: "aspect-video", // 16:9 for landscape website images
-//     items: [
-//       {
-//         id: 1,
-//         title: "21 Couture House",
-//         description: "Premium geyim brendi üçün e-ticarət platforması",
-//         image: "/images/portfolio/websites/21ch-website.png",
-//         link: "https://21couturehouse.az",
-//       },
-//       {
-//         id: 2,
-//         title: "Buketchim",
-//         description: "Florist xidmətləri üçün veb sayt",
-//         image: "/images/portfolio/buketchim-website.png",
-//         link: "https://buketchim.az",
-//         // url: "https://buketchim.vercel.app",
-//       },
-//       {
-//         id: 3,
-//         title: "Mirror Studio",
-//         description: "3D Interior Design",
-//         image: "/images/portfolio/mirror-website.png",
-//         link: "https://mirror-cgi.az",
-//         // url: "https://mirror-cgi.vercel.app",
-//       },
-//     ],
-//   },
-//   {
-//     id: "targeting",
-//     name: "Tarqetinq",
-//     aspectRatio: "aspect-video", // 16:9 for landscape targeting images
-//     items: [
-//       {
-//         id: 4,
-//         title: "21 Couture House",
-//         description:
-//           "Facebook və Instagram üzrə hədəflənmiş reklam kampaniyaları",
-//         image: "/images/portfolio/targeting/21couture-targeting.jpeg",
-//       },
-//       {
-//         id: 5,
-//         title: "Buketchim",
-//         description: "Instagram və Google Ads üzrə reklam kampaniyaları",
-//         image: "/images/portfolio/targeting/buketchim-targeting.jpeg",
-//       },
-//       {
-//         id: 6,
-//         title: "Xaricdə Təhsil Şirkəti",
-//         description: "Xaricdə Təhsil Şirkəti(Anonim) üçün tarqetinq kampaniyaları",
-//         image: "/images/portfolio/targeting/xaricde-tehsil-targeting.jpeg",
-//       },
-//     ],
-//   },
-//   {
-//     id: "smm",
-//     name: "SMM",
-//     aspectRatio: "aspect-auto", // 9:16 for portrait SMM images
-//     items: [
-//       {
-//         id: 3,
-//         title: "Coffeshop SMM-folio",
-//         description: "Instagram üzrə SMM postları və kontent",
-//         image: "/images/portfolio/smm/coffeeshop-smm.jpg",
-//         link: "https://www.instagram.com/p/DKXVmtkIMQU",
-//       },
-//       {
-//         id: 4,
-//         title: "Restaurant SMM-folio",
-//         description: "Instagram üzrə SMM postları və kontent",
-//         image: "/images/portfolio/smm/restoran-smm.jpg",
-//         link: "https://www.instagram.com/p/DKUzctRoyMc",
-//       },
-//       {
-//         id: 5,
-//         title: "Maşın yağları üçün SMM-folio",
-//         description: "Instagram üzrə SMM postları və kontent",
-//         image: "/images/portfolio/smm/mashinyaglari-smm.jpg",
-//         link: "https://www.instagram.com/p/DKKbtxkIgO7",
-//       },
-//     ],
-//   },
-//   // {
-//   //   id: "branding",
-//   //   name: "Brendinq",
-//   //   items: [
-//   //     {
-//   //       id: 5,
-//   //       title: "21 Couture House Branding",
-//   //       description: "Brend identifikasiyası və vizual elementlər",
-//   //       image: "/images/portfolio/21couture-branding.png",
-//   //     },
-//   //     {
-//   //       id: 6,
-//   //       title: "Buketchim Branding",
-//   //       description: "Brend identifikasiyası və vizual elementlər",
-//   //       image: "/images/portfolio/buketchim-branding.png",
-//   //     },
-//   //   ],
-//   // },
-// ];
+// Mock data - used as fallback when API fails or returns empty data
+const mockCategories: Category[] = [
+  {
+    id: "websites",
+    name: "Veb Saytlar",
+    aspectRatio: "aspect-video", // 16:9 for landscape website images
+    items: [
+      {
+        id: 1,
+        title: "21 Couture House",
+        description: "Premium geyim brendi üçün e-ticarət platforması",
+        image: "/images/portfolio/websites/21ch-website.png",
+        url: "https://21couturehouse.az",
+        category: "websites",
+      },
+      {
+        id: 2,
+        title: "Buketchim",
+        description: "Florist xidmətləri üçün veb sayt",
+        image: "/images/portfolio/buketchim-website.png",
+        url: "https://buketchim.az",
+        category: "websites",
+      },
+      {
+        id: 3,
+        title: "Mirror Studio",
+        description: "3D Interior Design",
+        image: "/images/portfolio/mirror-website.png",
+        url: "https://mirror-cgi.az",
+        category: "websites",
+      },
+    ],
+  },
+  {
+    id: "targeting",
+    name: "Tarqetinq",
+    aspectRatio: "aspect-video", // 16:9 for landscape targeting images
+    items: [
+      {
+        id: 4,
+        title: "21 Couture House",
+        description:
+          "Facebook və Instagram üzrə hədəflənmiş reklam kampaniyaları",
+        image: "/images/portfolio/targeting/21couture-targeting.jpeg",
+        category: "targeting",
+      },
+      {
+        id: 5,
+        title: "Buketchim",
+        description: "Instagram və Google Ads üzrə reklam kampaniyaları",
+        image: "/images/portfolio/targeting/buketchim-targeting.jpeg",
+        category: "targeting",
+      },
+      {
+        id: 6,
+        title: "Xaricdə Təhsil Şirkəti",
+        description:
+          "Xaricdə Təhsil Şirkəti(Anonim) üçün tarqetinq kampaniyaları",
+        image: "/images/portfolio/targeting/xaricde-tehsil-targeting.jpeg",
+        category: "targeting",
+      },
+    ],
+  },
+  {
+    id: "smm",
+    name: "SMM",
+    aspectRatio: "aspect-auto", // 9:16 for portrait SMM images
+    items: [
+      {
+        id: 7,
+        title: "Coffeshop SMM-folio",
+        description: "Instagram üzrə SMM postları və kontent",
+        image: "/images/portfolio/smm/coffeeshop-smm.jpg",
+        url: "https://www.instagram.com/p/DKXVmtkIMQU",
+        category: "smm",
+      },
+      {
+        id: 8,
+        title: "Restaurant SMM-folio",
+        description: "Instagram üzrə SMM postları və kontent",
+        image: "/images/portfolio/smm/restoran-smm.jpg",
+        url: "https://www.instagram.com/p/DKUzctRoyMc",
+        category: "smm",
+      },
+      {
+        id: 9,
+        title: "Maşın yağları üçün SMM-folio",
+        description: "Instagram üzrə SMM postları və kontent",
+        image: "/images/portfolio/smm/mashinyaglari-smm.jpg",
+        url: "https://www.instagram.com/p/DKKbtxkIgO7",
+        category: "smm",
+      },
+    ],
+  },
+];
 
 export default function Portfolio() {
   const searchParams = useSearchParams();
@@ -176,6 +166,7 @@ export default function Portfolio() {
         // Try to fetch categories first, if that fails, try to get categories from portfolio items
         let categoriesData: CategoryApiResponse[] = [];
         let portfolioItems: PortfolioItem[] = [];
+        let apiFailed = false;
 
         try {
           // Fetch categories
@@ -185,13 +176,40 @@ export default function Portfolio() {
           categoriesData = categoriesResponse.data || [];
         } catch (categoryError) {
           console.error("Error fetching categories:", categoryError);
+          apiFailed = true;
         }
 
-        // Fetch all portfolio items
-        const portfolioResponse = (await portfolioApi.getAll(
-          locale
-        )) as PortfolioApiResponse;
-        portfolioItems = portfolioResponse.data || [];
+        try {
+          // Fetch all portfolio items
+          const portfolioResponse = (await portfolioApi.getAll(
+            locale
+          )) as PortfolioApiResponse;
+          portfolioItems = portfolioResponse.data || [];
+        } catch (portfolioError) {
+          console.error("Error fetching portfolio items:", portfolioError);
+          apiFailed = true;
+        }
+
+        // If API failed or returned empty data, use mock data as fallback
+        if (
+          apiFailed ||
+          (categoriesData.length === 0 && portfolioItems.length === 0)
+        ) {
+          console.log("Using mock data as fallback");
+          setCategories(mockCategories);
+
+          // Set active category from mock data
+          if (
+            categoryId &&
+            mockCategories.some((cat) => cat.id === categoryId)
+          ) {
+            setActiveCategory(categoryId);
+          } else if (mockCategories.length > 0) {
+            setActiveCategory(mockCategories[0].id);
+          }
+          setLoading(false);
+          return;
+        }
 
         // If no categories from API, extract unique categories from portfolio items
         if (categoriesData.length === 0 && portfolioItems.length > 0) {
@@ -209,15 +227,6 @@ export default function Portfolio() {
               (item: PortfolioItem) => item.category === categoryName
             ).length,
           }));
-        }
-
-        // If still no categories and no portfolio items, use fallback categories
-        if (categoriesData.length === 0 && portfolioItems.length === 0) {
-          categoriesData = [
-            { category: "websites", count: 0 },
-            { category: "targeting", count: 0 },
-            { category: "smm", count: 0 },
-          ];
         }
 
         // Group portfolio items by category
@@ -238,6 +247,29 @@ export default function Portfolio() {
           }
         );
 
+        // If grouped categories is empty, use mock data as fallback
+        if (
+          groupedCategories.length === 0 ||
+          groupedCategories.every((cat) => cat.items.length === 0)
+        ) {
+          console.log(
+            "API returned empty categories, using mock data as fallback"
+          );
+          setCategories(mockCategories);
+
+          // Set active category from mock data
+          if (
+            categoryId &&
+            mockCategories.some((cat) => cat.id === categoryId)
+          ) {
+            setActiveCategory(categoryId);
+          } else if (mockCategories.length > 0) {
+            setActiveCategory(mockCategories[0].id);
+          }
+          setLoading(false);
+          return;
+        }
+
         setCategories(groupedCategories);
 
         // Set active category
@@ -251,7 +283,17 @@ export default function Portfolio() {
         }
       } catch (err) {
         console.error("Error fetching portfolio data:", err);
-        setError("Portfolio məlumatları yüklənərkən xəta baş verdi");
+        // Use mock data as fallback on error
+        console.log("Error occurred, using mock data as fallback");
+        setCategories(mockCategories);
+
+        // Set active category from mock data
+        if (categoryId && mockCategories.some((cat) => cat.id === categoryId)) {
+          setActiveCategory(categoryId);
+        } else if (mockCategories.length > 0) {
+          setActiveCategory(mockCategories[0].id);
+        }
+        setError(null); // Don't show error if we have fallback data
       } finally {
         setLoading(false);
       }
