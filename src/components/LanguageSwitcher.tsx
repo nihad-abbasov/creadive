@@ -50,9 +50,10 @@ export default function LanguageSwitcher() {
         <Image
           src={`/images/flags/${currentLocale}.png`}
           alt={`${currentLocale} flag`}
-          width={20}
-          height={15}
-          className="rounded-sm"
+          width={0}
+          height={0}
+          sizes="100vw"
+          className="rounded-sm w-5 h-5"
           priority
         />
         {!isScrolled && (
@@ -82,9 +83,10 @@ export default function LanguageSwitcher() {
                       <Image
                         src={`/images/flags/${loc}.png`}
                         alt={`${loc} flag`}
-                        width={24}
-                        height={18}
-                        className="rounded-sm"
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        className="rounded-sm w-5 h-5"
                         priority
                       />
                       {/* Language info */}

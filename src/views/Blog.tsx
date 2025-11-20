@@ -1,10 +1,12 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import { useState, useEffect } from "react";
+import { blogApi } from "@/services/blog";
 import { Link } from "@/lib/navigation";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import Image from "next/image";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 type BlogPost = {
   id: number;
@@ -20,12 +22,34 @@ type BlogPost = {
   };
 };
 
+// API response type (based on admin panel fields)
+type ApiBlogPost = {
+  id: number;
+  title: string;
+  excerpt: string;
+  content: string;
+  date: string;
+  readTime: string;
+  image: string;
+  author: string;
+  tags: string[];
+  categories: string[];
+  status: "published" | "draft";
+};
+
 export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("");
 
   const t = useTranslations("blog");
+  const locale = useLocale();
 
-  const blogPosts: BlogPost[] = [
+  // Mock blog data as fallback
+  const getMockBlogPosts = (): BlogPost[] => [
     {
       id: 1,
       title: t("blog1.title"),
@@ -158,9 +182,139 @@ export default function Blog() {
     },
   ];
 
-  const filteredPosts = selectedCategory
-    ? blogPosts.filter((post) => post.category === selectedCategory)
-    : blogPosts;
+  // Debounce search query to avoid too many API calls
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchQuery(searchQuery);
+    }, 500); // 500ms delay
+
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
+
+  // Fetch blog posts from API
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        // Build query parameters
+        const queryParams: {
+          ordering?: string;
+          search?: string;
+          status?: "published" | "draft";
+          tags?: string;
+        } = {
+          status: "published", // Only fetch published posts
+        };
+
+        if (debouncedSearchQuery.trim()) {
+          queryParams.search = debouncedSearchQuery.trim();
+        }
+
+        // Note: Category filtering is done client-side after fetching
+        // If you want to filter by tags via API, uncomment the following:
+        // if (selectedCategory) {
+        //   queryParams.tags = selectedCategory;
+        // }
+
+        const response = await blogApi.getAll(queryParams, locale);
+        const apiPosts = response.data?.results || response.data || [];
+
+        if (Array.isArray(apiPosts) && apiPosts.length > 0) {
+          // Map API response to BlogPost type
+          const mappedPosts: BlogPost[] = apiPosts.map((post: ApiBlogPost) => {
+            // Use first category if available, otherwise use first tag, or default
+            const category =
+              post.categories?.[0] || post.tags?.[0] || t("blog1.category");
+
+            return {
+              id: post.id,
+              title: post.title,
+              excerpt: post.excerpt,
+              category: category,
+              date: post.date,
+              readTime: post.readTime,
+              image: post.image,
+              author: {
+                name: post.author || t("blog1.author.name"),
+                image: "/images/default-avatar.png", // Default avatar if not provided
+              },
+            };
+          });
+
+          setBlogPosts(mappedPosts);
+        } else {
+          // If API returns empty, use mock data and filter by search if needed
+          // console.warn(
+          //   "API returned empty blog posts, using mock data as fallback"
+          // );
+          let mockPosts = getMockBlogPosts();
+
+          // If there's a search query, filter mock data client-side
+          if (debouncedSearchQuery.trim()) {
+            const searchLower = debouncedSearchQuery.toLowerCase().trim();
+            mockPosts = mockPosts.filter(
+              (post) =>
+                post.title.toLowerCase().includes(searchLower) ||
+                post.excerpt.toLowerCase().includes(searchLower) ||
+                post.category.toLowerCase().includes(searchLower)
+            );
+          }
+
+          setBlogPosts(mockPosts);
+        }
+      } catch (error) {
+        console.error("Error fetching blog posts:", error);
+        setError(t("error") || "Failed to load blog posts");
+        // Use mock data as fallback on error, filter by search if needed
+        let mockPosts = getMockBlogPosts();
+
+        // If there's a search query, filter mock data client-side
+        if (debouncedSearchQuery.trim()) {
+          const searchLower = debouncedSearchQuery.toLowerCase().trim();
+          mockPosts = mockPosts.filter(
+            (post) =>
+              post.title.toLowerCase().includes(searchLower) ||
+              post.excerpt.toLowerCase().includes(searchLower) ||
+              post.category.toLowerCase().includes(searchLower)
+          );
+        }
+
+        setBlogPosts(mockPosts);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogPosts();
+    // Note: selectedCategory is intentionally excluded from dependencies
+    // to avoid unnecessary API calls. Category filtering is done client-side.
+  }, [locale, debouncedSearchQuery, t]);
+
+  // Filter posts by selected category and search query (client-side filtering)
+  // This ensures search works even if API search parameter doesn't work properly
+  const filteredPosts = blogPosts.filter((post) => {
+    // Category filter
+    if (selectedCategory && post.category !== selectedCategory) {
+      return false;
+    }
+
+    // Search filter (client-side as backup, in case API search doesn't work)
+    if (searchQuery.trim()) {
+      const searchLower = searchQuery.toLowerCase().trim();
+      const matchesSearch =
+        post.title.toLowerCase().includes(searchLower) ||
+        post.excerpt.toLowerCase().includes(searchLower) ||
+        post.category.toLowerCase().includes(searchLower);
+
+      if (!matchesSearch) {
+        return false;
+      }
+    }
+
+    return true;
+  });
 
   const categories = Array.from(
     new Set(blogPosts.map((post) => post.category))
@@ -226,6 +380,17 @@ export default function Blog() {
           <p className="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">
             {t("description")}
           </p>
+
+          {/* Search Input */}
+          <div className="max-w-md mx-auto mb-8">
+            <input
+              type="text"
+              placeholder={t("searchPlaceholder") || "Search blog posts..."}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+            />
+          </div>
         </motion.div>
 
         {/* Categories */}
@@ -271,44 +436,70 @@ export default function Blog() {
           ))}
         </motion.div>
 
-        {/* Blog Posts Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-          variants={containerVariants}
-        >
-          {filteredPosts.map((post, index) => (
-            <motion.article
-              key={post.id}
-              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-              variants={cardVariants}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
-            >
-              {/* Image Container */}
-              <Link href={`/blog/${post.id}`}>
-                <div className="relative h-48 overflow-hidden cursor-pointer">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 text-sm font-medium text-white bg-blue-500/90 rounded-full">
-                      {post.category}
-                    </span>
-                  </div>
-                </div>
-              </Link>
+        {/* Loading State */}
+        {loading && (
+          <motion.div
+            className="text-center py-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <p className="text-white text-lg">{t("loading") || "Loading..."}</p>
+          </motion.div>
+        )}
 
-              {/* Content */}
-              <div className="p-6">
-                {/* <div className="flex items-center gap-4 mb-4">
+        {/* Error State */}
+        {error && !loading && (
+          <motion.div
+            className="text-center py-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <p className="text-red-400 text-lg">{error}</p>
+            <p className="text-white/80 text-sm mt-2">
+              {t("usingFallback") || "Using fallback data"}
+            </p>
+          </motion.div>
+        )}
+
+        {/* Blog Posts Grid */}
+        {!loading && (
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+            variants={containerVariants}
+          >
+            {filteredPosts.map((post, index) => (
+              <motion.article
+                key={post.id}
+                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                variants={cardVariants}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+              >
+                {/* Image Container */}
+                <Link href={`/blog/${post.id}`}>
+                  <div className="relative h-48 overflow-hidden cursor-pointer">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 text-sm font-medium text-white bg-blue-500/90 rounded-full">
+                        {post.category}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+
+                {/* Content */}
+                <div className="p-6">
+                  {/* <div className="flex items-center gap-4 mb-4">
                   <Image
                     src={post.author.image}
                     alt={post.author.name}
@@ -323,30 +514,31 @@ export default function Blog() {
                   </div>
                 </div> */}
 
-                <Link href={`/blog/${post.id}`}>
-                  <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300 cursor-pointer truncate">
-                    {post.title}
-                  </h2>
-                </Link>
-                <p className="text-gray-600 mb-4 line-clamp-2">
-                  {post.excerpt}
-                </p>
-
-                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <span className="text-xs text-gray-500">
-                    {post.readTime} {t("readTime")}
-                  </span>
-                  <Link
-                    href={`/blog/${post.id}`}
-                    className="text-blue-600 hover:text-blue-700 transition-colors duration-300"
-                  >
-                    {t("viewDetails")} →
+                  <Link href={`/blog/${post.id}`}>
+                    <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300 cursor-pointer truncate">
+                      {post.title}
+                    </h2>
                   </Link>
+                  <p className="text-gray-600 mb-4 line-clamp-2">
+                    {post.excerpt}
+                  </p>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <span className="text-xs text-gray-500">
+                      {post.readTime} {t("readTime")}
+                    </span>
+                    <Link
+                      href={`/blog/${post.id}`}
+                      className="text-blue-600 hover:text-blue-700 transition-colors duration-300"
+                    >
+                      {t("viewDetails")} <ArrowRightIcon className="w-4 h-4" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </motion.article>
-          ))}
-        </motion.div>
+              </motion.article>
+            ))}
+          </motion.div>
+        )}
 
         {/* No Results Message */}
         {filteredPosts.length === 0 && (
@@ -356,7 +548,7 @@ export default function Blog() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-gray-600 text-lg">{t("noData")}</p>
+            <p className="text-gray-200 text-lg">{t("noData")}</p>
           </motion.div>
         )}
       </div>

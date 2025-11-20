@@ -440,9 +440,12 @@
     "error": "Error loading blog data",
     "reload": "Reload",
     "viewDetails": "View Details",
-    "noData": "No data yet",
+    "noData": "No blog found for search.",
     "all": "All",
     "readTime": "read time",
+    "searchPlaceholder": "Search blog posts...",
+    "usingFallback": "Using fallback data",
+    "categories": "Categories",
     "blog1": {
       "title": "Digital Marketing Strategy 2025",
       "excerpt": "Deep analysis of the most effective strategies and trends in digital marketing in 2025.",

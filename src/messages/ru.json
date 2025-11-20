@@ -440,9 +440,12 @@
     "error": "Ошибка загрузки данных блога",
     "reload": "Перезагрузить",
     "viewDetails": "Посмотреть детали",
-    "noData": "Нет данных",
+    "noData": "Блог не найден для поиска",
     "all": "Все",
     "readTime": "время чтения",
+    "searchPlaceholder": "Поиск в блоге...",
+    "usingFallback": "Используются резервные данные",
+    "categories": "Категории",
     "blog1": {
       "title": "Digital Marketing Strategy 2025",
       "excerpt": "Deep analysis of the most effective strategies and trends in digital marketing in 2025.",

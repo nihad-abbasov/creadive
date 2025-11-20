@@ -440,9 +440,12 @@
     "error": "Xəta baş verdi",
     "reload": "Yenidən yoxla",
     "viewDetails": "Ətraflı bax",
-    "noData": "Hələ bloq məlumatları yoxdur",
+    "noData": "Axtarış üzrə məqalə tapılmadı",
     "all": "Hamısı",
     "readTime": "oxumaq",
+    "searchPlaceholder": "Bloq məqalələrində axtarış...",
+    "usingFallback": "Fallback məlumatlar istifadə olunur",
+    "categories": "Kateqoriyalar",
     "blog1": {
       "title": "Rəqəmsal Marketinq Strategiyaları 2025",
       "excerpt": "2025-ci ildə rəqəmsal marketinqdə ən effektiv strategiyalar və trendlər haqqında dərin analiz.",

@@ -224,22 +224,23 @@ export default function BlogDetail({ blogPost }: BlogDetailProps) {
         </motion.div> */}
 
         {/* Related Posts */}
-        <motion.div
-          className="border-t border-gray-200 pt-12"
-          variants={containerVariants}
-        >
-          <motion.h3
-            className="text-2xl font-bold !text-white mb-8"
-            variants={itemVariants}
+        {blogPost.relatedPosts && blogPost.relatedPosts.length > 0 && (
+          <motion.div
+            className="border-t border-gray-200 pt-12"
+            variants={containerVariants}
           >
-            Əlaqəli məqalələr
-          </motion.h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {blogPost.relatedPosts.map((relatedId, index) => {
-              const relatedPost = blogDetailData.find(
-                (post) => post.id === relatedId
-              );
-              if (!relatedPost) return null;
+            <motion.h3
+              className="text-2xl font-bold !text-white mb-8"
+              variants={itemVariants}
+            >
+              Əlaqəli məqalələr
+            </motion.h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {blogPost.relatedPosts.map((relatedId, index) => {
+                const relatedPost = blogDetailData.find(
+                  (post) => post.id === relatedId
+                );
+                if (!relatedPost) return null;
 
               return (
                 <motion.div
@@ -288,9 +289,10 @@ export default function BlogDetail({ blogPost }: BlogDetailProps) {
                   </Link>
                 </motion.div>
               );
-            })}
-          </div>
-        </motion.div>
+              })}
+            </div>
+          </motion.div>
+        )}
 
         {/* Back to Blog */}
         <motion.div className="mt-12 text-center" variants={itemVariants}>

@@ -1,16 +1,23 @@
 import api, { createApiInstance } from "../lib/api";
 
+export interface BlogQueryParams {
+  ordering?: string;
+  search?: string;
+  status?: "published" | "draft";
+  tags?: string;
+}
+
 export const blogApi = {
-  // Get all blog posts
-  getAll: (locale?: string) => {
+  // Get all blog posts with optional query parameters
+  getAll: (params?: BlogQueryParams, locale?: string) => {
     const apiInstance = locale ? createApiInstance(locale) : api;
-    return apiInstance.get("/blog");
+    return apiInstance.get("/blog/", { params });
   },
 
   // Get blog post by ID
   getById: (id: string | number, locale?: string) => {
     const apiInstance = locale ? createApiInstance(locale) : api;
-    return apiInstance.get(`/blog/${id}`);
+    return apiInstance.get(`/blog/${id}/`);
   },
 
   // Create new blog post (if needed for admin)
