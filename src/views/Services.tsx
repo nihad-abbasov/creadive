@@ -101,15 +101,18 @@ export default function Services() {
   const t = useTranslations("services");
 
   // Function to get translated service data
-  const getTranslatedService = useCallback((service: Service) => {
-    const serviceKey = service.id;
-    return {
-      ...service,
-      title: t(`items.${serviceKey}.title`),
-      description: t(`items.${serviceKey}.description`),
-      details: t(`items.${serviceKey}.details`),
-    };
-  }, [t]);
+  const getTranslatedService = useCallback(
+    (service: Service) => {
+      const serviceKey = service.id;
+      return {
+        ...service,
+        title: t(`items.${serviceKey}.title`),
+        description: t(`items.${serviceKey}.description`),
+        details: t(`items.${serviceKey}.details`),
+      };
+    },
+    [t]
+  );
 
   const handleServiceClick = (serviceId: string, event?: React.MouseEvent) => {
     if (event) {
@@ -118,14 +121,18 @@ export default function Services() {
     setActiveService(serviceId);
     setIsModalOpen(true);
 
-    // Smooth scroll to the service section
+    // Smooth scroll to the service section with offset for fixed header
     setTimeout(() => {
       const serviceElement = document.getElementById(serviceId);
       if (serviceElement) {
-        serviceElement.scrollIntoView({
+        const headerOffset = 80; // Account for fixed header height
+        const elementPosition = serviceElement.getBoundingClientRect().top;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
           behavior: "smooth",
-          block: "start",
-          inline: "nearest",
         });
       }
     }, 50);
@@ -176,10 +183,14 @@ export default function Services() {
       setTimeout(() => {
         const serviceElement = document.getElementById(serviceId);
         if (serviceElement) {
-          serviceElement.scrollIntoView({
+          const headerOffset = 80; // Account for fixed header height
+          const elementPosition = serviceElement.getBoundingClientRect().top;
+          const offsetPosition =
+            elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
             behavior: "smooth",
-            block: "start",
-            inline: "nearest",
           });
         }
       }, 100);
@@ -221,7 +232,7 @@ export default function Services() {
         {!loading && (
           <div className="flex flex-col md:flex-row items-start gap-8">
             {/* Service Tabs */}
-            <div className="flex flex-row md:flex-col flex-wrap md:flex-nowrap justify-center space-y-3 md:sticky top-4 z-10 shadow-sm w-full lg:w-1/4">
+            <div className="flex flex-row md:flex-col flex-wrap md:flex-nowrap justify-center space-y-3 md:sticky top-20 z-10 shadow-sm w-full lg:w-1/4">
               {translatedServices.map((translatedService) => (
                 <button
                   key={translatedService.id}
@@ -238,7 +249,7 @@ export default function Services() {
             </div>
 
             {/* Service Items */}
-            <div className="flex flex-col space-y-4 w-full lg:w-full">
+            <div className="flex flex-col space-y-8 w-full lg:w-full">
               {translatedServices.map((translatedService, idx) => {
                 const isEven = idx % 2 === 0;
 
@@ -249,7 +260,7 @@ export default function Services() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="group rounded-2xl overflow-hidden shadow-sm bg-white hover:shadow-lg transition-all duration-300"
+                    className="group rounded-lg overflow-hidden shadow-sm bg-white hover:shadow-lg transition-all duration-300"
                     onClick={() => handleServiceClick(translatedService.id)}
                   >
                     <div
@@ -271,8 +282,8 @@ export default function Services() {
                           sizes="100vw"
                           className={`object-cover w-full h-full rounded-none ${
                             isEven
-                              ? "md:rounded-l-2xl md:rounded-r-none"
-                              : "md:rounded-r-2xl md:rounded-l-none"
+                              ? "md:rounded-l-lg md:rounded-r-none"
+                              : "md:rounded-r-lg md:rounded-l-none"
                           } shadow-sm`}
                         />
                       </motion.div>
