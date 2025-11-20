@@ -214,6 +214,7 @@ body::-webkit-scrollbar-thumb {
 
 .testimonials-swiper .swiper-wrapper {
   gap: 1rem !important;
+  padding-block: 1rem;
 }
 
 .blogDetailPage .prose h2,

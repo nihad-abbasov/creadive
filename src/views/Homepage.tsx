@@ -20,10 +20,11 @@ import { useInView } from "react-intersection-observer";
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { IoRocketOutline } from "react-icons/io5";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/lib/navigation";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
+import { testimonialsApi, type Testimonial as ApiTestimonial } from "@/services/testimonials";
 import "swiper/css/effect-cards";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -39,7 +40,8 @@ interface Testimonial {
   instagramUrl: string;
 }
 
-const testimonials: Testimonial[] = [
+// Mock testimonials data as fallback
+const mockTestimonials: Testimonial[] = [
   {
     id: 1,
     name: "Calissa Group",
@@ -367,6 +369,7 @@ const partners: Partner[] = [
 
 const Homepage = () => {
   const t = useTranslations("homepage");
+  const locale = useLocale();
   const { ref, inView } = useInView({
     threshold: 0.3,
     triggerOnce: true,
@@ -374,6 +377,7 @@ const Homepage = () => {
   const [activePricingTab, setActivePricingTab] = useState(
     pricingCategories[0].id
   );
+  const [testimonials, setTestimonials] = useState<Testimonial[]>(mockTestimonials);
 
   // Handle hash navigation (e.g., /#home-pricing-section)
   useEffect(() => {
@@ -406,6 +410,44 @@ const Homepage = () => {
       window.removeEventListener("hashchange", scrollToHash);
     };
   }, []);
+
+  // Fetch testimonials from API
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const response = await testimonialsApi.getAll(undefined, locale);
+        const data = response.data;
+
+        // Handle both paginated response (with results) and direct array response
+        let apiTestimonials: ApiTestimonial[] = [];
+        if (Array.isArray(data)) {
+          apiTestimonials = data;
+        } else if (data && "results" in data && Array.isArray(data.results)) {
+          apiTestimonials = data.results;
+        }
+
+        // Transform API response (capitalized fields) to component format (lowercase)
+        if (apiTestimonials.length > 0) {
+          const transformedTestimonials: Testimonial[] = apiTestimonials.map(
+            (item) => ({
+              id: item.id,
+              name: item.Name,
+              thoughts: item.Thoughts,
+              role: item.Role,
+              instagramUrl: item.InstagramUrl,
+            })
+          );
+          setTestimonials(transformedTestimonials);
+        }
+      } catch (error) {
+        console.error("Error fetching testimonials:", error);
+        // Keep mock data as fallback
+        setTestimonials(mockTestimonials);
+      }
+    };
+
+    fetchTestimonials();
+  }, [locale]);
 
   return (
     <section>

@@ -5,3 +5,4 @@ export { servicesApi } from "./services";
 export { teamApi } from "./team";
 export { contactApi } from "./contact";
 export { faqApi } from "./faq";
+export { testimonialsApi } from "./testimonials";
