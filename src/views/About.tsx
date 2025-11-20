@@ -11,6 +11,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { faqApi, type FAQ } from "@/services/faq";
+import { teamApi, type TeamMember as ApiTeamMember } from "@/services/team";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css";
@@ -142,49 +143,55 @@ interface FAQItem {
 export default function About() {
   const [openFaqId, setOpenFaqId] = useState<number | null>(null);
   const [faqs, setFaqs] = useState<FAQItem[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [faqLoading, setFaqLoading] = useState(true);
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+  const [teamLoading, setTeamLoading] = useState(true);
   const router = useRouter();
   const t = useTranslations("about");
   const locale = useLocale();
 
-  const teamMembers: TeamMember[] = [
-    {
-      name: "Nihad Abbasov",
-      role: t("team.members.nihad.role"),
-      image: "/images/team/nihad.jpg",
-      bio: t("team.members.nihad.bio"),
-    },
-    {
-      name: "Ənvər Nağıyev",
-      role: t("team.members.enver.role"),
-      image: "/images/team/enver.jpeg",
-      bio: t("team.members.enver.bio"),
-    },
-    {
-      name: "Fəxri Nağıyev",
-      role: t("team.members.fexri.role"),
-      image: "/images/team/fexri.jpeg",
-      bio: t("team.members.fexri.bio"),
-    },
-    {
-      name: "Cavid Məmmədli",
-      role: t("team.members.javid.role"),
-      image: "/images/team/javid.jpg",
-      bio: t("team.members.javid.bio"),
-    },
-    {
-      name: "Alış Həziyev",
-      role: t("team.members.alish.role"),
-      image: "/images/team/alish.jpg",
-      bio: t("team.members.alish.bio"),
-    },
-    {
-      name: "Azad Məmmədov",
-      role: t("team.members.azad.role"),
-      image: "/images/team/azad.png",
-      bio: t("team.members.azad.bio"),
-    },
-  ];
+  // Function to get translated team members (mock data as fallback)
+  const getTranslatedTeamMembers = useCallback(
+    (): TeamMember[] => [
+      {
+        name: "Nihad Abbasov",
+        role: t("team.members.nihad.role"),
+        image: "/images/team/nihad.jpg",
+        bio: t("team.members.nihad.bio"),
+      },
+      {
+        name: "Ənvər Nağıyev",
+        role: t("team.members.enver.role"),
+        image: "/images/team/enver.jpeg",
+        bio: t("team.members.enver.bio"),
+      },
+      {
+        name: "Fəxri Nağıyev",
+        role: t("team.members.fexri.role"),
+        image: "/images/team/fexri.jpeg",
+        bio: t("team.members.fexri.bio"),
+      },
+      {
+        name: "Cavid Məmmədli",
+        role: t("team.members.javid.role"),
+        image: "/images/team/javid.jpg",
+        bio: t("team.members.javid.bio"),
+      },
+      {
+        name: "Alış Həziyev",
+        role: t("team.members.alish.role"),
+        image: "/images/team/alish.jpg",
+        bio: t("team.members.alish.bio"),
+      },
+      {
+        name: "Azad Məmmədov",
+        role: t("team.members.azad.role"),
+        image: "/images/team/azad.png",
+        bio: t("team.members.azad.bio"),
+      },
+    ],
+    [t]
+  );
 
   // Function to get translated sections
   const getTranslatedSections = () => [
@@ -257,7 +264,7 @@ export default function About() {
   useEffect(() => {
     const fetchFAQs = async () => {
       try {
-        setLoading(true);
+        setFaqLoading(true);
 
         const response = await faqApi.getAll(
           {
@@ -297,12 +304,66 @@ export default function About() {
         // Use mock data as fallback on error
         setFaqs(getTranslatedFAQs());
       } finally {
-        setLoading(false);
+        setFaqLoading(false);
       }
     };
 
     fetchFAQs();
   }, [locale, getTranslatedFAQs]);
+
+  // Fetch team members from API
+  useEffect(() => {
+    const fetchTeamMembers = async () => {
+      try {
+        setTeamLoading(true);
+
+        const response = await teamApi.getAll(
+          {
+            // You can add ordering or search params here if needed
+            // ordering: "id",
+            // search: "",
+          },
+          locale
+        );
+
+        // Handle both paginated response (with results) and direct array response
+        let apiTeamMembers: ApiTeamMember[] = [];
+        if (Array.isArray(response.data)) {
+          // Direct array response
+          apiTeamMembers = response.data;
+        } else if (response.data && "results" in response.data) {
+          // Paginated response with results property
+          apiTeamMembers = response.data.results || [];
+        }
+
+        if (Array.isArray(apiTeamMembers) && apiTeamMembers.length > 0) {
+          // Map API response to TeamMember type
+          // API uses Name/Role/Image/Bio (capitalized), component expects name/role/image/bio
+          const mappedTeamMembers: TeamMember[] = apiTeamMembers.map(
+            (member: ApiTeamMember) => ({
+              name: member.Name || "",
+              role: member.Role || "",
+              image: member.Image || "",
+              bio: member.Bio || "",
+            })
+          );
+
+          setTeamMembers(mappedTeamMembers);
+        } else {
+          // If API returns empty, use mock data
+          setTeamMembers(getTranslatedTeamMembers());
+        }
+      } catch (error) {
+        console.error("Error fetching team members:", error);
+        // Use mock data as fallback on error
+        setTeamMembers(getTranslatedTeamMembers());
+      } finally {
+        setTeamLoading(false);
+      }
+    };
+
+    fetchTeamMembers();
+  }, [locale, getTranslatedTeamMembers]);
 
   // Animation variants
   const containerVariants = {
@@ -430,118 +491,124 @@ export default function About() {
             >
               {t("team.title")}
             </motion.h2>
-            <div className="relative">
-              <Swiper
-                modules={[Navigation, Pagination, Autoplay]}
-                spaceBetween={15}
-                slidesPerView={1}
-                navigation={{
-                  nextEl: ".swiper-button-next-custom",
-                  prevEl: ".swiper-button-prev-custom",
-                }}
-                pagination={{
-                  clickable: true,
-                  el: ".swiper-pagination-custom",
-                }}
-                autoplay={{
-                  delay: 4000,
-                  disableOnInteraction: false,
-                }}
-                loop={true}
-                breakpoints={{
-                  640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                  },
-                  1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 24,
-                  },
-                }}
-                className="team-swiper"
-              >
-                {teamMembers.map((member) => {
-                  return (
-                    <SwiperSlide key={member.name}>
-                      <motion.div
-                        variants={teamCardVariants}
-                        whileHover={{
-                          transition: { duration: 0.3, ease: "easeOut" },
-                        }}
-                        className="group bg-white rounded-2xl py-5 px-2 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative h-full"
-                        style={{
-                          background:
-                            "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
-                        }}
-                      >
-                        {/* Decorative gradient overlay on hover */}
+            {teamLoading ? (
+              <div className="text-center text-white/80 py-8">
+                {t("team.loading")}
+              </div>
+            ) : (
+              <div className="relative">
+                <Swiper
+                  modules={[Navigation, Pagination, Autoplay]}
+                  spaceBetween={15}
+                  slidesPerView={1}
+                  navigation={{
+                    nextEl: ".swiper-button-next-custom",
+                    prevEl: ".swiper-button-prev-custom",
+                  }}
+                  pagination={{
+                    clickable: true,
+                    el: ".swiper-pagination-custom",
+                  }}
+                  autoplay={{
+                    delay: 4000,
+                    disableOnInteraction: false,
+                  }}
+                  loop={true}
+                  breakpoints={{
+                    640: {
+                      slidesPerView: 2,
+                      spaceBetween: 20,
+                    },
+                    1024: {
+                      slidesPerView: 3,
+                      spaceBetween: 24,
+                    },
+                  }}
+                  className="team-swiper"
+                >
+                  {teamMembers.map((member) => {
+                    return (
+                      <SwiperSlide key={member.name}>
                         <motion.div
-                          className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-purple-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                          initial={false}
-                        />
-
-                        {/* Image container with better styling */}
-                        <motion.div
-                          className="relative w-52 h-52 mx-auto mb-4"
-                          transition={{ duration: 0.3, ease: "easeOut" }}
+                          variants={teamCardVariants}
+                          whileHover={{
+                            transition: { duration: 0.3, ease: "easeOut" },
+                          }}
+                          className="group bg-white rounded-2xl py-5 px-2 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative h-full"
+                          style={{
+                            background:
+                              "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
+                          }}
                         >
-                          <Image
-                            src={member.image}
-                            alt={member.name}
-                            width={0}
-                            height={0}
-                            sizes="100vw"
-                            className="w-full h-full rounded-xl object-cover relative z-10"
-                          />
-                          {/* Subtle glow effect */}
+                          {/* Decorative gradient overlay on hover */}
                           <motion.div
-                            className="absolute inset-0 bg-gradient-to-br from-blue-400/15 to-purple-400/15 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                            className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-purple-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                             initial={false}
                           />
-                        </motion.div>
 
-                        {/* Content with better typography hierarchy */}
-                        <div className="relative z-10 text-center">
-                          <motion.h3
-                            className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors duration-300"
-                            transition={{ duration: 0.2 }}
-                          >
-                            {member.name}
-                          </motion.h3>
-
+                          {/* Image container with better styling */}
                           <motion.div
-                            className="inline-block bg-gradient-to-r from-blue-600 to-emerald-600 text-white px-3 py-1 rounded-md text-xs font-medium mb-3"
-                            transition={{ duration: 0.2 }}
+                            className="relative w-52 h-52 mx-auto mb-4"
+                            transition={{ duration: 0.3, ease: "easeOut" }}
                           >
-                            {member.role}
+                            <Image
+                              src={member.image}
+                              alt={member.name}
+                              width={0}
+                              height={0}
+                              sizes="100vw"
+                              className="w-full h-full rounded-xl object-cover relative z-10"
+                            />
+                            {/* Subtle glow effect */}
+                            <motion.div
+                              className="absolute inset-0 bg-gradient-to-br from-blue-400/15 to-purple-400/15 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                              initial={false}
+                            />
                           </motion.div>
 
-                          <motion.p
-                            className="text-gray-600 text-sm leading-relaxed"
-                            initial={{ opacity: 0.8 }}
-                            whileHover={{ opacity: 1 }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            {member.bio}
-                          </motion.p>
-                        </div>
-                      </motion.div>
-                    </SwiperSlide>
-                  );
-                })}
-              </Swiper>
+                          {/* Content with better typography hierarchy */}
+                          <div className="relative z-10 text-center">
+                            <motion.h3
+                              className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors duration-300"
+                              transition={{ duration: 0.2 }}
+                            >
+                              {member.name}
+                            </motion.h3>
 
-              {/* Custom Navigation Buttons */}
-              <button className="swiper-button-prev-custom absolute left-4 md:-left-16 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-600 hover:text-blue-600 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110">
-                <AboutArrowLeftIcon />
-              </button>
-              <button className="swiper-button-next-custom absolute right-4 md:-right-16 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-600 hover:text-blue-600 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110">
-                <AboutArrowRightIcon />
-              </button>
+                            <motion.div
+                              className="inline-block bg-gradient-to-r from-blue-600 to-emerald-600 text-white px-3 py-1 rounded-md text-xs font-medium mb-3"
+                              transition={{ duration: 0.2 }}
+                            >
+                              {member.role}
+                            </motion.div>
 
-              {/* Custom Pagination */}
-              <div className="swiper-pagination-custom flex justify-center mt-6 space-x-2"></div>
-            </div>
+                            <motion.p
+                              className="text-gray-600 text-sm leading-relaxed"
+                              initial={{ opacity: 0.8 }}
+                              whileHover={{ opacity: 1 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              {member.bio}
+                            </motion.p>
+                          </div>
+                        </motion.div>
+                      </SwiperSlide>
+                    );
+                  })}
+                </Swiper>
+
+                {/* Custom Navigation Buttons */}
+                <button className="swiper-button-prev-custom absolute left-4 md:-left-16 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-600 hover:text-blue-600 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110">
+                  <AboutArrowLeftIcon />
+                </button>
+                <button className="swiper-button-next-custom absolute right-4 md:-right-16 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-600 hover:text-blue-600 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110">
+                  <AboutArrowRightIcon />
+                </button>
+
+                {/* Custom Pagination */}
+                <div className="swiper-pagination-custom flex justify-center mt-6 space-x-2"></div>
+              </div>
+            )}
           </motion.section>
 
           {/* FAQ Section */}
@@ -560,7 +627,7 @@ export default function About() {
               className="max-w-3xl mx-auto"
               variants={containerVariants}
             >
-              {loading ? (
+              {faqLoading ? (
                 <div className="text-center text-white/80 py-8">
                   {t("faq.loading")}
                 </div>

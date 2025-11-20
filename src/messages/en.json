@@ -351,6 +351,7 @@
     },
     "team": {
       "title": "Our Team",
+      "loading": "Loading team members...",
       "members": {
         "nihad": {
           "role": "Founder & CEO",
