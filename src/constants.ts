@@ -1,5 +1,5 @@
 // API Configuration
-const BASE_URL: string = "http://207.180.254.207/api";
+const BASE_URL: string = "https://backend.creadive.az/api/";
 
 const CURRENT_YEAR: number = new Date().getFullYear();
 

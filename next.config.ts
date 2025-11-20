@@ -20,6 +20,10 @@ const nextConfig: NextConfig = {
         protocol: "http",
         hostname: "207.180.254.207",
       },
+      {
+        protocol: "https",
+        hostname: "backend.creadive.az",
+      },
     ],
     formats: ["image/webp", "image/avif"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
