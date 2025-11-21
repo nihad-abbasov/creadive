@@ -151,6 +151,7 @@ export default function BlogDetail({ blogPost }: BlogDetailProps) {
               alt={blogPost.title}
               fill
               className="object-cover"
+              unoptimized={blogPost.image.startsWith('http://') || blogPost.image.startsWith('https://')}
             />
           </motion.div>
 

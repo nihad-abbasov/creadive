@@ -21,6 +21,10 @@ const nextConfig: NextConfig = {
         hostname: "207.180.254.207",
       },
       {
+        protocol: "http",
+        hostname: "backend.creadive.az",
+      },
+      {
         protocol: "https",
         hostname: "backend.creadive.az",
       },

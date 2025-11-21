@@ -26,14 +26,16 @@ type BlogPost = {
 type ApiBlogPost = {
   id: number;
   title: string;
-  excerpt: string;
+  excerpt: string | null;
   content: string;
   date: string;
-  readTime: string;
-  image: string;
-  author: string;
-  tags: string[];
-  categories: string[];
+  readTime: string | null;
+  image: string | null;
+  author: string | null;
+  tags: Array<{ id: number; name: string; order: number }> | [];
+  tags_list: string[];
+  categories: Array<{ id: number; name: string; order: number }> | [];
+  categories_list: string[];
   status: "published" | "draft";
 };
 
@@ -227,20 +229,25 @@ export default function Blog() {
         if (Array.isArray(apiPosts) && apiPosts.length > 0) {
           // Map API response to BlogPost type
           const mappedPosts: BlogPost[] = apiPosts.map((post: ApiBlogPost) => {
-            // Use first category if available, otherwise use first tag, or default
+            // Use first category from categories_list or extract from categories object, otherwise use first tag, or default
             const category =
-              post.categories?.[0] || post.tags?.[0] || t("blog1.category");
+              post.categories_list?.[0] ||
+              post.categories?.[0]?.name ||
+              post.tags_list?.[0] ||
+              post.tags?.[0]?.name ||
+              t("blog1.category") ||
+              "Uncategorized";
 
             return {
               id: post.id,
-              title: post.title,
-              excerpt: post.excerpt,
+              title: post.title || "Untitled",
+              excerpt: post.excerpt || "",
               category: category,
-              date: post.date,
-              readTime: post.readTime,
-              image: post.image,
+              date: post.date || "",
+              readTime: post.readTime || "",
+              image: post.image || "/images/blog/digital-marketing.jpg", // Provide default image if null
               author: {
-                name: post.author || t("blog1.author.name"),
+                name: post.author || t("blog1.author.name") || "Creadive Team",
                 image: "/images/default-avatar.png", // Default avatar if not provided
               },
             };
@@ -307,9 +314,9 @@ export default function Blog() {
     if (searchQuery.trim()) {
       const searchLower = searchQuery.toLowerCase().trim();
       const matchesSearch =
-        post.title.toLowerCase().includes(searchLower) ||
-        post.excerpt.toLowerCase().includes(searchLower) ||
-        post.category.toLowerCase().includes(searchLower);
+        (post.title || "").toLowerCase().includes(searchLower) ||
+        (post.excerpt || "").toLowerCase().includes(searchLower) ||
+        (post.category || "").toLowerCase().includes(searchLower);
 
       if (!matchesSearch) {
         return false;
@@ -483,14 +490,17 @@ export default function Blog() {
                 {/* Image Container */}
                 <Link href={`/blog/${post.id}`}>
                   <div className="relative h-48 overflow-hidden cursor-pointer">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
                     <Image
                       src={post.image}
                       alt={post.title}
-                      width={0}
-                      height={0}
-                      sizes="100vw"
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transform group-hover:scale-110 transition-transform duration-300"
+                      unoptimized={
+                        post.image.startsWith("http://") ||
+                        post.image.startsWith("https://")
+                      }
                     />
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 text-sm font-medium text-white bg-blue-500/90 rounded-full">
@@ -532,7 +542,7 @@ export default function Blog() {
                     </span>
                     <Link
                       href={`/blog/${post.id}`}
-                      className="text-blue-600 hover:text-blue-700 transition-colors duration-300"
+                      className="text-blue-600 hover:text-blue-700 transition-colors duration-300 flex items-center gap-2"
                     >
                       {t("viewDetails")} <ArrowRightIcon className="w-4 h-4" />
                     </Link>
