@@ -144,7 +144,7 @@ export default function Contact() {
             <CFormProvider
               methods={methods}
               onSubmit={handleSubmit}
-              className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100"
+              className="bg-white p-4 md:p-8 rounded-2xl shadow-sm border border-gray-100"
             >
               <div>
                 <InputTextField

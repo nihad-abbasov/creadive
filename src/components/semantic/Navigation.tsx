@@ -349,7 +349,7 @@ export default function Navigation() {
       >
         <div className="flex flex-col h-full">
           {/* Menu Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-700">
+          <div className="flex items-center justify-between p-4 border-b border-[rgb(107_107_107)]">
             {/* <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -425,7 +425,7 @@ export default function Navigation() {
           </div>
 
           {/* Menu Items */}
-          <div className="flex flex-col px-4 md:px-6 space-y-2 flex-grow py-4 md:py-6">
+          <div className="flex flex-col px-1 md:px-6 space-y-2 flex-grow py-4 md:py-6">
             {getNavLinks(t).map((link, index) => (
               <motion.div
                 key={link.id}
@@ -435,7 +435,7 @@ export default function Navigation() {
               >
                 <Link
                   href={link.href}
-                  className={`block w-full !text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-slate-800/50 text-lg font-medium relative group ${
+                  className={`block w-full !text-white py-2 px-3 md:py-3 md:px-4 rounded-lg transition-all duration-300 hover:bg-slate-800/50 text-lg font-medium relative group ${
                     isActiveLink(link.href) ? "bg-black/20 !text-black" : ""
                   }`}
                   onClick={toggleMobileMenu}
@@ -453,7 +453,7 @@ export default function Navigation() {
 
           {/* Menu Footer */}
           <motion.div
-            className="border-t border-gray-700 p-6 space-y-6"
+            className="border-t border-_rgb_107 107 107)] p-6 space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.5 }}

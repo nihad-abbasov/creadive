@@ -24,7 +24,10 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/lib/navigation";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
-import { testimonialsApi, type Testimonial as ApiTestimonial } from "@/services/testimonials";
+import {
+  testimonialsApi,
+  type Testimonial as ApiTestimonial,
+} from "@/services/testimonials";
 import "swiper/css/effect-cards";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -377,7 +380,8 @@ const Homepage = () => {
   const [activePricingTab, setActivePricingTab] = useState(
     pricingCategories[0].id
   );
-  const [testimonials, setTestimonials] = useState<Testimonial[]>(mockTestimonials);
+  const [testimonials, setTestimonials] =
+    useState<Testimonial[]>(mockTestimonials);
 
   // Handle hash navigation (e.g., /#home-pricing-section)
   useEffect(() => {
@@ -1369,7 +1373,7 @@ const Homepage = () => {
         transition={{ duration: 0.6 }}
         className="py-20"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto md:px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1501,7 +1505,7 @@ const Homepage = () => {
         transition={{ duration: 0.6 }}
         className="py-20"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}

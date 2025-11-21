@@ -514,7 +514,7 @@ export default function Portfolio() {
                           } h-full object-contain`}
                         />
                       </motion.div>
-                      <div className="px-4 py-2">
+                      <div className="px-4 py-2 pb-7">
                         <motion.h3
                           className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300"
                           whileHover={{ x: 5 }}

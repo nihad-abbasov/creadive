@@ -232,7 +232,7 @@ export default function Services() {
         {!loading && (
           <div className="flex flex-col md:flex-row items-start gap-8">
             {/* Service Tabs */}
-            <div className="flex flex-row md:flex-col flex-wrap md:flex-nowrap justify-center space-y-3 md:sticky top-20 z-10 shadow-sm w-full lg:w-1/4">
+            <div className="flex flex-row md:flex-col flex-wrap md:flex-nowrap justify-around md:justify-center space-y-3 md:sticky top-20 z-10 shadow-sm w-full lg:w-1/4">
               {translatedServices.map((translatedService) => (
                 <button
                   key={translatedService.id}

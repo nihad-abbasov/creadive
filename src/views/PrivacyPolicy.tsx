@@ -138,7 +138,7 @@ export default function PrivacyPolicy() {
         {/* Header */}
         <motion.div variants={itemVariants} className="text-center mb-12">
           <motion.h1
-            className="text-4xl md:text-5xl font-extrabold !text-white mb-4 tracking-tight"
+            className="text-3xl md:text-5xl font-extrabold !text-white mb-4 tracking-tight"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -166,7 +166,7 @@ export default function PrivacyPolicy() {
         {/* Introduction */}
         <motion.div
           variants={itemVariants}
-          className="bg-gradient-to-br from-blue-900/50 via-blue-800/50 to-black/50 p-8 rounded-2xl shadow-lg mb-8"
+          className="bg-gradient-to-br from-blue-900/50 via-blue-800/50 to-black/50 p-4 md:p-8 rounded-2xl shadow-lg mb-8"
         >
           <p className="text-gray-200 leading-relaxed text-lg">
             {sections[0].content}
@@ -179,7 +179,7 @@ export default function PrivacyPolicy() {
             <motion.section
               key={section.key}
               variants={itemVariants}
-              className="bg-gradient-to-br from-blue-900/50 via-blue-800/50 to-black/50 p-8 rounded-2xl shadow-lg"
+              className="bg-gradient-to-br from-blue-900/50 via-blue-800/50 to-black/50 p-4 md:p-8 rounded-2xl shadow-lg"
             >
               <h2 className="text-2xl md:text-3xl font-bold !text-white mb-4">
                 {section.title}

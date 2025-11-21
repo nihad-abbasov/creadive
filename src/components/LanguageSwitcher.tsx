@@ -67,7 +67,7 @@ export default function LanguageSwitcher() {
       </button>
 
       {open && (
-        <div className="willAppear absolute right-0 mt-1 w-full bg-white/95 backdrop-blur-md rounded-xl shadow-2xl ring-1 ring-black/5 z-[10000] overflow-hidden">
+        <div className="willAppear absolute right-auto left-0 md:right-0 md:left-auto bottom-full mb-1 md:bottom-auto md:top-full md:mt-1 md:mb-0 w-max md:w-full bg-white/95 backdrop-blur-md rounded-xl shadow-2xl ring-1 ring-black/5 z-[10000] overflow-hidden">
           {/* Language options */}
           <ul className="w-full">
             {locales

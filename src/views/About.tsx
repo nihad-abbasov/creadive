@@ -637,16 +637,16 @@ export default function About() {
                     key={faq.id}
                     variants={itemVariants}
                     transition={{ duration: 0.2 }}
-                    className="mb-4 bg-white rounded-2xl overflow-hidden"
+                    className="mb-4 bg-white rounded-lg md:rounded-2xl overflow-hidden"
                   >
                     <motion.button
                       onClick={() =>
                         setOpenFaqId(openFaqId === faq.id ? null : faq.id)
                       }
-                      className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
+                      className="w-full px-3 py-2 md:px-6 md:py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
                       whileHover={{ backgroundColor: "#c9fafb" }}
                     >
-                      <span className="text-base font-semibold text-gray-900">
+                      <span className="text-base font-medium text-gray-900">
                         {faq.question}
                       </span>
                       <motion.div
@@ -685,7 +685,7 @@ export default function About() {
           {/* CTA Section */}
           <motion.section className="text-center" variants={itemVariants}>
             <motion.div
-              className="inline-block bg-gradient-to-r from-blue-500 to-emerald-500 text-white px-4 md:px-8 py-3 md:py-5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="inline-block bg-gradient-to-r from-blue-500 to-emerald-500 text-white px-4 md:px-8 py-3 md:py-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 w-full md:w-auto"
               whileHover={{
                 boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
               }}
@@ -697,7 +697,7 @@ export default function About() {
               >
                 {t("cta.title")}
               </motion.span>
-              <motion.div className="mt-2">
+              <motion.div className="mt-1">
                 <button
                   onClick={handleRedirectToContact}
                   aria-label="Contact via WhatsApp"

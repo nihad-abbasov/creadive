@@ -144,7 +144,7 @@ export default function Footer() {
           <div className="flex flex-col items-start gap-2 md:gap-4">
             <Link
               href="/"
-              className="text-2xl font-bold text-gray-900 mb-0 md:mb-0"
+              className="text-2xl font-bold text-gray-900 mb-0 md:mb-0 w-2/3 md:w-3/4"
               aria-label="Creadive Logo"
             >
               <Logo isWhite={true} isForHeader={false} />
@@ -207,7 +207,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-col items-start gap-2 md:gap-4">
             <span className="text-lg font-semibold mb-0 md:mb-0">
-              Bizi izləyin
+              {t("footer.followUs")}
             </span>
             <ul className="flex space-x-4 list-none">
               {socials.map((social) => (
