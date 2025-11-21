@@ -146,6 +146,8 @@
     },
     "pricing": {
       "title": "Цены на услуги веб-дизайна и цифрового маркетинга",
+      "notIncludedTitle": "НЕ ВКЛЮЧЕНО В ЦЕНЫ",
+      "orderButton": "Заказать",
       "categories": {
         "smm": {
           "name": "SMM",

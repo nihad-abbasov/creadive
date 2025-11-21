@@ -146,6 +146,8 @@
     },
     "pricing": {
       "title": "Veb Dizayn və Rəqəmsal Marketinq Xidmət Qiymətlərimiz",
+      "notIncludedTitle": "QİYMƏTLƏRƏ DAXİL DEYİL",
+      "orderButton": "Sifariş et",
       "categories": {
         "smm": {
           "name": "SMM",

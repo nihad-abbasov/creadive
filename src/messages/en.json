@@ -146,6 +146,8 @@
     },
     "pricing": {
       "title": "Veb Design and Digital Marketing Service Prices",
+      "notIncludedTitle": "NOT INCLUDED IN PRICES",
+      "orderButton": "Order",
       "categories": {
         "smm": {
           "name": "SMM",

@@ -184,154 +184,62 @@ const stats: StatItem[] = [
 const pricingCategories = [
   {
     id: "smm",
-    name: "SMM",
-    description: "Sosial media idarəçiliyi üçün paketlərimiz.",
     packages: [
       {
         id: "roket",
-        name: "ROKET paket",
         price: "349 AZN",
-        features: [
-          "12 statik post",
-          "2 reels/motion video",
-          "6 hekayə dizaynı",
-        ],
+        popular: false,
       },
       {
         id: "kosmos",
-        name: "KOSMOS paket",
         price: "699 AZN",
-        features: [
-          "16 statik post",
-          "15 hekayə dizaynı",
-          "2 Motion video",
-          "2 Reels video",
-          "Xüsusi günlərə aid postların hazırlanması",
-          "Highlights bölməsinin hazırlanması",
-          "Targeting (Reklam)",
-        ],
         popular: true,
       },
       {
         id: "ulduz",
-        name: "ULDUZ paket",
         price: "999 AZN",
-        features: [
-          "Loqo hazırlanması",
-          "1 profesional video çəkiliş",
-          "30 hekayə dizaynı",
-          "Hər ay 1 giveaway/yarişma postu hazırlamaq",
-          "Targeting (Reklam)",
-          "Sosial media hesablarının idarə edilməsi",
-          "Tiktok üzərindən reklam",
-        ],
+        popular: false,
       },
-    ],
-    notIncluded: [
-      "Vergi",
-      "Reklam büdcəsi/xərcləri",
-      "Giveaway hədiyyələrinin xərcləri",
     ],
   },
   {
     id: "website",
-    name: "Vebsayt",
-    description: "Vebsayt hazırlanması üçün paketlərimiz.",
     packages: [
       {
         id: "landing",
-        name: "Açılış Səhifəsi",
         price: "500 AZN",
-        features: [
-          "1 səhifəlik vebsayt",
-          "Mobil uyğun dizayn",
-          "Əsas SEO optimizasiya",
-          "Sürətli yüklənmə",
-        ],
+        popular: false,
       },
       {
         id: "business",
-        name: "Biznes Vebsayt",
         price: "800 AZN",
-        features: [
-          "5 səhifəyə qədər",
-          "Mobil və masaüstü uyğunluq",
-          "SEO optimizasiya",
-          "Admin panel",
-          "Əlaqə forması",
-        ],
         popular: true,
       },
       {
         id: "ecommerce",
-        name: "E-ticarət",
         price: "1500 AZN",
-        features: [
-          "10+ səhifə",
-          "Onlayn satış sistemi",
-          "Ödəniş inteqrasiyası",
-          "Admin panel",
-          "SEO və sürət optimizasiyası",
-        ],
+        popular: false,
       },
-    ],
-    notIncluded: [
-      "Əlavə dil dəstəyi",
-      "Əlavə illik hostinq və domen haqqı",
-      "Məzmunun (text və şəkil) hazırlanması",
-      "SEO-nun tam audit və ya davamlı xidməti",
-      "Saytın davamlı texniki dəstəyi",
     ],
   },
   {
     id: "design",
-    name: "Dizayn",
-    description: "Qrafik və brendinq dizayn xidmətləri.",
     packages: [
       {
         id: "logo",
-        name: "Loqo Dizaynı",
         price: "150 AZN",
-        features: [
-          "3 fərqli konsept",
-          "2 dəfə düzəliş imkanı",
-          "Final fayllar (PNG, SVG, JPG)",
-          "Rəng və şrift təlimatı",
-        ],
+        popular: false,
       },
       {
         id: "branding",
-        name: "Brendinq Paketi",
         price: "529 AZN",
-        features: [
-          "Loqo dizaynı",
-          "Vizit kart dizaynı",
-          "Sosial media şablonları",
-          "Brend kitabçası",
-        ],
         popular: true,
       },
       {
         id: "social",
-        name: "Post və Story Dizaynı",
         price: "70 AZN",
-        features: [
-          "3 post dizaynı",
-          "1 story dizaynı",
-          "Brend rənglərinə uyğun",
-          "Yüksək keyfiyyətli fayllar (JPG/PNG)",
-          "2 dəfə dəyişmə imkanı",
-        ],
+        popular: false,
       },
-    ],
-    notIncluded: [
-      "Çap xərcləri",
-      "Stock şəkil və ya font lisenziyaları",
-      "Əlavə konsept və ya düzəlişlər",
-      "Animasiya və ya motion dizayn (paketdə yoxdursa)",
-      "Brend strategiyası və ya konsultasiya",
-      "Sosial media idarəçiliyi",
-      "Faylların əlavə formatlarda hazırlanması",
     ],
   },
 ];
@@ -995,7 +903,7 @@ const Homepage = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {cat.name}
+                  {t(`pricing.categories.${cat.id}.name`)}
                   {activePricingTab === cat.id && (
                     <motion.div
                       layoutId="pricing-tab-underline"
@@ -1077,7 +985,9 @@ const Homepage = () => {
                                   isPopular ? "text-white" : "text-gray-900"
                                 }`}
                               >
-                                {pkg.name}
+                                {t(
+                                  `pricing.categories.${cat.id}.packages.${pkg.id}.name`
+                                )}
                               </h3>
 
                               {/* Price */}
@@ -1092,7 +1002,7 @@ const Homepage = () => {
                                   {pkg.price}
                                 </div>
                                 {cat.id === "website" &&
-                                  pkg.name === "E-ticarət" && (
+                                  pkg.id === "ecommerce" && (
                                     <span
                                       className={`text-sm font-medium ${
                                         isPopular
@@ -1107,44 +1017,54 @@ const Homepage = () => {
 
                               {/* Features List */}
                               <ul className="mb-8 flex-1 space-y-3">
-                                {pkg.features.map((feature, i) => (
-                                  <motion.li
-                                    key={i}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{
-                                      duration: 0.4,
-                                      delay: 0.6 + i * 0.1,
-                                    }}
-                                    className="flex items-start gap-3"
-                                  >
-                                    <div
-                                      className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                                        isPopular
-                                          ? "bg-white/20 text-white"
-                                          : "bg-green-100 text-green-600"
-                                      }`}
+                                {t
+                                  .raw(
+                                    `pricing.categories.${cat.id}.packages.${pkg.id}.features`
+                                  )
+                                  ?.map((feature: string, i: number) => (
+                                    <motion.li
+                                      key={i}
+                                      initial={{ opacity: 0, x: -20 }}
+                                      whileInView={{ opacity: 1, x: 0 }}
+                                      viewport={{ once: true }}
+                                      transition={{
+                                        duration: 0.4,
+                                        delay: 0.6 + i * 0.1,
+                                      }}
+                                      className="flex items-start gap-3"
                                     >
-                                      <HomeCheckIcon className="w-3 h-3" />
-                                    </div>
-                                    <span
-                                      className={`text-sm leading-relaxed ${
-                                        isPopular
-                                          ? "text-white/90"
-                                          : "text-gray-700"
-                                      }`}
-                                    >
-                                      {feature}
-                                    </span>
-                                  </motion.li>
-                                ))}
+                                      <div
+                                        className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                                          isPopular
+                                            ? "bg-white/20 text-white"
+                                            : "bg-green-100 text-green-600"
+                                        }`}
+                                      >
+                                        <HomeCheckIcon className="w-3 h-3" />
+                                      </div>
+                                      <span
+                                        className={`text-sm leading-relaxed ${
+                                          isPopular
+                                            ? "text-white/90"
+                                            : "text-gray-700"
+                                        }`}
+                                      >
+                                        {feature}
+                                      </span>
+                                    </motion.li>
+                                  ))}
                               </ul>
 
                               {/* CTA Button */}
                               <motion.a
                                 href={`https://wa.me/994105319987?text=${encodeURIComponent(
-                                  `Salam! Mən sizin saytınızdan ${cat.name} kateqoriyasından ${pkg.name} sifariş etmək istəyirəm.\nQiymət: ${pkg.price}\nZəhmət olmasa, mənimlə əlaqə saxlayın.`
+                                  `Salam! Mən sizin saytınızdan ${t(
+                                    `pricing.categories.${cat.id}.name`
+                                  )} kateqoriyasından ${t(
+                                    `pricing.categories.${cat.id}.packages.${pkg.id}.name`
+                                  )} sifariş etmək istəyirəm.\nQiymət: ${
+                                    pkg.price
+                                  }\nZəhmət olmasa, mənimlə əlaqə saxlayın.`
                                 )}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -1158,7 +1078,7 @@ const Homepage = () => {
                               >
                                 <span className="flex items-center justify-center gap-2">
                                   <HomeWpOrderIcon />
-                                  Sifariş et
+                                  {t("pricing.orderButton")}
                                 </span>
                               </motion.a>
                             </div>
@@ -1174,28 +1094,29 @@ const Homepage = () => {
                 )}
 
                 {/* Enhanced Not Included Section */}
-                {["smm", "website", "design"].includes(cat.id) &&
-                  cat.notIncluded && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.8 }}
-                      className="mt-12 max-w-2xl mx-auto"
-                    >
-                      <div className="bg-white rounded-2xl shadow-lg p-6">
-                        <div className="flex items-start gap-4">
-                          <div className="flex-shrink-0">
-                            <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
-                              <HomeInfoIcon className="w-6 h-6 text-red-600" />
-                            </div>
+                {["smm", "website", "design"].includes(cat.id) && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                    className="mt-12 max-w-2xl mx-auto"
+                  >
+                    <div className="bg-white rounded-2xl shadow-lg p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0">
+                          <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                            <HomeInfoIcon className="w-6 h-6 text-red-600" />
                           </div>
-                          <div className="flex-1">
-                            <h3 className="font-bold text-lg mb-3 text-gray-900">
-                              QİYMƏTLƏRƏ DAXİL DEYİL
-                            </h3>
-                            <ul className="space-y-2">
-                              {cat.notIncluded.map((item, idx) => (
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-bold text-lg mb-3 text-gray-900">
+                            {t("pricing.notIncludedTitle")}
+                          </h3>
+                          <ul className="space-y-2">
+                            {t
+                              .raw(`pricing.categories.${cat.id}.notIncluded`)
+                              ?.map((item: string, idx: number) => (
                                 <motion.li
                                   key={idx}
                                   initial={{ opacity: 0, x: -10 }}
@@ -1211,12 +1132,12 @@ const Homepage = () => {
                                   {item}
                                 </motion.li>
                               ))}
-                            </ul>
-                          </div>
+                          </ul>
                         </div>
                       </div>
-                    </motion.div>
-                  )}
+                    </div>
+                  </motion.div>
+                )}
               </div>
             ))}
           </div>
