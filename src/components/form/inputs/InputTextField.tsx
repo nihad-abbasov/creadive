@@ -45,8 +45,7 @@ export const InputTextField: FC<IInputTextField> = ({ ...props }) => {
           {...register(props.name!)}
           {...props}
           id={props?.label}
-          // #TODO: make autoComplete="off" after deployment
-          autoComplete="on"
+          autoComplete="off"
         />
       </motion.div>
       <ErrorMessage
