@@ -434,13 +434,34 @@
     "noData": "Нет данных",
     "noDataDescription": "Данные портфолио будут добавлены в ближайшее время.",
     "noCategoryData": "Нет проектов в этой категории",
-    "noCategoryDataDescription": "Проекты в этой категории будут добавлены в ближайшее время."
+    "noCategoryDataDescription": "Проекты в этой категории будут добавлены в ближайшее время.",
+    "categoryNames": {
+      "websites": "Веб-сайты",
+      "targeting": "Таргетинг",
+      "smm": "SMM",
+      "branding": "Брендинг",
+      "digitalMarketing": "Цифровой маркетинг"
+    },
+    "mockItems": {
+      "21couture_website": "Платформа электронной коммерции для премиального модного бренда",
+      "buketchim_website": "Веб-сайт для услуг флориста",
+      "mirror_website": "3D Interior Design",
+      "21couture_targeting": "Таргетированные рекламные кампании в Facebook и Instagram",
+      "buketchim_targeting": "Рекламные кампании в Instagram и Google Ads",
+      "xaricde_tehsil_targeting": "Таргетированные кампании для компании Study Abroad (Анонимная)",
+      "coffeeshop_smm": "SMM посты и контент в Instagram",
+      "restaurant_smm": "SMM посты и контент в Instagram",
+      "mashinyaglari_smm": "SMM посты и контент в Instagram"
+    }
   },
   "blog": {
     "title": "Блог - SEO, социальные сети, веб-дизайн и цифровой маркетинг",
     "description": "SEO, социальные сети, веб-дизайн и цифровой маркетинг.",
     "loading": "Загрузка данных блога...",
+    "loadingDetail": "Загрузка...",
     "error": "Ошибка загрузки данных блога",
+    "notFound": "Статья блога не найдена",
+    "loadError": "Ошибка при загрузке статьи блога",
     "reload": "Перезагрузить",
     "viewDetails": "Посмотреть детали",
     "noData": "Блог не найден для поиска",
@@ -450,11 +471,11 @@
     "usingFallback": "Используются резервные данные",
     "categories": "Категории",
     "blog1": {
-      "title": "Digital Marketing Strategy 2025",
-      "excerpt": "Deep analysis of the most effective strategies and trends in digital marketing in 2025.",
+      "title": "Стратегия цифрового маркетинга 2025",
+      "excerpt": "Глубокий анализ наиболее эффективных стратегий и трендов в цифровом маркетинге в 2025 году.",
       "category": "Маркетинг",
-      "date": "June 19, 2025",
-      "readTime": "5 minutes",
+      "date": "19 июня 2025",
+      "readTime": "5 минут",
       "image": "/images/blog/digital-marketing.jpg",
       "author": {
         "name": "Raghid Mammadli",
@@ -462,11 +483,11 @@
       }
     },
     "blog2": {
-      "title": "UI/UX Design Principles",
-      "excerpt": "Essential design principles and best practices for enhancing user experience.",
+      "title": "Принципы UI/UX дизайна",
+      "excerpt": "Основные принципы дизайна и лучшие практики для улучшения пользовательского опыта.",
       "category": "Дизайн",
-      "date": "March 12, 2025",
-      "readTime": "7 minutes",
+      "date": "12 марта 2025",
+      "readTime": "7 минут",
       "image": "/images/blog/ux-ui.jpg",
       "author": {
         "name": "Leyla Aliyeva",
@@ -474,11 +495,11 @@
       }
     },
     "blog3": {
-      "title": "SEO Optimization",
-      "excerpt": "Effective SEO strategies for high search engine ranking.",
+      "title": "SEO оптимизация",
+      "excerpt": "Эффективные SEO стратегии для высокого рейтинга в поисковых системах.",
       "category": "SEO",
-      "date": "February 25, 2025",
-      "readTime": "10 minutes",
+      "date": "25 февраля 2025",
+      "readTime": "10 минут",
       "image": "/images/blog/seo.jpg",
       "author": {
         "name": "Nihad Mammadov",
@@ -486,11 +507,11 @@
       }
     },
     "blog4": {
-      "title": "Social Media Marketing",
-      "excerpt": "Effective marketing strategies on social media platforms.",
+      "title": "Маркетинг в социальных сетях",
+      "excerpt": "Эффективные маркетинговые стратегии на платформах социальных сетей.",
       "category": "Маркетинг",
-      "date": "March 8, 2025",
-      "readTime": "4 minutes",
+      "date": "8 марта 2025",
+      "readTime": "4 минуты",
       "image": "/images/blog/smm.jpg",
       "author": {
         "name": "Zara Qurbanova",
@@ -498,11 +519,11 @@
       }
     },
     "blog5": {
-      "title": "Web Development Trends 2025",
-      "excerpt": "The most popular technologies and trends in web development in 2025.",
+      "title": "Тренды веб-разработки 2025",
+      "excerpt": "Самые популярные технологии и тренды в веб-разработке в 2025 году.",
       "category": "Разработка",
-      "date": "March 5, 2025",
-      "readTime": "8 minutes",
+      "date": "5 марта 2025",
+      "readTime": "8 минут",
       "image": "/images/blog/web-development.jpg",
       "author": {
         "name": "Ali Huseyov",
@@ -510,11 +531,11 @@
       }
     },
     "blog6": {
-      "title": "Branding Strategies",
-      "excerpt": "Effective branding strategies and best practices.",
+      "title": "Стратегии брендинга",
+      "excerpt": "Эффективные стратегии брендинга и лучшие практики.",
       "category": "Брендинг",
-      "date": "January 29, 2025",
-      "readTime": "12 minutes",
+      "date": "29 января 2025",
+      "readTime": "12 минут",
       "image": "/images/blog/branding.jpg",
       "author": {
         "name": "Ayxan Aliyev",
@@ -522,11 +543,11 @@
       }
     },
     "blog7": {
-      "title": "Content Marketing",
-      "excerpt": "Effective content marketing strategies and best practices.",
+      "title": "Контент-маркетинг",
+      "excerpt": "Эффективные стратегии контент-маркетинга и лучшие практики.",
       "category": "Маркетинг",
-      "date": "January 1, 2025",
-      "readTime": "6 minutes",
+      "date": "1 января 2025",
+      "readTime": "6 минут",
       "image": "/images/blog/content.jpg",
       "author": {
         "name": "Zara Qurbanova",
@@ -534,11 +555,11 @@
       }
     },
     "blog8": {
-      "title": "Mobile App Design",
-      "excerpt": "Essential design principles and best practices for mobile app design.",
+      "title": "Дизайн мобильных приложений",
+      "excerpt": "Основные принципы дизайна и лучшие практики для дизайна мобильных приложений.",
       "category": "Дизайн",
-      "date": "February 28, 2025",
-      "readTime": "7 minutes",
+      "date": "28 февраля 2025",
+      "readTime": "7 минут",
       "image": "/images/blog/mobile.jpg",
       "author": {
         "name": "Leyla Aliyeva",
@@ -546,11 +567,11 @@
       }
     },
     "blog9": {
-      "title": "E-commerce Strategies",
-      "excerpt": "Effective e-commerce strategies and best practices.",
+      "title": "Стратегии электронной коммерции",
+      "excerpt": "Эффективные стратегии электронной коммерции и лучшие практики.",
       "category": "E-commerce",
-      "date": "February 25, 2025",
-      "readTime": "5 minutes",
+      "date": "25 февраля 2025",
+      "readTime": "5 минут",
       "image": "/images/blog/e-commerce.jpg",
       "author": {
         "name": "Raghid Mammadli",
@@ -558,11 +579,11 @@
       }
     },
     "blog10": {
-      "title": "Data Analytics",
-      "excerpt": "Data analytics and reporting for business decisions.",
+      "title": "Аналитика данных",
+      "excerpt": "Анализ данных и отчетность для бизнес-решений.",
       "category": "Аналитика",
-      "date": "February 22, 2025",
-      "readTime": "6 minutes",
+      "date": "22 февраля 2025",
+      "readTime": "6 минут",
       "image": "/images/blog/analytics.jpg",
       "author": {
         "name": "Nihad Mammadov",

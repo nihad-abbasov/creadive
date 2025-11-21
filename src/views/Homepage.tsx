@@ -649,11 +649,13 @@ const Homepage = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-lg text-gray-200 mb-8 max-w-3xl mx-auto"
               >
-                Biz innovativ dizayn, vebsayt və marketinq həlləri ilə{" "}
-                <span className="bg-gradient-to-l from-[#15B6B0] to-[#20C943] bg-clip-text text-transparent font-bold">
-                  brendlərin
-                </span>{" "}
-                inkişafına kömək edirik.
+                {t.rich("hero.subtitle", {
+                  grad: (chunks) => (
+                    <span className="bg-gradient-to-l from-[#15B6B0] to-[#20C943] bg-clip-text text-transparent font-bold">
+                      {chunks}
+                    </span>
+                  ),
+                })}
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}

@@ -49,16 +49,16 @@ type CategoriesApiResponse = {
 };
 
 // Mock data - used as fallback when API fails or returns empty data
-const mockCategories: Category[] = [
+const getMockCategories = (t: (key: string) => string): Category[] => [
   {
     id: "websites",
-    name: "Veb Saytlar",
+    name: t("categoryNames.websites"),
     aspectRatio: "aspect-video", // 16:9 for landscape website images
     items: [
       {
         id: 1,
         title: "21 Couture House",
-        description: "Premium geyim brendi üçün e-ticarət platforması",
+        description: t("mockItems.21couture_website"),
         image: "/images/portfolio/websites/21ch-website.png",
         url: "https://21couturehouse.az",
         category: "websites",
@@ -66,7 +66,7 @@ const mockCategories: Category[] = [
       {
         id: 2,
         title: "Buketchim",
-        description: "Florist xidmətləri üçün veb sayt",
+        description: t("mockItems.buketchim_website"),
         image: "/images/portfolio/websites/buketchim-website.png",
         url: "https://buketchim.az",
         category: "websites",
@@ -74,7 +74,7 @@ const mockCategories: Category[] = [
       {
         id: 3,
         title: "Mirror Studio",
-        description: "3D Interior Design",
+        description: t("mockItems.mirror_website"),
         image: "/images/portfolio/websites/mirror-website.png",
         url: "https://mirror-cgi.az",
         category: "websites",
@@ -83,29 +83,27 @@ const mockCategories: Category[] = [
   },
   {
     id: "targeting",
-    name: "Tarqetinq",
+    name: t("categoryNames.targeting"),
     aspectRatio: "aspect-video", // 16:9 for landscape targeting images
     items: [
       {
         id: 4,
         title: "21 Couture House",
-        description:
-          "Facebook və Instagram üzrə hədəflənmiş reklam kampaniyaları",
+        description: t("mockItems.21couture_targeting"),
         image: "/images/portfolio/targeting/21couture-targeting.jpeg",
         category: "targeting",
       },
       {
         id: 5,
         title: "Buketchim",
-        description: "Instagram və Google Ads üzrə reklam kampaniyaları",
+        description: t("mockItems.buketchim_targeting"),
         image: "/images/portfolio/targeting/buketchim-targeting.jpeg",
         category: "targeting",
       },
       {
         id: 6,
         title: "Xaricdə Təhsil Şirkəti",
-        description:
-          "Xaricdə Təhsil Şirkəti(Anonim) üçün tarqetinq kampaniyaları",
+        description: t("mockItems.xaricde_tehsil_targeting"),
         image: "/images/portfolio/targeting/xaricde-tehsil-targeting.jpeg",
         category: "targeting",
       },
@@ -113,13 +111,13 @@ const mockCategories: Category[] = [
   },
   {
     id: "smm",
-    name: "SMM",
+    name: t("categoryNames.smm"),
     aspectRatio: "aspect-auto", // 9:16 for portrait SMM images
     items: [
       {
         id: 7,
         title: "Coffeshop SMM-folio",
-        description: "Instagram üzrə SMM postları və kontent",
+        description: t("mockItems.coffeeshop_smm"),
         image: "/images/portfolio/smm/coffeeshop-smm.jpg",
         url: "https://www.instagram.com/p/DKXVmtkIMQU",
         category: "smm",
@@ -127,7 +125,7 @@ const mockCategories: Category[] = [
       {
         id: 8,
         title: "Restaurant SMM-folio",
-        description: "Instagram üzrə SMM postları və kontent",
+        description: t("mockItems.restaurant_smm"),
         image: "/images/portfolio/smm/restoran-smm.jpg",
         url: "https://www.instagram.com/p/DKUzctRoyMc",
         category: "smm",
@@ -135,7 +133,7 @@ const mockCategories: Category[] = [
       {
         id: 9,
         title: "Maşın yağları üçün SMM-folio",
-        description: "Instagram üzrə SMM postları və kontent",
+        description: t("mockItems.mashinyaglari_smm"),
         image: "/images/portfolio/smm/mashinyaglari-smm.jpg",
         url: "https://www.instagram.com/p/DKKbtxkIgO7",
         category: "smm",
@@ -158,6 +156,35 @@ export default function Portfolio() {
 
   // Fetch categories and portfolio data
   useEffect(() => {
+    // Helper function to get display name for category
+    const getCategoryDisplayName = (categoryId: string) => {
+      const categoryMap: { [key: string]: string } = {
+        smm: t("categoryNames.smm"),
+        websites: t("categoryNames.websites"),
+        targeting: t("categoryNames.targeting"),
+        branding: t("categoryNames.branding"),
+        "web-development": t("categoryNames.websites"),
+        "social-media": t("categoryNames.smm"),
+        "digital-marketing": t("categoryNames.digitalMarketing"),
+      };
+
+      return (
+        categoryMap[categoryId] ||
+        categoryId.charAt(0).toUpperCase() + categoryId.slice(1)
+      );
+    };
+
+    // Helper function to determine aspect ratio based on category
+    const getAspectRatio = (categoryName: string | undefined) => {
+      if (!categoryName) return "aspect-video"; // Default to landscape
+
+      const name = categoryName.toLowerCase();
+      if (name.includes("smm") || name.includes("social")) {
+        return "aspect-auto"; // 9:16 for portrait SMM images
+      }
+      return "aspect-video"; // 16:9 for landscape images
+    };
+
     const fetchData = async () => {
       try {
         setLoading(true);
@@ -196,16 +223,14 @@ export default function Portfolio() {
           (categoriesData.length === 0 && portfolioItems.length === 0)
         ) {
           console.log("Using mock data as fallback");
-          setCategories(mockCategories);
+          const mockData = getMockCategories(t);
+          setCategories(mockData);
 
           // Set active category from mock data
-          if (
-            categoryId &&
-            mockCategories.some((cat) => cat.id === categoryId)
-          ) {
+          if (categoryId && mockData.some((cat) => cat.id === categoryId)) {
             setActiveCategory(categoryId);
-          } else if (mockCategories.length > 0) {
-            setActiveCategory(mockCategories[0].id);
+          } else if (mockData.length > 0) {
+            setActiveCategory(mockData[0].id);
           }
           setLoading(false);
           return;
@@ -255,16 +280,14 @@ export default function Portfolio() {
           console.log(
             "API returned empty categories, using mock data as fallback"
           );
-          setCategories(mockCategories);
+          const mockData = getMockCategories(t);
+          setCategories(mockData);
 
           // Set active category from mock data
-          if (
-            categoryId &&
-            mockCategories.some((cat) => cat.id === categoryId)
-          ) {
+          if (categoryId && mockData.some((cat) => cat.id === categoryId)) {
             setActiveCategory(categoryId);
-          } else if (mockCategories.length > 0) {
-            setActiveCategory(mockCategories[0].id);
+          } else if (mockData.length > 0) {
+            setActiveCategory(mockData[0].id);
           }
           setLoading(false);
           return;
@@ -285,13 +308,14 @@ export default function Portfolio() {
         console.error("Error fetching portfolio data:", err);
         // Use mock data as fallback on error
         console.log("Error occurred, using mock data as fallback");
-        setCategories(mockCategories);
+        const mockData = getMockCategories(t);
+        setCategories(mockData);
 
         // Set active category from mock data
-        if (categoryId && mockCategories.some((cat) => cat.id === categoryId)) {
+        if (categoryId && mockData.some((cat) => cat.id === categoryId)) {
           setActiveCategory(categoryId);
-        } else if (mockCategories.length > 0) {
-          setActiveCategory(mockCategories[0].id);
+        } else if (mockData.length > 0) {
+          setActiveCategory(mockData[0].id);
         }
         setError(null); // Don't show error if we have fallback data
       } finally {
@@ -300,36 +324,7 @@ export default function Portfolio() {
     };
 
     fetchData();
-  }, [categoryId, locale]);
-
-  // Helper function to get display name for category
-  const getCategoryDisplayName = (categoryId: string) => {
-    const categoryMap: { [key: string]: string } = {
-      smm: "SMM",
-      websites: "Veb Saytlar",
-      targeting: "Tarqetinq",
-      branding: "Brendinq",
-      "web-development": "Veb Saytlar",
-      "social-media": "SMM",
-      "digital-marketing": "Rəqəmsal Marketinq",
-    };
-
-    return (
-      categoryMap[categoryId] ||
-      categoryId.charAt(0).toUpperCase() + categoryId.slice(1)
-    );
-  };
-
-  // Helper function to determine aspect ratio based on category
-  const getAspectRatio = (categoryName: string | undefined) => {
-    if (!categoryName) return "aspect-video"; // Default to landscape
-
-    const name = categoryName.toLowerCase();
-    if (name.includes("smm") || name.includes("social")) {
-      return "aspect-auto"; // 9:16 for portrait SMM images
-    }
-    return "aspect-video"; // 16:9 for landscape images
-  };
+  }, [categoryId, locale, t]);
 
   if (loading) {
     return (

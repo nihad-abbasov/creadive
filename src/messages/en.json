@@ -434,13 +434,34 @@
     "noData": "No data yet",
     "noDataDescription": "Portfolio data will be added soon.",
     "noCategoryData": "No projects in this category yet",
-    "noCategoryDataDescription": "Projects in this category will be added soon."
+    "noCategoryDataDescription": "Projects in this category will be added soon.",
+    "categoryNames": {
+      "websites": "Websites",
+      "targeting": "Targeting",
+      "smm": "SMM",
+      "branding": "Branding",
+      "digitalMarketing": "Digital Marketing"
+    },
+    "mockItems": {
+      "21couture_website": "E-commerce platform for premium fashion brand",
+      "buketchim_website": "Website for florist services",
+      "mirror_website": "3D Interior Design",
+      "21couture_targeting": "Targeted advertising campaigns on Facebook and Instagram",
+      "buketchim_targeting": "Advertising campaigns on Instagram and Google Ads",
+      "xaricde_tehsil_targeting": "Targeting campaigns for Study Abroad Company (Anonymous)",
+      "coffeeshop_smm": "SMM posts and content on Instagram",
+      "restaurant_smm": "SMM posts and content on Instagram",
+      "mashinyaglari_smm": "SMM posts and content on Instagram"
+    }
   },
   "blog": {
     "title": "Blog - SEO, social media marketing, web design and digital marketing strategies",
     "description": "SEO, social media marketing, web design and digital marketing strategies.",
     "loading": "Loading blog data...",
+    "loadingDetail": "Loading...",
     "error": "Error loading blog data",
+    "notFound": "Blog post not found",
+    "loadError": "Failed to load blog post",
     "reload": "Reload",
     "viewDetails": "View Details",
     "noData": "No blog found for search.",

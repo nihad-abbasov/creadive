@@ -5,7 +5,7 @@ import { blogDetailData, BlogDetailPost } from "@/data/blogDetailData";
 import BlogDetail from "@/views/BlogDetail";
 import { useEffect, useState } from "react";
 import { blogApi } from "@/services/blog";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { AxiosError } from "axios";
 
 interface BlogDetailPageProps {
@@ -36,6 +36,7 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const locale = useLocale();
+  const t = useTranslations("blog");
 
   useEffect(() => {
     const getBlogPost = async () => {
@@ -108,10 +109,10 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
           `Blog post with ID ${blogId} not found in API or mock data, using fallback`
         );
         setBlogPost(blogDetailData[0] || null);
-        setError(`Blog post not found`);
+        setError(t("notFound"));
       } catch (error) {
         console.error("Error fetching blog post:", error);
-        setError("Failed to load blog post");
+        setError(t("loadError"));
         // Final fallback to first mock post
         setBlogPost(blogDetailData[0] || null);
       } finally {
@@ -120,12 +121,12 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
     };
 
     getBlogPost();
-  }, [params, locale]);
+  }, [params, locale, t]);
 
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="text-white text-lg">Loading...</div>
+        <div className="text-white text-lg">{t("loadingDetail")}</div>
       </div>
     );
   }
@@ -134,7 +135,7 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-white text-lg">
-          {error || "Blog post not found"}
+          {error || t("notFound")}
         </div>
       </div>
     );

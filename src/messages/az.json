@@ -434,13 +434,34 @@
     "noData": "Hələ portfolio məlumatları yoxdur",
     "noDataDescription": "Portfolio məlumatları tezliklə əlavə olunacaq.",
     "noCategoryData": "Bu kateqoriyada hələ layihə yoxdur",
-    "noCategoryDataDescription": "Bu kateqoriyada layihələr tezliklə əlavə olunacaq."
+    "noCategoryDataDescription": "Bu kateqoriyada layihələr tezliklə əlavə olunacaq.",
+    "categoryNames": {
+      "websites": "Veb Saytlar",
+      "targeting": "Tarqetinq",
+      "smm": "SMM",
+      "branding": "Brendinq",
+      "digitalMarketing": "Rəqəmsal Marketinq"
+    },
+    "mockItems": {
+      "21couture_website": "Premium geyim brendi üçün e-ticarət platforması",
+      "buketchim_website": "Florist xidmətləri üçün veb sayt",
+      "mirror_website": "3D Interior Design",
+      "21couture_targeting": "Facebook və Instagram üzrə hədəflənmiş reklam kampaniyaları",
+      "buketchim_targeting": "Instagram və Google Ads üzrə reklam kampaniyaları",
+      "xaricde_tehsil_targeting": "Xaricdə Təhsil Şirkəti(Anonim) üçün tarqetinq kampaniyaları",
+      "coffeeshop_smm": "Instagram üzrə SMM postları və kontent",
+      "restaurant_smm": "Instagram üzrə SMM postları və kontent",
+      "mashinyaglari_smm": "Instagram üzrə SMM postları və kontent"
+    }
   },
   "blog": {
     "title": "Bloq - SEO, social media marketinq, veb dizayn və rəqəmsal strategiyalar haqqında məqalələr",
     "description": "SEO, social media marketinq, veb dizayn və rəqəmsal strategiyalar haqqında məqalələr.",
     "loading": "Bloq məlumatları yüklənir...",
+    "loadingDetail": "Yüklənir...",
     "error": "Xəta baş verdi",
+    "notFound": "Bloq məqaləsi tapılmadı",
+    "loadError": "Bloq məqaləsi yüklənərkən xəta baş verdi",
     "reload": "Yenidən yoxla",
     "viewDetails": "Ətraflı bax",
     "noData": "Axtarış üzrə məqalə tapılmadı",
