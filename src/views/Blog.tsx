@@ -43,7 +43,7 @@ export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("");
 
@@ -458,7 +458,7 @@ export default function Blog() {
         )}
 
         {/* Error State */}
-        {error && !loading && (
+        {/* {error && !loading && (
           <motion.div
             className="text-center py-12"
             initial={{ opacity: 0, y: 20 }}
@@ -469,7 +469,7 @@ export default function Blog() {
               {t("usingFallback") || "Using fallback data"}
             </p>
           </motion.div>
-        )}
+        )} */}
 
         {/* Blog Posts Grid */}
         {!loading && (

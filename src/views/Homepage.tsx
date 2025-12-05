@@ -858,8 +858,6 @@ const Homepage = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         className="py-20"
-        // FIXME: when redirect this section from other pages, it doesnt come down to this section. Have some functional fix for this
-        // bg-gradient-to-b from-gray-50 to-white
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
