@@ -53,7 +53,7 @@ export default function CookieConsent() {
         leaveFrom="translate-y-0 opacity-100"
         leaveTo="translate-y-full opacity-0"
       >
-        <div className="absolute bottom-0 left-0 right-0 pointer-events-auto w-[45%] ml-auto">
+        <div className="absolute bottom-0 left-0 right-0 pointer-events-auto w-full md:w-[45%] ml-auto">
           <div className="mx-4 mb-4 sm:mx-6 sm:mb-6">
             <div className="bg-white/95 backdrop-blur-sm rounded-md shadow-lg border border-white/20 py-6 px-6 md:py-3 md:px-4">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -64,7 +64,7 @@ export default function CookieConsent() {
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                <div className="flex flex-col sm:flex-row gap-3 w-max md:w-auto">
                   <button
                     onClick={acceptAll}
                     className="text-sm font-medium underline"

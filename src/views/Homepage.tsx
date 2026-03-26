@@ -286,7 +286,7 @@ const Homepage = () => {
     triggerOnce: true,
   });
   const [activePricingTab, setActivePricingTab] = useState(
-    pricingCategories[0].id
+    pricingCategories[0].id,
   );
   const [testimonials, setTestimonials] =
     useState<Testimonial[]>(mockTestimonials);
@@ -347,7 +347,7 @@ const Homepage = () => {
               thoughts: item.Thoughts,
               role: item.Role,
               instagramUrl: item.InstagramUrl,
-            })
+            }),
           );
           setTestimonials(transformedTestimonials);
         }
@@ -852,7 +852,7 @@ const Homepage = () => {
       </motion.div>
 
       {/* Pricing Section */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -870,12 +870,8 @@ const Homepage = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {t("pricing.title")}
             </h2>
-            {/* <p className="text-lg text-white/80 max-w-2xl mx-auto">
-              Xidmətlərimiz üçün ən uyğun paketləri seçin və biznesinizi növbəti səviyyəyə qaldırın
-            </p> */}
           </motion.div>
-
-          {/* Enhanced Tabs with animated underline */}
+          Enhanced Tabs with animated underline
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -913,8 +909,7 @@ const Homepage = () => {
               ))}
             </div>
           </motion.div>
-
-          {/* Enhanced Tab Content */}
+          Enhanced Tab Content
           <div className="">
             {pricingCategories.map((cat) => (
               <div
@@ -937,7 +932,7 @@ const Homepage = () => {
                             isPopular ? "md:scale-105 z-20" : "z-10"
                           }`}
                         >
-                          {/* Card Background */}
+                          Card Background
                           <div
                             className={`relative h-full rounded-3xl shadow-xl transition-all duration-500 ${
                               isPopular
@@ -945,28 +940,10 @@ const Homepage = () => {
                                 : "bg-white hover:shadow-2xl hover:shadow-gray-200/50"
                             }`}
                           >
-                            {/* Popular Badge */}
-                            {/* {isPopular && (
-                              <motion.div
-                                initial={{ opacity: 0, y: -20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.5 }}
-                                className="absolute -top-10 left-1/2 -translate-x-1/2 z-[60]"
-                              >
-                                <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg border-2 border-white">
-                                  ⭐ Ən Populyar
-                                </div>
-                              </motion.div>
-                            )} */}
-
-                            {/* Decorative Elements */}
                             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
                             <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-white/5 to-transparent rounded-full translate-y-12 -translate-x-12"></div>
 
-                            {/* Card Content */}
                             <div className="relative p-8 h-full flex flex-col">
-                              {/* Package Icon */}
                               <div
                                 className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center ${
                                   isPopular
@@ -977,18 +954,16 @@ const Homepage = () => {
                                 <HomePricingCubeIcon />
                               </div>
 
-                              {/* Package Name */}
                               <h3
                                 className={`text-2xl font-bold mb-1 ${
                                   isPopular ? "text-white" : "text-gray-900"
                                 }`}
                               >
                                 {t(
-                                  `pricing.categories.${cat.id}.packages.${pkg.id}.name`
+                                  `pricing.categories.${cat.id}.packages.${pkg.id}.name`,
                                 )}
                               </h3>
 
-                              {/* Price */}
                               <div className="mb-6">
                                 <div
                                   className={`text-5xl font-extrabold mb-1 ${
@@ -1013,11 +988,10 @@ const Homepage = () => {
                                   )}
                               </div>
 
-                              {/* Features List */}
                               <ul className="mb-8 flex-1 space-y-3">
                                 {t
                                   .raw(
-                                    `pricing.categories.${cat.id}.packages.${pkg.id}.features`
+                                    `pricing.categories.${cat.id}.packages.${pkg.id}.features`,
                                   )
                                   ?.map((feature: string, i: number) => (
                                     <motion.li
@@ -1053,16 +1027,15 @@ const Homepage = () => {
                                   ))}
                               </ul>
 
-                              {/* CTA Button */}
                               <motion.a
                                 href={`https://wa.me/994105319987?text=${encodeURIComponent(
                                   `Salam! Mən sizin saytınızdan ${t(
-                                    `pricing.categories.${cat.id}.name`
+                                    `pricing.categories.${cat.id}.name`,
                                   )} kateqoriyasından ${t(
-                                    `pricing.categories.${cat.id}.packages.${pkg.id}.name`
+                                    `pricing.categories.${cat.id}.packages.${pkg.id}.name`,
                                   )} sifariş etmək istəyirəm.\nQiymət: ${
                                     pkg.price
-                                  }\nZəhmət olmasa, mənimlə əlaqə saxlayın.`
+                                  }\nZəhmət olmasa, mənimlə əlaqə saxlayın.`,
                                 )}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -1091,7 +1064,6 @@ const Homepage = () => {
                   </div>
                 )}
 
-                {/* Enhanced Not Included Section */}
                 {["smm", "website", "design"].includes(cat.id) && (
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -1140,7 +1112,7 @@ const Homepage = () => {
             ))}
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Why Choose Us Section */}
       <motion.div
