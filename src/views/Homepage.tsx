@@ -7,12 +7,12 @@ import {
   SocialIcon,
   ContentIcon,
   GraphicIcon,
-  HomeCheckIcon,
-  HomeInfoIcon,
+  // HomeCheckIcon,
+  // HomeInfoIcon,
   HomeSeePortfolioIcon,
   HomeSeeAllServicesIcon,
-  HomePricingCubeIcon,
-  HomeWpOrderIcon,
+  // HomePricingCubeIcon,
+  // HomeWpOrderIcon,
 } from "../../public/icons/homepage";
 import { Autoplay, Pagination, Navigation, EffectCards } from "swiper/modules";
 import { processSteps, ourFeatures } from "@/data/homepage";
@@ -181,68 +181,68 @@ const stats: StatItem[] = [
   },
 ];
 
-const pricingCategories = [
-  {
-    id: "smm",
-    packages: [
-      {
-        id: "roket",
-        price: "349 AZN",
-        popular: false,
-      },
-      {
-        id: "kosmos",
-        price: "699 AZN",
-        popular: true,
-      },
-      {
-        id: "ulduz",
-        price: "999 AZN",
-        popular: false,
-      },
-    ],
-  },
-  {
-    id: "website",
-    packages: [
-      {
-        id: "landing",
-        price: "500 AZN",
-        popular: false,
-      },
-      {
-        id: "business",
-        price: "800 AZN",
-        popular: true,
-      },
-      {
-        id: "ecommerce",
-        price: "1500 AZN",
-        popular: false,
-      },
-    ],
-  },
-  {
-    id: "design",
-    packages: [
-      {
-        id: "logo",
-        price: "150 AZN",
-        popular: false,
-      },
-      {
-        id: "branding",
-        price: "529 AZN",
-        popular: true,
-      },
-      {
-        id: "social",
-        price: "70 AZN",
-        popular: false,
-      },
-    ],
-  },
-];
+// const pricingCategories = [
+//   {
+//     id: "smm",
+//     packages: [
+//       {
+//         id: "roket",
+//         price: "349 AZN",
+//         popular: false,
+//       },
+//       {
+//         id: "kosmos",
+//         price: "699 AZN",
+//         popular: true,
+//       },
+//       {
+//         id: "ulduz",
+//         price: "999 AZN",
+//         popular: false,
+//       },
+//     ],
+//   },
+//   {
+//     id: "website",
+//     packages: [
+//       {
+//         id: "landing",
+//         price: "500 AZN",
+//         popular: false,
+//       },
+//       {
+//         id: "business",
+//         price: "800 AZN",
+//         popular: true,
+//       },
+//       {
+//         id: "ecommerce",
+//         price: "1500 AZN",
+//         popular: false,
+//       },
+//     ],
+//   },
+//   {
+//     id: "design",
+//     packages: [
+//       {
+//         id: "logo",
+//         price: "150 AZN",
+//         popular: false,
+//       },
+//       {
+//         id: "branding",
+//         price: "529 AZN",
+//         popular: true,
+//       },
+//       {
+//         id: "social",
+//         price: "70 AZN",
+//         popular: false,
+//       },
+//     ],
+//   },
+// ];
 
 interface Partner {
   name: string;
@@ -285,9 +285,9 @@ const Homepage = () => {
     threshold: 0.3,
     triggerOnce: true,
   });
-  const [activePricingTab, setActivePricingTab] = useState(
-    pricingCategories[0].id,
-  );
+  // const [activePricingTab, setActivePricingTab] = useState(
+  //   pricingCategories[0].id,
+  // );
   const [testimonials, setTestimonials] =
     useState<Testimonial[]>(mockTestimonials);
 
